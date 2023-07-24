@@ -7,37 +7,92 @@ import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 
-function App() {
-  const [showProjectsAndContact, setShowProjectsAndContact] = useState(false);
+export interface IAppProps {
+  className?: string;
+}
 
-  const handleShowProjectsAndContact = () => {
-    setShowProjectsAndContact(!showProjectsAndContact);
+function App({ className }: IAppProps) {
+  const [showProjects, setShowProjects] = useState(false);
+  const [showContact, setShowContact] = useState(false);
+  // const projects = document.querySelector('.projects_container');
+  // const contact = document.querySelector('.contact_container');
+  
+  const checkElements = (element: string, type: string, maxAttempts = 10, interval = 100) => {
+    let attempts = 0;
+    const checkElement = () => {
+      let el = document.querySelector(`.${element}_container`) as HTMLElement | null;
+      if (el) {
+        setTimeout(() => {
+          console.log(element);
+          console.log(type);
+          if (type === 'show') {
+            el && el.classList.remove('out');
+            el && el.classList.add('entered');
+          } else if (type === 'hide') {
+            el && el.classList.remove('entered');
+            el && el.classList.add('out');
+            setTimeout(()=> {
+              setShowProjects(false);
+            }, 200)
+          }
+        }, interval);
+      } else {
+        attempts++;
+        if (attempts < maxAttempts) {
+          setTimeout(checkElement, interval);
+        } else {
+          console.error(`Element with class ${element}_container not found after ${maxAttempts} attempts.`);
+        }
+      }
+    };
+    checkElement();
   };
 
-  useEffect(()=>{
-    console.log(showProjectsAndContact);
-  },[showProjectsAndContact])
+  const handleShowProjects = () => {
+    if (showProjects) {
+      checkElements('projects','hide');
+    } else {
+      setShowContact(false);
+      setShowProjects((prev) => !prev);
+    }
+  };
+  const handleShowContact = () => {
+    if (showContact) {
+      checkElements('contact','hide');
+    } else {
+      setShowProjects(false);
+      setShowContact((prev) => !prev);
+    }
+  };
+
+
+  useEffect(() => {
+    console.log(showProjects);
+    showProjects && checkElements('projects', 'show');
+    showContact && checkElements('contact', 'show');
+  },[showProjects,showContact]);
 
   return (
     <div className="App">
-      {/* Show the Header component */}
-      <Header />
+      <Header
+        showProjects={showProjects}
+        handleShowProjects={handleShowProjects}
+        showContact={showContact}
+        handleShowContact={handleShowContact}
+      />
 
-      {/* Show the About component */}
       <About />
 
-      {/* Conditionally show the Projects and Contact components */}
-      {showProjectsAndContact && (
+      {showProjects && (
         <>
-          <Projects />
-          <Contact />
+          <Projects className={'out'} />
         </>
       )}
-
-      {/* Show the button to trigger showing Projects and Contact */}
-      {/* {!showProjectsAndContact && ( */}
-        <button onClick={handleShowProjectsAndContact}>Projects and Contact</button>
-      {/* )} */}
+      {showContact && (
+        <>
+          <Contact className={'out'} />
+        </>
+      )}
     </div>
   );
 }

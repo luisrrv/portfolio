@@ -1,14 +1,17 @@
-export {};
+import './Projects.scss';
 
-// import * as React from 'react';
+import { IAppProps } from '../../App'; // Update the import path
 
-export interface IAppProps {
+interface ProjectsProps extends IAppProps {
+  // Add any other specific props for the Projects component if needed
 }
 
-export default function App (props: IAppProps) {
-  return (
-    <div>
-      <h1>Projects</h1>
-    </div>
-  );
+export default function App (props: ProjectsProps) {
+    const { className } = props;
+
+    return (
+        <div className={`projects_container ${className}`}>
+        <h1>Projects</h1>
+        </div>
+    );
 }

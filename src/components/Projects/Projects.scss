@@ -1,0 +1,23 @@
+.projects_container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+    height: 80%;
+    width: 80%;
+    background-color: #FFF;
+    border-radius: 12px;
+    border: 1px solid #DDD;
+    
+    &.out {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    &.entered {
+        opacity: 1;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+}

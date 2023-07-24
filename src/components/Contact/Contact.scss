@@ -1,0 +1,24 @@
+.contact_container {
+    position: absolute;
+    top: 40px;
+    right: 5%;
+    // transform: translate(-50%, -50%);
+    height: 200px;
+    width: 200px;
+    background-color: #FFF;
+    border-radius: 12px;
+    border: 1px solid #DDD;
+    
+    &.out {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    &.entered {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+}
+  
