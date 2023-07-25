@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
+import MouseTracker from './components/MouseTracker/MouseTracker';
 
 export interface IAppProps {
   className?: string;
@@ -74,6 +75,7 @@ function App({ className }: IAppProps) {
 
   return (
     <div className="App">
+      <MouseTracker size={30} />
       <Header
         showProjects={showProjects}
         handleShowProjects={handleShowProjects}

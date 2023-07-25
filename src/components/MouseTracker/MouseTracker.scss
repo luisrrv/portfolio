@@ -1,0 +1,25 @@
+.follow-circle {
+    position: fixed;
+    background-color: transparent; /* Set the color of the circle */
+    border: 2px solid #00000020;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: ease-in-out;
+    z-index: 99;
+    
+    &.clicked {
+        animation: pulseAnimation 1s linear;
+    }
+}
+
+@keyframes pulseAnimation {
+    0% {
+      transform: scale(1);
+    }
+    20% {
+      transform: scale(0.6);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
