@@ -75,7 +75,7 @@ function App({ className }: IAppProps) {
 
   return (
     <div className="App">
-      <MouseTracker size={30} />
+      <MouseTracker size={30} sizeSmall={8} />
       <Header
         showProjects={showProjects}
         handleShowProjects={handleShowProjects}

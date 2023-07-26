@@ -1,14 +1,30 @@
 .follow-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
-    background-color: transparent; /* Set the color of the circle */
-    border: 2px solid #00000020;
+    background-color: transparent;
+    border: 2px solid #00000060;
     border-radius: 50%;
     pointer-events: none;
     transition: ease-in-out;
     z-index: 99;
     
     &.clicked {
-        animation: pulseAnimation 1s linear;
+        animation: pulseAnimation 500ms ease-in-out;
+    }
+
+    .follow-circle-small {
+        position: fixed;
+        background-color: #00000060;
+        border-radius: 50%;
+        pointer-events: none;
+        transition: ease-in-out;
+        z-index: 99;
+        
+        &.clicked {
+            animation: pulseAnimationSmall 500ms ease-in-out;
+        }
     }
 }
 
@@ -16,10 +32,21 @@
     0% {
       transform: scale(1);
     }
-    20% {
+    50% {
       transform: scale(0.6);
     }
     100% {
       transform: scale(1);
     }
-  }
+}
+@keyframes pulseAnimationSmall {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(3);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
