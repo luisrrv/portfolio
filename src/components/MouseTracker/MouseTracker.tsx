@@ -12,22 +12,52 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isClicked, setIsClicked] = useState(false);
 
-
   const handleMouseMove = (event: MouseEvent) => {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
+    // const easeInOut = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    const linear = (t: number) => t;
+
+
     requestAnimationFrame(() => {
-      if (circleRef.current) {
-        setTimeout(() => {
-            setPosition({ x: mouseX, y: mouseY });
-        },100);
-      }
-      if (circleRefSmall.current) {
-        setTimeout(() => {
-            setPosition({ x: mouseX, y: mouseY });
-        },100);
-      }
+      const circleElement = circleRef.current;
+      if (!circleElement) return;
+
+      const circleSize = size || 100;
+      const newX = mouseX - circleSize / 2;
+      const newY = mouseY - circleSize / 2;
+
+      // Calculate the current position of the circle
+      const currentX = parseFloat(circleElement.style.left || '0');
+      const currentY = parseFloat(circleElement.style.top || '0');
+
+      // Calculate the distance to move in each frame
+      const distanceX = newX - currentX;
+      const distanceY = newY - currentY;
+
+      // Number of frames for the animation
+      const numFrames = 6;
+      let currentFrame = 0;
+
+      const updatePosition = () => {
+        if (currentFrame <= numFrames) {
+          const t = currentFrame / numFrames;
+        //   const easeT = easeInOut(t);
+          const easeT = linear(t);
+
+          const nextX = currentX + distanceX * easeT;
+          const nextY = currentY + distanceY * easeT;
+
+          circleElement.style.left = nextX + 'px';
+          circleElement.style.top = nextY + 'px';
+
+          currentFrame++;
+          requestAnimationFrame(updatePosition);
+        }
+      };
+
+      updatePosition();
     });
   };
 
@@ -35,7 +65,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall }) => {
     const circle = document.querySelector('.follow-circle');
     if (circle && !circle.classList.contains('clicked')) {
       setIsClicked(true);
-  
+
       setTimeout(() => {
         setIsClicked(false);
       }, 500);
@@ -76,26 +106,20 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall }) => {
 
   return (
     <>
-        <div
+      <div
         ref={circleRef}
         onClick={handleClick}
         className={`follow-circle ${isClicked ? 'clicked' : ''}`}
         style={{
-            left: position.x - size / 2,
-            top: position.y - size / 2,
+          left: position.x - size / 2,
+          top: position.y - size / 2,
         }}
-        >
-            <div
-            ref={circleRefSmall}
-            // onClick={handleClick}
-            className={`follow-circle-small ${isClicked ? 'clicked' : ''}`}
-            // style={{
-            //     left: position.x - sizeSmall / 2,
-            //     top: position.y - sizeSmall / 2,
-            // }}
-            />
-
-        </div>
+      >
+        <div
+          ref={circleRefSmall}
+          className={`follow-circle-small ${isClicked ? 'clicked' : ''}`}
+        />
+      </div>
     </>
   );
 };
