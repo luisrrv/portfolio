@@ -1,22 +1,22 @@
 import './Header.scss';
 
 interface HeaderProps {
-    showProjects: boolean;
+    // showProjects: boolean;
     showContact: boolean;
-    handleShowProjects: () => void;
+    // handleShowProjects: () => void;
     handleShowContact: () => void;
     // handleSetPClass: () => void;
     // handleSetCClass: () => void;
   }
   
-  export default function Header({ showProjects, showContact, handleShowProjects, handleShowContact }: HeaderProps) {
+  export default function Header({ showContact, handleShowContact }: HeaderProps) {
     // Other parts of the component
   
     return (
       <div className="header_container">
         <p>Header</p>
   
-        <button onClick={()=> {handleShowProjects();}}>Projects</button>
+        {/* <button onClick={()=> {handleShowProjects();}}>Projects</button> */}
         <button onClick={()=> {handleShowContact();}}>Contact</button>
   
       </div>

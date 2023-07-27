@@ -13,7 +13,7 @@ export interface IAppProps {
 }
 
 function App({ className }: IAppProps) {
-  const [showProjects, setShowProjects] = useState(false);
+  // const [showProjects, setShowProjects] = useState(false);
   const [showContact, setShowContact] = useState(false);
   // const projects = document.querySelector('.projects_container');
   // const contact = document.querySelector('.contact_container');
@@ -24,8 +24,8 @@ function App({ className }: IAppProps) {
       let el = document.querySelector(`.${element}_container`) as HTMLElement | null;
       if (el) {
         setTimeout(() => {
-          console.log(element);
-          console.log(type);
+          // console.log(element);
+          // console.log(type);
           if (type === 'show') {
             el && el.classList.remove('out');
             el && el.classList.add('entered');
@@ -33,8 +33,8 @@ function App({ className }: IAppProps) {
             el && el.classList.remove('entered');
             el && el.classList.add('out');
             setTimeout(()=> {
-              setShowProjects(false);
-            }, 200)
+              setShowContact(false);
+            }, 300)
           }
         }, interval);
       } else {
@@ -49,47 +49,49 @@ function App({ className }: IAppProps) {
     checkElement();
   };
 
-  const handleShowProjects = () => {
-    if (showProjects) {
-      checkElements('projects','hide');
-    } else {
-      setShowContact(false);
-      setShowProjects((prev) => !prev);
-    }
-  };
+  // const handleShowProjects = () => {
+  //   if (showProjects) {
+  //     checkElements('projects','hide');
+  //   } else {
+  //     setShowContact(false);
+  //     setShowProjects((prev) => !prev);
+  //   }
+  // };
   const handleShowContact = () => {
     if (showContact) {
       checkElements('contact','hide');
     } else {
-      setShowProjects(false);
       setShowContact((prev) => !prev);
     }
   };
 
 
   useEffect(() => {
-    console.log(showProjects);
-    showProjects && checkElements('projects', 'show');
+    // console.log(showProjects);
+    // showProjects && checkElements('projects', 'show');
     showContact && checkElements('contact', 'show');
-  },[showProjects,showContact]);
+  },[/*showProjects,*/showContact]);
 
   return (
     <div className="App">
-      <MouseTracker size={30} sizeSmall={8} />
+      <MouseTracker 
+        size={30} 
+        sizeSmall={8} 
+      />
       <Header
-        showProjects={showProjects}
-        handleShowProjects={handleShowProjects}
+        // showProjects={showProjects}
+        // handleShowProjects={handleShowProjects}
         showContact={showContact}
         handleShowContact={handleShowContact}
       />
 
       <About />
+      <Projects /*className={'out'}*/ />
 
-      {showProjects && (
+      {/* {showProjects && (
         <>
-          <Projects className={'out'} />
         </>
-      )}
+      )} */}
       {showContact && (
         <>
           <Contact className={'out'} />
