@@ -4,11 +4,19 @@
     align-items: center;
     position: fixed;
     background-color: transparent;
-    border: 2px solid #00000060;
+    border: 1px solid #00000060;
     border-radius: 50%;
     pointer-events: none;
     transition: ease-in-out;
     z-index: 99;
+
+    &.light {
+        border-color: #ffffff60;
+
+        .follow-circle-small{
+            background-color: #ffffff60;
+        }
+    }
     
     &.clicked {
         animation: pulseAnimation 500ms ease-in-out;

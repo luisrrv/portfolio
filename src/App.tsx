@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import useDarkMode from './hooks/useDarkMode';
 import './App.css';
 
-// Import your components
 import Header from './components/Header/Header';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
@@ -10,13 +10,13 @@ import MouseTracker from './components/MouseTracker/MouseTracker';
 
 export interface IAppProps {
   className?: string;
+  isDarkMode?: boolean;
 }
 
-function App({ className }: IAppProps) {
-  // const [showProjects, setShowProjects] = useState(false);
+function App({ className, isDarkMode }: IAppProps) {
+  isDarkMode = useDarkMode();
+  const appClassName = isDarkMode ? 'dark' : 'light';
   const [showContact, setShowContact] = useState(false);
-  // const projects = document.querySelector('.projects_container');
-  // const contact = document.querySelector('.contact_container');
   
   const checkElements = (element: string, type: string, maxAttempts = 10, interval = 100) => {
     let attempts = 0;
@@ -49,14 +49,6 @@ function App({ className }: IAppProps) {
     checkElement();
   };
 
-  // const handleShowProjects = () => {
-  //   if (showProjects) {
-  //     checkElements('projects','hide');
-  //   } else {
-  //     setShowContact(false);
-  //     setShowProjects((prev) => !prev);
-  //   }
-  // };
   const handleShowContact = () => {
     if (showContact) {
       checkElements('contact','hide');
@@ -67,34 +59,26 @@ function App({ className }: IAppProps) {
 
 
   useEffect(() => {
-    // console.log(showProjects);
-    // showProjects && checkElements('projects', 'show');
     showContact && checkElements('contact', 'show');
-  },[/*showProjects,*/showContact]);
+  },[showContact]);
 
   return (
-    <div className="App">
+    <div className={`App ${appClassName}`}>
       <MouseTracker 
         size={30} 
         sizeSmall={8} 
       />
       <Header
-        // showProjects={showProjects}
-        // handleShowProjects={handleShowProjects}
         showContact={showContact}
         handleShowContact={handleShowContact}
       />
-
       <About />
-      <Projects /*className={'out'}*/ />
-
-      {/* {showProjects && (
-        <>
-        </>
-      )} */}
+      <Projects />
       {showContact && (
         <>
-          <Contact className={'out'} />
+          <Contact 
+          className={'out'} 
+          />
         </>
       )}
     </div>

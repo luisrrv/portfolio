@@ -1,13 +1,18 @@
 .contact_container {
     position: absolute;
-    top: 76px;
-    right: 5%;
+    top: 82px;
+    right: 24px;
     // transform: translate(-50%, -50%);
     height: 400px;
     width: 400px;
     background-color: #FFF;
     border-radius: 8px;
     border: 1px solid #DDD;
+    z-index: 9;
+
+    h3 {
+        padding: 16px;
+    }
     
     &.out {
         opacity: 0;

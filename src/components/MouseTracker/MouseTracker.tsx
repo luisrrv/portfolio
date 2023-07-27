@@ -1,12 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './MouseTracker.scss';
+import useDarkMode from '../../hooks/useDarkMode';
 
 interface FollowCircleProps {
   size: number;
   sizeSmall: number;
 }
 
-const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall }) => {
+const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall}) => {
+  const isDarkMode = useDarkMode();
+  const appClassName = isDarkMode ? 'light' : 'dark';
   const circleRef = useRef<HTMLDivElement | null>(null);
   const circleRefSmall = useRef<HTMLDivElement | null>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -109,7 +112,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall }) => {
       <div
         ref={circleRef}
         onClick={handleClick}
-        className={`follow-circle ${isClicked ? 'clicked' : ''}`}
+        className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''}`}
         style={{
           left: position.x - size / 2,
           top: position.y - size / 2,
