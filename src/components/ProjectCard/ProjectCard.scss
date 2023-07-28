@@ -1,0 +1,6 @@
+.card {
+    &:first-child {
+        border-radius: 8px 8px 0 0;
+    }
+    height: fit-content;
+}

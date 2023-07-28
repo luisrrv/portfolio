@@ -14,6 +14,7 @@ export interface IAppProps {
 }
 
 function App({ className, isDarkMode }: IAppProps) {
+
   isDarkMode = useDarkMode();
   const appClassName = isDarkMode ? 'dark' : 'light';
   const [showContact, setShowContact] = useState(false);
