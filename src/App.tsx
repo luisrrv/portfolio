@@ -13,11 +13,13 @@ export interface IAppProps {
   isDarkMode?: boolean;
 }
 
+
 function App({ className, isDarkMode }: IAppProps) {
 
   isDarkMode = useDarkMode();
   const appClassName = isDarkMode ? 'dark' : 'light';
   const [showContact, setShowContact] = useState(false);
+  const [contactMS, setContactMS] = useState(false);
   
   const checkElements = (element: string, type: string, maxAttempts = 10, interval = 100) => {
     let attempts = 0;
@@ -58,6 +60,10 @@ function App({ className, isDarkMode }: IAppProps) {
     }
   };
 
+  const handleContactMouseOverChange = (isMouseOver: boolean) => {
+    setContactMS(isMouseOver);
+  };
+
 
   useEffect(() => {
     showContact && checkElements('contact', 'show');
@@ -68,10 +74,12 @@ function App({ className, isDarkMode }: IAppProps) {
       <MouseTracker 
         size={30} 
         sizeSmall={8} 
+        contactMS={contactMS}
       />
       <Header
         showContact={showContact}
         handleShowContact={handleShowContact}
+        handleContactMouseOverChange={handleContactMouseOverChange}
       />
       <About />
       <Projects />

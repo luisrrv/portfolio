@@ -34,6 +34,26 @@
             animation: pulseAnimationSmall 500ms ease-in-out;
         }
     }
+
+    &.contact{ 
+      transition: 200ms;
+      .follow-circle-small {
+        position: relative;
+        background-color: transparent;
+        transform: scale(2);
+
+        &.clicked {
+          animation: pulseAnimationSmallIcon 500ms ease-in-out;
+        }
+
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+    }
 }
 
 @keyframes pulseAnimation {
@@ -56,5 +76,16 @@
     }
     100% {
       transform: scale(1);
+    }
+}
+@keyframes pulseAnimationSmallIcon {
+    0% {
+      transform: scale(2);
+    }
+    50% {
+      transform: scale(4);
+    }
+    100% {
+      transform: scale(2);
     }
 }
