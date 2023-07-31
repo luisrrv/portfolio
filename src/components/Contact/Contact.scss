@@ -1,29 +1,29 @@
-.contact_container {
-    position: absolute;
-    top: 82px;
-    right: 24px;
-    // transform: translate(-50%, -50%);
-    height: 400px;
-    width: 400px;
-    background-color: #FFF;
-    border-radius: 8px;
-    border: 1px solid #DDD;
-    z-index: 9;
+// .contact_container {
+//     position: fixed;
+//     top: 82px;
+//     right: 24px;
+//     // transform: translate(-50%, -50%);
+//     height: 400px;
+//     width: 400px;
+//     background-color: #FFF;
+//     border-radius: 8px;
+//     border: 1px solid #DDD;
+//     z-index: 9;
 
-    h3 {
-        padding: 16px;
-    }
+//     h3 {
+//         padding: 16px;
+//     }
     
-    &.out {
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
-    &.entered {
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
+//     &.out {
+//         opacity: 0;
+//         transform: translateY(-20px);
+//         transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+//     }
+//     &.entered {
+//         opacity: 1;
+//         transform: translateY(0);
+//         transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+//     }
 
-}
+// }
   

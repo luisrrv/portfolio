@@ -5,7 +5,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
-import Contact from './components/Contact/Contact';
+// import Contact from './components/Contact/Contact';
 import MouseTracker from './components/MouseTracker/MouseTracker';
 
 export interface IAppProps {
@@ -20,11 +20,12 @@ function App({ className, isDarkMode }: IAppProps) {
   const appClassName = isDarkMode ? 'dark' : 'light';
   const [showContact, setShowContact] = useState(false);
   const [contactMS, setContactMS] = useState(false);
+  const [contactOptsMS, setContactOptsMS] = useState(false);
   
   const checkElements = (element: string, type: string, maxAttempts = 10, interval = 100) => {
     let attempts = 0;
     const checkElement = () => {
-      let el = document.querySelector(`.${element}_container`) as HTMLElement | null;
+      let el = document.querySelector(`.${element}-opts`) as HTMLElement | null;
       if (el) {
         setTimeout(() => {
           // console.log(element);
@@ -60,8 +61,9 @@ function App({ className, isDarkMode }: IAppProps) {
     }
   };
 
-  const handleContactMouseOverChange = (isMouseOver: boolean) => {
-    setContactMS(isMouseOver);
+  const handleContactMouseOverChange = (isMouseOver: boolean, element: string) => {
+    if (element==='btn') setContactMS(isMouseOver);
+    else if (element==='content') setContactOptsMS(isMouseOver);
   };
 
 
@@ -72,9 +74,10 @@ function App({ className, isDarkMode }: IAppProps) {
   return (
     <div className={`App ${appClassName}`}>
       <MouseTracker 
-        size={30} 
+        size={40} 
         sizeSmall={8} 
         contactMS={contactMS}
+        contactOptsMS={contactOptsMS}
       />
       <Header
         showContact={showContact}
@@ -83,13 +86,13 @@ function App({ className, isDarkMode }: IAppProps) {
       />
       <About />
       <Projects />
-      {showContact && (
+      {/* {showContact && (
         <>
           <Contact 
           className={'out'} 
           />
         </>
-      )}
+      )} */}
     </div>
   );
 }

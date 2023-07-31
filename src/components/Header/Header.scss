@@ -3,16 +3,25 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 64px;
     z-index: 1;
     display: flex;
     justify-content:space-between;
     align-items: center;
-    padding: 8px;
+    padding: 8px 20px;
+    padding-right: 36px;
+    background-color: #ffffff4c !important;
+    backdrop-filter: blur(4px) !important;
     
     &.dark {
+        background-color: #2222224c !important;
+        backdrop-filter: blur(4px) !important;
         button {
             color: #f0f0f0;
+        }
+
+        .divider {
+            border-left: 1px solid #f0f0f03f !important;
         }
     }
 
@@ -26,18 +35,64 @@
         justify-content: center;
         align-items: center;
 
-        .toggle {
+        .contact-opts {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
 
+            &.out {
+                opacity: 0;
+                transform: translateX(20px);
+                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            }
+            &.entered {
+                opacity: 1;
+                transform: translateX(0);
+                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            }
         }
         button {
             height: 30px;
             width: 80px;
             background: none;
             border: none;
-            
-            &:hover {    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &.open {
+                width: 40px;
+                svg {
+                    animation: rotate-in 300ms ease-in;
+                }
+            }
+            &.closed {
+                svg {
+                    animation: rotate-out 200ms ease-in;
+                }
 
             }
+        }
+        .divider {
+            border-left: 1px solid #2222223f;
+            height: 28px;
+            width: 12px;
+        }
+    }
+    @keyframes rotate-in {
+        0% {
+            transform: rotate(90deg);
+        }
+        100% {
+            transform: rotate(0);
+        }
+    }
+    @keyframes rotate-out {
+        0% {
+            transform: rotate(-90deg);
+        }
+        100% {
+            transform: rotate(0);
         }
     }
 }

@@ -9,13 +9,18 @@
     pointer-events: none;
     transition: ease-in-out;
     z-index: 99;
-
+    
     &.light {
         border-color: #ffffff60;
 
         .follow-circle-small{
             background-color: #ffffff60;
         }
+      
+      &.contact,
+      &.external  {
+        background-color: #FFFFFF08;
+      }
     }
     
     &.clicked {
@@ -35,15 +40,17 @@
         }
     }
 
-    &.contact{ 
+    &.contact,
+    &.external { 
       transition: 200ms;
       .follow-circle-small {
         position: relative;
-        background-color: transparent;
+        background-color: #22222208;
         transform: scale(2);
+        animation: bounce 500ms ease-in;
 
         &.clicked {
-          animation: pulseAnimationSmallIcon 500ms ease-in-out;
+          animation: none;
         }
 
         svg {
@@ -88,4 +95,22 @@
     100% {
       transform: scale(2);
     }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(2);
+  }
+  25% {
+    transform: scale(2.8);
+  }
+  50% {
+    transform: scale(2);
+  }
+  75% {
+    transform: scale(2.4);
+  }
+  100% {
+    transform: scale(2);
+  }
 }

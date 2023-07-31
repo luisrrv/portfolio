@@ -2,15 +2,16 @@ import React, { useEffect, useState, useRef } from 'react';
 import './MouseTracker.scss';
 import useDarkMode from '../../hooks/useDarkMode';
 
-import {BiSolidMessageRoundedDetail} from 'react-icons/bi'
+import {BiSolidMessageRoundedDetail, BiLinkExternal } from 'react-icons/bi'
 
 interface FollowCircleProps {
   size: number;
   sizeSmall: number;
   contactMS: boolean;
+  contactOptsMS: boolean
 }
 
-const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS}) => {
+const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS}) => {
   const isDarkMode = useDarkMode();
   const appClassName = isDarkMode ? 'light' : 'dark';
   const circleRef = useRef<HTMLDivElement | null>(null);
@@ -111,16 +112,16 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS}
     };
   }, []);
 
-  useEffect(()=> {
-    console.log('inside mousetracker, contact hover value: ',contactMS);
-  }, [contactMS]);
+  // useEffect(()=> {
+  //   console.log('inside mousetracker, contact hover value: ',contactOptsMS);
+  // }, [contactOptsMS]);
 
   return (
     <>
       <div
         ref={circleRef}
         onClick={handleClick}
-        className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''}`}
+        className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''}`}
         style={{
           left: position.x - size / 2,
           top: position.y - size / 2,
@@ -131,6 +132,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS}
           className={`follow-circle-small ${isClicked ? 'clicked' : ''}`}
           >
           {contactMS && (<BiSolidMessageRoundedDetail />)}
+          {contactOptsMS && (<BiLinkExternal />)}
         </div>
       </div>
     </>
