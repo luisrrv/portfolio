@@ -10,8 +10,12 @@
     align-items: center;
     padding: 8px 20px;
     padding-right: 36px;
-    background-color: #ffffff4c !important;
+    background-color: #ffffff1c !important;
     backdrop-filter: blur(4px) !important;
+
+    svg {
+        color: #222222;
+    }
     
     &.dark {
         background-color: #2222224c !important;
@@ -19,6 +23,21 @@
         button {
             color: #f0f0f0;
         }
+        svg {
+            color: #FFFFFF;
+        }
+
+        .right {
+            .contact-opts {
+                a {
+                    color: #FFFFFF;
+                    svg {
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+
 
         .divider {
             border-left: 1px solid #f0f0f03f !important;
@@ -40,6 +59,14 @@
             justify-content: space-between;
             align-items: center;
             gap: 16px;
+
+            a {
+                color: #222222;
+                svg {
+                    color: #222222;
+
+                }
+            }
 
             &.out {
                 opacity: 0;
@@ -77,6 +104,7 @@
             border-left: 1px solid #2222223f;
             height: 28px;
             width: 12px;
+            margin-left: 12px;
         }
     }
     @keyframes rotate-in {

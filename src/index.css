@@ -8,6 +8,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  transition: 300ms;
 }
 
 code {
@@ -27,4 +28,8 @@ a {
 
 .dark a {
   color: #f0f0f0 !important;
+}
+
+.hidden {
+  display: none;
 }

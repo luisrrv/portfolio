@@ -2,12 +2,49 @@
     margin-top: 80px;
     height: 100vh;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
+    padding: 20px;
+    color: #222222;
 
-    h1 {
+    &.dark {
+        color: #FFFFFF;
+    }
+    .content {
+        margin: 0 auto;
+        width: 80%;
+        max-width: 1100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        
+        .img {
+            width: 200px;
+            height: 200px;
+            background-image: url(../../assets/svgs/dev.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            p {
+                height: fit-content;
+
+            }
+        }
+
+    }
+
+    h1,p {
         font-weight: 300;
     }
 }

@@ -1,6 +1,6 @@
 import './Header.scss';
 import { MdOutlineDarkMode, MdSunny } from 'react-icons/md';
-import useDarkMode from '../../hooks/useDarkMode'; // Import the custom hook
+// import useDarkMode from '../../hooks/useDarkMode';
 
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
@@ -11,15 +11,16 @@ interface HeaderProps {
   showContact: boolean;
   handleShowContact: () => void;
   handleContactMouseOverChange: (isMouseOver: boolean, element: string) => void;
+  isDark: boolean;
+  handleDarkModeChange: (toggle: boolean) => void;
 }
 
-export default function Header({ showContact, handleShowContact, handleContactMouseOverChange }: HeaderProps) {
-  const isDarkMode = useDarkMode(); // Use the custom hook to get the dark mode state
+export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange }: HeaderProps) {
 
-  const compClassName = isDarkMode ? 'dark' : 'light';
+  const compClassName = isDark ? 'light' : 'dark';
 
   const changeMode = () => {
-    document.body.classList.toggle('dark-mode');
+    handleDarkModeChange(!isDark);
   };
 
   const handleMouseEnter = (element: string): React.MouseEventHandler<HTMLElement> => () => {
@@ -40,48 +41,66 @@ export default function Header({ showContact, handleShowContact, handleContactMo
       <p>L</p>
 
       <div className="right">
-
-        {showContact && (
-          <div 
-            className="contact-opts"
-            onMouseEnter={handleMouseEnter('content')}
-            onMouseLeave={handleMouseLeave('content')}
-          >
-            <a href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer">
-              <BsGithub size={18} />
-            </a>
-            <a href="https://www.linkedin.com/in/luisrrv/" target="_blank" rel="noopener noreferrer">
-              <BsLinkedin size={18} />
-            </a>
-            <a href="mailto:rodluisr@gmail.com">
-              <MdEmail size={22} />
-            </a>
-          </div>
-        )}
-        {showContact ? (
-            <button 
-            className='open'
-            onClick={() => { handleShowContact(); }}
-            onMouseEnter={handleMouseEnter('btn')}
-            onMouseLeave={handleMouseLeave('btn')}
-            ><AiOutlineClose size={16} /></button>
-          ): (
-            <button 
-            className='closed'
-            onClick={() => { handleShowContact(); }}
-            onMouseEnter={handleMouseEnter('btn')}
-            onMouseLeave={handleMouseLeave('btn')}
-            >Contact</button>
-          )
-        }
+        <div className="contact-opts-m">
+          {showContact && (
+            <div 
+              className="contact-opts out"
+              onMouseEnter={handleMouseEnter('content')}
+              onMouseLeave={handleMouseLeave('content')}
+            >
+              <a href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer">
+                <BsGithub size={18} />
+              </a>
+              <a href="https://www.linkedin.com/in/luisrrv/" target="_blank" rel="noopener noreferrer">
+                <BsLinkedin size={18} />
+              </a>
+              <a href="mailto:rodluisr@gmail.com">
+                <MdEmail size={22} />
+              </a>
+            </div>
+          )}
+        </div>
+        <div className="contact-m hidden">
+          {showContact ? (
+              <button 
+              className='open'
+              onClick={() => { handleShowContact(); }}
+              onMouseEnter={handleMouseEnter('btn')}
+              onMouseLeave={handleMouseLeave('btn')}
+              ><AiOutlineClose size={16} /></button>
+            ): (
+              <button 
+              className='closed'
+              onClick={() => { handleShowContact(); }}
+              onMouseEnter={handleMouseEnter('btn')}
+              onMouseLeave={handleMouseLeave('btn')}
+              >Contact</button>
+            )
+          }
+        </div>
+        <div 
+              className="contact-opts f"
+              onMouseEnter={handleMouseEnter('content')}
+              onMouseLeave={handleMouseLeave('content')}
+            >
+              <a href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer">
+                <BsGithub size={18} />
+              </a>
+              <a href="https://www.linkedin.com/in/luisrrv/" target="_blank" rel="noopener noreferrer">
+                <BsLinkedin size={18} />
+              </a>
+              <a href="mailto:rodluisr@gmail.com">
+                <MdEmail size={22} />
+              </a>
+        </div>
         <div className="divider"></div>
-        {isDarkMode ? (
+        {isDark ? (
           <div className="toggle">
-            <MdSunny onClick={changeMode} />
+            <MdOutlineDarkMode onClick={changeMode} />
           </div>
         ) : (
           <div className="toggle">
-            <MdOutlineDarkMode onClick={changeMode} />
+            <MdSunny onClick={changeMode} />
           </div>
         )}
       </div>

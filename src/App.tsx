@@ -16,8 +16,8 @@ export interface IAppProps {
 
 function App({ className, isDarkMode }: IAppProps) {
 
-  isDarkMode = useDarkMode();
-  const appClassName = isDarkMode ? 'dark' : 'light';
+  const [isDark, setIsDark] = useState(useDarkMode());
+  const appClassName = isDark ? 'light' : 'dark';
   const [showContact, setShowContact] = useState(false);
   const [contactMS, setContactMS] = useState(false);
   const [contactOptsMS, setContactOptsMS] = useState(false);
@@ -31,8 +31,10 @@ function App({ className, isDarkMode }: IAppProps) {
           // console.log(element);
           // console.log(type);
           if (type === 'show') {
-            el && el.classList.remove('out');
-            el && el.classList.add('entered');
+            setTimeout(()=> {
+              el && el.classList.remove('out');
+              el && el.classList.add('entered');
+            },300)
           } else if (type === 'hide') {
             el && el.classList.remove('entered');
             el && el.classList.add('out');
@@ -46,7 +48,7 @@ function App({ className, isDarkMode }: IAppProps) {
         if (attempts < maxAttempts) {
           setTimeout(checkElement, interval);
         } else {
-          console.error(`Element with class ${element}_container not found after ${maxAttempts} attempts.`);
+          console.error(`Element with class ${element}-opts not found after ${maxAttempts} attempts.`);
         }
       }
     };
@@ -66,10 +68,18 @@ function App({ className, isDarkMode }: IAppProps) {
     else if (element==='content') setContactOptsMS(isMouseOver);
   };
 
+  const handleDarkModeChange = (toggle: boolean) => {
+    setIsDark(toggle);
+    document.body.classList.toggle('dark');
+  };
 
   useEffect(() => {
     showContact && checkElements('contact', 'show');
   },[showContact]);
+
+  // useEffect(()=> {
+  //   console.log ('isDark:', isDark);
+  // }, [isDark]);
 
   return (
     <div className={`App ${appClassName}`}>
@@ -83,9 +93,11 @@ function App({ className, isDarkMode }: IAppProps) {
         showContact={showContact}
         handleShowContact={handleShowContact}
         handleContactMouseOverChange={handleContactMouseOverChange}
+        isDark={isDark}
+        handleDarkModeChange={handleDarkModeChange}
       />
-      <About />
-      <Projects />
+      <About isDark={isDark} />
+      <Projects isDark={isDark} />
       {/* {showContact && (
         <>
           <Contact 

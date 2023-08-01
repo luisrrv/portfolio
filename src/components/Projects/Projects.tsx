@@ -2,18 +2,18 @@ import './Projects.scss';
 
 import { IAppProps } from '../../App'; // Update the import path
 import ProjectCard from '../ProjectCard/ProjectCard';
-import useDarkMode from '../../hooks/useDarkMode';
+// import useDarkMode from '../../hooks/useDarkMode';
 import ProjectsData, { Project } from '../../data/projects';
 
 interface ProjectsProps extends IAppProps {
   // Add any other specific props for the Projects component if needed
+  isDark: boolean;
 }
 
-export default function App (props: ProjectsProps) {
+export default function App ({className, isDark}: ProjectsProps) {
     const projectsData: Project[] = ProjectsData();
-    const { className } = props;
-    const isDarkMode = useDarkMode();
-    const compClassName = isDarkMode ? 'dark' : 'light';
+    // const isDarkMode = useDarkMode();
+    const compClassName = isDark ? 'light' : 'dark';
 
     return (
         <div className={`projects_container ${className ? className : ''} ${compClassName}`}>
