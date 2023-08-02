@@ -3,23 +3,34 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    background-color: transparent;
-    border: 1px solid #00000060;
+    background-color: transparent !important;
+    border: 1px solid #00000080 !important;
     border-radius: 50%;
     pointer-events: none;
     transition: ease-in-out;
     z-index: 99;
     
     &.light {
-        border-color: #ffffff60;
+        border-color: #ffffff60 !important;
 
         .follow-circle-small{
-            background-color: #ffffff60;
+            background-color: #f0f0f0d0 !important;
+            svg {
+              color: #222222;
+            }
         }
       
       &.contact,
       &.external  {
-        background-color: #FFFFFF08;
+        background-color: transparent !important;
+
+        .follow-circle-small{
+          background-color: #f0f0f0 !important;
+
+          svg {
+            color: #222222 !important;
+          }
+        }
       }
     }
     
@@ -29,7 +40,7 @@
 
     .follow-circle-small {
         position: fixed;
-        background-color: #00000060;
+        background-color: #000000b0;
         border-radius: 50%;
         pointer-events: none;
         transition: ease-in-out;
@@ -43,17 +54,21 @@
     &.contact,
     &.external { 
       transition: 200ms;
+
       .follow-circle-small {
         position: relative;
-        background-color: #22222208;
+        background-color: #333333 !important;
         transform: scale(2);
         animation: bounce 500ms ease-in;
-
+        padding: 4px;
+        background-color: #f0f0f0;
+        
         &.clicked {
           animation: none;
         }
-
+        
         svg {
+          color: #f0f0f0 !important;
           position: absolute;
           top: 50%;
           left: 50%;

@@ -1,6 +1,6 @@
 .projects_container {
     position: relative;
-    margin-top: 80%;
+    margin-top: 90vh;
     height: fit-content;
     width: 100%;
     padding-bottom: 100px;
@@ -10,7 +10,7 @@
 
     &.dark {
         color: #f0f0f0;
-        background-color: #222222 !important;
+        background-color: #111111 !important;
     }
     
     h3 {

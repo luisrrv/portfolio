@@ -88,6 +88,8 @@ function App({ className, isDarkMode }: IAppProps) {
         sizeSmall={8} 
         contactMS={contactMS}
         contactOptsMS={contactOptsMS}
+        isDark={isDark}
+        handleDarkModeChange={handleDarkModeChange}
       />
       <Header
         showContact={showContact}
