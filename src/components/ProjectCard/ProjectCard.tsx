@@ -18,6 +18,10 @@ import { SiRubyonrails,
         SiGooglechrome,
     } from 'react-icons/si';
 
+interface ProjectCardProps {
+  isDark: boolean;
+}
+
 export default function ProjectCard({
   title,
   description,

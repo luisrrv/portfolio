@@ -8,15 +8,16 @@ import ProjectsData, { Project } from '../../data/projects';
 interface ProjectsProps extends IAppProps {
   // Add any other specific props for the Projects component if needed
   isDark: boolean;
+  hideApp: boolean;
 }
 
-export default function App ({className, isDark}: ProjectsProps) {
+export default function App ({className, isDark, hideApp}: ProjectsProps) {
     const projectsData: Project[] = ProjectsData();
     // const isDarkMode = useDarkMode();
-    const compClassName = isDark ? 'light' : 'dark';
+    const compClassName = isDark ? 'dark' : 'light';
 
     return (
-        <div className={`projects_container ${className ? className : ''} ${compClassName}`}>
+        <div className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`}>
             <h3>My work</h3>
             <div className="projects">
             {

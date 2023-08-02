@@ -13,11 +13,12 @@ interface HeaderProps {
   handleContactMouseOverChange: (isMouseOver: boolean, element: string) => void;
   isDark: boolean;
   handleDarkModeChange: (toggle: boolean) => void;
+  hideApp: boolean;
 }
 
-export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange }: HeaderProps) {
+export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange, hideApp }: HeaderProps) {
 
-  const compClassName = isDark ? 'light' : 'dark';
+  const compClassName = isDark ? 'dark' : 'light';
 
   const changeMode = () => {
     handleDarkModeChange(!isDark);
@@ -35,9 +36,8 @@ export default function Header({ showContact, handleShowContact, handleContactMo
     }, 200);
   };
 
-
   return (
-    <div className={`header_container ${compClassName}`}>
+    <div className={`header_container ${compClassName} ${hideApp && 'hidden'}`}>
       <p>L</p>
 
       <div className="right">

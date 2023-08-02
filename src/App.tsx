@@ -15,12 +15,35 @@ export interface IAppProps {
 
 
 function App({ className, isDarkMode }: IAppProps) {
-
-  const [isDark, setIsDark] = useState(useDarkMode());
-  const appClassName = isDark ? 'light' : 'dark';
+  const darkMode = useDarkMode();
+  const [isDark, setIsDark] = useState(darkMode);
+  const appClassName = isDark ? 'dark' : 'light';
+  const [loading, setLoading] = useState(true);
+  const [hideApp, setHideApp] = useState(true);
   const [showContact, setShowContact] = useState(false);
   const [contactMS, setContactMS] = useState(false);
   const [contactOptsMS, setContactOptsMS] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setHideApp(false);
+
+      setTimeout(() => {
+        setLoading(false);
+      },500)
+
+    }, 1500);
+  },[]);
+  
+  useEffect(() => {
+    setIsDark(darkMode);
+  },[darkMode]);
+
+  // useEffect(() => {
+  //   console.log('loading',loading);
+  //   console.log('hideApp',hideApp);
+  // },[loading, hideApp]);
+
   
   const checkElements = (element: string, type: string, maxAttempts = 10, interval = 100) => {
     let attempts = 0;
@@ -83,6 +106,11 @@ function App({ className, isDarkMode }: IAppProps) {
 
   return (
     <div className={`App ${appClassName}`}>
+      {loading && (
+          <div className={`loading ${appClassName}`}>
+            loading...
+          </div>
+      )}
       <MouseTracker 
         size={40} 
         sizeSmall={8} 
@@ -90,23 +118,18 @@ function App({ className, isDarkMode }: IAppProps) {
         contactOptsMS={contactOptsMS}
         isDark={isDark}
         handleDarkModeChange={handleDarkModeChange}
+        
       />
       <Header
+        hideApp={hideApp}
         showContact={showContact}
         handleShowContact={handleShowContact}
         handleContactMouseOverChange={handleContactMouseOverChange}
         isDark={isDark}
         handleDarkModeChange={handleDarkModeChange}
       />
-      <About isDark={isDark} />
-      <Projects isDark={isDark} />
-      {/* {showContact && (
-        <>
-          <Contact 
-          className={'out'} 
-          />
-        </>
-      )} */}
+      <About isDark={isDark} hideApp={hideApp} />
+      <Projects isDark={isDark} hideApp={hideApp} />
     </div>
   );
 }

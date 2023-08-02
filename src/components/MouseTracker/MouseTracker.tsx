@@ -15,7 +15,7 @@ interface FollowCircleProps {
 
 const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS, isDark, handleDarkModeChange}) => {
   // const isDarkMode = useDarkMode();
-  const appClassName = isDark ? 'dark' : 'light';
+  const appClassName = isDark ? 'light' : 'dark';
   const circleRef = useRef<HTMLDivElement | null>(null);
   const circleRefSmall = useRef<HTMLDivElement | null>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
