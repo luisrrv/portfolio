@@ -12,6 +12,11 @@
     padding-right: 36px;
     background-color: #ffffff1c !important;
     backdrop-filter: blur(4px) !important;
+    animation: loading ease-in 800ms;
+    
+    &.hidden {
+        opacity: 0;
+    }
 
     svg {
         color: #222222;
@@ -121,6 +126,14 @@
         }
         100% {
             transform: rotate(0);
+        }
+    }
+    @keyframes loading {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
         }
     }
 }

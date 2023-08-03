@@ -27,12 +27,11 @@ function App({ className, isDarkMode }: IAppProps) {
   useEffect(() => {
     setTimeout(() => {
       setHideApp(false);
+      setLoading(false);
+      // setTimeout(() => {
+      // },200);
 
-      setTimeout(() => {
-        setLoading(false);
-      },500)
-
-    }, 1500);
+    }, 2000);
   },[]);
   
   useEffect(() => {
@@ -105,32 +104,47 @@ function App({ className, isDarkMode }: IAppProps) {
   // }, [isDark]);
 
   return (
-    <div className={`App ${appClassName}`}>
-      {loading && (
-          <div className={`loading ${appClassName}`}>
-            loading...
-          </div>
+    <>
+    {/* <div className={`loading ${appClassName}`}> */}
+      {/* <p>loading</p> */}
+      {/* <div className="loading-bar"> */}
+        {/* <div className={`fill ${loading ? '' : 'full' }`}></div> */}
+      {/* </div> */}
+    {/* </div> */}
+    {loading ? (
+      <div id="load" className={`load ${appClassName}`}>
+        <div>G</div>
+        <div>N</div>
+        <div>I</div>
+        <div>D</div>
+        <div>A</div>
+        <div>O</div>
+        <div>L</div>
+      </div>
+      ) : (
+        <div className={`App ${appClassName}`}>
+        <MouseTracker 
+          size={40} 
+          sizeSmall={8} 
+          contactMS={contactMS}
+          contactOptsMS={contactOptsMS}
+          isDark={isDark}
+          handleDarkModeChange={handleDarkModeChange}
+          
+        />
+        <Header
+          hideApp={hideApp}
+          showContact={showContact}
+          handleShowContact={handleShowContact}
+          handleContactMouseOverChange={handleContactMouseOverChange}
+          isDark={isDark}
+          handleDarkModeChange={handleDarkModeChange}
+        />
+        <About isDark={isDark} hideApp={hideApp} />
+        <Projects isDark={isDark} hideApp={hideApp} />
+        </div>
       )}
-      <MouseTracker 
-        size={40} 
-        sizeSmall={8} 
-        contactMS={contactMS}
-        contactOptsMS={contactOptsMS}
-        isDark={isDark}
-        handleDarkModeChange={handleDarkModeChange}
-        
-      />
-      <Header
-        hideApp={hideApp}
-        showContact={showContact}
-        handleShowContact={handleShowContact}
-        handleContactMouseOverChange={handleContactMouseOverChange}
-        isDark={isDark}
-        handleDarkModeChange={handleDarkModeChange}
-      />
-      <About isDark={isDark} hideApp={hideApp} />
-      <Projects isDark={isDark} hideApp={hideApp} />
-    </div>
+    </>
   );
 }
 

@@ -1,6 +1,21 @@
 .card {
+    animation: loading ease-in 800ms;
+
+    &.hidden {
+        opacity: 0;
+    }
+
     &:first-child {
         border-radius: 8px 8px 0 0;
     }
     height: fit-content;
+
+    @keyframes loading {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+    }
 }

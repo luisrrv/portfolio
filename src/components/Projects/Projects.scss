@@ -7,6 +7,11 @@
     border-radius: 8px 8px 0 0;
     color: #222222;
     background-color: #f0f0f0 !important;
+    animation: loading ease-in 800ms;
+
+    &.hidden {
+        opacity: 0;
+    }
 
     &.dark {
         color: #f0f0f0;
@@ -27,5 +32,13 @@
         border-radius: 8px;
         z-index: 8;
 
+    }
+    @keyframes loading {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
     }
 }
