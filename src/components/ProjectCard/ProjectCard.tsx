@@ -82,7 +82,7 @@ export default function ProjectCard({
     const compClassName = isDark ? 'dark' : 'light';
 
   return (
-    <div className={`card ${compClassName} ${hideApp && 'hidden'}`} /*style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}*/ >
+    <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`} /*style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}*/ >
 
       <div className="left">
         <h4>{title}</h4>

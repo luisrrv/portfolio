@@ -40,10 +40,14 @@ export default function About ({isDark, hideApp}: AboutProps) {
   return (
     <div className={`about_container ${compClassName} ${hideApp && 'hidden'}`}>
       <div className="content" style={zoomStyle}>
-        <div className="img"></div>
+        {/* <div className="img"></div> */}
+        <div className='special'>
+          <p className='big'>LUIS</p>
+          <p className='small'>LUIS RODRIGUEZ</p>
+          <p className='big'>RODRIGUEZ</p>
+          </div>
         <div className="text">
-          <p>HELLO! I'M LUIS RODRIGUEZ</p>
-          <p>A passionate Software Developer based in Tokyo experienced in working on both front-end and back-end development for web and native apps.</p>
+          <p>A passionate Software Developer based in Tokyo. <br></br>Experienced in working on both front-end and back-end development for web and native apps.</p>
         </div>
       </div>
     </div>

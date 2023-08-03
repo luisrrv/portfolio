@@ -1,5 +1,5 @@
-.card {
-  background-color: #333333 !important;
+#card {
+    background-color: #f0f0f0 !important;
     animation: loading ease-in 800ms;
     height: fit-content;
     min-height: 400px;
@@ -12,6 +12,13 @@
     }
 
     &.dark {
+      background-color: #333333 !important;
+      .left {
+        h4 {
+          color: #333333;
+          -webkit-text-stroke: 1px #f0f0f0;
+        }
+      }
       .right {
         .cta {
           a {
@@ -58,7 +65,9 @@
       h4 {
         width: 100%;
         padding: 16px 0;
-        font-size: 24px;
+        font-size: 30px;
+        color: #f0f0f0;
+        -webkit-text-stroke: 1px #222222;
       }
       .project-pics {
         // height: 300px;

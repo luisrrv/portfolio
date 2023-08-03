@@ -16,6 +16,11 @@
     &.dark {
         color: #f0f0f0;
         background-color: #333333 !important;
+
+        h3 {
+            color: #333333;
+            -webkit-text-stroke: 1px #f0f0f0;
+        }
     }
     
     h3 {
@@ -25,6 +30,9 @@
         font-size: 28px;
         font-weight: 300;
         text-transform: uppercase;
+        font-weight: bold;
+        color: #f0f0f0;
+        -webkit-text-stroke: 1px #222222;
     }
     .projects {
         margin: 0 auto;
