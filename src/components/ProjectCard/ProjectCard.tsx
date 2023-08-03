@@ -25,6 +25,7 @@ interface ProjectCardProps {
   live: string;
   stack: string[] | Element[];
   bg: string;
+  pics: string[];
   isDark: boolean; // Add isDark prop to the interface
   hideApp: boolean; // Add hideApp prop to the interface
 }
@@ -36,6 +37,7 @@ export default function ProjectCard({
   live,
   stack,
   bg,
+  pics,
   isDark,
   hideApp,
 }: ProjectCardProps) {
@@ -80,32 +82,38 @@ export default function ProjectCard({
     const compClassName = isDark ? 'dark' : 'light';
 
   return (
-    <div className={`card ${compClassName} ${hideApp && 'hidden'}`} style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}>
-      <h4>{title}</h4>
-      <p>{description}</p>
-      <div>
-        <div className={`stack ${compClassName}`}>
-            {setIcons().map((icon) => icon)}
-        </div>
-        <div className={`cta ${compClassName}`}>
-            <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href={live} target="_blank" rel="noopener noreferrer">Check it out</a>
+    <div className={`card ${compClassName} ${hideApp && 'hidden'}`} /*style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}*/ >
+
+      <div className="left">
+        <h4>{title}</h4>
+        <div className='project-pics'>
+          {
+              pics.length > 0 ? (
+                  pics.map((pic) => (
+                      <img
+                        className='pic' 
+                        src={pic} 
+                        alt=""
+                        />
+                    ))
+              ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
+          }
         </div>
       </div>
 
-      {/* <div className={.project_pic}>
-        {
-            pics.length > 0 ? (
-                pics.map((pic) => (
-                    <img
-                      className={.img} 
-                      src={pic} 
-                      alt="project picture"
-                      />
-                  ))
-            ) : <img className={.img} src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="project picture" />
-        }
-      </div> */}
+      <div className="right">
+        <p>{description}</p>
+        <div>
+          <div className={`stack`}>
+              {setIcons().map((icon) => icon)}
+          </div>
+          <div className={`cta`}>
+              <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href={live} target="_blank" rel="noopener noreferrer">Check it out</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }

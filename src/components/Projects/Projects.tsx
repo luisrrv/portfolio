@@ -18,7 +18,7 @@ export default function App ({className, isDark, hideApp}: ProjectsProps) {
 
     return (
         <div className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`}>
-            <h3>My work</h3>
+            <h3>Some of my work</h3>
             <div className="projects">
             {
                 projectsData.map((project,index) => (
@@ -32,6 +32,7 @@ export default function App ({className, isDark, hideApp}: ProjectsProps) {
                     bg={project.bg}
                     isDark={isDark}
                     hideApp={hideApp}
+                    pics={project.pics}
 
                     />
                 ))

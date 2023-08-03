@@ -34,7 +34,7 @@
   -ms-user-select:none;
   user-select:none;
   cursor:default;
-  animation: loading ease-in-out 2s;
+  animation: loading ease-in-out 2.7s;
 }
 
 #load div {

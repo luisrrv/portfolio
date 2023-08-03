@@ -31,7 +31,7 @@ function App({ className, isDarkMode }: IAppProps) {
       // setTimeout(() => {
       // },200);
 
-    }, 2000);
+    }, 2700);
   },[]);
   
   useEffect(() => {
