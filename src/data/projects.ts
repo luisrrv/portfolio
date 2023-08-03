@@ -26,7 +26,7 @@ import duck1 from '../assets/images/projects/rubber/duck1.png';
 import duckbg from '../assets/images/projects/rubber/duckbg.jpeg';
 
 
-export interface Project {
+export interface ProjectProps {
   name: string;
   description: string;
   github: string;
@@ -36,9 +36,9 @@ export interface Project {
   bg: string;
 }
 
-export default function Project(): Project[] {
+export default function Project(): ProjectProps[] {
 
-  const projects: Project[] = [
+  const projects: ProjectProps[] = [
     {
       name: 'Ally Maps',
       description: 'A trip planner for people with disabilities. This app allows them to plan entire accessible trips from searching places to the routes to and from the places in their itineraries.',

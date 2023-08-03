@@ -18,6 +18,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
   const appClassName = isDark ? 'light' : 'dark';
   const circleRef = useRef<HTMLDivElement | null>(null);
   const circleRefSmall = useRef<HTMLDivElement | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isClicked, setIsClicked] = useState(false);
 
@@ -104,6 +105,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [size, sizeSmall]);
 
   useEffect(() => {

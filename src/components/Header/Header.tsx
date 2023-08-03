@@ -96,11 +96,11 @@ export default function Header({ showContact, handleShowContact, handleContactMo
         <div className="divider"></div>
         {isDark ? (
           <div className="toggle">
-            <MdOutlineDarkMode onClick={changeMode} />
+            <MdSunny onClick={changeMode} />
           </div>
         ) : (
           <div className="toggle">
-            <MdSunny onClick={changeMode} />
+            <MdOutlineDarkMode onClick={changeMode} />
           </div>
         )}
       </div>

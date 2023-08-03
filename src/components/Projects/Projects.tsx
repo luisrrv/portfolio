@@ -3,7 +3,7 @@ import './Projects.scss';
 import { IAppProps } from '../../App'; // Update the import path
 import ProjectCard from '../ProjectCard/ProjectCard';
 // import useDarkMode from '../../hooks/useDarkMode';
-import ProjectsData, { Project } from '../../data/projects';
+import ProjectsData, { ProjectProps } from '../../data/projects';
 
 interface ProjectsProps extends IAppProps {
   // Add any other specific props for the Projects component if needed
@@ -12,7 +12,7 @@ interface ProjectsProps extends IAppProps {
 }
 
 export default function App ({className, isDark, hideApp}: ProjectsProps) {
-    const projectsData: Project[] = ProjectsData();
+    const projectsData: ProjectProps[] = ProjectsData();
     // const isDarkMode = useDarkMode();
     const compClassName = isDark ? 'dark' : 'light';
 
@@ -30,6 +30,9 @@ export default function App ({className, isDark, hideApp}: ProjectsProps) {
                     live={project.live}
                     stack={project.stack}
                     bg={project.bg}
+                    isDark={isDark}
+                    hideApp={hideApp}
+
                     />
                 ))
             }

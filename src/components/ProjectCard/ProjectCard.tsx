@@ -1,5 +1,5 @@
 import './ProjectCard.scss';
-import useDarkMode from '../../hooks/useDarkMode';
+// import useDarkMode from '../../hooks/useDarkMode';
 
 //icons
 import { BsFillFileEarmarkCodeFill } from 'react-icons/bs';
@@ -19,7 +19,14 @@ import { SiRubyonrails,
     } from 'react-icons/si';
 
 interface ProjectCardProps {
-  isDark: boolean;
+  title: string;
+  description: string;
+  github: string;
+  live: string;
+  stack: string[] | Element[];
+  bg: string;
+  isDark: boolean; // Add isDark prop to the interface
+  hideApp: boolean; // Add hideApp prop to the interface
 }
 
 export default function ProjectCard({
@@ -29,15 +36,9 @@ export default function ProjectCard({
   live,
   stack,
   bg,
-}: {
-  key: string;
-  title: string;
-  description: string;
-  github: string;
-  live: string;
-  stack: string[] | Element[];
-  bg: string;
-}) {
+  isDark,
+  hideApp,
+}: ProjectCardProps) {
 
     const setIcons = () => {
         let stackIcons = stack && stack.map((t,index) => {
@@ -75,11 +76,11 @@ export default function ProjectCard({
         return stackIcons;
     }
 
-    const isDarkMode = useDarkMode();
-    const compClassName = isDarkMode ? 'dark' : 'light';
+    // const isDarkMode = useDarkMode();
+    const compClassName = isDark ? 'dark' : 'light';
 
   return (
-    <div className={`card ${compClassName}`} style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}>
+    <div className={`card ${compClassName} ${hideApp && 'hidden'}`} style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}>
       <h4>{title}</h4>
       <p>{description}</p>
       <div>
