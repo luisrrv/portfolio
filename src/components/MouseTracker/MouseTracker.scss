@@ -8,7 +8,7 @@
     border-radius: 50%;
     pointer-events: none;
     transition: ease-in-out;
-    z-index: 99;
+    z-index: 9999;
     
     &.light {
         border-color: #ffffff60 !important;
