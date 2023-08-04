@@ -1,59 +1,66 @@
-// dialog[close] {
-//     animation: close ease-out 300ms;
-// }
-dialog[open]#info_container {
-    position: relative;
-    height: fit-content;
-    width: 50%;
-    border: none;
-    border-radius: 8px;
-    padding: 40px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: #d3d3d385 !important;
-    backdrop-filter: blur(6px);
-    color: #222222;
+#info_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: #22222220;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: 300ms;
-    animation: open ease-in 300ms;
 
-    // &.open {
-    //     opacity: 1;
-    // }
-
-    &::backdrop {
-        background-color: #22222286;
-        transition: 300ms;
+    &.open {
+        display: flex;
+        opacity: 1;
+        animation: open ease-in 300ms;
+    }
+    &.closing {
+        animation: close ease-in 300ms;
+    }
+    &.close {
+        display: none;
+        opacity: 0;
     }
 
-    .content {
-        flex-grow: 1;
+    #info_container {
+        height: fit-content;
+        width: 50%;
+        border: none;
+        border-radius: 8px;
+        padding: 40px;
+        background-color: #d3d3d385 !important;
+        backdrop-filter: blur(6px);
+        color: #222222;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 20px;
-        p {
-            height: fit-content;
+        margin-bottom: 40px;
+        transition: 300ms;
+        animation: open ease-in 300ms;
+    
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            p {
+                height: fit-content;
+            }
+            .info-img {
+                width: 80px;
+                height: 80px;
+                border-radius: 16px;
+                background-image: url(../../assets/images/tomando.gif);
+                background-size: 100px 100px;
+                background-position: top;
+                background-repeat: no-repeat;
+            }
         }
-        .info-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            background-image: url(../../assets/images/tomando.gif);
-            background-size: 100px 100px;
-            background-position: top;
-            background-repeat: no-repeat;
-        }
-    }
-    form {
-        height: fit-content;
-
         button {
             position: absolute;
             top: 12px;
@@ -73,23 +80,18 @@ dialog[open]#info_container {
             }
         }
     }
-    // &.close {
-    //     animation: hide ease-in 500ms;
-    // }
-    
     &.dark {
-        background-color: #22222270 !important;
+        background-color: #64646486 !important;
 
-        &::backdrop {
-            background-color: #64646486;
-        }
-
-        .content {
-            p {
-                color: #f0f0f0 !important;
+        #info_container {
+            background-color: #22222270 !important;
+    
+    
+            .content {
+                p {
+                    color: #f0f0f0 !important;
+                }
             }
-        }
-        form {
             button {
                 svg {
                     color: #f0f0f0 !important;
@@ -97,6 +99,12 @@ dialog[open]#info_container {
             }
         }
 
+    }
+    
+    @media (max-width:440px) {
+        dialog[open]#info_container {
+            width: 90%;
+        }
     }
     @keyframes open {
         0% {
@@ -106,19 +114,12 @@ dialog[open]#info_container {
             opacity: 1;
         }
     }
-
-}
-
-@media (max-width:440px) {
-    dialog[open]#info_container {
-        width: 90%;
+    @keyframes close {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
     }
 }
-// @keyframes close {
-//     0% {
-//         opacity: 1;
-//     }
-//     100% {
-//         opacity: 0;
-//     }
-// }

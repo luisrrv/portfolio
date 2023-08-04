@@ -4,24 +4,23 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 
 interface InfoProps {
     isDark: boolean;
+    hideDialog: () => void;
 }
 
-export default function Header({ isDark }: InfoProps) {
+export default function Header({ isDark, hideDialog }: InfoProps) {
 
   const compClassName = isDark ? 'dark' : 'light';
 
 
   return (
-    <dialog id='info_container' className={`info_container ${compClassName}`}>
-        <div className="content">
-            <p>Designed and coded by luisrrv.</p>
-            <div className="info-img"></div>
+    <div id="info_bg" className={`close ${compClassName}`} onClick={hideDialog}>  
+        <div id='info_container' className='info_container'>
+            <div className="content">
+                <p>Designed and coded by luisrrv.</p>
+                <div className="info-img"></div>
+            </div>
+            <button onClick={hideDialog}><AiFillCloseCircle size={22} /></button>
         </div>
-
-        <form method="dialog">
-            <button><AiFillCloseCircle size={22} /></button>
-        </form>
-
-    </dialog>
+    </div>
   );
 }

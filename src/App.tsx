@@ -96,9 +96,19 @@ function App({ className, isDarkMode }: IAppProps) {
   };
 
   const showDialog = () => {
-    const dialog = document.querySelector('dialog');
+    const dialog = document.querySelector('#info_bg');
+    dialog?.classList.remove('close');
+    dialog?.classList.remove('closing');
     dialog?.classList.add('open');
-    dialog?.showModal();
+  }
+  const hideDialog = () => {
+    const dialog = document.querySelector('#info_bg');
+    dialog?.classList.remove('open');
+    dialog?.classList.add('closing');
+    setTimeout(() => {
+      dialog?.classList.remove('closing');
+      dialog?.classList.add('close');
+    },300);
   }
 
   useEffect(() => {
@@ -149,11 +159,9 @@ function App({ className, isDarkMode }: IAppProps) {
         />
         <About isDark={isDark} hideApp={hideApp} />
         <Projects isDark={isDark} hideApp={hideApp} />
+        <Info isDark={isDark} hideDialog={hideDialog} />
       </div>
       )}
-      <Info 
-        isDark={isDark}
-      />
     </>
   );
 }
