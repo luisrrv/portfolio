@@ -26,20 +26,21 @@ export default function About({ isDark, hideApp }: AboutProps) {
     };
   }, []);
 
-  // Calculate the scaling factor based on the scroll position
-  const calculateScale = () => {
-    const scaleFactor = 1 - (scrollPosition / window.innerHeight) * 0.1;
-    return scaleFactor;
+  // Calculate the opacity based on the scroll position
+  const calculateOpacity = () => {
+    const maxScroll = window.innerHeight * 0.5; // Adjust the value as needed for the fade-out distance
+    const opacity = 1 - scrollPosition / maxScroll;
+    return opacity < 0 ? 0 : opacity; // Make sure opacity doesn't go below 0
   };
 
-  // Apply the scaling transformation to the element's style
-  const zoomStyle: React.CSSProperties = {
-    transform: `scale(${calculateScale()})`,
+  // Apply the opacity to the element's style
+  const fadeOutStyle: React.CSSProperties = {
+    opacity: calculateOpacity(),
   };
 
   return (
     <div className={`about_container ${compClassName} ${hideApp && 'hidden'}`}>
-      <div className="content" style={zoomStyle}>
+      <div className="content" style={fadeOutStyle}>
         {/* <div className="img"></div> */}
         <div className="special">
           <p className="small hello">HELLO, I'M</p>
