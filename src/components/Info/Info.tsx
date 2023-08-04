@@ -1,6 +1,6 @@
 import './Info.scss';
 
-import { AiFillCloseCircle } from 'react-icons/ai';
+// import { AiFillCloseCircle } from 'react-icons/ai';
 
 interface InfoProps {
     isDark: boolean;
