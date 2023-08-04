@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    overflow-x: hidden;
 
     &.hidden {
         opacity: 0;
@@ -15,7 +17,7 @@
       background-color: #333333 !important;
       .left {
         h4 {
-          color: #333333;
+          color: #333333 !important;
           -webkit-text-stroke: 1px #f0f0f0;
         }
       }

@@ -1,23 +1,13 @@
-.App {
+#App {
   text-align: center;
   height: 100%;
   animation: loading ease-in 800ms;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .dark {
   background-color: #222;
   color: #f0f0f0;
 }
-
 
 /* LOADING COMPONENT */
 

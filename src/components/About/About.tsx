@@ -39,7 +39,7 @@ export default function About({ isDark, hideApp }: AboutProps) {
   };
 
   return (
-    <div className={`about_container ${compClassName} ${hideApp && 'hidden'}`}>
+    <div id='about_container' className={`about_container ${compClassName} ${hideApp && 'hidden'}`}>
       <div className="content" style={fadeOutStyle}>
         {/* <div className="img"></div> */}
         <div className="special">

@@ -122,7 +122,7 @@ function App({ className, isDarkMode }: IAppProps) {
         <div>L</div>
       </div>
       ) : (
-        <div className={`App ${appClassName}`}>
+      <div id='App' className={`App ${appClassName}`}>
         <MouseTracker 
           size={40} 
           sizeSmall={8} 
@@ -142,7 +142,7 @@ function App({ className, isDarkMode }: IAppProps) {
         />
         <About isDark={isDark} hideApp={hideApp} />
         <Projects isDark={isDark} hideApp={hideApp} />
-        </div>
+      </div>
       )}
     </>
   );

@@ -37,7 +37,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
   };
 
   return (
-    <div className={`header_container ${compClassName} ${hideApp && 'hidden'}`}>
+    <div id='header_container' className={`header_container ${compClassName} ${hideApp && 'hidden'}`}>
       <p>L</p>
 
       <div className="right">
