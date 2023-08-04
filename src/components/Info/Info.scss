@@ -1,0 +1,124 @@
+// dialog[close] {
+//     animation: close ease-out 300ms;
+// }
+dialog[open]#info_container {
+    position: relative;
+    height: fit-content;
+    width: 50%;
+    border: none;
+    border-radius: 8px;
+    padding: 40px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #d3d3d385 !important;
+    backdrop-filter: blur(6px);
+    color: #222222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms;
+    animation: open ease-in 300ms;
+
+    // &.open {
+    //     opacity: 1;
+    // }
+
+    &::backdrop {
+        background-color: #22222286;
+        transition: 300ms;
+    }
+
+    .content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        p {
+            height: fit-content;
+        }
+        .info-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            background-image: url(../../assets/images/tomando.gif);
+            background-size: 100px 100px;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+    }
+    form {
+        height: fit-content;
+
+        button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            height: fit-content;
+            width: fit-content;
+            background-color: transparent;
+            border: none;
+            &:hover{
+                cursor: pointer;
+            }
+            svg {
+                color: #444444;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    // &.close {
+    //     animation: hide ease-in 500ms;
+    // }
+    
+    &.dark {
+        background-color: #22222270 !important;
+
+        &::backdrop {
+            background-color: #64646486;
+        }
+
+        .content {
+            p {
+                color: #f0f0f0 !important;
+            }
+        }
+        form {
+            button {
+                svg {
+                    color: #f0f0f0 !important;
+                }
+            }
+        }
+
+    }
+    @keyframes open {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+}
+
+@media (max-width:440px) {
+    dialog[open]#info_container {
+        width: 90%;
+    }
+}
+// @keyframes close {
+//     0% {
+//         opacity: 1;
+//     }
+//     100% {
+//         opacity: 0;
+//     }
+// }

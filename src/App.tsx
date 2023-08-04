@@ -5,8 +5,8 @@ import './App.css';
 import Header from './components/Header/Header';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
-// import Contact from './components/Contact/Contact';
 import MouseTracker from './components/MouseTracker/MouseTracker';
+import Info from './components/Info/Info';
 
 export interface IAppProps {
   className?: string;
@@ -95,6 +95,12 @@ function App({ className, isDarkMode }: IAppProps) {
     document.body.classList.toggle('dark');
   };
 
+  const showDialog = () => {
+    const dialog = document.querySelector('dialog');
+    dialog?.classList.add('open');
+    dialog?.showModal();
+  }
+
   useEffect(() => {
     showContact && checkElements('contact', 'show');
   },[showContact]);
@@ -139,11 +145,15 @@ function App({ className, isDarkMode }: IAppProps) {
           handleContactMouseOverChange={handleContactMouseOverChange}
           isDark={isDark}
           handleDarkModeChange={handleDarkModeChange}
+          showDialog={showDialog}
         />
         <About isDark={isDark} hideApp={hideApp} />
         <Projects isDark={isDark} hideApp={hideApp} />
       </div>
       )}
+      <Info 
+        isDark={isDark}
+      />
     </>
   );
 }

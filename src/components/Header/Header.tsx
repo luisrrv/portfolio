@@ -2,7 +2,7 @@ import './Header.scss';
 import { MdOutlineDarkMode, MdSunny } from 'react-icons/md';
 // import useDarkMode from '../../hooks/useDarkMode';
 
-import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { BsGithub, BsLinkedin, BsInfoCircle } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -14,9 +14,10 @@ interface HeaderProps {
   isDark: boolean;
   handleDarkModeChange: (toggle: boolean) => void;
   hideApp: boolean;
+  showDialog: () => void;
 }
 
-export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange, hideApp }: HeaderProps) {
+export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange, hideApp, showDialog }: HeaderProps) {
 
   const compClassName = isDark ? 'dark' : 'light';
 
@@ -103,6 +104,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
             <MdOutlineDarkMode onClick={changeMode} />
           </div>
         )}
+        <BsInfoCircle className='info'  size={13} onClick={showDialog}/>
       </div>
 
     </div>
