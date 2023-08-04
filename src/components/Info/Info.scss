@@ -61,24 +61,24 @@
                 background-repeat: no-repeat;
             }
         }
-        button {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            height: fit-content;
-            width: fit-content;
-            background-color: transparent;
-            border: none;
-            &:hover{
-                cursor: pointer;
-            }
-            svg {
-                color: #444444;
-            }
-            &:focus {
-                outline: none;
-            }
-        }
+        // button {
+        //     position: absolute;
+        //     top: 12px;
+        //     right: 12px;
+        //     height: fit-content;
+        //     width: fit-content;
+        //     background-color: transparent;
+        //     border: none;
+        //     &:hover{
+        //         cursor: pointer;
+        //     }
+        //     svg {
+        //         color: #444444;
+        //     }
+        //     &:focus {
+        //         outline: none;
+        //     }
+        // }
     }
     &.dark {
         background-color: #64646486 !important;
@@ -92,11 +92,11 @@
                     color: #f0f0f0 !important;
                 }
             }
-            button {
-                svg {
-                    color: #f0f0f0 !important;
-                }
-            }
+            // button {
+            //     svg {
+            //         color: #f0f0f0 !important;
+            //     }
+            // }
         }
 
     }

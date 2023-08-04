@@ -19,7 +19,7 @@ export default function Header({ isDark, hideDialog }: InfoProps) {
                 <p>Designed and coded by luisrrv.</p>
                 <div className="info-img"></div>
             </div>
-            <button onClick={hideDialog}><AiFillCloseCircle size={22} /></button>
+            {/* <button onClick={hideDialog}><AiFillCloseCircle size={22} /></button> */}
         </div>
     </div>
   );
