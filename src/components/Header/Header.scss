@@ -10,7 +10,7 @@
     align-items: center;
     padding: 8px 20px;
     padding-right: 36px;
-    background-color: #7979791c !important;
+    background-color: #1919191c !important;
     backdrop-filter: blur(4px) !important;
     animation: loading ease-in 800ms;
     
@@ -23,7 +23,7 @@
     }
     
     &.dark {
-        background-color: #2222224c !important;
+        background-color: #2121214c !important;
         backdrop-filter: blur(4px) !important;
         button {
             color: #f0f0f0;
@@ -32,7 +32,7 @@
             color: #FFFFFF;
         }
 
-        .right {
+        .header-right {
             .contact-opts {
                 a {
                     color: #FFFFFF;
@@ -54,7 +54,7 @@
         padding: 0 16px;
     }
 
-    .right {
+    .header-right {
         display: flex;
         justify-content: center;
         align-items: center;

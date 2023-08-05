@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useDarkMode from './hooks/useDarkMode';
 import './App.css';
 
+import Loader from './components/Loader/Loader';
 import Header from './components/Header/Header';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
@@ -108,7 +109,7 @@ function App({ className, isDarkMode }: IAppProps) {
     setTimeout(() => {
       dialog?.classList.remove('closing');
       dialog?.classList.add('close');
-    },300);
+    },600);
   }
 
   useEffect(() => {
@@ -128,15 +129,18 @@ function App({ className, isDarkMode }: IAppProps) {
       {/* </div> */}
     {/* </div> */}
     {loading ? (
-      <div id="load" className={`load ${appClassName}`}>
-        <div>G</div>
-        <div>N</div>
-        <div>I</div>
-        <div>D</div>
-        <div>A</div>
-        <div>O</div>
-        <div>L</div>
+      <div className={`loader-bg ${appClassName}`}>
+        <Loader isDark={isDark} />
       </div>
+      // <div id="load" className={`load ${appClassName}`}>
+      //   <div>G</div>
+      //   <div>N</div>
+      //   <div>I</div>
+      //   <div>D</div>
+      //   <div>A</div>
+      //   <div>O</div>
+      //   <div>L</div>
+      // </div>
       ) : (
       <div id='App' className={`App ${appClassName}`}>
         <MouseTracker 

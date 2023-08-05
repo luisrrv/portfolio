@@ -44,6 +44,7 @@ export default function About({ isDark, hideApp }: AboutProps) {
         <div className="me-img"></div>
         <div className="special">
           <p className="small hello">HELLO, I'M</p>
+          {/* <div className='name-img'></div> */}
           <p className="big">LUIS</p>
           <p className="big">RODRIGUEZ</p>
           <p className="small name">LUIS RODRIGUEZ</p>
@@ -51,9 +52,9 @@ export default function About({ isDark, hideApp }: AboutProps) {
         <div className="divider"></div>
         <div className="text">
           <p>
-            A passionate Software Developer based in Tokyo. <br></br>Experienced
-            in working on both front-end and back-end development for web and
-            native apps.
+            A passionate <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced
+            in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and
+            <span className='bold'> native apps</span>.
           </p>
         </div>
       </div>

@@ -41,7 +41,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
     <div id='header_container' className={`header_container ${compClassName} ${hideApp && 'hidden'}`}>
       <p>L</p>
 
-      <div className="right">
+      <div className="header-right">
         <div className="contact-opts-m">
           {showContact && (
             <div 

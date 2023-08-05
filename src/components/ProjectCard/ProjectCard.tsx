@@ -84,7 +84,7 @@ export default function ProjectCard({
   return (
     <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`} /*style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}*/ >
 
-      <div className="left">
+      <div className="card-left">
         <h4>{title}</h4>
         <div className='project-pics'>
           {
@@ -101,7 +101,7 @@ export default function ProjectCard({
         </div>
       </div>
 
-      <div className="right">
+      <div className="card-right">
         <p>{description}</p>
         <div>
           <div className={`stack`}>
