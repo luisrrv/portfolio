@@ -18,6 +18,28 @@
         opacity: 0;
     }
 
+    .header-logo {
+        color: #dfb5bb;
+        -webkit-text-stroke: 1px #e22941 !important;
+        font-size: 30px;
+        font-weight: bold;
+        height: fit-content;
+        opacity: 0;
+
+        &.show {
+            opacity: 1;
+            animation: show 500ms ease-in;
+        }
+
+        // background-image: url(../../assets/images/lr_logo_w.png);
+        // // background-image: url(../../assets/images/lr_logo_b.png);
+        // background-size: contain;
+        // background-position: center;
+        // background-repeat: no-repeat;
+        // width: 40px;
+        // height: 40px;
+    }
+
     svg {
         color: #25252a;
     }
@@ -30,6 +52,14 @@
         }
         svg {
             color: #FFFFFF;
+        }
+        
+        .header-logo {
+            color: #3e1017;
+            -webkit-text-stroke: 1px #be3144 !important;
+
+            // background-image: url(../../assets/images/lr_logo_b.png);
+            // background-image: url(../../assets/images/lr_logo_w.png);
         }
 
         .header-right {
@@ -145,6 +175,20 @@
         }
         100% {
           opacity: 1;
+        }
+    }
+    @keyframes show {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        50% {
+            opacity: 0.6;
+            transform: scale(1.1);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
         }
     }
 }

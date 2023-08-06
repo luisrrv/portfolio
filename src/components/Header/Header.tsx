@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import './Header.scss';
 import { MdOutlineDarkMode, MdSunny } from 'react-icons/md';
 // import useDarkMode from '../../hooks/useDarkMode';
@@ -20,6 +21,22 @@ interface HeaderProps {
 export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange, hideApp, showDialog }: HeaderProps) {
 
   const compClassName = isDark ? 'dark' : 'light';
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Update isScrolled state based on scroll position
+  const handleScroll = () => {
+    const scrollThreshold = window.innerHeight; // Set the threshold scroll height here
+    const scrolled = window.scrollY >= scrollThreshold;
+    setIsScrolled(scrolled);
+  };
+
+  // Add event listener on mount and remove it on unmount
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const changeMode = () => {
     handleDarkModeChange(!isDark);
@@ -39,7 +56,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
 
   return (
     <div id='header_container' className={`header_container ${compClassName} ${hideApp && 'hidden'}`}>
-      <p>L</p>
+      <div className={`header-logo ${isScrolled ? 'show' : ''}`}>LR</div>
 
       <div className="header-right">
         <div className="contact-opts-m">

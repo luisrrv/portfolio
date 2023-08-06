@@ -132,6 +132,7 @@ function App({ className, isDarkMode }: IAppProps) {
     {loading ? (
       <div className={`loader-bg ${appClassName}`}>
         <Loader isDark={isDark} />
+        <p className='loader-txt'>LR</p>
       </div>
       // <div id="load" className={`load ${appClassName}`}>
       //   <div>G</div>
