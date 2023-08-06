@@ -39,7 +39,7 @@ p {
 
 .dark {
   background-color: #25252a !important;
-  color: #f0f0f0 !important;
+  color: #f0f0f0;
 }
 
 .dark a {
