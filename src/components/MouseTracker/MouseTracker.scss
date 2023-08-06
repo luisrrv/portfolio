@@ -4,19 +4,19 @@
     align-items: center;
     position: fixed;
     background-color: transparent !important;
-    border: 1px solid #00000080 !important;
+    border: 1px solid #be3144c7 !important;
     border-radius: 50%;
     pointer-events: none;
     transition: ease-in-out;
     z-index: 9999;
     
     &.light {
-        border-color: #ffffff60 !important;
+        border-color: #be3144b8 !important;
 
         .follow-circle-small{
-            background-color: #f0f0f0d0 !important;
+            background-color: #be3144d0 !important;
             svg {
-              color: #222222;
+              color: #f0f0f0;
             }
         }
       
@@ -25,10 +25,10 @@
         background-color: transparent !important;
 
         .follow-circle-small{
-          background-color: #f0f0f0 !important;
+          background-color: #be3144 !important;
 
           svg {
-            color: #222222 !important;
+            color: #f0f0f0 !important;
           }
         }
       }
@@ -40,7 +40,7 @@
 
     .follow-circle-small {
         position: fixed;
-        background-color: #000000b0;
+        background-color: #be3144d0;
         border-radius: 50%;
         pointer-events: none;
         transition: ease-in-out;
@@ -57,11 +57,11 @@
 
       .follow-circle-small {
         position: relative;
-        background-color: #333333 !important;
+        background-color: #be3144 !important;
         transform: scale(2);
         animation: bounce 500ms ease-in;
         padding: 4px;
-        background-color: #f0f0f0;
+        // background-color: #f0f0f0;
         
         &.clicked {
           animation: none;

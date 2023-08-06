@@ -9,11 +9,13 @@ const useDarkMode = () => {
     const handleDarkModeChange = (e: MediaQueryListEvent) => {
       setIsDarkMode(e.matches);
       document.body.classList.toggle('dark', e.matches);
+      document.querySelector('html')?.classList.toggle('dark', e.matches);
     };
 
     // Check the initial system preference and set the dark mode accordingly
     setIsDarkMode(darkModeMediaQuery.matches);
     document.body.classList.toggle('dark', darkModeMediaQuery.matches);
+    document.querySelector('html')?.classList.toggle('dark', darkModeMediaQuery.matches);
 
     // Add an event listener to detect changes in system preference
     darkModeMediaQuery.addEventListener('change', handleDarkModeChange);

@@ -10,7 +10,7 @@
     align-items: center;
     padding: 8px 20px;
     padding-right: 36px;
-    background-color: #1919191c !important;
+    background-color: #e6e6e694 !important;
     backdrop-filter: blur(4px) !important;
     animation: loading ease-in 800ms;
     
@@ -19,11 +19,11 @@
     }
 
     svg {
-        color: #222222;
+        color: #25252a;
     }
     
     &.dark {
-        background-color: #2121214c !important;
+        background-color: #25252a4c !important;
         backdrop-filter: blur(4px) !important;
         button {
             color: #f0f0f0;
@@ -66,9 +66,9 @@
             gap: 16px;
 
             a {
-                color: #222222;
+                color: #25252a;
                 svg {
-                    color: #222222;
+                    color: #25252a;
 
                 }
             }
@@ -106,13 +106,21 @@
             }
         }
         .divider {
-            border-left: 1px solid #2222223f;
+            border-left: 1px solid #25252a3f;
             height: 28px;
             width: 12px;
             margin-left: 12px;
         }
         .info {
             margin-left: 12px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .toggle {
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
     @keyframes rotate-in {

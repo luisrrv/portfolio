@@ -94,6 +94,7 @@ function App({ className, isDarkMode }: IAppProps) {
   const handleDarkModeChange = (toggle: boolean) => {
     setIsDark(toggle);
     document.body.classList.toggle('dark');
+    document.querySelector('html')?.classList.toggle('dark');
   };
 
   const showDialog = () => {
@@ -109,7 +110,7 @@ function App({ className, isDarkMode }: IAppProps) {
     setTimeout(() => {
       dialog?.classList.remove('closing');
       dialog?.classList.add('close');
-    },600);
+    },300);
   }
 
   useEffect(() => {
@@ -163,7 +164,7 @@ function App({ className, isDarkMode }: IAppProps) {
         />
         <About isDark={isDark} hideApp={hideApp} />
         <Projects isDark={isDark} hideApp={hideApp} />
-        <Info isDark={isDark} hideDialog={hideDialog} />
+        <Info isDark={isDark} hideDialog={hideDialog} handleContactMouseOverChange={handleContactMouseOverChange} />
       </div>
       )}
     </>

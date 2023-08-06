@@ -5,7 +5,7 @@
     width: 100%;
     padding-bottom: 100px;
     border-radius: 8px 8px 0 0;
-    color: #222222;
+    color: #25252a;
     background-color: #e6e6e6 !important;
     animation: loading ease-in 800ms;
 
@@ -15,7 +15,7 @@
 
     &.dark {
         color: #e6e6e6;
-        background-color: #222222 !important;
+        background-color: #25252a !important;
 
         h3 {
             color: #333333;
@@ -32,7 +32,7 @@
         text-transform: uppercase;
         font-weight: bold;
         color: #f0f0f0;
-        -webkit-text-stroke: 1px #222222;
+        -webkit-text-stroke: 1px #25252a;
     }
     .projects {
         margin: 0 auto;

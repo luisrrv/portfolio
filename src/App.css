@@ -2,10 +2,11 @@
   text-align: center;
   height: 100%;
   animation: loading ease-in 800ms;
+  background-color: #e6e6e6;
 }
 
 .dark {
-  background-color: #222;
+  background-color: #25252a;
   color: #f0f0f0;
 }
 
@@ -21,7 +22,7 @@
   animation: loading ease-in 700ms;
 }
 .loader-bg.dark {
-  background-color: #222222;
+  background-color: #25252a;
 }
 
 /* #load {

@@ -12,7 +12,7 @@
     top: 0;
     left: 0;
     padding: 20px 100px;
-    color: #222222;
+    color: #25252a;
     animation: loading ease-in 800ms;
 
     background-color: #e6e6e6;
@@ -86,20 +86,24 @@
                     font-weight: bold;
                     white-space: initial;
                     word-wrap: break-word;
-                    -webkit-text-stroke: 1px #222222;
+                    -webkit-text-stroke: 1.5px #25252a;
                     // text-shadow: -1px 0 #f0f0f0, 0 1px #f0f0f0, 1px 0 #f0f0f0, 0 -1px #f0f0f0;
                     // font-family: 'VT323', monospace;
                     span {
                         line-height: 8px;
                         font-size: 12px;
-                        color: #222222;
+                        color: #25252a;
                         font-weight: 400;
                         -webkit-text-stroke: 0px;
+                    }
+
+                    &.highlight-s {
+                        -webkit-text-stroke: 1.5px #e22941 !important;
                     }
                 }
                 &.small {
                     font-size: 12px;
-                    color: #222222;
+                    color: #25252a;
                     padding: 4px 0;
 
                     &.hello {
@@ -117,7 +121,7 @@
         .divider {
             width: 314px;
             height: 8px;
-            border-top: 0.5px solid #222222;
+            border-top: 0.5px solid #25252a;
             margin-top: 10px;
             margin-bottom: 16px;
             z-index: 1;
@@ -150,10 +154,14 @@
         .special {
             p {
                 &.big {
-                    color: #222222 !important;
-                    -webkit-text-stroke: 1px #f0f0f0;
+                    color: #25252a !important;
+                    -webkit-text-stroke: 1.5px #f0f0f0;
                     span {
                         color: #f0f0f0;
+                    }
+
+                    &.highlight-s {
+                        -webkit-text-stroke: 1.5px #be3144 !important;
                     }
                 }
                 &.small {
@@ -173,7 +181,7 @@
             }
 
         }
-        // background-color: #222222;
+        // background-color: #25252a;
         // opacity: 1;
         // background-image:  radial-gradient(#797979 0.6000000000000001px, transparent 0.6000000000000001px), radial-gradient(#797979 0.6000000000000001px, #222222 0.6000000000000001px);
         // background-size: 24px 24px;

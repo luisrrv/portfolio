@@ -45,8 +45,8 @@ export default function About({ isDark, hideApp }: AboutProps) {
         <div className="special">
           <p className="small hello">HELLO, I'M</p>
           {/* <div className='name-img'></div> */}
-          <p className="big">LUIS</p>
-          <p className="big">RODRIGUEZ</p>
+          <p className="big highlight-s">LUIS</p>
+          <p className="big highlight-s">RODRIGUEZ</p>
           <p className="small name">LUIS RODRIGUEZ</p>
         </div>
         <div className="divider"></div>

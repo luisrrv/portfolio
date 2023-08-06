@@ -1,8 +1,9 @@
-$backgroundLight: #dddfff;
-$backgroundDark: #252638;
-$leftFace: #2931d9;
-$rightFace: #2931d9;
-$topFace: #2931d9;
+$backgroundLight: #e6e6e6;
+$backgroundDark: #25252a;
+$leftFace: #be3144;
+$rightFace: #be3144;
+$topFace: #be3144;
+$lighterRed: #e22941;
 $scale: 1;
 $duration: 2.7s;
 $timingFunction: ease;
@@ -11,7 +12,8 @@ $timingFunction: ease;
     .right,
     .left,
     .top {
-        background: $backgroundDark
+        background: $backgroundDark;
+        border: 1.5px solid $rightFace;
     }
 }
 
@@ -31,19 +33,19 @@ $timingFunction: ease;
 
 .right {
   background: $backgroundLight;
-  border: 1.5px solid $rightFace;
+  border: 1.5px solid $lighterRed;
   transform: rotate(-30deg) skewX(-30deg) translate(49px, 65px) scaleY(0.86);
 }
 
 .left {
   background: $backgroundLight;
-  border: 1.5px solid $leftFace;
+  border: 1.5px solid $lighterRed;
   transform: rotate(90deg) skewX(-30deg) scaleY(0.86) translate(25px, -50px);
 }
 
 .top {
   background: $backgroundLight;
-  border: 1.5px solid $topFace;
+  border: 1.5px solid $lighterRed;
   transform: rotate(210deg) skew(-30deg) translate(-75px, -22px) scaleY(0.86);
   z-index:2;
 }
