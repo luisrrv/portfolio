@@ -89,8 +89,9 @@ export default function ProjectCard({
         <div className='project-pics'>
           {
               pics.length > 0 ? (
-                  pics.map((pic) => (
+                  pics.map((pic,index) => (
                       <img
+                      key={index}
                         className='pic' 
                         src={pic} 
                         alt=""

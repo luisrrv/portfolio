@@ -248,3 +248,22 @@
         }
     }
 }
+@media (min-height:800px) and (min-width: 600px) {
+    #about_container {
+        .content {
+            justify-content: center;
+            margin-bottom: 80px;
+            .special {
+                height: 640px;
+                width: 465px;
+                .big {
+                    font-size: 180px !important;
+                    line-height: 148px !important;
+                }
+            }
+            .divider {
+                width: 465px;
+            }
+        }
+    }
+}

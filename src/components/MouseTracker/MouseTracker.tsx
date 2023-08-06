@@ -122,23 +122,27 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
 
   return (
     <>
-      <div
-        ref={circleRef}
-        onClick={handleClick}
-        className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''}`}
-        style={{
-          left: position.x - size / 2,
-          top: position.y - size / 2,
-        }}
-      >
+      {(window.matchMedia("(any-hover: none)").matches) ? (
+        <div></div>
+      ) : (
         <div
-          ref={circleRefSmall}
-          className={`follow-circle-small ${isClicked ? 'clicked' : ''}`}
-          >
-          {contactMS && (<BiSolidMessageRoundedDetail size={6} />)}
-          {contactOptsMS && (<BiLinkExternal size={6} />)}
+          ref={circleRef}
+          onClick={handleClick}
+          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''}`}
+          style={{
+            left: position.x - size / 2,
+            top: position.y - size / 2,
+          }}
+        >
+          <div
+            ref={circleRefSmall}
+            className={`follow-circle-small ${isClicked ? 'clicked' : ''}`}
+            >
+            {contactMS && (<BiSolidMessageRoundedDetail size={6} />)}
+            {contactOptsMS && (<BiLinkExternal size={6} />)}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
