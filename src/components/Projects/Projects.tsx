@@ -17,7 +17,7 @@ export default function App ({className, isDark, hideApp}: ProjectsProps) {
     const compClassName = isDark ? 'dark' : 'light';
 
     return (
-        <div id='projects_container' className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`}>
+        <div id='projects_container' className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`} /*style={{marginTop:`${window.innerHeight}px`}}*/>
             <h3>Some of my work</h3>
             <div className="projects">
             {

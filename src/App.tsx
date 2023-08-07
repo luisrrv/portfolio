@@ -29,21 +29,12 @@ function App({ className, isDarkMode }: IAppProps) {
     setTimeout(() => {
       setHideApp(false);
       setLoading(false);
-      // setTimeout(() => {
-      // },200);
-
     }, 2700);
   },[]);
   
   useEffect(() => {
     setIsDark(darkMode);
   },[darkMode]);
-
-  // useEffect(() => {
-  //   console.log('loading',loading);
-  //   console.log('hideApp',hideApp);
-  // },[loading, hideApp]);
-
   
   const checkElements = (element: string, type: string, maxAttempts = 10, interval = 100) => {
     let attempts = 0;
@@ -51,8 +42,6 @@ function App({ className, isDarkMode }: IAppProps) {
       let el = document.querySelector(`.${element}-opts`) as HTMLElement | null;
       if (el) {
         setTimeout(() => {
-          // console.log(element);
-          // console.log(type);
           if (type === 'show') {
             setTimeout(()=> {
               el && el.classList.remove('out');
@@ -117,32 +106,13 @@ function App({ className, isDarkMode }: IAppProps) {
     showContact && checkElements('contact', 'show');
   },[showContact]);
 
-  // useEffect(()=> {
-  //   console.log ('isDark:', isDark);
-  // }, [isDark]);
-
   return (
     <>
-    {/* <div className={`loading ${appClassName}`}> */}
-      {/* <p>loading</p> */}
-      {/* <div className="loading-bar"> */}
-        {/* <div className={`fill ${loading ? '' : 'full' }`}></div> */}
-      {/* </div> */}
-    {/* </div> */}
     {loading ? (
       <div className={`loader-bg ${appClassName}`}>
         <Loader isDark={isDark} />
-        <p className='loader-txt'>LR</p>
+        {/* <p className='loader-txt'>LR</p> */}
       </div>
-      // <div id="load" className={`load ${appClassName}`}>
-      //   <div>G</div>
-      //   <div>N</div>
-      //   <div>I</div>
-      //   <div>D</div>
-      //   <div>A</div>
-      //   <div>O</div>
-      //   <div>L</div>
-      // </div>
       ) : (
       <div id='App' className={`App ${appClassName}`}>
         <MouseTracker 
