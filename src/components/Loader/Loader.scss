@@ -35,7 +35,7 @@ $timingFunction: ease;
     left: 50%;
     transform: translate(-50%,-50%);
     color: #dfb5bb;
-    font-size: 128px;
+    font-size: 108px;
     margin-top: 40px;
     font-weight: bold;
     -webkit-text-stroke: 1px #e22941 !important;
@@ -131,9 +131,11 @@ $timingFunction: ease;
 @keyframes loadertxt {
     0% {
       opacity: 0;
+      font-size: 128px;
     }
-    30% {
-      opacity: 0;
+    50% {
+      opacity: 1;
+      font-size: 108px;
     }
     100% {
       opacity: 1;
