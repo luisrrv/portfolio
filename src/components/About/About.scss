@@ -1,3 +1,9 @@
+$lightRed: #e22941;
+$darkRed: #be3144;
+// $darkerRed: #7e1928;
+$darkerRed: #3e1017;
+$lighterRed: #dfb5bb;
+
 #about_container {
     position: relative;
     display: flex;
@@ -68,8 +74,9 @@
                 height: fit-content;
                 line-height: 18px;
 
-                &.big {
-                    color: #dfb5bb;
+                &.big span.letter{
+                    // color: #dfb5bb;
+                    color: $lighterRed;
                     text-align: left;
                     font-size: 120px;
                     line-height: 100px;
@@ -86,7 +93,17 @@
                     }
 
                     &.highlight-s {
-                        -webkit-text-stroke: 1.5px #e22941 !important;
+                        -webkit-text-stroke: 1.5px $lightRed !important;
+                        animation: BlurAnimation 1s ease-in;
+                    }
+                    &.blur-in {
+                        animation: BlurAnimation 1s ease-in;
+                    }
+                    &.blur-out {
+                        opacity: 0;
+                        filter: blur(72px);
+                        transition: 1s;
+                        // animation: BluroutAnimation 1s ease-out;
                     }
                 }
                 &.small {
@@ -138,15 +155,25 @@
         color: #FFFFFF;
         .special {
             p {
-                &.big {
-                    color: #3E1017 !important;
+                &.big span.letter{
+                    color: $darkerRed !important;
                     -webkit-text-stroke: 1.5px #f0f0f0;
                     span {
                         color: #f0f0f0;
                     }
-
+                    
                     &.highlight-s {
-                        -webkit-text-stroke: 1.5px #be3144 !important;
+                        -webkit-text-stroke: 1.5px $lightRed !important;
+                        animation: BlurAnimation 1s ease-in;
+                    }
+                    &.blur-in {
+                        animation: BlurAnimation 1s ease-in;
+                    }
+                    &.blur-out {
+                        opacity: 0;
+                        filter: blur(72px);
+                        transition: 1s;
+                        // animation: BluroutAnimation 1s ease-in;
                     }
                 }
                 &.small {
@@ -179,7 +206,42 @@
           opacity: 1;
         }
     }
-
+    @keyframes BlurAnimation {
+        0% {
+            opacity: 0;
+            filter: blur(70px);
+        }
+        50% {
+            opacity: 1;
+            filter: blur(10px);
+        }
+        100% {
+            opacity: 1;
+            filter: none;
+        }
+    }
+    @keyframes BlurOutAnimation {
+        0% {
+            opacity: 1;
+            filter: none;
+        }
+        50% {
+            opacity: 1;
+            filter: blur(10px);
+        }
+        100% {
+            opacity: 0;
+            filter: blur(70px);
+        }
+    }
+    // @keyframes fillAnimationDark {
+    //     0% {
+    //       color: transparent; /* Start with transparent color */
+    //     }
+    //     100% {
+    //       color: $darkerRed; /* End with desired color */
+    //     }
+    // }
     
 }
 
@@ -223,6 +285,19 @@
             }
             .divider {
                 width: 465px;
+            }
+        }
+    }
+    @media (any-hover: none) {
+        span.letter {
+            &.blur-in {
+                animation: none !important;
+            }
+            &.blur-out {
+                opacity: 1 !important;
+                filter: none !important;
+                transition: none !important;
+                animation: none !important;
             }
         }
     }

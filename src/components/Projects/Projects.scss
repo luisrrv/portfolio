@@ -1,6 +1,12 @@
+$lightRed: #e22941;
+$darkRed: #be3144;
+$darkerRed: #7e1928;
+// $darkerRed: #3e1017;
+$lighterRed: #dfb5bb;
+
 #projects_container {
     position: relative;
-    // margin-top: 100vh;
+    margin-top: 100vh;
     height: fit-content;
     width: 100%;
     padding-bottom: 100px;
@@ -18,8 +24,8 @@
         background-color: #25252a !important;
 
         h3 {
-            color: #333333;
-            -webkit-text-stroke: 1px #f0f0f0;
+            color: $darkerRed;
+            -webkit-text-stroke: 1px $lightRed;
         }
     }
     
@@ -31,8 +37,8 @@
         font-weight: 300;
         text-transform: uppercase;
         font-weight: bold;
-        color: #f0f0f0;
-        -webkit-text-stroke: 1px #25252a;
+        color: $lighterRed;
+        -webkit-text-stroke: 1px $lightRed;
     }
     .projects {
         margin: 0 auto;
