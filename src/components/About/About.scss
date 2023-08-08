@@ -12,12 +12,13 @@ $lighterRed: #dfb5bb;
     align-items: center;
     margin-top: 64px;
     height: 100%;
-    width: 100%;
+    width: 1100px;
     overflow: hidden;
     position: fixed;
     top: 0;
-    left: 0;
-    padding: 20px 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 0;
     color: #25252a;
     background-color: #e6e6e6;
     animation: loading ease-in 800ms;
@@ -27,7 +28,7 @@ $lighterRed: #dfb5bb;
     }
 
     .content {
-        margin: 0 auto;
+        margin: 0;
         width: 100%;
         max-width: 1100px;
         display: flex;
@@ -59,6 +60,7 @@ $lighterRed: #dfb5bb;
             z-index: 1;
             height: 432px;
             width: 314px;
+            width: 100%;
 
             // .name-img {
             //     background-image: url(../../assets/images/name_w.png);
@@ -75,16 +77,26 @@ $lighterRed: #dfb5bb;
                 line-height: 18px;
                 &.big.first {
                     display: grid;
-                    grid-template-columns: 1fr 1fr 1fr 1fr; 
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
                     span.letter {
                         width: 78px !important;
+
+                        &.faded {
+                            opacity: 0.15;
+                            color: transparent !important;
+                        }
                     }
                 }
                 &.big.last {
                     display: grid;
-                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;;
                     span.letter {
                         width: 100px !important;
+
+                        &.faded {
+                            opacity: 0.15;
+                            color: transparent !important;
+                        }
                     }
                 }
 
@@ -125,21 +137,24 @@ $lighterRed: #dfb5bb;
                     font-size: 12px;
                     color: #25252a;
                     padding: 4px 0;
+                    text-align: center;
+                    letter-spacing: 4px;
 
-                    &.hello {
-                        text-align: start;
-                        padding-left: 12px;
-                    }
-                    &.name {
-                        text-align: end;
-                        padding-right: 12px;
-                    }
+                    // &.hello {
+                        // text-align: start;
+                        // padding-left: 12px;
+                    // }
+                    // &.name {
+                        // text-align: end;
+                        // padding-right: 12px;
+                    // }
                 }
             }
         }
 
         .divider {
-            width: 314px;
+            width: 90%;
+            max-width: 314px;
             height: 8px;
             border-top: 0.5px solid #25252a;
             margin-top: 10px;
@@ -155,6 +170,8 @@ $lighterRed: #dfb5bb;
             height: fit-content;
             gap: 30px;
             margin-bottom: 40px;
+            width: 90%;
+            max-width: 314px;
             z-index: 1;
             p {
                 height: fit-content;

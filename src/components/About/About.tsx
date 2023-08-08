@@ -55,21 +55,49 @@ export default function About({ isDark, hideApp }: AboutProps) {
           <p className="small hello">HELLO, I'M</p>
           {/* <div className='name-img'></div> */}
           <p className={`big first`}>
+            <span className='letter faded'>L</span>
+            <span className='letter faded'>U</span>
+            <span className='letter faded'>I</span>
+            <span className='letter faded'>S</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>L</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>S</span>
+            <span className='letter faded'>L</span>
+            <span className='letter faded'>U</span>
+            <span className='letter faded'>I</span>
+            <span className='letter faded'>S</span>
             </p>
           <p className={`big last`}>
+            <span className='letter faded'>U</span>
+            <span className='letter faded'>E</span>
+            <span className='letter faded'>Z</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>D</span>
+            <span className='letter faded'>R</span>
+            <span className='letter faded'>I</span>
+            <span className='letter faded'>G</span>
+
+            <span className='letter faded'>R</span>
+            <span className='letter faded'>O</span>
+            <span className='letter faded'>D</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>G</span>
+            <span className='letter faded'>U</span>
+            <span className='letter faded'>E</span>
+            <span className='letter faded'>Z</span>
+
+            <span className='letter faded'>R</span>
+            <span className='letter faded'>I</span>
+            <span className='letter faded'>G</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>E</span>
             <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>Z</span>
+            <span className='letter faded'>R</span>
+            <span className='letter faded'>O</span>
+            <span className='letter faded'>D</span>
             </p>
           <p className="small name">LUIS RODRIGUEZ</p>
         </div>
