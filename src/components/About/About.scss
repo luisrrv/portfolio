@@ -73,9 +73,24 @@ $lighterRed: #dfb5bb;
                 width: 100%;
                 height: fit-content;
                 line-height: 18px;
+                &.big.first {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr; 
+                    span.letter {
+                        width: 78px !important;
+                    }
+                }
+                &.big.last {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    span.letter {
+                        width: 100px !important;
+                    }
+                }
 
                 &.big span.letter{
                     // color: #dfb5bb;
+                    text-align: center !important;
                     color: $lighterRed;
                     text-align: left;
                     font-size: 120px;
