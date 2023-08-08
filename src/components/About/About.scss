@@ -96,6 +96,7 @@ $lighterRed: #dfb5bb;
                         &.faded {
                             opacity: 0.15;
                             color: transparent !important;
+                            animation: faded 1s ease-in;
                         }
                     }
                 }
@@ -266,6 +267,15 @@ $lighterRed: #dfb5bb;
             filter: blur(70px);
         }
     }
+    @keyframes faded {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0.15;
+        }
+    }
+
     // @keyframes fillAnimationDark {
     //     0% {
     //       color: transparent; /* Start with transparent color */
