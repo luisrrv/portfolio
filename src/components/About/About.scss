@@ -284,21 +284,21 @@ $lighterRed: #dfb5bb;
 }
 @media (max-height:630px) {
     #about_container {
-        position: initial;
-        padding-top: 4px;
-        height: fit-content;
+        // position: initial;
+        // padding-top: 4px;
+        // height: fit-content;
         .content {
-            opacity: 1 !important;
-            height: fit-content;
+            // opacity: 1 !important;
+            // height: fit-content;
         }
     }
 }
 @media (max-height:667px) {
     #about_container {
-        padding-top: 4px;
+        // padding-top: 4px;
         // position: absolute;
         .content {
-            margin-top: 0;
+            // margin-top: 0;
         }
     }
 }
@@ -309,7 +309,7 @@ $lighterRed: #dfb5bb;
             margin-bottom: 80px;
             .special {
                 height: 640px;
-                width: 465px;
+                // width: 465px;
                 .big {
                     font-size: 180px !important;
                     line-height: 148px !important;

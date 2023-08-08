@@ -28,7 +28,7 @@ export default function About({ isDark, hideApp }: AboutProps) {
 
   // Calculate the opacity based on the scroll position
   const calculateOpacity = () => {
-    const maxScroll = window.innerHeight * 0.5; // Adjust the value as needed for the fade-out distance
+    const maxScroll = window.innerHeight * 1.5; // Adjust the value as needed for the fade-out distance
     const opacity = 1 - scrollPosition / maxScroll;
     return opacity < 0 ? 0 : opacity; // Make sure opacity doesn't go below 0
   };
