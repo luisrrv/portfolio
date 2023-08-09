@@ -26,6 +26,49 @@ export default function About({ isDark, hideApp }: AboutProps) {
     };
   }, []);
 
+  useEffect(() => {
+    const flipLetters = () => {
+      const letters = document.querySelectorAll("span.letter.highlight-s:not(.flip)");
+      if (letters.length >= 3) {
+        const randomIndex = () => Math.floor(Math.random() * letters.length);
+
+        const randomLetterIndexes = new Set<number>();
+
+        while (randomLetterIndexes.size < 3) {
+          randomLetterIndexes.add(randomIndex());
+        }
+
+        const randomLetters = Array.from(randomLetterIndexes).map(index => letters[index] as HTMLElement);
+
+        randomLetters[0].classList.add('flip');
+        setTimeout(() => {
+          randomLetters[0].classList.remove('flip');
+        }, 1800);
+
+        setTimeout(()=> {
+          randomLetters[1].classList.add('flip');
+          setTimeout(() => {
+            randomLetters[1].classList.remove('flip');
+          }, 1800);
+        },500)
+        
+        setTimeout(()=> {
+          randomLetters[2].classList.add('flip');
+          setTimeout(() => {
+            randomLetters[2].classList.remove('flip');
+          }, 1800);
+        },1000)
+      }
+    };
+
+    const intervalId = setInterval(flipLetters, 2000); // Run flipLetters every 3 seconds
+
+    return () => {
+      clearInterval(intervalId); // Clean up the interval on unmount
+    };
+  }, []);
+
+
   // Calculate the opacity based on the scroll position
   const calculateOpacity = () => {
     const maxScroll = window.innerHeight * 1.2; // Adjust the value as needed for the fade-out distance
@@ -39,12 +82,20 @@ export default function About({ isDark, hideApp }: AboutProps) {
   };
 
   const HandleBlurIn = (e:any) => {
-    e.target.classList.remove('blur-out');
+    if(e) return;
+    if (e.target.classList.contains('blur-in')) return;
     e.target.classList.add('blur-in');
+    setTimeout(()=>{
+      e.target.classList.remove('blur-in');
+    },1000)
   }
   const HandleBlurOut = (e:any) => {
-    e.target.classList.remove('blur-in');
+    if(e) return;
+    if (e.target.classList.contains('blur-out')) return;
     e.target.classList.add('blur-out');
+    setTimeout(()=>{
+      e.target.classList.remove('blur-out');
+    },1000)
   }
 
   return (
@@ -59,10 +110,10 @@ export default function About({ isDark, hideApp }: AboutProps) {
             <span className='letter faded'>U</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>S</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>L</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>S</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>L</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>S</span>
             <span className='letter faded'>L</span>
             <span className='letter faded'>U</span>
             <span className='letter faded'>I</span>
@@ -72,9 +123,9 @@ export default function About({ isDark, hideApp }: AboutProps) {
             <span className='letter faded'>U</span>
             <span className='letter faded'>E</span>
             <span className='letter faded'>Z</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>D</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>D</span>
             <span className='letter faded'>R</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>G</span>
@@ -82,9 +133,9 @@ export default function About({ isDark, hideApp }: AboutProps) {
             <span className='letter faded'>R</span>
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>G</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>G</span>
             <span className='letter faded'>U</span>
             <span className='letter faded'>E</span>
             <span className='letter faded'>Z</span>
@@ -92,9 +143,9 @@ export default function About({ isDark, hideApp }: AboutProps) {
             <span className='letter faded'>R</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>G</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>E</span>
-            <span className={`letter highlight-s `} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>Z</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>E</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>Z</span>
             <span className='letter faded'>R</span>
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
