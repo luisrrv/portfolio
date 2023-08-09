@@ -83,9 +83,15 @@ export default function ProjectCard({
 
   return (
     <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`} /*style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}*/ >
+      <div className="card-cover">
+        <p>{title}</p>
+        <div className={`stack`}>
+                {setIcons().map((icon) => icon)}
+        </div>
+      </div>
 
-      <div className="card-left">
-        <h4>{title}</h4>
+      <h4 className='project-title'>{title}</h4>
+      <div className="content">
         <div className='project-pics'>
           {
               pics.length > 0 ? (
@@ -100,17 +106,17 @@ export default function ProjectCard({
               ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
           }
         </div>
-      </div>
 
-      <div className="card-right">
-        <p>{description}</p>
-        <div>
-          <div className={`stack`}>
-              {setIcons().map((icon) => icon)}
-          </div>
-          <div className={`cta`}>
-              <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href={live} target="_blank" rel="noopener noreferrer">Check it out</a>
+        <div className="project-info">
+          <p>{description}</p>
+          <div>
+            <div className={`stack`}>
+                {setIcons().map((icon) => icon)}
+            </div>
+            <div className={`cta`}>
+                <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href={live} target="_blank" rel="noopener noreferrer">Check it out</a>
+            </div>
           </div>
         </div>
       </div>

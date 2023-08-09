@@ -24,8 +24,8 @@ $lighterRed: #dfb5bb;
         background-color: #25252a !important;
 
         h3 {
-            color: $darkerRed;
-            -webkit-text-stroke: 1px $lightRed;
+            color: #25252a;
+            -webkit-text-stroke: 1px #e6e6e6;
         }
     }
     
@@ -33,17 +33,17 @@ $lighterRed: #dfb5bb;
         height: fit-content;
         padding: 16px;
         padding-top: 40px;
-        font-size: 28px;
+        font-size: 20px;
         font-weight: 300;
         text-transform: uppercase;
         font-weight: bold;
-        color: $lighterRed;
-        -webkit-text-stroke: 1px $lightRed;
+        color: #e6e6e6;
+        -webkit-text-stroke: 1px #222;
     }
     .projects {
         margin: 0 auto;
         min-height: 600px;
-        width: 80%;
+        width: 90%;
         max-width: 1200px;
         // border: 1px solid #DDD;
         // border-radius: 8px;
