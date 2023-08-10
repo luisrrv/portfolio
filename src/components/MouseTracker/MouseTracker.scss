@@ -21,7 +21,10 @@
         }
       
       &.contact,
-      &.external  {
+      &.project,
+      &.github,
+      &.web,
+      &.external {
         background-color: transparent !important;
 
         .follow-circle-small{
@@ -52,6 +55,7 @@
     }
 
     &.contact,
+    &.project,
     &.external { 
       transition: 200ms;
 
@@ -60,6 +64,30 @@
         background-color: #be3144 !important;
         transform: scale(2);
         animation: bounce 500ms ease-in;
+        padding: 4px;
+        // background-color: #f0f0f0;
+        
+        &.clicked {
+          animation: none;
+        }
+        
+        svg {
+          color: #f0f0f0 !important;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+    }
+
+    &.github,
+    &.web {
+      .follow-circle-small {
+        position: relative;
+        background-color: #be3144 !important;
+        transform: scale(2);
+        animation: bounce2 500ms ease-in;
         padding: 4px;
         // background-color: #f0f0f0;
         
@@ -113,6 +141,23 @@
 }
 
 @keyframes bounce {
+  0% {
+    transform: scale(2);
+  }
+  25% {
+    transform: scale(2.8);
+  }
+  50% {
+    transform: scale(2);
+  }
+  75% {
+    transform: scale(2.4);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+@keyframes bounce2 {
   0% {
     transform: scale(2);
   }

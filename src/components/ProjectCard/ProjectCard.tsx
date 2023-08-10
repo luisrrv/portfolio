@@ -29,6 +29,7 @@ interface ProjectCardProps {
   pics: string[];
   isDark: boolean; // Add isDark prop to the interface
   hideApp: boolean; // Add hideApp prop to the interface
+  handleContactMouseOverChange: (isMouseOver: boolean, element: string) => void;
 }
 
 export default function ProjectCard({
@@ -41,7 +42,8 @@ export default function ProjectCard({
   pics,
   isDark,
   hideApp,
-}: ProjectCardProps) {
+  handleContactMouseOverChange,
+  }: ProjectCardProps) {
 
     const setIcons = () => {
         let stackIcons = stack && stack.map((t,index) => {
@@ -116,9 +118,21 @@ export default function ProjectCard({
       }
     }
 
+    const handleMouseTrackerEnter = (element: string): React.MouseEventHandler<HTMLElement> => () => {
+      setTimeout(() => {
+        handleContactMouseOverChange(true, element);
+      }, 200);
+    };
+    
+    const handleMouseTrackerLeave = (element: string): React.MouseEventHandler<HTMLElement> => () => {
+      setTimeout(() => {
+        handleContactMouseOverChange(false, element);
+      }, 200);
+    };
+
   return (
-    <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`} /*style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}*/ >
-      <div className={`card-cover`}>
+    <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`} onMouseEnter={handleMouseTrackerEnter('project')} onMouseLeave={handleMouseTrackerLeave('project')}>
+      <div className={`card-cover`} style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}>
         {/* {cardSelected ? (
           <>
             <h4 className='project-title'>{title}</h4>
@@ -154,10 +168,11 @@ export default function ProjectCard({
           </>
         ):(
           <> */}
-            <p>{title}</p>
-            <div className={`stack`}>
+            <p>{title}
+            <span className={`stack`}>
                     {setIcons().map((icon) => icon)}
-            </div>
+            </span>
+            </p>
           {/* </>
         )} */}
       </div>
@@ -189,8 +204,8 @@ export default function ProjectCard({
                   {setIcons().map((icon) => icon)}
               </div>
               <div className={`cta`}>
-                  <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                  <a href={live} target="_blank" rel="noopener noreferrer">Check it out</a>
+                  <a href={github} target="_blank" rel="noopener noreferrer" onMouseEnter={handleMouseTrackerEnter('github')} onMouseLeave={handleMouseTrackerLeave('github')}>GitHub</a>
+                  <a href={live} target="_blank" rel="noopener noreferrer" onMouseEnter={handleMouseTrackerEnter('web')} onMouseLeave={handleMouseTrackerLeave('web')}>Check it out</a>
               </div>
             </div>
           </div>

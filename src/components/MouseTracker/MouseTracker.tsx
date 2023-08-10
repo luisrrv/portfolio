@@ -2,18 +2,23 @@ import React, { useEffect, useState, useRef } from 'react';
 import './MouseTracker.scss';
 // import useDarkMode from '../../hooks/useDarkMode';
 
-import {BiSolidMessageRoundedDetail, BiLinkExternal } from 'react-icons/bi'
+import {BiSolidMessageRoundedDetail, BiLinkExternal, BiSolidBriefcaseAlt  } from 'react-icons/bi'
+import {PiBracketsCurlyBold } from 'react-icons/pi'
+import {MdWeb } from 'react-icons/md'
 
 interface FollowCircleProps {
   size: number;
   sizeSmall: number;
   contactMS: boolean;
   contactOptsMS: boolean;
+  projectMS: boolean;
+  githubMS: boolean;
+  webMS: boolean;
   isDark: boolean;
   handleDarkModeChange: (toggle: boolean) => void;
 }
 
-const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS, isDark, handleDarkModeChange}) => {
+const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS, projectMS, githubMS, webMS, isDark, handleDarkModeChange}) => {
   // const isDarkMode = useDarkMode();
   const appClassName = isDark ? 'light' : 'dark';
   const circleRef = useRef<HTMLDivElement | null>(null);
@@ -122,13 +127,13 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
 
   return (
     <>
-      {(window.matchMedia("(any-hover: none)").matches) ? (
+      {/* {(window.matchMedia("(any-hover: none)").matches) ? (
         <div></div>
-      ) : (
+      ) : ( */}
         <div
           ref={circleRef}
           onClick={handleClick}
-          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''}`}
+          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''} ${(projectMS && !githubMS && !webMS) ? 'project' : (projectMS && githubMS) ? 'github' : (projectMS && webMS) ? 'web' : ''}`}
           style={{
             left: position.x - size / 2,
             top: position.y - size / 2,
@@ -140,9 +145,12 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
             >
             {contactMS && (<BiSolidMessageRoundedDetail size={6} />)}
             {contactOptsMS && (<BiLinkExternal size={6} />)}
+            {projectMS && !githubMS && !webMS && (<BiSolidBriefcaseAlt size={6} />)}
+            {githubMS && (<PiBracketsCurlyBold size={6} />)}
+            {webMS && (<MdWeb size={6} />)}
           </div>
         </div>
-      )}
+      {/* )} */}
     </>
   );
 };

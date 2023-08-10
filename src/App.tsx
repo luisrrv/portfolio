@@ -23,6 +23,9 @@ function App({ className, isDarkMode }: IAppProps) {
   const [hideApp, setHideApp] = useState(true);
   const [showContact, setShowContact] = useState(false);
   const [contactMS, setContactMS] = useState(false);
+  const [projectMS, setProjectMS] = useState(false);
+  const [githubMS, setGithubMS] = useState(false);
+  const [webMS, setWebMS] = useState(false);
   const [contactOptsMS, setContactOptsMS] = useState(false);
 
   useEffect(() => {
@@ -78,6 +81,9 @@ function App({ className, isDarkMode }: IAppProps) {
   const handleContactMouseOverChange = (isMouseOver: boolean, element: string) => {
     if (element==='btn') setContactMS(isMouseOver);
     else if (element==='content') setContactOptsMS(isMouseOver);
+    else if (element==='project') setProjectMS(isMouseOver);
+    else if (element==='github') setGithubMS(isMouseOver);
+    else if (element==='web') setWebMS(isMouseOver);
   };
 
   const handleDarkModeChange = (toggle: boolean) => {
@@ -120,6 +126,9 @@ function App({ className, isDarkMode }: IAppProps) {
           sizeSmall={8} 
           contactMS={contactMS}
           contactOptsMS={contactOptsMS}
+          projectMS={projectMS}
+          githubMS={githubMS}
+          webMS={webMS}
           isDark={isDark}
           handleDarkModeChange={handleDarkModeChange}
           
@@ -134,7 +143,9 @@ function App({ className, isDarkMode }: IAppProps) {
           showDialog={showDialog}
         />
         <About isDark={isDark} hideApp={hideApp} />
-        <Projects isDark={isDark} hideApp={hideApp} />
+        <Projects isDark={isDark} hideApp={hideApp} 
+          handleContactMouseOverChange={handleContactMouseOverChange}
+        />
         <Info isDark={isDark} hideDialog={hideDialog} handleContactMouseOverChange={handleContactMouseOverChange} />
       </div>
       )}

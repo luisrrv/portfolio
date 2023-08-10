@@ -26,6 +26,11 @@ $lighterRed: #dfb5bb;
         h3 {
             color: #25252a;
             -webkit-text-stroke: 1px #e6e6e6;
+
+            span {
+                color: #e6e6e6;
+                -webkit-text-stroke: unset;
+            }
         }
     }
     
@@ -39,12 +44,23 @@ $lighterRed: #dfb5bb;
         font-weight: bold;
         color: #e6e6e6;
         -webkit-text-stroke: 1px #222;
+        
+        span {
+            display: none;
+            text-transform: lowercase;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #222;
+            padding-top: 4px;
+            -webkit-text-stroke: unset;
+        }
     }
     .projects {
         margin: 0 auto;
         min-height: 600px;
         width: 90%;
-        max-width: 1200px;
+        max-width: 900px;
         // border: 1px solid #DDD;
         // border-radius: 8px;
         z-index: 8;
@@ -63,5 +79,14 @@ $lighterRed: #dfb5bb;
     #projects_container {
         margin-top: 20px;
     }
+}
+
+@media (pointer: coarse) {
+    #projects_container {
+        h3 span {
+            display: block;
+        }
+    }
+
 }
 

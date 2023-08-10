@@ -9,16 +9,17 @@ interface ProjectsProps extends IAppProps {
   // Add any other specific props for the Projects component if needed
   isDark: boolean;
   hideApp: boolean;
+  handleContactMouseOverChange: (isMouseOver: boolean, element: string) => void;
 }
 
-export default function App ({className, isDark, hideApp}: ProjectsProps) {
+export default function App ({className, isDark, hideApp, handleContactMouseOverChange}: ProjectsProps) {
     const projectsData: ProjectProps[] = ProjectsData();
     // const isDarkMode = useDarkMode();
     const compClassName = isDark ? 'dark' : 'light';
 
     return (
         <div id='projects_container' className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`} /*style={{marginTop:`${window.innerHeight}px`}}*/>
-            <h3>Some of my work</h3>
+            <h3>Some of my work<br></br><span>click project for details</span></h3>
             <div className="projects">
             {
                 projectsData.map((project,index) => (
@@ -33,6 +34,7 @@ export default function App ({className, isDark, hideApp}: ProjectsProps) {
                     isDark={isDark}
                     hideApp={hideApp}
                     pics={project.pics}
+                    handleContactMouseOverChange={handleContactMouseOverChange}
 
                     />
                 ))
