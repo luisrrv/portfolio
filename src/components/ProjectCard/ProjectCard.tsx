@@ -82,51 +82,37 @@ export default function ProjectCard({
     const compClassName = isDark ? 'dark' : 'light';
 
     const handleMouseEnter = (e: any): void => {
-      const target: HTMLInputElement = e.target; 
-      if (target.classList.contains('open-card')) {
-        target.classList.add('selected');
-      } else {
-        if(target.parentElement && target.parentElement.classList.contains('open-card')) {
-          target.parentElement.classList.add('selected');
+      setTimeout(() => {
+        const target: HTMLInputElement = e.target; 
+        if (target.classList.contains('open-card')) {
+          target.classList.add('selected');
         } else {
-          if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains('open-card')) {
-            target.parentElement.parentElement.classList.add('selected');
+          if(target.parentElement && target.parentElement.classList.contains('open-card')) {
+            target.parentElement.classList.add('selected');
           } else {
-            if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains('open-card')) {
-              target.parentElement.parentElement.parentElement.classList.add('selected');
+            if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains('open-card')) {
+              target.parentElement.parentElement.classList.add('selected');
             } else {
-              if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains('open-card')) {
-                target.parentElement.parentElement.parentElement.parentElement.classList.add('selected');
+              if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains('open-card')) {
+                target.parentElement.parentElement.parentElement.classList.add('selected');
               } else {
-                return
+                if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains('open-card')) {
+                  target.parentElement.parentElement.parentElement.parentElement.classList.add('selected');
+                } else {
+                  return
+                }
               }
             }
           }
         }
-      }
+      },300);
     }
-    const handleMouseLeave = (e: any): void => {
-      const target: HTMLInputElement = e.target; 
-      if (target.classList.contains('open-card')) {
-        target.classList.remove('selected');
-      } else {
-        if(target.parentElement && target.parentElement.classList.contains('open-card')) {
-          target.parentElement.classList.remove('selected');
-        } else {
-          if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains('open-card')) {
-            target.parentElement.parentElement.classList.remove('selected');
-          } else {
-            if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains('open-card')) {
-              target.parentElement.parentElement.parentElement.classList.remove('selected');
-            } else {
-              if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains('open-card')) {
-                target.parentElement.parentElement.parentElement.parentElement.classList.remove('selected');
-              } else {
-                return
-              }
-            }
-          }
-        }
+    const handleMouseLeave = (): void => {
+      const openCards: NodeList = document.querySelectorAll('.open-card');
+      if (openCards && openCards.length > 0) {
+        [].forEach.call(openCards, (card: HTMLElement) => {
+          card.classList.contains('selected') && card.classList.remove('selected');
+        })
       }
     }
 
@@ -177,7 +163,7 @@ export default function ProjectCard({
       </div>
       <div className="open-card"
         onMouseEnter={(e) => {handleMouseEnter(e)}}
-        onMouseLeave={(e) => {handleMouseLeave(e)}}
+        onMouseLeave={() => {handleMouseLeave()}}
         >
         <h4 className='project-title'>{title}</h4>
         <div className="content">
