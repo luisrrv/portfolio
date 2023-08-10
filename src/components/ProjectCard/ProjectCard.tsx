@@ -1,4 +1,5 @@
 import './ProjectCard.scss';
+// import { useState } from 'react';
 // import useDarkMode from '../../hooks/useDarkMode';
 
 //icons
@@ -78,44 +79,133 @@ export default function ProjectCard({
         return stackIcons;
     }
 
-    // const isDarkMode = useDarkMode();
     const compClassName = isDark ? 'dark' : 'light';
+
+    const handleMouseEnter = (e: any): void => {
+      const target: HTMLInputElement = e.target; 
+      if (target.classList.contains('open-card')) {
+        target.classList.add('selected');
+      } else {
+        if(target.parentElement && target.parentElement.classList.contains('open-card')) {
+          target.parentElement.classList.add('selected');
+        } else {
+          if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains('open-card')) {
+            target.parentElement.parentElement.classList.add('selected');
+          } else {
+            if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains('open-card')) {
+              target.parentElement.parentElement.parentElement.classList.add('selected');
+            } else {
+              if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains('open-card')) {
+                target.parentElement.parentElement.parentElement.parentElement.classList.add('selected');
+              } else {
+                return
+              }
+            }
+          }
+        }
+      }
+    }
+    const handleMouseLeave = (e: any): void => {
+      const target: HTMLInputElement = e.target; 
+      if (target.classList.contains('open-card')) {
+        target.classList.remove('selected');
+      } else {
+        if(target.parentElement && target.parentElement.classList.contains('open-card')) {
+          target.parentElement.classList.remove('selected');
+        } else {
+          if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains('open-card')) {
+            target.parentElement.parentElement.classList.remove('selected');
+          } else {
+            if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains('open-card')) {
+              target.parentElement.parentElement.parentElement.classList.remove('selected');
+            } else {
+              if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains('open-card')) {
+                target.parentElement.parentElement.parentElement.parentElement.classList.remove('selected');
+              } else {
+                return
+              }
+            }
+          }
+        }
+      }
+    }
 
   return (
     <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`} /*style={{background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}*/ >
-      <div className="card-cover">
-        <p>{title}</p>
-        <div className={`stack`}>
-                {setIcons().map((icon) => icon)}
-        </div>
-      </div>
+      <div className={`card-cover`}>
+        {/* {cardSelected ? (
+          <>
+            <h4 className='project-title'>{title}</h4>
+            <div className="content">
+              <div className='project-pics'>
+                {
+                    pics.length > 0 ? (
+                        pics.map((pic,index) => (
+                            <img
+                            key={index}
+                              className='pic' 
+                              src={pic} 
+                              alt=""
+                              />
+                          ))
+                    ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
+                }
+              </div>
 
-      <h4 className='project-title'>{title}</h4>
-      <div className="content">
-        <div className='project-pics'>
-          {
-              pics.length > 0 ? (
-                  pics.map((pic,index) => (
-                      <img
-                      key={index}
-                        className='pic' 
-                        src={pic} 
-                        alt=""
-                        />
-                    ))
-              ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
-          }
-        </div>
-
-        <div className="project-info">
-          <p>{description}</p>
-          <div>
-            <div className={`stack`}>
-                {setIcons().map((icon) => icon)}
+              <div className="project-info">
+                <p>{description}</p>
+                <div>
+                  <div className={`stack`}>
+                      {setIcons().map((icon) => icon)}
+                  </div>
+                  <div className={`cta`}>
+                      <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
+                      <a href={live} target="_blank" rel="noopener noreferrer">Check it out</a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className={`cta`}>
-                <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href={live} target="_blank" rel="noopener noreferrer">Check it out</a>
+          </>
+        ):(
+          <> */}
+            <p>{title}</p>
+            <div className={`stack`}>
+                    {setIcons().map((icon) => icon)}
+            </div>
+          {/* </>
+        )} */}
+      </div>
+      <div className="open-card"
+        onMouseEnter={(e) => {handleMouseEnter(e)}}
+        onMouseLeave={(e) => {handleMouseLeave(e)}}
+        >
+        <h4 className='project-title'>{title}</h4>
+        <div className="content">
+          <div className='project-pics'>
+            {
+                pics.length > 0 ? (
+                    pics.map((pic,index) => (
+                        <img
+                        key={index}
+                          className='pic' 
+                          src={pic} 
+                          alt=""
+                          />
+                      ))
+                ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
+            }
+          </div>
+
+          <div className="project-info">
+            <p>{description}</p>
+            <div>
+              <div className={`stack`}>
+                  {setIcons().map((icon) => icon)}
+              </div>
+              <div className={`cta`}>
+                  <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href={live} target="_blank" rel="noopener noreferrer">Check it out</a>
+              </div>
             </div>
           </div>
         </div>
