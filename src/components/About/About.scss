@@ -160,6 +160,10 @@ $lighterRed: #dfb5bb;
                         // padding-right: 12px;
                     // }
                 }
+                &.big {
+                    pointer-events: none;
+                    user-select: none;
+                }
             }
         }
 
@@ -179,6 +183,7 @@ $lighterRed: #dfb5bb;
             justify-content: center;
             align-items: center;
             height: fit-content;
+            letter-spacing: 2px;
             gap: 30px;
             margin-bottom: 40px;
             width: 90%;
