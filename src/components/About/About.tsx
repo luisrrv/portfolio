@@ -124,7 +124,7 @@ export default function About({ isDark, hideApp }: AboutProps) {
             <span className='letter faded'>E</span>
             <span className='letter faded'>Z</span>
             <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O</span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O <div className="me-img"></div></span>
             <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>D</span>
             <span className='letter faded'>R</span>
             <span className='letter faded'>I</span>
@@ -155,9 +155,8 @@ export default function About({ isDark, hideApp }: AboutProps) {
         <div className="divider"></div>
         <div className="text">
           <p>
-            A passionate <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced
-            in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and
-            <span className='bold'> native apps</span>.
+            A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced
+            in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.
           </p>
         </div>
       </div>

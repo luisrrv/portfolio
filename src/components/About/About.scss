@@ -108,6 +108,20 @@ $lighterRed: #dfb5bb;
                         &.flip {
                             animation: flip 1.8s ease-in-out !important;
                         }
+                        .me-img {
+                            position: absolute;
+                            top: 51.5%;
+                            left: 51.5%;
+                            transform: translate(-51.5%,-51.5%);
+                            width: 54%;
+                            height: 54%;
+                            border: 1px solid #e22941;
+                            border-radius: 50%;
+                            background-image: url(../../assets/images/me.jpeg);
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
                     }
                 }
 
@@ -183,7 +197,7 @@ $lighterRed: #dfb5bb;
             justify-content: center;
             align-items: center;
             height: fit-content;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             gap: 30px;
             margin-bottom: 40px;
             width: 90%;
@@ -192,8 +206,11 @@ $lighterRed: #dfb5bb;
             p {
                 height: fit-content;
                 font-size: 12px;
+                line-height: 20px;
 
                 span.bold {
+                    padding: 2px;
+                    border:  1px solid #d0d0d0;
                     color: #555555 !important;
                 }
             }
@@ -236,6 +253,7 @@ $lighterRed: #dfb5bb;
         .text {
             p {
                 span.bold {
+                    border-color: #555555;
                     color: #e6e6e6 !important;
                 }
             }
