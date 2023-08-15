@@ -24,8 +24,8 @@ function App({ className, isDarkMode }: IAppProps) {
   const [showContact, setShowContact] = useState(false);
   const [contactMS, setContactMS] = useState(false);
   const [projectMS, setProjectMS] = useState(false);
-  const [githubMS, setGithubMS] = useState(false);
-  const [webMS, setWebMS] = useState(false);
+  const [githubMS, setGithubMS] = useState<EventTarget|HTMLElement|boolean>(false);
+  const [webMS, setWebMS] = useState<EventTarget|HTMLElement|boolean>(false);
   const [contactOptsMS, setContactOptsMS] = useState(false);
 
   useEffect(() => {
@@ -78,12 +78,34 @@ function App({ className, isDarkMode }: IAppProps) {
     }
   };
 
-  const handleContactMouseOverChange = (isMouseOver: boolean, element: string) => {
-    if (element==='btn') setContactMS(isMouseOver);
-    else if (element==='content') setContactOptsMS(isMouseOver);
-    else if (element==='project') setProjectMS(isMouseOver);
-    else if (element==='github') setGithubMS(isMouseOver);
-    else if (element==='web') setWebMS(isMouseOver);
+  const handleContactMouseOverChange = (isMouseOver: boolean, type: string, element: EventTarget | undefined = undefined) => {
+    if (type==='btn') {
+      setContactMS(isMouseOver);
+    } else if (type==='content') {
+      setContactOptsMS(isMouseOver);
+    } else if (type==='project') {
+      setProjectMS(isMouseOver);
+    } else if (type==='github') {
+      if (element) {
+       if (isMouseOver===true) {
+         setGithubMS(element);
+       } else {
+        setGithubMS(isMouseOver);
+       }
+      } else {
+        setGithubMS(isMouseOver);
+      }
+    } else if (type==='web') {
+      if (element) {
+       if (isMouseOver===true) {
+         setWebMS(element);
+       } else {
+        setWebMS(isMouseOver);
+       }
+      } else {
+        setWebMS(isMouseOver);
+      }
+    }
   };
 
   const handleDarkModeChange = (toggle: boolean) => {
@@ -122,8 +144,8 @@ function App({ className, isDarkMode }: IAppProps) {
       ) : (
       <div id='App' className={`App ${appClassName}`}>
         <MouseTracker 
-          size={40} 
-          sizeSmall={8} 
+          size={60} 
+          sizeSmall={12} 
           contactMS={contactMS}
           contactOptsMS={contactOptsMS}
           projectMS={projectMS}

@@ -124,7 +124,7 @@ export default function About({ isDark, hideApp }: AboutProps) {
             <span className='letter faded'>E</span>
             <span className='letter faded'>Z</span>
             <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O <div className="me-img"></div></span>
+            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O <span className="me-img"></span></span>
             <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>D</span>
             <span className='letter faded'>R</span>
             <span className='letter faded'>I</span>

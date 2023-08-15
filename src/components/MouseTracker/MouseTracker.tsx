@@ -12,8 +12,8 @@ interface FollowCircleProps {
   contactMS: boolean;
   contactOptsMS: boolean;
   projectMS: boolean;
-  githubMS: boolean;
-  webMS: boolean;
+  githubMS: EventTarget|HTMLElement|boolean;
+  webMS: EventTarget|HTMLElement|boolean;
   isDark: boolean;
   handleDarkModeChange: (toggle: boolean) => void;
 }
@@ -121,9 +121,12 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
     };
   }, []);
 
-  // useEffect(()=> {
-  //   console.log('inside mousetracker, contact hover value: ',contactOptsMS);
-  // }, [contactOptsMS]);
+  useEffect(()=> {
+    console.log('Github hover: ',githubMS);
+  }, [githubMS]);
+  useEffect(()=> {
+    console.log('Web hover: ',webMS);
+  }, [webMS]);
 
   return (
     <>
