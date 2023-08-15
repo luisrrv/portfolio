@@ -216,10 +216,15 @@
             padding: 8px 14px;
             border-radius: 8px;
             border: 1px solid #222;
-            // transition: border-color 300ms;
-            // &:hover {
-            //   border-color: #e22941 !important;
-            // }
+            min-width: 130px;
+            height: 37.5px;
+            transition: 100ms;
+
+            &:hover {
+              // color: #be3144 !important;
+              // font-size: 20px;
+              // background-color: #94434e8a;
+            }
           }
         }
       }

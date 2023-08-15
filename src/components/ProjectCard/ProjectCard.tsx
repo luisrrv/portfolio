@@ -1,9 +1,10 @@
 import './ProjectCard.scss';
-// import { useState } from 'react';
+import { useState } from 'react';
 // import useDarkMode from '../../hooks/useDarkMode';
 
 //icons
-import { BsFillFileEarmarkCodeFill } from 'react-icons/bs';
+import { BsFillFileEarmarkCodeFill, BsGithub } from 'react-icons/bs';
+import {MdWeb } from 'react-icons/md'
 import { SiRubyonrails, 
         SiPostgresql, 
         SiHeroku, 
@@ -44,6 +45,9 @@ export default function ProjectCard({
   hideApp,
   handleContactMouseOverChange,
   }: ProjectCardProps) {
+
+    const [githubIcon,setGithubIcon] = useState<boolean>(false)
+    const [webIcon,setWebIcon] = useState<boolean>(false)
 
     const setIcons = () => {
         let stackIcons = stack && stack.map((t,index) => {
@@ -119,15 +123,26 @@ export default function ProjectCard({
     }
 
     const handleMouseTrackerEnter = (type:string, element: EventTarget | undefined): any => {
-      setTimeout(() => {
+      // setTimeout(() => {
         handleContactMouseOverChange(true, type, element);
-      }, 200);
+      // }, 200);
     };
     const handleMouseTrackerLeave = (type:string, element: EventTarget | undefined): any => {
-      setTimeout(() => {
+      // setTimeout(() => {
         handleContactMouseOverChange(false, type, element);
-      }, 200);
+      // }, 200);
     };
+
+    const addIcon = (element: EventTarget) => {
+      const el = element as HTMLElement;
+      if(el.classList.contains('github')) setGithubIcon(true);
+      else if(el.classList.contains('web')) setWebIcon(true);
+    }
+    const removeIcon = (element: EventTarget) => {
+      const el = element as HTMLElement;
+      if(el.classList.contains('github')) setGithubIcon(false);
+      else if(el.classList.contains('web')) setWebIcon(false);
+    }
 
   return (
     <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`}>
@@ -166,8 +181,8 @@ export default function ProjectCard({
                   {setIcons().map((icon) => icon)}
               </div>
               <div className={`cta`}>
-                  <a href={github} target="_blank" rel="noopener noreferrer" onMouseEnter={(e)=>{handleMouseTrackerEnter('github',e.target)}} onMouseLeave={(e)=>{handleMouseTrackerLeave('github',e.target)}}>GitHub</a>
-                  <a href={live} target="_blank" rel="noopener noreferrer" onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target)}} onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target)}}>Check it out</a>
+                  <a className='github' href={github} target="_blank" rel="noopener noreferrer" onMouseEnter={(e)=>{handleMouseTrackerEnter('github',e.target); addIcon(e.target);}} onMouseLeave={(e)=>{handleMouseTrackerLeave('github',e.target); removeIcon(e.target)}}>{githubIcon ? <BsGithub /> : 'GitHub'}</a>
+                  <a className='web' href={live} target="_blank" rel="noopener noreferrer" onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}>{webIcon ? <MdWeb /> : 'Check it out'}</a>
               </div>
             </div>
           </div>
