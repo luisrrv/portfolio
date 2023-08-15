@@ -118,19 +118,19 @@ export default function ProjectCard({
       }
     }
 
-    const handleMouseTrackerEnter = (type:string, element: EventTarget | undefined = undefined): any => {
+    const handleMouseTrackerEnter = (type:string, element: EventTarget | undefined): any => {
       setTimeout(() => {
         handleContactMouseOverChange(true, type, element);
       }, 200);
     };
-    const handleMouseTrackerLeave = (type:string, element: EventTarget | undefined = undefined): any => {
+    const handleMouseTrackerLeave = (type:string, element: EventTarget | undefined): any => {
       setTimeout(() => {
-        handleContactMouseOverChange(false, type, undefined);
+        handleContactMouseOverChange(false, type, element);
       }, 200);
     };
 
   return (
-    <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`} onMouseEnter={handleMouseTrackerEnter('project')} onMouseLeave={handleMouseTrackerLeave('project')}>
+    <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`}>
       <div className={`card-cover`} style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}>
             <p>{title}
             <span className={`stack`}>
@@ -139,8 +139,8 @@ export default function ProjectCard({
             </p>
       </div>
       <div className="open-card"
-        onMouseEnter={(e) => {handleMouseEnter(e)}}
-        onMouseLeave={() => {handleMouseLeave()}}
+        onMouseEnter={(e) => {handleMouseEnter(e); handleMouseTrackerEnter('project', undefined);}}
+        onMouseLeave={() => {handleMouseLeave(); handleMouseTrackerLeave('project', undefined);}}
         >
         <h4 className='project-title'>{title}</h4>
         <div className="content">

@@ -40,6 +40,9 @@
         border-width: 2px !important;
         border-color: #be3144 !important;
         transition: 200ms;
+        .follow-circle-small {
+          display: none;
+        }
       }
     }
     
@@ -108,6 +111,15 @@
           left: 50%;
           transform: translate(-50%,-50%);
         }
+      }
+    }
+    &.button {
+      border-width: 2px !important;
+      border-color: #be3144 !important;
+      transition: 200ms;
+
+      .follow-circle-small {
+        display: none;
       }
     }
 }
