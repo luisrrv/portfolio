@@ -146,15 +146,11 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
     };
   }, []);
 
-  useEffect(()=>{
-    console.log('project:',projectMS);
-  },[projectMS])
-
   return (
     <>
-      {/* {(window.matchMedia("(any-hover: none)").matches) ? (
+      {(window.matchMedia("(any-hover: none)").matches) ? (
         <div></div>
-      ) : ( */}
+      ) : (
         <div
           ref={circleRef}
           onClick={handleClick}
@@ -175,7 +171,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
             {webMS && (<MdWeb size={6} />)}
           </div>
         </div>
-      {/* )} */}
+      )}
     </>
   );
 };
