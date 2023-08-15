@@ -27,8 +27,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isClicked, setIsClicked] = useState(false);
 
-
-  const handleMouseMove = (event: MouseEvent) => {
+  const handleMouseMove = (event: MouseEvent, github: EventTarget|HTMLElement|boolean = githubMS, web: EventTarget|HTMLElement|boolean = webMS) => {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
@@ -62,11 +61,37 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
         //   const easeT = easeInOut(t);
           const easeT = linear(t);
 
-          const nextX = currentX + distanceX * easeT;
-          const nextY = currentY + distanceY * easeT;
+          if (github instanceof HTMLElement) {
+              circleElement.classList.add('button');
+              circleElement.style.left = github.getBoundingClientRect().left + 'px';
+              circleElement.style.top = github.getBoundingClientRect().top + 'px';
+              circleElement.style.width = github.offsetWidth + 'px';
+              circleElement.style.height = github.offsetHeight + 'px';
+              circleElement.style.borderRadius = '8px';
+          } else if (web instanceof HTMLElement) {
+              circleElement.classList.add('button');
+              circleElement.style.left = web.getBoundingClientRect().left + 'px';
+              circleElement.style.top = web.getBoundingClientRect().top + 'px';
+              circleElement.style.width = web.offsetWidth + 'px';
+              circleElement.style.height = web.offsetHeight + 'px';
+              circleElement.style.borderRadius = '8px';
+          } else {
+              circleElement.classList.remove('button');
+              const nextX = currentX + distanceX * easeT;
+              const nextY = currentY + distanceY * easeT;
+              
+              circleElement.style.left = nextX + 'px';
+              circleElement.style.top = nextY + 'px';
+            
+              const boundingRect = circleElement.getBoundingClientRect();
+              const circleSize = size || Math.max(boundingRect.width, boundingRect.height);
+              circleElement.style.width = `${circleSize}px`;
+              circleElement.style.height = `${circleSize}px`;
+              circleElement.style.borderRadius = '50%';
+              circleElement.style.borderWidth = '1px !important';
 
-          circleElement.style.left = nextX + 'px';
-          circleElement.style.top = nextY + 'px';
+          }
+
 
           currentFrame++;
           requestAnimationFrame(updatePosition);
@@ -111,7 +136,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
       window.removeEventListener('mousemove', handleMouseMove);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [size, sizeSmall]);
+  }, [size, sizeSmall, githubMS, webMS]);
 
   useEffect(() => {
     window.addEventListener('click', handleClick);
@@ -121,12 +146,9 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
     };
   }, []);
 
-  useEffect(()=> {
-    console.log('Github hover: ',githubMS);
-  }, [githubMS]);
-  useEffect(()=> {
-    console.log('Web hover: ',webMS);
-  }, [webMS]);
+  useEffect(()=>{
+    console.log('project:',projectMS);
+  },[projectMS])
 
   return (
     <>
@@ -136,7 +158,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
         <div
           ref={circleRef}
           onClick={handleClick}
-          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''} ${(projectMS && !githubMS && !webMS) ? 'project' : (projectMS && githubMS) ? 'github' : (projectMS && webMS) ? 'web' : ''}`}
+          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''} ${(projectMS && githubMS !instanceof HTMLElement && webMS !instanceof HTMLElement) ? 'project' : (projectMS && githubMS instanceof HTMLElement) ? 'github' : (projectMS && webMS instanceof HTMLElement) ? 'web' : ''}`}
           style={{
             left: position.x - size / 2,
             top: position.y - size / 2,

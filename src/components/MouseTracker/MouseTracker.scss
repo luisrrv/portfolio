@@ -26,6 +26,7 @@
       &.web,
       &.external {
         background-color: transparent !important;
+        transition: 200ms;
 
         .follow-circle-small{
           background-color: #be3144 !important;
@@ -34,6 +35,11 @@
             color: #f0f0f0 !important;
           }
         }
+      }
+      &.button {
+        border-width: 2px !important;
+        border-color: #be3144 !important;
+        transition: 200ms;
       }
     }
     
