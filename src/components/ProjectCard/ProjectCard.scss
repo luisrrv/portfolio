@@ -35,7 +35,8 @@
       // border: 1px solid #dfb5bb;
       border-radius: 4px;
       animation: bgMove 120s linear infinite;
-      // transition: opacity 1s;
+      filter: blur(0);
+      transition: filter 600ms;
       // z-index: -1;
 
       // &.selected {
@@ -49,7 +50,7 @@
         -webkit-text-stroke: 1px #e6e6e6;
         font-weight: bold;
         font-size: 36px;
-        animation: slideDown ease-in 400ms;
+        // animation: slideDown ease-in 400ms;
       }
       .stack {
         display: flex;
@@ -64,10 +65,10 @@
       }
       
       &.off {
+        filter: blur(20px);
         p {
-          animation: slideUp ease-in 400ms;
+          // animation: slideUp ease-in 400ms;
           // transform: translateY(-40px) rotateX(90deg);
-          filter: blur(20px);
           // span.stack {
           //   animation: slideDown ease-in 400ms !important;
           // }
@@ -82,7 +83,7 @@
       min-height: 400px;
       z-index: 99;
       opacity: 0;
-      transition: opacity filter 2s;
+      transition: opacity filter 2s !important;
       filter: blur(20px);
 
       a {
@@ -274,25 +275,25 @@
     }
   }
 
-  @keyframes slideUp {
-    0% {
-      // transform: translateY(0) rotateX(0);
-      filter: blur(0);
-    }
-    100% {
-      // transform: translateY(-40px) rotateX(90deg);
-      filter: blur(20px);
-    }
-  }
-  @keyframes slideDown {
-    0% {
-      // transform: translateY(-40px) rotateX(90deg);
-      filter: blur(20px);
-    }
-    100% {
-      // transform: translateY(0) rotateX(0);
-      filter: blur(0);
-    }
-  }
+  // @keyframes slideUp {
+  //   0% {
+  //     // transform: translateY(0) rotateX(0);
+  //     filter: blur(0);
+  //   }
+  //   100% {
+  //     // transform: translateY(-40px) rotateX(90deg);
+  //     filter: blur(20px);
+  //   }
+  // }
+  // @keyframes slideDown {
+  //   0% {
+  //     // transform: translateY(-40px) rotateX(90deg);
+  //     filter: blur(20px);
+  //   }
+  //   100% {
+  //     // transform: translateY(0) rotateX(0);
+  //     filter: blur(0);
+  //   }
+  // }
 
 }
