@@ -92,18 +92,28 @@ export default function ProjectCard({
         const target: HTMLInputElement = e.target; 
         if (target.classList.contains('open-card')) {
           target.classList.add('selected');
+          const cover: HTMLElement|undefined = target.previousSibling ? target.previousSibling as HTMLElement : undefined;
+          cover?.classList.add('off');
         } else {
           if(target.parentElement && target.parentElement.classList.contains('open-card')) {
             target.parentElement.classList.add('selected');
+            const cover: HTMLElement|undefined = target.parentElement.previousSibling ? target.parentElement.previousSibling as HTMLElement : undefined;
+            cover?.classList.add('off');
           } else {
             if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains('open-card')) {
               target.parentElement.parentElement.classList.add('selected');
+              const cover: HTMLElement|undefined = target.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.previousSibling as HTMLElement : undefined;
+              cover?.classList.add('off');
             } else {
               if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains('open-card')) {
                 target.parentElement.parentElement.parentElement.classList.add('selected');
+                const cover: HTMLElement|undefined = target.parentElement.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.parentElement.previousSibling as HTMLElement : undefined;
+                cover?.classList.add('off');
               } else {
                 if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains('open-card')) {
                   target.parentElement.parentElement.parentElement.parentElement.classList.add('selected');
+                  const cover: HTMLElement|undefined = target.parentElement.parentElement.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.parentElement.parentElement.previousSibling as HTMLElement : undefined;
+                  cover?.classList.add('off');
                 } else {
                   return
                 }
@@ -117,7 +127,12 @@ export default function ProjectCard({
       const openCards: NodeList = document.querySelectorAll('.open-card');
       if (openCards && openCards.length > 0) {
         [].forEach.call(openCards, (card: HTMLElement) => {
-          card.classList.contains('selected') && card.classList.remove('selected');
+          if (card.classList.contains('selected'))  {
+            card.classList.remove('selected');
+            const cover: HTMLElement|undefined = card.previousSibling ? card.previousSibling as HTMLElement : undefined;
+            cover?.classList.remove('off');
+          }
+          
         })
       }
     }
