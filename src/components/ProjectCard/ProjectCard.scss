@@ -34,7 +34,7 @@
       padding: 12px;
       // border: 1px solid #dfb5bb;
       border-radius: 8px;
-      animation: bgMove 120s linear infinite;
+      // animation: bgMove 120s linear infinite;
       filter: blur(0);
       transition: filter 600ms;
       overflow: hidden;
@@ -115,6 +115,7 @@
       opacity: 0;
       box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
       transition: opacity filter 2s !important;
+      animation: bgMove 120s linear infinite;
       filter: blur(20px);
 
       a {
@@ -159,6 +160,10 @@
 
       .open-card {
         background-color: #25252a;
+
+        .content {
+          color: #e6e6e6 !important;
+        }
       }
 
       .project-title {
@@ -168,6 +173,7 @@
       .project-info {
         .cta {
           a {
+            background-color: #25252a21 !important;
             border-color: #f0f0f0 !important;
           }
         }
@@ -274,6 +280,8 @@
             min-width: 130px;
             height: 37.5px;
             transition: 100ms;
+            background-color: #e6e6e621;
+            backdrop-filter: blur(12px) !important;
 
             &:hover {
               // color: #be3144 !important;
