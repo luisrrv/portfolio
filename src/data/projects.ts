@@ -1,7 +1,7 @@
 import ally1 from '../assets/images/projects/allymaps/ally1.png';
 import ally2 from '../assets/images/projects/allymaps/ally2.png';
 import ally3 from '../assets/images/projects/allymaps/ally3.png';
-import ally4 from '../assets/images/projects/allymaps/ally4.png';
+// import ally4 from '../assets/images/projects/allymaps/ally4.png';
 import allybg from '../assets/images/projects/allymaps/allybg.jpg';
 
 import travel1 from '../assets/images/projects/travel/travel4.png';
@@ -44,7 +44,7 @@ export default function Project(): ProjectProps[] {
       description: 'A trip planner for people with disabilities. This app allows them to plan entire accessible trips from searching places to the routes to and from the places in their itineraries.',
       github: 'https://github.com/luisrrv/allymaps',
       live: 'https://allymaps.herokuapp.com/',
-      pics: [ally1, ally2, ally3, ally4],
+      pics: [ally1, ally2, ally3],
       stack: ['rails','postgress','heroku'],
       bg: allybg,
     },

@@ -48,29 +48,29 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      }
-
-      p {
-        color: transparent;
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        -webkit-text-stroke: 1px #e6e6e6;
-        font-weight: bold;
-        font-size: 36px;
-        // animation: slideDown ease-in 400ms;
-      }
-      .stack {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-        // animation: slideUp ease-in 400ms !important;
-        svg {
-          font-size: 28px;
-          color: #e6e6e6;
+     
+        p {
+          color: transparent;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          -webkit-text-stroke: 1px #222222;
+          font-weight: bold;
+          font-size: 36px;
+          // animation: slideDown ease-in 400ms;
+        }
+        .stack {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 16px;
+          // animation: slideUp ease-in 400ms !important;
+          svg {
+            font-size: 28px;
+            color: #222222;
+          }
         }
       }
-      
+
       &.off {
         filter: blur(20px);
         p {
@@ -141,15 +141,17 @@
       .card-cover {
         // background-color: #500e18;
         // border-color: #500e18;
-        p {
-          text-transform: uppercase;
-          letter-spacing: 4px;
-          color: transparent;
-          -webkit-text-stroke: 1px #e6e6e6;
-        }
-        .stack {
-          svg {
-            color: #e6e6e6;
+        .name-container {
+          p {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: transparent;
+            -webkit-text-stroke: 1px #e6e6e6;
+          }
+          .stack {
+            svg {
+              color: #e6e6e6;
+            }
           }
         }
       }
