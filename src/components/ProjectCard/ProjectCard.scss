@@ -179,14 +179,14 @@
       font-size: 30px;
       text-align: center;
       color: transparent;
-      -webkit-text-stroke: 1px #e6e6e6;
+      -webkit-text-stroke: 1px #222222;
     }
     .content {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items:center;
-      color: #e6e6e6;
+      color: #222222;
       width: 100%;
       overflow-x: hidden;
 
@@ -269,8 +269,8 @@
           a {
             padding: 8px 14px;
             border-radius: 8px;
-            color: #e6e6e6;
-            border: 1px solid #e6e6e6;
+            color: #222222;
+            border: 1px solid #222222;
             min-width: 130px;
             height: 37.5px;
             transition: 100ms;
@@ -347,6 +347,10 @@
   @media (max-width: 600px) {
     .card-cover {
       flex-direction: column !important;
+      .name-container {
+        height: fit-content;
+        padding: 24px 0;
+      }
     }
   }
 }

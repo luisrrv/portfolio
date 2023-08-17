@@ -185,7 +185,7 @@ export default function ProjectCard({
           </div>
       </div>
       <div className="open-card"
-        style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}
+        style={isDark ? {backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`} : {backgroundImage:`linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(${bg})`}}
         onMouseEnter={(e) => {handleMouseEnter(e); handleMouseTrackerEnter('project', undefined);}}
         onMouseLeave={() => {handleMouseLeave(); handleMouseTrackerLeave('project', undefined);}}
         >
