@@ -161,20 +161,15 @@ export default function ProjectCard({
 
   return (
     <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`}>
-      <div className={`card-cover`} style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}>
+      <div className={`card-cover`}>
+        <div className='name-container'>
             <p>{title}
             <span className={`stack`}>
                     {setIcons().map((icon) => icon)}
             </span>
             </p>
-      </div>
-      <div className="open-card"
-        onMouseEnter={(e) => {handleMouseEnter(e); handleMouseTrackerEnter('project', undefined);}}
-        onMouseLeave={() => {handleMouseLeave(); handleMouseTrackerLeave('project', undefined);}}
-        >
-        <h4 className='project-title'>{title}</h4>
-        <div className="content">
-          <div className='project-pics'>
+        </div>
+        <div className='project-pics'>
             {
                 pics.length > 0 ? (
                     pics.map((pic,index) => (
@@ -188,6 +183,28 @@ export default function ProjectCard({
                 ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
             }
           </div>
+      </div>
+      <div className="open-card"
+        style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`}}
+        onMouseEnter={(e) => {handleMouseEnter(e); handleMouseTrackerEnter('project', undefined);}}
+        onMouseLeave={() => {handleMouseLeave(); handleMouseTrackerLeave('project', undefined);}}
+        >
+        <h4 className='project-title'>{title}</h4>
+        <div className="content">
+          {/* <div className='project-pics'>
+            {
+                pics.length > 0 ? (
+                    pics.map((pic,index) => (
+                        <img
+                        key={index}
+                          className='pic' 
+                          src={pic} 
+                          alt=""
+                          />
+                      ))
+                ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
+            }
+          </div> */}
 
           <div className="project-info">
             <p>{description}</p>
