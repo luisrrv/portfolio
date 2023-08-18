@@ -87,62 +87,34 @@ export default function ProjectCard({
 
     const compClassName = isDark ? 'dark' : 'light';
 
-    const handleMouseEnter = (e: any): void => {
-      setTimeout(() => {
-        const target: HTMLInputElement = e.target; 
-        if (target.classList.contains('open-card')) {
-          target.classList.add('selected');
-          setTimeout(() => {
-            target.classList.add('cta');
-          }, 1000);
-          const cover: HTMLElement|undefined = target.previousSibling ? target.previousSibling as HTMLElement : undefined;
-          cover?.classList.add('off');
-          cover?.classList.remove('on');
-        } else {
-          if(target.parentElement && target.parentElement.classList.contains('open-card')) {
-            target.parentElement.classList.add('selected');
-            setTimeout(() => {
-              target.parentElement && target.parentElement.classList.add('cta');
-            }, 1000);
-            const cover: HTMLElement|undefined = target.parentElement.previousSibling ? target.parentElement.previousSibling as HTMLElement : undefined;
-            cover?.classList.add('off');
-            cover?.classList.remove('on');
-          } else {
-            if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains('open-card')) {
-              target.parentElement.parentElement.classList.add('selected');
-              setTimeout(() => {
-                target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.add('cta');
-              }, 1000);
-              const cover: HTMLElement|undefined = target.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.previousSibling as HTMLElement : undefined;
-              cover?.classList.add('off');
-              cover?.classList.remove('on');
-            } else {
-              if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains('open-card')) {
-                target.parentElement.parentElement.parentElement.classList.add('selected');
-                setTimeout(() => {
-                  target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement &&target.parentElement.parentElement.parentElement.classList.add('cta');
-                }, 1000);
-                const cover: HTMLElement|undefined = target.parentElement.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.parentElement.previousSibling as HTMLElement : undefined;
-                cover?.classList.add('off');
-                cover?.classList.remove('on');
-              } else {
-                if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains('open-card')) {
-                  target.parentElement.parentElement.parentElement.parentElement.classList.add('selected');
-                  setTimeout(() => {
-                    target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.add('cta');
-                  }, 1000);
-                  const cover: HTMLElement|undefined = target.parentElement.parentElement.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.parentElement.parentElement.previousSibling as HTMLElement : undefined;
-                  cover?.classList.add('off');
-                  cover?.classList.remove('on');
-                } else {
-                  return
-                }
-              }
-            }
-          }
+    const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number) => {
+      if (element) {
+        const el = element as HTMLElement;
+        setTimeout(() => {
+          el.classList.add(className);
+        }, timeout);
+      }
+    };
+    
+    const handleMouseEnter = (element: EventTarget | null, depth: number = 0): void => {
+      if (!element || depth > 5) {
+        return;
+      }
+      const el = element as HTMLElement;
+      if (el.classList.contains('open-card')) {
+        addClassWithTimeout(el, 'selected', 0);
+        addClassWithTimeout(el, 'cta', 1000);
+    
+        const cover: HTMLElement | null = el.previousSibling as HTMLElement;
+        if (cover) {
+          cover.classList.add('off');
+          cover.classList.remove('on');
         }
-      },300);
-    }
+      } else {
+        handleMouseEnter(el.parentElement, depth + 1);
+      }
+    };
+
     const handleMouseLeave = (): void => {
       const openCards: NodeList = document.querySelectorAll('.open-card');
       if (openCards && openCards.length > 0) {
@@ -207,7 +179,7 @@ export default function ProjectCard({
       </div>
       <div className="open-card"
         style={isDark ? {backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`} : {backgroundImage:`linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(${bg})`}}
-        onMouseEnter={(e) => {handleMouseEnter(e); handleMouseTrackerEnter('project', undefined);}}
+        onMouseEnter={(e) => {handleMouseEnter(e.target); handleMouseTrackerEnter('project', undefined);}}
         onMouseLeave={() => {handleMouseLeave(); handleMouseTrackerLeave('project', undefined);}}
         >
         <h4 className='project-title'>{title}</h4>

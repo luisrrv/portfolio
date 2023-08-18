@@ -289,21 +289,21 @@
           align-items: center;
           gap: 16px;
           a {
-            padding: 8px 14px;
+            padding: 12px 14px;
             border-radius: 8px;
             color: #222222;
             border: 1px solid #222222;
             min-width: 130px;
-            height: 37.5px;
+            // height: 37.5px;
             transition: 400ms !important;
             background-color: #e6e6e621;
             backdrop-filter: blur(12px) !important;
 
-            &:hover {
-              // color: #be3144 !important;
-              // font-size: 20px;
-              // background-color: #94434e8a;
-            }
+            // &:hover {
+            //   // color: #be3144 !important;
+            //   // font-size: 20px;
+            //   // background-color: #94434e8a;
+            // }
           }
         }
       }
