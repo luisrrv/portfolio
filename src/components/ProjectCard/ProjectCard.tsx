@@ -184,21 +184,6 @@ export default function ProjectCard({
         >
         <h4 className='project-title'>{title}</h4>
         <div className="content">
-          {/* <div className='project-pics'>
-            {
-                pics.length > 0 ? (
-                    pics.map((pic,index) => (
-                        <img
-                        key={index}
-                          className='pic' 
-                          src={pic} 
-                          alt=""
-                          />
-                      ))
-                ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
-            }
-          </div> */}
-
           <div className="project-info">
             <p>{description}</p>
             <div>
