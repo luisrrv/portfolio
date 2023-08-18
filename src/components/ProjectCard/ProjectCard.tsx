@@ -92,30 +92,45 @@ export default function ProjectCard({
         const target: HTMLInputElement = e.target; 
         if (target.classList.contains('open-card')) {
           target.classList.add('selected');
+          setTimeout(() => {
+            target.classList.add('cta');
+          }, 1000);
           const cover: HTMLElement|undefined = target.previousSibling ? target.previousSibling as HTMLElement : undefined;
           cover?.classList.add('off');
           cover?.classList.remove('on');
         } else {
           if(target.parentElement && target.parentElement.classList.contains('open-card')) {
             target.parentElement.classList.add('selected');
+            setTimeout(() => {
+              target.parentElement && target.parentElement.classList.add('cta');
+            }, 1000);
             const cover: HTMLElement|undefined = target.parentElement.previousSibling ? target.parentElement.previousSibling as HTMLElement : undefined;
             cover?.classList.add('off');
             cover?.classList.remove('on');
           } else {
             if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains('open-card')) {
               target.parentElement.parentElement.classList.add('selected');
+              setTimeout(() => {
+                target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.add('cta');
+              }, 1000);
               const cover: HTMLElement|undefined = target.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.previousSibling as HTMLElement : undefined;
               cover?.classList.add('off');
               cover?.classList.remove('on');
             } else {
               if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains('open-card')) {
                 target.parentElement.parentElement.parentElement.classList.add('selected');
+                setTimeout(() => {
+                  target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement &&target.parentElement.parentElement.parentElement.classList.add('cta');
+                }, 1000);
                 const cover: HTMLElement|undefined = target.parentElement.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.parentElement.previousSibling as HTMLElement : undefined;
                 cover?.classList.add('off');
                 cover?.classList.remove('on');
               } else {
                 if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains('open-card')) {
                   target.parentElement.parentElement.parentElement.parentElement.classList.add('selected');
+                  setTimeout(() => {
+                    target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.add('cta');
+                  }, 1000);
                   const cover: HTMLElement|undefined = target.parentElement.parentElement.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.parentElement.parentElement.previousSibling as HTMLElement : undefined;
                   cover?.classList.add('off');
                   cover?.classList.remove('on');
@@ -134,6 +149,7 @@ export default function ProjectCard({
         [].forEach.call(openCards, (card: HTMLElement) => {
           if (card.classList.contains('selected'))  {
             card.classList.remove('selected');
+            card.classList.remove('cta');
             const cover: HTMLElement|undefined = card.previousSibling ? card.previousSibling as HTMLElement : undefined;
             cover?.classList.remove('off');
           }

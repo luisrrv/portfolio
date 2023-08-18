@@ -142,10 +142,12 @@
         opacity: 1;
         filter: blur(0);
 
-        a {
-          opacity: 1;
-          pointer-events: all;
-          transform: translateY(0);
+        &.cta {
+          a {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+          }
         }
       }
     }
@@ -292,7 +294,7 @@
             border: 1px solid #222222;
             min-width: 130px;
             height: 37.5px;
-            transition: 100ms;
+            transition: 400ms !important;
             background-color: #e6e6e621;
             backdrop-filter: blur(12px) !important;
 
