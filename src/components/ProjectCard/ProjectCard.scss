@@ -106,6 +106,11 @@
       
       .pic {
         width: 100px;
+
+        &.wide {
+          width: 160px;
+          height: 130px;
+        }
       }
     }
 

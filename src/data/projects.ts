@@ -6,23 +6,23 @@ import allybg from '../assets/images/projects/allymaps/allybg.jpg';
 
 import travel1 from '../assets/images/projects/travel/travel4.png';
 import travel2 from '../assets/images/projects/travel/travel6.png';
-import travel3 from '../assets/images/projects/travel/travel7.png';
+import travel3 from '../assets/images/projects/travel/travel7_wide.png';
 import travelbg from '../assets/images/projects/travel/travelbg.jpeg';
 
-import bicho1 from '../assets/images/projects/bicho/bicho1.png';
+import bicho1 from '../assets/images/projects/bicho/bicho1_wide.png';
 import bicho2 from '../assets/images/projects/bicho/bicho2.png';
 import bichobg from '../assets/images/projects/bicho/bichobg.jpeg';
 
-import meme1 from '../assets/images/projects/meme/meme1.png';
+import meme1 from '../assets/images/projects/meme/meme1_wide.png';
 import meme2 from '../assets/images/projects/meme/meme2.png';
 import memebg from '../assets/images/projects/meme/memebg.png';
 
-import news1 from '../assets/images/projects/news/news1.png';
+import news1 from '../assets/images/projects/news/news1_wide.png';
 import news2 from '../assets/images/projects/news/news2.png';
 import news3 from '../assets/images/projects/news/news3.png';
 import newsbg from '../assets/images/projects/news/newsbg.jpeg';
 
-import duck1 from '../assets/images/projects/rubber/duck1.png';
+import duck1 from '../assets/images/projects/rubber/duck1_wide.png';
 import duckbg from '../assets/images/projects/rubber/duckbg.jpeg';
 
 
