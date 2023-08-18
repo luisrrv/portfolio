@@ -94,26 +94,31 @@ export default function ProjectCard({
           target.classList.add('selected');
           const cover: HTMLElement|undefined = target.previousSibling ? target.previousSibling as HTMLElement : undefined;
           cover?.classList.add('off');
+          cover?.classList.remove('on');
         } else {
           if(target.parentElement && target.parentElement.classList.contains('open-card')) {
             target.parentElement.classList.add('selected');
             const cover: HTMLElement|undefined = target.parentElement.previousSibling ? target.parentElement.previousSibling as HTMLElement : undefined;
             cover?.classList.add('off');
+            cover?.classList.remove('on');
           } else {
             if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains('open-card')) {
               target.parentElement.parentElement.classList.add('selected');
               const cover: HTMLElement|undefined = target.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.previousSibling as HTMLElement : undefined;
               cover?.classList.add('off');
+              cover?.classList.remove('on');
             } else {
               if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains('open-card')) {
                 target.parentElement.parentElement.parentElement.classList.add('selected');
                 const cover: HTMLElement|undefined = target.parentElement.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.parentElement.previousSibling as HTMLElement : undefined;
                 cover?.classList.add('off');
+                cover?.classList.remove('on');
               } else {
                 if(target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains('open-card')) {
                   target.parentElement.parentElement.parentElement.parentElement.classList.add('selected');
                   const cover: HTMLElement|undefined = target.parentElement.parentElement.parentElement.parentElement.previousSibling ? target.parentElement.parentElement.parentElement.parentElement.previousSibling as HTMLElement : undefined;
                   cover?.classList.add('off');
+                  cover?.classList.remove('on');
                 } else {
                   return
                 }
@@ -161,7 +166,7 @@ export default function ProjectCard({
 
   return (
     <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`}>
-      <div className={`card-cover`}>
+      <div className={`card-cover on`}>
         <div className='name-container'>
             <p>{title}
             <span className={`stack`}>
