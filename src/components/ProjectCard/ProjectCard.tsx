@@ -105,25 +105,33 @@ export default function ProjectCard({
       const el = element as HTMLElement;
       if (el.classList.contains('open-card')) {
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-          addClassWithTimeout(el, 'selected', 0);
-          addClassWithTimeout(el, 'cta', 1000);
+          if (!scrolling) {
+            addClassWithTimeout(el, 'selected', 0);
+            addClassWithTimeout(el, 'cta', 1000);
+          }
         }
         else{
-          addClassWithTimeout(el, 'selected', 1000);
-          addClassWithTimeout(el, 'cta', 2000);
+          if (!scrolling) {
+            addClassWithTimeout(el, 'selected', 1000);
+            addClassWithTimeout(el, 'cta', 2000);
+          }
         }
     
         const cover: HTMLElement | null = el.previousSibling as HTMLElement;
         if (cover) {
           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-            cover.classList.add('off');
-            cover.classList.remove('on');
-          }
-          else{
-            setTimeout(() => {
+            if (!scrolling) {
               cover.classList.add('off');
               cover.classList.remove('on');
-            }, 1000);
+            }
+          }
+          else{
+            if (!scrolling) {
+              setTimeout(() => {
+                cover.classList.add('off');
+                cover.classList.remove('on');
+              }, 1000);
+            }
           }
         }
       } else {
