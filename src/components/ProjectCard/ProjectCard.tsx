@@ -1,5 +1,5 @@
 import './ProjectCard.scss';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 // import useDarkMode from '../../hooks/useDarkMode';
 
 //icons
@@ -50,6 +50,8 @@ export default function ProjectCard({
 
     const [githubIcon,setGithubIcon] = useState<boolean>(false)
     const [webIcon,setWebIcon] = useState<boolean>(false)
+    const [mouseLeave,setMouseLeave] = useState<boolean>(true);
+    const mouseLeaveRef = useRef(mouseLeave);
 
     const setIcons = () => {
         let stackIcons = stack && stack.map((t,index) => {
@@ -92,7 +94,11 @@ export default function ProjectCard({
     const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number) => {
       if (element) {
         const el = element as HTMLElement;
+        
         setTimeout(() => {
+          if (scrolling) return;
+          if (mouseLeaveRef.current) return;
+
           el.classList.add(className);
         }, timeout);
       }
@@ -102,6 +108,10 @@ export default function ProjectCard({
       if (!element || depth > 5) {
         return;
       }
+      
+      setMouseLeave(false);
+      mouseLeaveRef.current = false;
+
       const el = element as HTMLElement;
       if (el.classList.contains('open-card')) {
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
@@ -121,6 +131,7 @@ export default function ProjectCard({
         if (cover) {
           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             if (!scrolling) {
+              if (mouseLeaveRef.current) return;
               cover.classList.add('off');
               cover.classList.remove('on');
             }
@@ -128,6 +139,7 @@ export default function ProjectCard({
           else{
             if (!scrolling) {
               setTimeout(() => {
+                if (mouseLeaveRef.current) return;
                 cover.classList.add('off');
                 cover.classList.remove('on');
               }, 1000);
@@ -140,15 +152,19 @@ export default function ProjectCard({
     };
 
     const handleMouseLeave = (): void => {
+      setMouseLeave(true);
+      mouseLeaveRef.current = true;
+
       const openCards: NodeList = document.querySelectorAll('.open-card');
       if (openCards && openCards.length > 0) {
         [].forEach.call(openCards, (card: HTMLElement) => {
-          if (card.classList.contains('selected'))  {
+          // if (card.classList.contains('selected'))  {
             card.classList.remove('selected');
             card.classList.remove('cta');
             const cover: HTMLElement|undefined = card.previousSibling ? card.previousSibling as HTMLElement : undefined;
             cover?.classList.remove('off');
-          }
+            cover?.classList.add('on');
+          // }
         })
       }
     }
