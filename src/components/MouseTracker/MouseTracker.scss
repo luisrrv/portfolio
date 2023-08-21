@@ -19,6 +19,15 @@
               color: #f0f0f0;
             }
         }
+
+      &#loading {
+        border-color: white !important;
+        border-right: 2px solid #be3144 !important;
+        animation: circleLoad linear 1s;
+        &.follow-circle-small {
+          animation: rotate linear 1s;
+        }
+      }
       
       &.contact,
       &.project,
@@ -192,3 +201,39 @@
     transform: scale(2);
   }
 }
+@keyframes circleLoad {
+  0% {
+    // border-color: white !important;
+    // border-right-color: #be3144 !important;
+    transform: rotate(0deg);
+  }
+  // 25% {
+  //   border-color: white !important;
+  //   // border-bottom-color: #be3144 !important;
+  //   transform: rotate(0deg);
+  // }
+  // 50% {
+  //   border-color: white !important;
+  //   // border-left-color: #be3144 !important;
+  //   transform: rotate(0deg);
+  // }
+  // 75% {
+  //   border-color: white !important;
+  //   // border-top-color: #be3144 !important;
+  //   transform: rotate(0deg);
+  // }
+  100% {
+    // border-color: white !important;
+    // border-left-color: #be3144 !important;
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+

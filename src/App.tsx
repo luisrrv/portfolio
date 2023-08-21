@@ -27,6 +27,8 @@ function App({ className, isDarkMode }: IAppProps) {
   const [githubMS, setGithubMS] = useState<EventTarget|HTMLElement|boolean>(false);
   const [webMS, setWebMS] = useState<EventTarget|HTMLElement|boolean>(false);
   const [contactOptsMS, setContactOptsMS] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
+  const [scrollingTimeout, setScrollingTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -131,6 +133,33 @@ function App({ className, isDarkMode }: IAppProps) {
   }
 
   useEffect(() => {
+    const handleScroll = () => {
+      setScrolling(true);
+
+      // Clear the previous timeout (if any) to avoid premature reset
+      if (scrollingTimeout) {
+        clearTimeout(scrollingTimeout);
+      }
+
+      // Set a new timeout to reset the scrolling state
+      const newScrollingTimeout = setTimeout(() => {
+        setScrolling(false);
+      }, 200); // Adjust the delay as needed
+
+      setScrollingTimeout(newScrollingTimeout);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollingTimeout) {
+        clearTimeout(scrollingTimeout);
+      }
+    };
+  }, [scrollingTimeout]);
+
+  useEffect(() => {
     showContact && checkElements('contact', 'show');
   },[showContact]);
 
@@ -142,7 +171,7 @@ function App({ className, isDarkMode }: IAppProps) {
         {/* <p className='loader-txt'>LR</p> */}
       </div>
       ) : (
-      <div id='App' className={`App ${appClassName}`}>
+      <div id='App' className={`App ${appClassName}`} onScroll={() => setScrolling(true)}>
         <MouseTracker 
           size={60} 
           sizeSmall={12} 
@@ -153,6 +182,7 @@ function App({ className, isDarkMode }: IAppProps) {
           webMS={webMS}
           isDark={isDark}
           handleDarkModeChange={handleDarkModeChange}
+          scrolling={scrolling}
           
         />
         <Header
@@ -165,8 +195,12 @@ function App({ className, isDarkMode }: IAppProps) {
           showDialog={showDialog}
         />
         <About isDark={isDark} hideApp={hideApp} />
-        <Projects isDark={isDark} hideApp={hideApp} 
+        <Projects 
+          isDark={isDark} 
+          hideApp={hideApp} 
           handleContactMouseOverChange={handleContactMouseOverChange}
+          scrolling={scrolling}
+
         />
         <Info isDark={isDark} hideDialog={hideDialog} handleContactMouseOverChange={handleContactMouseOverChange} />
       </div>

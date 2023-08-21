@@ -16,9 +16,10 @@ interface FollowCircleProps {
   webMS: EventTarget|HTMLElement|boolean;
   isDark: boolean;
   handleDarkModeChange: (toggle: boolean) => void;
+  scrolling: boolean;
 }
 
-const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS, projectMS, githubMS, webMS, isDark, handleDarkModeChange}) => {
+const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS, projectMS, githubMS, webMS, isDark, handleDarkModeChange, scrolling}) => {
   // const isDarkMode = useDarkMode();
   const appClassName = isDark ? 'light' : 'dark';
   const circleRef = useRef<HTMLDivElement | null>(null);
@@ -26,6 +27,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isClicked, setIsClicked] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleMouseMove = (event: MouseEvent, github: EventTarget|HTMLElement|boolean = githubMS, web: EventTarget|HTMLElement|boolean = webMS) => {
     const mouseX = event.clientX;
@@ -139,12 +141,26 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
   }, [size, sizeSmall, githubMS, webMS]);
 
   useEffect(() => {
-    window.addEventListener('click', handleClick);
+    // window.addEventListener("scroll", (e) => setScrolling(true));
 
+    window.addEventListener('click', handleClick);
+    
     return () => {
+      // window.removeEventListener("scroll", (e) => setScrolling(false));
       window.removeEventListener('click', handleClick);
     };
   }, []);
+
+  useEffect(() => {
+    if (scrolling) return;
+    if(projectMS) {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    } 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projectMS]);
 
   return (
     <>
@@ -154,6 +170,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
         <div
           ref={circleRef}
           onClick={handleClick}
+          id={`${projectMS && loading ? 'loading' : ''}`}
           className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''} ${(projectMS && !githubMS && !webMS) ? 'project' : (projectMS && githubMS instanceof HTMLElement) ? 'github' : (projectMS && webMS instanceof HTMLElement) ? 'web' : ''}`}
           style={{
             left: position.x - size / 2,

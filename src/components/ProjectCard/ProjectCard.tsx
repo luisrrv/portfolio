@@ -31,6 +31,7 @@ interface ProjectCardProps {
   isDark: boolean; // Add isDark prop to the interface
   hideApp: boolean; // Add hideApp prop to the interface
   handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
+  scrolling: boolean;
 }
 
 export default function ProjectCard({
@@ -44,6 +45,7 @@ export default function ProjectCard({
   isDark,
   hideApp,
   handleContactMouseOverChange,
+  scrolling
   }: ProjectCardProps) {
 
     const [githubIcon,setGithubIcon] = useState<boolean>(false)
@@ -102,13 +104,27 @@ export default function ProjectCard({
       }
       const el = element as HTMLElement;
       if (el.classList.contains('open-card')) {
-        addClassWithTimeout(el, 'selected', 0);
-        addClassWithTimeout(el, 'cta', 1000);
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+          addClassWithTimeout(el, 'selected', 0);
+          addClassWithTimeout(el, 'cta', 1000);
+        }
+        else{
+          addClassWithTimeout(el, 'selected', 1000);
+          addClassWithTimeout(el, 'cta', 2000);
+        }
     
         const cover: HTMLElement | null = el.previousSibling as HTMLElement;
         if (cover) {
-          cover.classList.add('off');
-          cover.classList.remove('on');
+          if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+            cover.classList.add('off');
+            cover.classList.remove('on');
+          }
+          else{
+            setTimeout(() => {
+              cover.classList.add('off');
+              cover.classList.remove('on');
+            }, 1000);
+          }
         }
       } else {
         handleMouseEnter(el.parentElement, depth + 1);
@@ -125,7 +141,6 @@ export default function ProjectCard({
             const cover: HTMLElement|undefined = card.previousSibling ? card.previousSibling as HTMLElement : undefined;
             cover?.classList.remove('off');
           }
-          
         })
       }
     }
@@ -153,7 +168,7 @@ export default function ProjectCard({
     }
 
   return (
-    <div id='card' className={`card ${compClassName} ${hideApp && 'hidden'}`}>
+    <div id='card' className={`card ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''}`}>
       <div className={`card-cover on`}>
         <div className='name-container'>
             <p>{title}

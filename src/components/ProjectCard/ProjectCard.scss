@@ -12,6 +12,10 @@
     // margin: 12px 12px;
     overflow-x: hidden;
 
+    &.scrolling {
+      pointer-events: none;
+    }
+
     &.hidden {
         opacity: 0;
     }

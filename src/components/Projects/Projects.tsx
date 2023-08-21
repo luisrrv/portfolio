@@ -10,9 +10,10 @@ interface ProjectsProps extends IAppProps {
   isDark: boolean;
   hideApp: boolean;
   handleContactMouseOverChange: (isMouseOver: boolean, element: string) => void;
+  scrolling: boolean;
 }
 
-export default function App ({className, isDark, hideApp, handleContactMouseOverChange}: ProjectsProps) {
+export default function App ({className, isDark, hideApp, handleContactMouseOverChange, scrolling}: ProjectsProps) {
     const projectsData: ProjectProps[] = ProjectsData();
     // const isDarkMode = useDarkMode();
     const compClassName = isDark ? 'dark' : 'light';
@@ -35,6 +36,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
                     hideApp={hideApp}
                     pics={project.pics}
                     handleContactMouseOverChange={handleContactMouseOverChange}
+                    scrolling={scrolling}
 
                     />
                 ))
