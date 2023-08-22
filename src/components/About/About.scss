@@ -1,8 +1,15 @@
+// reds
 $lightRed: #e22941;
 $darkRed: #be3144;
 // $darkerRed: #7e1928;
 $darkerRed: #3e1017;
 $lighterRed: #dfb5bb;
+// blues
+$lightBlue: #2979e2;
+$darkBlue: #333fb0;
+// $darkerBlue: #19317e;
+$darkerBlue: #10153e;
+$lighterBlue: #b5bbdf;
 
 #about_container {
     position: relative;
@@ -22,7 +29,7 @@ $lighterRed: #dfb5bb;
     // color: #25252a;
     color: #e6e6e6;
     // background-color: #e6e6e6;
-    background-color: $darkRed;
+    background-color: $darkBlue;
     animation: loading ease-in 800ms;
 
     &.hidden {
@@ -160,7 +167,7 @@ $lighterRed: #dfb5bb;
                             right: 0;
                             bottom: 0;
                             left: 0;
-                            background: linear-gradient(-45deg, #8f000020 0%, #e2294120 100% );
+                            background: linear-gradient(-45deg, #000a8f20 0%, #333fb020 100% );
                             transform: translate3d(0px, 20px, 0) scale(0.95);
                             filter: blur(20px);
                             opacity: var(0.7);
@@ -245,15 +252,10 @@ $lighterRed: #dfb5bb;
 
                 span.bold {
                     padding: 2px;
-                    // border:  1px solid #d0d0d0;
-                    // background-image: -webkit-linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
-                    // background-image: -moz-linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
-                    // background-image: -ms-linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
-                    // background-image: linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
-                    background-image: -webkit-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
-                    background-image: -moz-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
-                    background-image: -ms-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
-                    background-image: linear-gradient(#00000000 60%, #e22942bb 0%) !important;
+                    background-image: -webkit-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
+                    background-image: -moz-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
+                    background-image: -ms-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
+                    background-image: linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
                     color: #e6e6e6 !important;
                     // color: #555555 !important;
                     // transition: background-image ease-in 300ms;
@@ -269,7 +271,7 @@ $lighterRed: #dfb5bb;
         }
     }
     &.dark {
-        background-color: $darkRed !important;
+        background-color: $darkBlue !important;
         color: #FFFFFF;
         .special {
             p {
@@ -308,20 +310,11 @@ $lighterRed: #dfb5bb;
         .text {
             p {
                 span.bold {
-                    // border-color: #555555;
                     color: #e6e6e6 !important;
-                    background-image: -webkit-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
-                    background-image: -moz-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
-                    background-image: -ms-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
-                    background-image: linear-gradient(#00000000 60%, #e22942bb 0%) !important;
-                    // transition: ease-in 300ms;
-                    
-                    // &:hover {
-                    //     background-image: -webkit-linear-gradient(#e22942bb 40%, #00000000 0%) !important;
-                    //     background-image: -moz-linear-gradient(#e22942bb 40%, #00000000 0%) !important;
-                    //     background-image: -ms-linear-gradient(#e22942bb 40%, #00000000 0%) !important;
-                    //     background-image: linear-gradient(#e22942bb 40%, #00000000 0%) !important;
-                    // }
+                    background-image: -webkit-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
+                    background-image: -moz-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
+                    background-image: -ms-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
+                    background-image: linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
                 }
             }
         }

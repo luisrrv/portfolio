@@ -1,20 +1,33 @@
+// reds
+$lightRed: #e22941;
+$darkRed: #be3144;
+// $darkerRed: #7e1928;
+$darkerRed: #3e1017;
+$lighterRed: #dfb5bb;
+// blues
+$lightBlue: #2951e2;
+$darkBlue: #333fb0;
+// $darkerBlue: #19317e;
+$darkerBlue: #10153e;
+$lighterBlue: #b5bbdf;
+
 .follow-circle {
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
     background-color: transparent !important;
-    border: 1px solid #be3144c7 !important;
+    border: 1px solid $lightBlue !important;
     border-radius: 50%;
     pointer-events: none;
-    transition: ease-in-out;
+    transition: border ease-in-out 300ms;
     z-index: 9999;
     
     &.light {
-        border-color: #be3144b8 !important;
+        border-color: $lightBlue !important;
 
         .follow-circle-small{
-            background-color: #be3144d0 !important;
+            background-color: $lightBlue !important;
             svg {
               color: #f0f0f0;
             }
@@ -22,7 +35,7 @@
 
       &#loading {
         border-color: white !important;
-        border-right: 2px solid #be3144 !important;
+        border-right: 2px solid $lightBlue !important;
         animation: circleLoad linear 1s;
         &.follow-circle-small {
           animation: rotate linear 1s;
@@ -38,7 +51,7 @@
         transition: 200ms;
 
         .follow-circle-small{
-          background-color: #be3144 !important;
+          background-color: $lightBlue !important;
 
           svg {
             color: #f0f0f0 !important;
@@ -47,7 +60,7 @@
       }
       &.button {
         border-width: 2px !important;
-        border-color: #be3144 !important;
+        border-color: $lightBlue !important;
         transition: 200ms;
         .follow-circle-small {
           display: none;
@@ -61,7 +74,7 @@
 
     .follow-circle-small {
         position: fixed;
-        background-color: #be3144d0;
+        background-color: $lightBlue;
         border-radius: 50%;
         pointer-events: none;
         transition: ease-in-out;
@@ -79,7 +92,7 @@
 
       .follow-circle-small {
         position: relative;
-        background-color: #be3144 !important;
+        background-color: $lightBlue !important;
         transform: scale(2);
         animation: bounce 500ms ease-in;
         padding: 4px;
@@ -103,7 +116,7 @@
     &.web {
       .follow-circle-small {
         position: relative;
-        background-color: #be3144 !important;
+        background-color: $lightBlue !important;
         transform: scale(2);
         animation: bounce2 500ms ease-in;
         padding: 4px;
@@ -124,7 +137,7 @@
     }
     &.button {
       border-width: 2px !important;
-      border-color: #be3144 !important;
+      border-color: $lightBlue !important;
       transition: 200ms;
 
       .follow-circle-small {
@@ -148,7 +161,7 @@
           background-color: #ffffff !important;
 
           svg {
-            color: #be3144 !important;
+            color: $lightBlue !important;
           }
         }
       }

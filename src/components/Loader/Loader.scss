@@ -1,9 +1,22 @@
+// reds
+$lightRed: #e22941;
+$darkRed: #be3144;
+// $darkerRed: #7e1928;
+$darkerRed: #3e1017;
+$lighterRed: #dfb5bb;
+// blues
+$lightBlue: #2979e2;
+$darkBlue: #333fb0;
+// $darkerBlue: #19317e;
+$darkerBlue: #10153e;
+$lighterBlue: #b5bbdf;
+
 $backgroundLight: #e6e6e6;
 $backgroundDark: #25252a;
-$leftFace: #be3144;
-$rightFace: #be3144;
-$topFace: #be3144;
-$lighterRed: #e22941;
+$leftFace: $lightBlue;
+$rightFace: $lightBlue;
+$topFace: $lightBlue;
+
 $scale: 1;
 $duration: 2.7s;
 $timingFunction: ease;
@@ -17,8 +30,8 @@ $timingFunction: ease;
     }
 
     .loader-txt {
-        -webkit-text-stroke: 1px #be3144 !important;
-        color: #3e1017;
+        -webkit-text-stroke: 1px $lightBlue !important;
+        color: $darkerBlue;
     }
 }
 
@@ -34,11 +47,11 @@ $timingFunction: ease;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    color: #dfb5bb;
+    color: $lighterBlue;
     font-size: 108px;
     margin-top: 40px;
     font-weight: bold;
-    -webkit-text-stroke: 1px #e22941 !important;
+    -webkit-text-stroke: 1px $lightBlue !important;
     text-transform: uppercase;
     animation: loadertxt 2.7s ease-in;
     -webkit-user-select: none;  
@@ -56,19 +69,19 @@ $timingFunction: ease;
 
 .right {
   background: $backgroundLight;
-  border: 1.5px solid $lighterRed;
+  border: 1.5px solid $lighterBlue;
   transform: rotate(-30deg) skewX(-30deg) translate(49px, 65px) scaleY(0.86);
 }
 
 .left {
   background: $backgroundLight;
-  border: 1.5px solid $lighterRed;
+  border: 1.5px solid $lighterBlue;
   transform: rotate(90deg) skewX(-30deg) scaleY(0.86) translate(25px, -50px);
 }
 
 .top {
   background: $backgroundLight;
-  border: 1.5px solid $lighterRed;
+  border: 1.5px solid $lighterBlue;
   transform: rotate(210deg) skew(-30deg) translate(-75px, -22px) scaleY(0.86);
   z-index:2;
 }

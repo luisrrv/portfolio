@@ -1,3 +1,16 @@
+// reds
+$lightRed: #e22941;
+$darkRed: #be3144;
+// $darkerRed: #7e1928;
+$darkerRed: #3e1017;
+$lighterRed: #dfb5bb;
+// blues
+$lightBlue: #2979e2;
+$darkBlue: #333fb0;
+// $darkerBlue: #19317e;
+$darkerBlue: #10153e;
+$lighterBlue: #b5bbdf;
+
 #info_bg {
     position: fixed;
     top: 0;
@@ -52,7 +65,7 @@
                 height: fit-content;
                 font-weight: 300px;
                 a.underline {
-                    border-bottom: 1px solid #be3144c6;
+                    border-bottom: 1px solid #333fb0c6;
                     // text-decoration: underline;
                     // text-underline-offset: 4px;
                 }
@@ -66,7 +79,7 @@
 
                 svg {
                     font-size: 28px;
-                    color: #be3144;
+                    color: $darkBlue;
                 }
             }
             .info-img {

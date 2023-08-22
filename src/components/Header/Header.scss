@@ -1,3 +1,16 @@
+// reds
+$lightRed: #e22941;
+$darkRed: #be3144;
+// $darkerRed: #7e1928;
+$darkerRed: #3e1017;
+$lighterRed: #dfb5bb;
+// blues
+$lightBlue: #2979e2;
+$darkBlue: #333fb0;
+// $darkerBlue: #19317e;
+$darkerBlue: #10153e;
+$lighterBlue: #b5bbdf;
+
 #header_container {
     position: fixed;
     top: 0;
@@ -20,8 +33,8 @@
     }
 
     .header-logo {
-        color: #dfb5bb;
-        -webkit-text-stroke: 1px #e22941 !important;
+        color: $lighterBlue;
+        -webkit-text-stroke: 1px $lightBlue !important;
         font-size: 30px;
         font-weight: bold;
         height: fit-content;
@@ -85,8 +98,8 @@
         }
         
         .header-logo {
-            color: #3e1017;
-            -webkit-text-stroke: 1px #be3144 !important;
+            color: $darkerBlue;
+            -webkit-text-stroke: 1px $lightBlue !important;
 
             // background-image: url(../../assets/images/lr_logo_b.png);
             // background-image: url(../../assets/images/lr_logo_w.png);

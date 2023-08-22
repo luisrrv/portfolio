@@ -102,10 +102,8 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
 
   const handleOnOff = (toggle: string): React.MouseEventHandler<HTMLDivElement> | void => {
     if(toggle==='on') {
-      console.log('ABOUT hover on');
       aboutMSOn();
     } else if (toggle==='off') {
-      console.log('ABOUT hover off');
       aboutMSOff();
     }
   }
