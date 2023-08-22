@@ -118,12 +118,16 @@ export default function ProjectCard({
           if (!scrolling) {
             addClassWithTimeout(el, 'selected', 0);
             addClassWithTimeout(el, 'cta', 1000);
+            el.scrollIntoView({block: "start", behavior: "smooth"});
           }
         }
         else{
           if (!scrolling) {
             addClassWithTimeout(el, 'selected', 1000);
             addClassWithTimeout(el, 'cta', 2000);
+            // setTimeout(() => {
+            //   el.scrollIntoView({block: "start", behavior: "smooth"});
+            // },1000);
           }
         }
     
@@ -201,7 +205,7 @@ export default function ProjectCard({
             </span>
             </p>
         </div>
-        <div className='project-pics'>
+        {/* <div className='project-pics'>
             {
                 pics.length > 0 ? (
                     pics.map((pic,index) => (
@@ -214,7 +218,7 @@ export default function ProjectCard({
                       ))
                 ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
             }
-          </div>
+          </div> */}
       </div>
       <div className="open-card"
         style={isDark ? {backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`} : {backgroundImage:`linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(${bg})`}}
@@ -230,8 +234,38 @@ export default function ProjectCard({
                   {setIcons().map((icon) => icon)}
               </div>
               <div className={`cta`}>
-                  <a className='github' href={github} target="_blank" rel="noopener noreferrer" onMouseEnter={(e)=>{handleMouseTrackerEnter('github',e.target); addIcon(e.target);}} onMouseLeave={(e)=>{handleMouseTrackerLeave('github',e.target); removeIcon(e.target)}}>{githubIcon ? <BsGithub /> : 'GitHub'}</a>
-                  <a className='web' href={live} target="_blank" rel="noopener noreferrer" onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}>{webIcon ? <MdWeb /> : 'Check it out'}</a>
+                  <a 
+                    className='github' 
+                    href={github} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    onMouseEnter={(e)=>{handleMouseTrackerEnter('github',e.target); addIcon(e.target);}} 
+                    onMouseLeave={(e)=>{handleMouseTrackerLeave('github',e.target); removeIcon(e.target)}}
+                    >{githubIcon ? <BsGithub /> : 'GitHub'}
+                  </a>
+                  <a 
+                    className='web' 
+                    href={live} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+                    onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+                    >{webIcon ? <MdWeb /> : 'Check it out'}
+                  </a>
+              </div>
+              <div className='project-pics'>
+                {
+                    pics.length > 0 ? (
+                        pics.map((pic,index) => (
+                            <img
+                            key={index}
+                              className={`pic ${pic.includes('wide') && 'wide'}`} 
+                              src={pic} 
+                              alt=""
+                              />
+                          ))
+                    ) : <img className='pic' src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/01/become-web-developer.jpg" alt="" />
+                }
               </div>
             </div>
           </div>
