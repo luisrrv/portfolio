@@ -166,7 +166,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
   return (
     <>
       {(window.matchMedia("(any-hover: none)").matches) ? (
-        <div></div>
+        <div style={{display: 'none'}}></div>
       ) : (
         <div
           ref={circleRef}

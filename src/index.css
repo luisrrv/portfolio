@@ -20,6 +20,12 @@ html {
 html.dark {
   background-color: #be3144 !important;
 }
+body {
+  background-color: #be3144;
+}
+body.dark {
+  background-color: #be3144 !important;
+}
 /* body {
   overflow: hidden;
 } */
