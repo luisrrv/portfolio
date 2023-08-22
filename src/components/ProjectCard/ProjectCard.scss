@@ -13,7 +13,8 @@ $lighterBlue: #b5bbdf;
 
 #card {
     position: relative;
-    background-color: #e6e6e6 !important;
+    background-color: transparent !important;
+    // background-color: #d8d8d8 !important;
     animation: loading ease-in 800ms;
     height: fit-content;
     min-height: 400px;
@@ -24,6 +25,8 @@ $lighterBlue: #b5bbdf;
     width: 100%;
     // margin: 12px 12px;
     overflow-x: hidden;
+    border-radius: 8px;
+    // border: 1px solid #2222228e;
 
     &.scrolling {
       pointer-events: none;
@@ -188,7 +191,8 @@ $lighterBlue: #b5bbdf;
     }
 
     &.dark {
-      background-color: #25252a !important;
+      // background-color: #323239 !important;
+      // border-color: #e6e6e68e;
 
       .card-cover {
         // background-color: #500e18;
