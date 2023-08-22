@@ -4,7 +4,7 @@ import { MdOutlineDarkMode, MdSunny } from 'react-icons/md';
 // import useDarkMode from '../../hooks/useDarkMode';
 
 import { BsGithub, BsLinkedin, BsInfoCircle } from 'react-icons/bs';
-import { MdEmail } from 'react-icons/md';
+import { MdAlternateEmail } from 'react-icons/md';
 import { AiOutlineClose } from 'react-icons/ai';
 
 
@@ -90,7 +90,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
                 <BsLinkedin size={18} />
               </a>
               <a href="mailto:rodluisr@gmail.com">
-                <MdEmail size={22} />
+                <MdAlternateEmail size={22} />
               </a>
             </div>
           )}
@@ -125,7 +125,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
                 <BsLinkedin size={18} />
               </a>
               <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%72%6F%64%6C%75%69%73%72%40%67%6D%61%69%6C%2E%63%6F%6D">
-                <MdEmail size={22} />
+                <MdAlternateEmail size={22} />
               </a>
         </div>
         <div className="divider"></div>
