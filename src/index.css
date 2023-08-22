@@ -15,7 +15,10 @@
   transition: 300ms;
 }
 html {
-  background-color: #e6e6e6;
+  background-color: #be3144;
+}
+html.dark {
+  background-color: #be3144 !important;
 }
 /* body {
   overflow: hidden;

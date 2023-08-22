@@ -16,9 +16,12 @@ interface HeaderProps {
   handleDarkModeChange: (toggle: boolean) => void;
   hideApp: boolean;
   showDialog: () => void;
+  aboutMS: boolean;
+  aboutMSOn: () => void;
+  aboutMSOff: () => void;
 }
 
-export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange, hideApp, showDialog }: HeaderProps) {
+export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange, hideApp, showDialog, aboutMS, aboutMSOn, aboutMSOff }: HeaderProps) {
 
   const compClassName = isDark ? 'dark' : 'light';
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,11 +57,25 @@ export default function Header({ showContact, handleShowContact, handleContactMo
     }, 200);
   };
 
+  const handleOnOff = (toggle: string): React.MouseEventHandler<HTMLDivElement> | void => {
+    if (!aboutMS ) return;
+    if(toggle==='on') {
+      aboutMSOn();
+    } else if (toggle==='off') {
+      aboutMSOff();
+    }
+  }
+
   return (
-    <div id='header_container' className={`header_container ${compClassName} ${hideApp && 'hidden'}`}>
+    <div 
+      id='header_container' 
+      className={`header_container ${compClassName} ${hideApp && 'hidden'}`}
+      onMouseEnter={() => handleOnOff('on')}
+      onMouseLeave={() => handleOnOff('off')}
+      >
       <div className={`header-logo ${isScrolled ? 'show' : ''}`}>LR</div>
 
-      <div className="header-right">
+      <div className={`header-right ${isScrolled ? 'show' : ''}`}>
         <div className="contact-opts-m">
           {showContact && (
             <div 

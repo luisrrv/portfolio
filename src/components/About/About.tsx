@@ -4,9 +4,11 @@ import './About.scss';
 interface AboutProps {
   isDark: boolean;
   hideApp: boolean;
+  aboutMSOn: () => void;
+  aboutMSOff: () => void;
 }
 
-export default function About({ isDark, hideApp }: AboutProps) {
+export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -98,8 +100,23 @@ export default function About({ isDark, hideApp }: AboutProps) {
     },1000)
   }
 
+  const handleOnOff = (toggle: string): React.MouseEventHandler<HTMLDivElement> | void => {
+    if(toggle==='on') {
+      console.log('ABOUT hover on');
+      aboutMSOn();
+    } else if (toggle==='off') {
+      console.log('ABOUT hover off');
+      aboutMSOff();
+    }
+  }
+
   return (
-    <div id='about_container' className={`about_container ${compClassName} ${hideApp && 'hidden'}`}>
+    <div 
+      id='about_container' 
+      className={`about_container ${compClassName} ${hideApp && 'hidden'}`}
+      onMouseEnter={() => handleOnOff('on')}
+      onMouseLeave={() => handleOnOff('off')}
+      >
       <div className="content" style={fadeOutStyle}>
         <div className="me-img"></div>
         <div className="special">

@@ -19,8 +19,10 @@ $lighterRed: #dfb5bb;
     left: 50%;
     transform: translateX(-50%);
     padding: 20px 0;
-    color: #25252a;
-    background-color: #e6e6e6;
+    // color: #25252a;
+    color: #e6e6e6;
+    // background-color: #e6e6e6;
+    background-color: $darkRed;
     animation: loading ease-in 800ms;
 
     &.hidden {
@@ -110,14 +112,15 @@ $lighterRed: #dfb5bb;
                         }
                         .me-img {
                             position: absolute;
-                            top: 51.5%;
-                            left: 51.5%;
-                            transform: translate(-51.5%,-51.5%);
-                            width: 54%;
-                            height: 54%;
-                            border: 1px solid #e22941;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            width: 50%;
+                            height: 50%;
+                            // border: 1px solid #e22941;
+                            // border: 1px solid #e6e6e6;
                             border-radius: 50%;
-                            background-image: url(../../assets/images/me.jpeg);
+                            background-image: url(../../assets/images/me-img.png);
                             background-size: cover;
                             background-position: center;
                             background-repeat: no-repeat;
@@ -128,14 +131,15 @@ $lighterRed: #dfb5bb;
                 &.big span.letter{
                     // color: #dfb5bb;
                     text-align: center !important;
-                    color: $lighterRed;
+                    // color: $lighterRed;
+                    color: transparent;
                     text-align: left;
                     font-size: 120px;
                     line-height: 100px;
                     font-weight: bold;
                     white-space: initial;
                     word-wrap: break-word;
-                    -webkit-text-stroke: 1.5px #25252a;
+                    -webkit-text-stroke: 1.5px #e6e6e6;
                     span {
                         line-height: 8px;
                         font-size: 12px;
@@ -145,7 +149,8 @@ $lighterRed: #dfb5bb;
                     }
 
                     &.highlight-s {
-                        -webkit-text-stroke: 1.5px $lightRed !important;
+                        // -webkit-text-stroke: 1.5px $lightRed !important;
+                        -webkit-text-stroke: 1.5px #e6e6e6 !important;
                                                 
                         &:before {
                             content: "";
@@ -188,7 +193,8 @@ $lighterRed: #dfb5bb;
                 }
                 &.small {
                     font-size: 12px;
-                    color: #25252a;
+                    // color: #25252a;
+                    color: #e6e6e6;
                     padding: 4px 0;
                     text-align: center;
                     letter-spacing: 4px;
@@ -213,7 +219,8 @@ $lighterRed: #dfb5bb;
             width: 90%;
             max-width: 314px;
             height: 8px;
-            border-top: 0.5px solid #25252a;
+            // border-top: 0.5px solid #25252a;
+            border-top: 0.5px solid #e6e6e6;
             margin-top: 10px;
             margin-bottom: 16px;
             z-index: 1;
@@ -239,15 +246,16 @@ $lighterRed: #dfb5bb;
                 span.bold {
                     padding: 2px;
                     // border:  1px solid #d0d0d0;
-                    background-image: -webkit-linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
-                    background-image: -moz-linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
-                    background-image: -ms-linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
-                    background-image: linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
-                    // background-image: -webkit-linear-gradient(#00000000 60%, #afafafbb 0%) !important;
-                    // background-image: -moz-linear-gradient(#00000000 60%, #afafafbb 0%) !important;
-                    // background-image: -ms-linear-gradient(#00000000 60%, #afafafbb 0%) !important;
-                    // background-image: linear-gradient(#00000000 60%, #afafafbb 0%) !important;
-                    color: #555555 !important;
+                    // background-image: -webkit-linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
+                    // background-image: -moz-linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
+                    // background-image: -ms-linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
+                    // background-image: linear-gradient(#00000000 60%, #ff8495bb 0%) !important;
+                    background-image: -webkit-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
+                    background-image: -moz-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
+                    background-image: -ms-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
+                    background-image: linear-gradient(#00000000 60%, #e22942bb 0%) !important;
+                    color: #e6e6e6 !important;
+                    // color: #555555 !important;
                     // transition: background-image ease-in 300ms;
 
                     // &:hover {
@@ -261,18 +269,21 @@ $lighterRed: #dfb5bb;
         }
     }
     &.dark {
+        background-color: $darkRed !important;
         color: #FFFFFF;
         .special {
             p {
                 &.big span.letter{
-                    color: $darkerRed !important;
+                    // color: $darkerRed !important;
+                    color: transparent !important;
                     -webkit-text-stroke: 1.5px #f0f0f0;
                     span {
                         color: #f0f0f0;
                     }
                     
                     &.highlight-s {
-                        -webkit-text-stroke: 1.5px $lightRed !important;
+                        // -webkit-text-stroke: 1.5px $lightRed !important;
+                        -webkit-text-stroke: 1.5px #e6e6e6 !important;
                         // animation: BlurAnimation 1s ease-in;
                     }
                     &.blur-in {
@@ -297,7 +308,7 @@ $lighterRed: #dfb5bb;
         .text {
             p {
                 span.bold {
-                    border-color: #555555;
+                    // border-color: #555555;
                     color: #e6e6e6 !important;
                     background-image: -webkit-linear-gradient(#00000000 60%, #e22942bb 0%) !important;
                     background-image: -moz-linear-gradient(#00000000 60%, #e22942bb 0%) !important;

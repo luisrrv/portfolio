@@ -24,6 +24,7 @@ function App({ className, isDarkMode }: IAppProps) {
   const [showContact, setShowContact] = useState(false);
   const [contactMS, setContactMS] = useState(false);
   const [projectMS, setProjectMS] = useState(false);
+  const [aboutMS, setAboutMS] = useState<boolean>(false);
   const [githubMS, setGithubMS] = useState<EventTarget|HTMLElement|boolean>(false);
   const [webMS, setWebMS] = useState<EventTarget|HTMLElement|boolean>(false);
   const [contactOptsMS, setContactOptsMS] = useState(false);
@@ -110,6 +111,13 @@ function App({ className, isDarkMode }: IAppProps) {
     }
   };
 
+  const aboutMSOn = () => {
+    setAboutMS(true);
+  }
+  const aboutMSOff = () => {
+    setAboutMS(false);
+  }
+
   const handleDarkModeChange = (toggle: boolean) => {
     setIsDark(toggle);
     document.body.classList.toggle('dark');
@@ -183,7 +191,7 @@ function App({ className, isDarkMode }: IAppProps) {
           isDark={isDark}
           handleDarkModeChange={handleDarkModeChange}
           scrolling={scrolling}
-          
+          aboutMS={aboutMS}
         />
         <Header
           hideApp={hideApp}
@@ -193,8 +201,16 @@ function App({ className, isDarkMode }: IAppProps) {
           isDark={isDark}
           handleDarkModeChange={handleDarkModeChange}
           showDialog={showDialog}
+          aboutMS={aboutMS}
+          aboutMSOn={aboutMSOn} 
+          aboutMSOff={aboutMSOff}
         />
-        <About isDark={isDark} hideApp={hideApp} />
+        <About 
+          isDark={isDark} 
+          hideApp={hideApp} 
+          aboutMSOn={aboutMSOn} 
+          aboutMSOff={aboutMSOff} 
+        />
         <Projects 
           isDark={isDark} 
           hideApp={hideApp} 

@@ -131,6 +131,28 @@
         display: none;
       }
     }
+
+    &.white {
+      border-color: #ffffff !important;
+      
+      .follow-circle-small {
+        background-color: #ffffff !important;
+      }
+      &.contact,
+      &.external {
+        border-color: #ffffff !important;
+        // background-color: transparent !important;
+        // transition: 200ms;
+
+        .follow-circle-small{
+          background-color: #ffffff !important;
+
+          svg {
+            color: #be3144 !important;
+          }
+        }
+      }
+    }
 }
 
 @keyframes pulseAnimation {

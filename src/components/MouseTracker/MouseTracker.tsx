@@ -17,9 +17,10 @@ interface FollowCircleProps {
   isDark: boolean;
   handleDarkModeChange: (toggle: boolean) => void;
   scrolling: boolean;
+  aboutMS: boolean;
 }
 
-const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS, projectMS, githubMS, webMS, isDark, handleDarkModeChange, scrolling}) => {
+const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS, projectMS, githubMS, webMS, isDark, handleDarkModeChange, scrolling, aboutMS}) => {
   // const isDarkMode = useDarkMode();
   const appClassName = isDark ? 'light' : 'dark';
   const circleRef = useRef<HTMLDivElement | null>(null);
@@ -171,7 +172,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
           ref={circleRef}
           onClick={handleClick}
           id={`${projectMS && loading ? 'loading' : ''}`}
-          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''} ${(projectMS && !githubMS && !webMS) ? 'project' : (projectMS && githubMS instanceof HTMLElement) ? 'github' : (projectMS && webMS instanceof HTMLElement) ? 'web' : ''}`}
+          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''} ${(projectMS && !githubMS && !webMS) ? 'project' : (projectMS && githubMS instanceof HTMLElement) ? 'github' : (projectMS && webMS instanceof HTMLElement) ? 'web' : ''} ${aboutMS ? 'white' : ''}`}
           style={{
             left: position.x - size / 2,
             top: position.y - size / 2,
