@@ -42,9 +42,11 @@ $blacker: #222222;
       &#loading {
         border-color: white !important;
         border-right: 2px solid $lightBlue !important;
-        animation: circleLoad linear 1s;
-        &.follow-circle-small {
-          animation: rotate linear 1s;
+        animation: circleLoad linear 800ms;
+        .follow-circle-small {
+          svg {
+            opacity: 0;
+          }
         }
       }
       
@@ -178,9 +180,11 @@ $blacker: #222222;
       &#loading {
         border-color: $black !important;
         border-right: 2px solid $lightBlue !important;
-        animation: circleLoad linear 1s;
-        &.follow-circle-small {
-          animation: rotate linear 1s;
+        animation: circleLoad linear 800ms;
+        .follow-circle-small {
+          svg {
+            opacity: 0;
+          }
         }
       }
     }
@@ -256,37 +260,10 @@ $blacker: #222222;
 }
 @keyframes circleLoad {
   0% {
-    // border-color: white !important;
-    // border-right-color: #be3144 !important;
     transform: rotate(0deg);
   }
-  // 25% {
-  //   border-color: white !important;
-  //   // border-bottom-color: #be3144 !important;
-  //   transform: rotate(0deg);
-  // }
-  // 50% {
-  //   border-color: white !important;
-  //   // border-left-color: #be3144 !important;
-  //   transform: rotate(0deg);
-  // }
-  // 75% {
-  //   border-color: white !important;
-  //   // border-top-color: #be3144 !important;
-  //   transform: rotate(0deg);
-  // }
   100% {
-    // border-color: white !important;
-    // border-left-color: #be3144 !important;
     transform: rotate(360deg);
-  }
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
   }
 }
 

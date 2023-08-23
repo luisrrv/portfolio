@@ -29,6 +29,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isClicked, setIsClicked] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [projectIcon, setProjectIcon] = useState(false);
 
   const handleMouseMove = (event: MouseEvent, github: EventTarget|HTMLElement|boolean = githubMS, web: EventTarget|HTMLElement|boolean = webMS) => {
     const mouseX = event.clientX;
@@ -158,8 +159,11 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
-    } 
+        setProjectIcon(true);
+      }, 800);
+    } else if (!projectMS) {
+      setProjectIcon(false);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projectMS]);
 
@@ -172,7 +176,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
           ref={circleRef}
           onClick={handleClick}
           id={`${projectMS && loading ? 'loading' : ''}`}
-          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''} ${(projectMS && !githubMS && !webMS) ? 'project' : (projectMS && githubMS instanceof HTMLElement) ? 'github' : (projectMS && webMS instanceof HTMLElement) ? 'web' : ''} ${!isDark && !aboutMS ? 'black' : ''}`}
+          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''} ${(projectMS && projectIcon && !githubMS && !webMS) ? 'project' : (projectMS && githubMS instanceof HTMLElement) ? 'github' : (projectMS && webMS instanceof HTMLElement) ? 'web' : ''} ${!isDark && !aboutMS ? 'black' : ''}`}
           style={{
             left: position.x - size / 2,
             top: position.y - size / 2,

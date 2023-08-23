@@ -118,13 +118,13 @@ export default function ProjectCard({
           if (!scrolling) {
             addClassWithTimeout(el, 'selected', 0);
             addClassWithTimeout(el, 'cta', 1000);
-            el.scrollIntoView({block: "start", behavior: "smooth"});
+            // el.scrollIntoView({block: "start", behavior: "smooth"});
           }
         }
         else{
           if (!scrolling) {
-            addClassWithTimeout(el, 'selected', 1000);
-            addClassWithTimeout(el, 'cta', 2000);
+            addClassWithTimeout(el, 'selected', 800);
+            addClassWithTimeout(el, 'cta', 1200);
             // setTimeout(() => {
             //   el.scrollIntoView({block: "start", behavior: "smooth"});
             // },1000);
@@ -259,7 +259,7 @@ export default function ProjectCard({
                         pics.map((pic,index) => (
                             <img
                             key={index}
-                              className={`pic ${pic.includes('wide') && 'wide'}`} 
+                              className={`pic ${pic.includes('wide') ? 'wide' : ''}`} 
                               src={pic} 
                               alt=""
                               />
