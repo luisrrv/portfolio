@@ -42,11 +42,16 @@ $lighterBlue: #b5bbdf;
             .skillset {
                 display: flex;
                 flex-direction: row;
-                justify-content: center;
+                justify-content: space-around;
                 align-items: center;
                 gap: 12px;
+                position: relative;
+                // width: 200%;
+
                 .skill {
+                    // animation: scrollText 10s infinite linear;
                     width: 100px;
+                    min-width: 100px;
                     svg {
                         height: 20px;
                         width: 20px;
@@ -101,6 +106,14 @@ $lighterBlue: #b5bbdf;
                 }
             }
     
+        }
+    }
+    @keyframes scrollText {
+        from {
+          transform: translateX(0%);
+        }
+        to {
+          transform: translateX(-200%);
         }
     }
 }
