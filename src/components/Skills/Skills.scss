@@ -1,0 +1,106 @@
+// reds
+$lightRed: #e22941;
+$darkRed: #be3144;
+// $darkerRed: #7e1928;
+$darkerRed: #3e1017;
+$lighterRed: #dfb5bb;
+// blues
+$lightBlue: #2979e2;
+$darkBlue: #333fb0;
+// $darkerBlue: #19317e;
+$darkerBlue: #10153e;
+$lighterBlue: #b5bbdf;
+
+.skills-container {
+    background-color: #e6e6e6;
+    overflow: hidden;
+    width: 100%;
+
+    h3.title {
+        padding: 0 16px !important;
+        padding-top: 40px !important;
+        text-align: center;
+        width: 100%;
+        color: #e6e6e6;
+        -webkit-text-stroke: 1px #555555;
+    }
+
+    .skills {
+
+        .frontend,
+        .backend,
+        .other {
+
+            .type {
+                padding: 20px;
+                padding-top: 40px;
+                font-weight: 300;
+                letter-spacing: 2px;
+                color: #555555;
+            }
+
+            .skillset {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                .skill {
+                    width: 100px;
+                    svg {
+                        height: 20px;
+                        width: 20px;
+                        color: #555555;
+                    }
+
+                    p {
+                        font-size: 10px;
+                        font-weight: 300;
+                        color: #555555;
+                        letter-spacing: 1px;
+                        transition: 300ms !important;
+                    }
+                }
+            }
+        }
+
+    }
+    
+    &.dark {
+        background-color: #222222;
+        color: #222222;
+        -webkit-text-stroke: 1px #e6e6e6;
+
+        .title {
+            color: #222222;
+            -webkit-text-stroke: 1px #e6e6e6;
+        }
+    
+        .skills {
+    
+            .frontend,
+            .backend,
+            .other {
+    
+                .type {
+                    color: #e6e6e6;
+                }
+    
+                .skillset {
+    
+                    .skill {
+    
+                        svg {
+                            color: #e6e6e6;
+                        }
+    
+                        p {
+                            color: #e6e6e6;
+                        }
+                    }
+                }
+            }
+    
+        }
+    }
+}

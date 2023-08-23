@@ -37,6 +37,12 @@ $lighterBlue: #b5bbdf;
       max-height: 600px;
       // transition: 300ms !important;
       // animation: heightChange ease-in 300ms;
+      .card-cover {
+        .name-container {
+          opacity: 0;
+          transform: translateY(25px);
+        }
+      }
     }
 
     // &.scrolling {
@@ -59,7 +65,7 @@ $lighterBlue: #b5bbdf;
       align-items: center;
       gap: 8px;
       padding: 12px;
-      border: 1px solid #222222;
+      border: 1px solid #999;
       border-radius: 8px;
       // animation: bgMove 120s linear infinite;
       filter: blur(0);
@@ -91,9 +97,9 @@ $lighterBlue: #b5bbdf;
           color: transparent;
           text-transform: uppercase;
           letter-spacing: 0px;
-          -webkit-text-stroke: 1px #222222;
+          -webkit-text-stroke: 1px #555555;
           font-weight: bold;
-          font-size: 28px;
+          font-size: 24px;
           // animation: slideDown ease-in 400ms;
         }
         .stack {
@@ -102,10 +108,11 @@ $lighterBlue: #b5bbdf;
           align-items: center;
           gap: 16px;
           height: fit-content;
+          margin-top: 6px;
           // animation: slideUp ease-in 400ms !important;
           svg {
             font-size: 28px;
-            color: #222222;
+            color: #555555;
           }
         }
       }
@@ -198,9 +205,9 @@ $lighterBlue: #b5bbdf;
         filter: blur(0);
 
         &.cta {
-          height: fit-content;
+          // height: fit-content;
           a {
-            height: fit-content;
+            // height: fit-content;
             opacity: 1;
             pointer-events: all;
             transform: translateY(0);
@@ -264,13 +271,14 @@ $lighterBlue: #b5bbdf;
       }
     }
     .project-title {
-      height: fit-content;
+      height: 70px;
       width: 100%;
       padding: 16px 0;
-      font-size: 30px;
+      font-size: 28px;
       text-align: center;
       color: transparent;
       -webkit-text-stroke: 1px #222222;
+      cursor: default;
     }
     .content {
       display: flex;
@@ -289,6 +297,9 @@ $lighterBlue: #b5bbdf;
         justify-content: center;
         align-items:center;
         overflow: hidden;
+         p {
+          cursor: default;
+         }
       }
     }
 
@@ -347,7 +358,8 @@ $lighterBlue: #b5bbdf;
           align-items: center;
           gap: 16px;
           padding: 20px 0;
-          height: fit-content;
+          height: 70px;
+          // height: fit-content;
           svg {
             font-size: 28px;
           }
@@ -359,6 +371,8 @@ $lighterBlue: #b5bbdf;
           justify-content: center;
           align-items: center;
           gap: 16px;
+          height: 70px;
+          // height: fit-content;
           a {
             padding: 12px 14px;
             border-radius: 8px;

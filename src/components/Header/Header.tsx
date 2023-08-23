@@ -69,7 +69,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
   return (
     <div 
       id='header_container' 
-      className={`header_container ${compClassName} ${hideApp && 'hidden'}`}
+      className={`header_container ${compClassName} ${hideApp ? 'hidden' : ''}`}
       onMouseEnter={() => handleOnOff('on')}
       onMouseLeave={() => handleOnOff('off')}
       >
@@ -131,14 +131,14 @@ export default function Header({ showContact, handleShowContact, handleContactMo
         <div className="divider"></div>
         {isDark ? (
           <div className="toggle">
-            <MdSunny onClick={changeMode} />
+            <MdSunny size={18} onClick={changeMode} />
           </div>
         ) : (
           <div className="toggle">
-            <MdOutlineDarkMode onClick={changeMode} />
+            <MdOutlineDarkMode size={18} onClick={changeMode} />
           </div>
         )}
-        <BsInfoCircle className='info'  size={13} onClick={showDialog}/>
+        <BsInfoCircle className='info'  size={16} onClick={showDialog}/>
       </div>
 
     </div>

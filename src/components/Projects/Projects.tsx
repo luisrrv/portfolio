@@ -2,8 +2,8 @@ import './Projects.scss';
 
 import { IAppProps } from '../../App'; // Update the import path
 import ProjectCard from '../ProjectCard/ProjectCard';
-// import useDarkMode from '../../hooks/useDarkMode';
 import ProjectsData, { ProjectProps } from '../../data/projects';
+import Skills from '../Skills/Skills';
 
 interface ProjectsProps extends IAppProps {
   // Add any other specific props for the Projects component if needed
@@ -20,6 +20,9 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
 
     return (
         <div id='projects_container' className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`} /*style={{marginTop:`${window.innerHeight}px`}}*/>
+            <Skills 
+                isDark={isDark}
+            />
             <h3>Some of my work<br></br><span>click project for details</span></h3>
             <div className="projects">
             {

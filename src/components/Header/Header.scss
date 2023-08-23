@@ -78,6 +78,9 @@ $lighterBlue: #b5bbdf;
                     }
                 }
             }
+            .divider {
+                border-left: 1px solid #25252a3f !important;
+            }
         }
 
     }
@@ -193,18 +196,21 @@ $lighterBlue: #b5bbdf;
             }
         }
         .divider {
-            border-left: 1px solid #25252a3f;
+            // border-left: 1px solid #25252a3f;
+            border-left: 1px solid #f0f0f03f;
             height: 28px;
             width: 12px;
             margin-left: 12px;
         }
         .info {
-            margin-left: 12px;
+            margin-left: 16px;
+            margin-bottom: 4px;
             &:hover {
                 cursor: pointer;
             }
         }
         .toggle {
+            margin-bottom: 4px;
             &:hover {
                 cursor: pointer;
             }

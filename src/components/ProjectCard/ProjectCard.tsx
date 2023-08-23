@@ -117,17 +117,13 @@ export default function ProjectCard({
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
           if (!scrolling) {
             addClassWithTimeout(el, 'selected', 0);
-            addClassWithTimeout(el, 'cta', 1000);
-            // el.scrollIntoView({block: "start", behavior: "smooth"});
+            addClassWithTimeout(el, 'cta', 600);
           }
         }
         else{
           if (!scrolling) {
             addClassWithTimeout(el, 'selected', 800);
-            addClassWithTimeout(el, 'cta', 1200);
-            // setTimeout(() => {
-            //   el.scrollIntoView({block: "start", behavior: "smooth"});
-            // },1000);
+            addClassWithTimeout(el, 'cta', 1400);
           }
         }
     
@@ -146,7 +142,7 @@ export default function ProjectCard({
                 if (mouseLeaveRef.current) return;
                 cover.classList.add('off');
                 cover.classList.remove('on');
-              }, 1000);
+              }, 800);
             }
           }
         }
