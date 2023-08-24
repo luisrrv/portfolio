@@ -11,14 +11,37 @@ $darkBlue: #333fb0;
 $darkerBlue: #10153e;
 $lighterBlue: #b5bbdf;
 
+$animationSpeed: 30s;
+
+@keyframes scroll-left {
+	0% { transform: translateX(0); }
+	50% { transform: translateX(-30%)}
+	100% { transform: translateX(0)}
+	// 100% { transform: translateX(0); }
+}
+@keyframes scroll-right {
+	0% { transform: translateX(-30%)}
+	50% { transform: translateX(0); }
+	100% { transform: translateX(-30%)}
+	// 0% { transform: translateX(0); }
+}
+
+@mixin white-gradient {
+	// background: linear-gradient(to right,  #e6e6e6 0%,#22222200 100%);
+	background: linear-gradient(to right,  #22222200 0%,#22222200 100%);
+}
+@mixin black-gradient {
+	// background: linear-gradient(to right,  #222222 0%,#22222200 100%);
+	background: linear-gradient(to right,  #22222200 0%,#22222200 100%);
+}
+
 .skills-container {
-    background-color: #e6e6e6;
+    background-color: transparent !important;
     overflow: hidden;
     width: 100%;
 
     h3.title {
-        padding: 0 16px !important;
-        padding-top: 40px !important;
+        padding: 40px 16px !important;
         text-align: center;
         width: 100%;
         color: #e6e6e6;
@@ -26,43 +49,103 @@ $lighterBlue: #b5bbdf;
     }
 
     .skills {
+        background-color: transparent !important;
+        max-width: 1300px;
+        margin: 0 auto;
 
         .frontend,
         .backend,
         .other {
-
+            position: relative;
+            padding: 16px 0;
             .type {
-                padding: 20px;
-                padding-top: 40px;
-                font-weight: 300;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #2979e272 !important;
+                font-size: 40px;
+                font-weight: bold;
+                // z-index: 1;
+                -webkit-text-stroke: unset;
+                // padding: 20px;
+                // padding-top: 40px;
                 letter-spacing: 2px;
                 color: #555555;
             }
 
             .skillset {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: center;
-                gap: 12px;
-                position: relative;
+                // display: flex;
+                // flex-direction: row;
+                // justify-content: space-around;
+                // align-items: center;
+                // gap: 12px;
                 // width: 200%;
+                background-color: transparent !important;
+                position: relative;
 
+                background: #e6e6e6;
+                height: 60px;
+                margin: auto;
+                overflow:hidden;
+                position: relative;
+                width: 100%;
+                
+                &::before,
+                &::after {
+                    @include white-gradient;
+                    content: "";
+                    height: 60px;
+                    position: absolute;
+                    width: 200px;
+                    z-index: 2;
+                }
+                
+                &::after {
+                    right: 0;
+                    top: 0;
+                    transform: rotateZ(180deg);
+                }
+
+                &::before {
+                    left: 0;
+                    top: 0;
+                }
+                
+                .skillset-track {
+                    display: flex;
+                    align-items: center;
+                    // width: calc(250px * 14);
+                    width: 100%;
+                    &.front {
+                        animation: scroll-left $animationSpeed linear infinite;
+                    }
+                    &.back {
+                        animation: scroll-right $animationSpeed linear infinite;
+                    }
+                    &.other {
+                        animation: scroll-left $animationSpeed linear infinite;
+                    }
+                }
+                
                 .skill {
-                    // animation: scrollText 10s infinite linear;
-                    width: 100px;
-                    min-width: 100px;
+                    height: 40px;
+                    width: 40px;
+                    margin: 0 40px;
+                    
                     svg {
-                        height: 20px;
-                        width: 20px;
+                        height: 40px;
+                        width: 40px;
                         color: #555555;
                     }
-
+    
                     p {
                         font-size: 10px;
                         font-weight: 300;
                         color: #555555;
                         letter-spacing: 1px;
+                        width: 100%;
+                        text-align: center;
                         transition: 300ms !important;
                     }
                 }
@@ -72,7 +155,7 @@ $lighterBlue: #b5bbdf;
     }
     
     &.dark {
-        background-color: #222222;
+        background-color: transparent !important;
         color: #222222;
         -webkit-text-stroke: 1px #e6e6e6;
 
@@ -82,7 +165,7 @@ $lighterBlue: #b5bbdf;
         }
     
         .skills {
-    
+            background-color: transparent !important;
             .frontend,
             .backend,
             .other {
@@ -92,7 +175,11 @@ $lighterBlue: #b5bbdf;
                 }
     
                 .skillset {
-    
+                    background: #222222;
+                    &::before,
+                    &::after {
+                        @include black-gradient;
+                    }
                     .skill {
     
                         svg {
@@ -106,14 +193,6 @@ $lighterBlue: #b5bbdf;
                 }
             }
     
-        }
-    }
-    @keyframes scrollText {
-        from {
-          transform: translateX(0%);
-        }
-        to {
-          transform: translateX(-200%);
         }
     }
 }
