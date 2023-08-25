@@ -94,12 +94,14 @@ $lighterBlue: #b5bbdf;
         backdrop-filter: blur(12px);
 
         p {
-          color: transparent;
+          // color: transparent;
           text-transform: uppercase;
           letter-spacing: 0px;
-          -webkit-text-stroke: 1px #555555;
+          // -webkit-text-stroke: 1px #555555;
           font-weight: bold;
           font-size: 24px;
+          color: #333333;
+          -webkit-text-stroke: unset !important;
           // animation: slideDown ease-in 400ms;
         }
         .stack {
@@ -236,8 +238,10 @@ $lighterBlue: #b5bbdf;
           p {
             text-transform: uppercase;
             letter-spacing: 0px;
-            color: transparent;
-            -webkit-text-stroke: 1px #e6e6e6;
+            color: #e6e6e6;
+            -webkit-text-stroke: unset !important;
+            // color: transparent;
+            // -webkit-text-stroke: 1px #e6e6e6;
           }
           .stack {
             svg {
@@ -257,8 +261,10 @@ $lighterBlue: #b5bbdf;
 
       .project-title {
         height: fit-content;
-        color: #333333 !important;
-        -webkit-text-stroke: 1px #f0f0f0;
+        // color: #333333 !important;
+        // -webkit-text-stroke: 1px #f0f0f0;
+        color: #e6e6e6 !important;
+        -webkit-text-stroke: unset !important;
       }
       .project-info {
         .cta {
@@ -276,8 +282,10 @@ $lighterBlue: #b5bbdf;
       padding: 16px 0;
       font-size: 28px;
       text-align: center;
-      color: transparent;
-      -webkit-text-stroke: 1px #222222;
+      // color: transparent;
+      // -webkit-text-stroke: 1px #222222;
+      color: #333333 !important;
+      -webkit-text-stroke: unset !important;
       cursor: default;
     }
     .content {
