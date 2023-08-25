@@ -17,13 +17,31 @@ $animationSpeed: 30s;
 	0% { transform: translateX(0); }
 	50% { transform: translateX(-30%)}
 	100% { transform: translateX(0)}
-	// 100% { transform: translateX(0); }
 }
 @keyframes scroll-right {
 	0% { transform: translateX(-30%)}
 	50% { transform: translateX(0); }
 	100% { transform: translateX(-30%)}
-	// 0% { transform: translateX(0); }
+}
+@keyframes scroll-left-med {
+	0% { transform: translateX(0); }
+	50% { transform: translateX(-100%)}
+	100% { transform: translateX(0)}
+}
+@keyframes scroll-right-med {
+	0% { transform: translateX(-100%)}
+	50% { transform: translateX(0); }
+	100% { transform: translateX(-100%)}
+}
+@keyframes scroll-left-small {
+	0% { transform: translateX(0); }
+	50% { transform: translateX(-200%)}
+	100% { transform: translateX(0)}
+}
+@keyframes scroll-right-small {
+	0% { transform: translateX(-200%)}
+	50% { transform: translateX(0); }
+	100% { transform: translateX(-200%)}
 }
 
 @mixin white-gradient {
@@ -193,6 +211,56 @@ $animationSpeed: 30s;
                 }
             }
     
+        }
+    }
+    @media (max-width: 900px) {
+        .skills {
+            .skillset {
+                .skill {
+                    height: 30px !important;
+                    width: 30px !important;
+                    margin: 0 30px !important;
+                    
+                    svg {
+                        height: 30px !important;
+                        width: 30px !important;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 600px) {
+        .skills {
+            .skillset {
+                .skillset-track {
+                    &.front {
+                        animation: scroll-left-med $animationSpeed linear infinite !important;
+                    }
+                    &.back {
+                        animation: scroll-right-med $animationSpeed linear infinite !important;
+                    }
+                    &.other {
+                        animation: scroll-left-med $animationSpeed linear infinite !important;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 460px) {
+        .skills {
+            .skillset {
+                .skillset-track {
+                    &.front {
+                        animation: scroll-left-small $animationSpeed linear infinite !important;
+                    }
+                    &.back {
+                        animation: scroll-right-small $animationSpeed linear infinite !important;
+                    }
+                    &.other {
+                        animation: scroll-left-small $animationSpeed linear infinite !important;
+                    }
+                }
+            }
         }
     }
 }
