@@ -18,6 +18,9 @@ import { SiRubyonrails,
         SiVuedotjs,
         SiJavascript,
         SiGooglechrome,
+        SiExpress,
+        SiTailwindcss,
+        SiSocketdotio,
     } from 'react-icons/si';
 
 interface ProjectCardProps {
@@ -66,6 +69,12 @@ export default function ProjectCard({
                   return <SiReact key={index} />;
                 case 'typescript':
                   return <SiTypescript key={index} />;
+                case 'expressjs':
+                  return <SiExpress key={index} />;
+                case 'socketio':
+                  return <SiSocketdotio key={index} />;
+                case 'tailwind':
+                  return <SiTailwindcss key={index} />;
                 case 'firebase':
                   return <SiFirebase key={index} />;
                 case 'python':

@@ -13,9 +13,13 @@ import bicho1 from '../assets/images/projects/bicho/bicho1_wide.png';
 import bicho2 from '../assets/images/projects/bicho/bicho2.png';
 import bichobg from '../assets/images/projects/bicho/bichobg.jpeg';
 
-import meme1 from '../assets/images/projects/meme/meme1_wide.png';
-import meme2 from '../assets/images/projects/meme/meme2.png';
-import memebg from '../assets/images/projects/meme/memebg.png';
+// import meme1 from '../assets/images/projects/meme/meme1_wide.png';
+// import meme2 from '../assets/images/projects/meme/meme2.png';
+// import memebg from '../assets/images/projects/meme/memebg.png';
+
+import chat1 from '../assets/images/projects/chat/chat1_wide.png';
+import chat2 from '../assets/images/projects/chat/chat2_wide.png';
+import chatbg from '../assets/images/projects/chat/chatbg.jpeg';
 
 import news1 from '../assets/images/projects/news/news1_wide.png';
 import news2 from '../assets/images/projects/news/news2.png';
@@ -40,17 +44,8 @@ export default function Project(): ProjectProps[] {
 
   const projects: ProjectProps[] = [
     {
-      name: 'Ally Maps',
-      description: 'A trip planner for people with disabilities. This app allows them to plan entire accessible trips from searching places to the routes to and from the places in their itineraries.',
-      github: 'https://github.com/luisrrv/allymaps',
-      live: 'https://allymaps.herokuapp.com/',
-      pics: [ally1, ally2, ally3],
-      stack: ['rails','postgress','heroku'],
-      bg: allybg,
-    },
-    {
       name: 'Travel Journal',
-      description: 'A React app where I keep track of my travels in a list with maps and picture albums of each location I visited.',
+      description: "A React app to document my travels. For each location, you can browse through a collection of photos taken during the trip. you can also see where each photo was taken with its dedicated map.",
       github: 'https://github.com/luisrrv/React-Travel-Journal',
       live: 'https://luis-travel-journal.netlify.app',
       pics: [travel1, travel2, travel3],
@@ -67,13 +62,22 @@ export default function Project(): ProjectProps[] {
       bg: bichobg,
     },
     {
-      name: 'Meme Generator',
-      description: 'React app that lets you build memes by writing the text and getting the meme image from an API',
-      github: 'https://github.com/luisrrv/Meme-Generator',
-      live: 'https://luisrrv-meme.netlify.app',
-      pics: [meme1, meme2],
-      stack: ['react'],
-      bg: memebg,
+      name: 'Web Chat App',
+      description: 'A simple chat app, built using Express.js, Socket.io, and Tailwind CSS. Requires users to log in with a username in order to access the chat.',
+      github: 'https://github.com/luisrrv/socket-chat',
+      live: 'https://github.com/luisrrv/socket-chat',
+      pics: [chat1, chat2],
+      stack: ['expressjs', 'socketio', 'tailwind'],
+      bg: chatbg,
+    },
+    {
+      name: 'Ally Maps',
+      description: 'A trip planner for people with disabilities. This app allows them to plan entire accessible trips from searching places to the routes to and from the places in their itineraries.',
+      github: 'https://github.com/luisrrv/allymaps',
+      live: 'https://allymaps.herokuapp.com/',
+      pics: [ally1, ally2, ally3],
+      stack: ['rails','postgress','heroku'],
+      bg: allybg,
     },
     {
       name: 'News Feed',
