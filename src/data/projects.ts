@@ -17,7 +17,7 @@ import bichobg from '../assets/images/projects/bicho/bichobg.jpeg';
 // import meme2 from '../assets/images/projects/meme/meme2.png';
 // import memebg from '../assets/images/projects/meme/memebg.png';
 
-import chat1 from '../assets/images/projects/chat/chat1_wide.png';
+import chat1 from '../assets/images/projects/chat/chat1.png';
 import chat2 from '../assets/images/projects/chat/chat2_wide.png';
 import chatbg from '../assets/images/projects/chat/chatbg.jpeg';
 

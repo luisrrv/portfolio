@@ -264,7 +264,7 @@ export default function ProjectCard({
                         pics.map((pic,index) => (
                             <img
                             key={index}
-                              className={`pic ${pic.includes('wide') ? 'wide' : ''}`} 
+                              className={`pic ${pic.includes('wide') ? 'wide' : ''} ${pic.includes('chat1') ? 'chat1' : ''}`} 
                               src={pic} 
                               alt=""
                               />
