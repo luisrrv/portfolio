@@ -5,7 +5,7 @@ import { MdOutlineDarkMode, MdSunny } from 'react-icons/md';
 
 import { BsGithub, BsLinkedin, BsInfoCircle } from 'react-icons/bs';
 import { MdAlternateEmail } from 'react-icons/md';
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 
 interface HeaderProps {
@@ -130,15 +130,27 @@ export default function Header({ showContact, handleShowContact, handleContactMo
         </div>
         <div className="divider"></div>
         {isDark ? (
-          <div className="toggle">
-            <MdSunny size={18} onClick={changeMode} />
-          </div>
+          (window.matchMedia("(any-hover: none)").matches) ? (
+            <></>
+          ) : (
+            <div className="toggle">
+              <MdSunny size={18} onClick={changeMode} />
+            </div>
+          )
         ) : (
-          <div className="toggle">
-            <MdOutlineDarkMode size={18} onClick={changeMode} />
-          </div>
+          (window.matchMedia("(any-hover: none)").matches) ? (
+            <></>
+          ) : (
+            <div className="toggle">
+              <MdOutlineDarkMode size={18} onClick={changeMode} />
+            </div>
+          )
         )}
-        <BsInfoCircle className='info'  size={16} onClick={showDialog}/>
+        {(window.matchMedia("(any-hover: none)").matches) ? (
+          <AiOutlineMenu className='info mobile'  size={24} onClick={showDialog}/>
+        ) : (
+          <BsInfoCircle className='info'  size={16} onClick={showDialog}/>
+        )}
       </div>
 
     </div>

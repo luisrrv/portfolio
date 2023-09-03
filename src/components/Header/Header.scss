@@ -205,6 +205,9 @@ $lighterBlue: #b5bbdf;
         .info {
             margin-left: 16px;
             margin-bottom: 4px;
+            &.mobile {
+                margin-left: 2px;
+            }
             &:hover {
                 cursor: pointer;
             }

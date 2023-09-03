@@ -61,7 +61,7 @@ export default function Header({ isDark }: SkillsProps) {
 
 
   return (
-    <div className={`skills-container ${compClassName}`}>
+    <div id='skills' className={`skills-container ${compClassName}`}>
         <h3 className='title'>Skills</h3>
         <div className="skills">
             <div className="frontend">

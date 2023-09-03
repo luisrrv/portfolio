@@ -23,7 +23,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
             <Skills 
                 isDark={isDark}
             />
-            <h3>Some of my work<br></br><span>click project for details</span></h3>
+            <h3 id='work'>Some of my work<br></br><span>click project for details</span></h3>
             <div className="projects">
             {
                 projectsData.map((project,index) => (

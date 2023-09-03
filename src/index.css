@@ -30,6 +30,7 @@ $lighterBlue: #b5bbdf;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   transition: 300ms;
+  scroll-behavior: smooth;
 }
 html {
   background-color: #333fb0;
