@@ -3,7 +3,7 @@ import './Header.scss';
 import { MdOutlineDarkMode, MdSunny } from 'react-icons/md';
 // import useDarkMode from '../../hooks/useDarkMode';
 
-import { BsGithub, BsLinkedin, BsInfoCircle } from 'react-icons/bs';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { MdAlternateEmail } from 'react-icons/md';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
@@ -146,11 +146,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
             </div>
           )
         )}
-        {(window.matchMedia("(any-hover: none)").matches) ? (
-          <AiOutlineMenu className='info mobile'  size={24} onClick={showDialog}/>
-        ) : (
-          <BsInfoCircle className='info'  size={16} onClick={showDialog}/>
-        )}
+        <AiOutlineMenu className={`info ${(window.matchMedia("(any-hover: none)").matches) ? 'mobile' : ''}`}  size={24} onClick={showDialog}/>
       </div>
 
     </div>
