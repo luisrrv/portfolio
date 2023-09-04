@@ -36,9 +36,9 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
         <div id='info_container' className={`info_container ${(window.matchMedia("(any-hover: none)").matches) ? 'mobile' : ''}`}>
             <div className="toggles">
               {isDark ? (
-                <div className="toogle"><MdSunny size={20} onClick={changeMode} /></div> 
+                <div className="toggle dm"><MdSunny size={20} onClick={changeMode} /></div> 
               ) : (
-                <div className="toggle"><MdOutlineDarkMode size={20} onClick={changeMode} /></div> 
+                <div className="toggle dm"><MdOutlineDarkMode size={20} onClick={changeMode} /></div> 
               )}
               <div className="close"><AiOutlineClose size={28} /></div> 
             </div>
@@ -50,12 +50,12 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
                   <p className="contact">Contact</p>
                 </div>
                 <p>Designed and coded by <a onMouseEnter={handleMouseEnter('content')} onMouseLeave={handleMouseLeave('content')} className='underline' href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer"><BiLogoGithub />luisrrv</a>.</p>
-                <div className="info-img"></div>
                 <div className="icons">
                     <BiLogoFigma />
                     <BiLogoReact />
                     <BiLogoTypescript />
                     <BiLogoNetlify />
+                    <div className="info-img"></div>
                 </div>
             </div>
         </div>
