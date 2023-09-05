@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './Info.scss';
 
-import { BiLogoGithub, BiLogoFigma, BiLogoReact, BiLogoTypescript, BiLogoNetlify, BiSolidBriefcaseAlt, BiSolidBrain } from 'react-icons/bi';
+import { BiLogoGithub, BiLogoFigma, BiLogoReact, BiLogoTypescript, BiSolidBriefcaseAlt, BiSolidBrain } from 'react-icons/bi';
+import { SiNetlify } from 'react-icons/si';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { RiUser5Fill } from 'react-icons/ri';
 import { MdOutlineDarkMode, MdSunny, MdAlternateEmail } from 'react-icons/md';
@@ -49,7 +50,7 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
                   <a href="#" className="about"><RiUser5Fill />About me</a>
                   <a href="#skills" className="skills"><BiSolidBrain />My skills</a>
                   <a href="#work" className="work"><BiSolidBriefcaseAlt />Some of my work</a>
-                  <p className="contact"><BsGithub />Github</p>
+                  <p className="contact"><BsGithub />GitHub</p>
                   <p className="contact"><BsLinkedin />LinkedIn</p>
                   <p className="contact"><MdAlternateEmail />Send me an Email</p>
                 </div>
@@ -58,7 +59,7 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
                     <BiLogoFigma />
                     <BiLogoReact />
                     <BiLogoTypescript />
-                    <BiLogoNetlify />
+                    <SiNetlify />
                     <div className="info-img"></div>
                 </div>
             </div>
