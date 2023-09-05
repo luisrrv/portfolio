@@ -44,9 +44,9 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
         <div id='info_container' className={`info_container ${(window.matchMedia("(any-hover: none)").matches) ? 'mobile' : ''}`}>
             <div className="toggles">
               {isDark ? (
-                <div className="toggle dm"><MdSunny size={20} onClick={() => changeMode()} /></div> 
+                <div className="toggle dm"><MdSunny size={24} onClick={() => changeMode()} /></div> 
               ) : (
-                <div className="toggle dm"><MdOutlineDarkMode size={20} onClick={() => changeMode()} /></div> 
+                <div className="toggle dm"><MdOutlineDarkMode size={24} onClick={() => changeMode()} /></div> 
               )}
               <div className="close"><AiOutlineClose size={28} onClick={hideDialog} /></div> 
             </div>
