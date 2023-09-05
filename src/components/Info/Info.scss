@@ -46,7 +46,7 @@ $lighterBlue: #b5bbdf;
         max-width: 400px;
         border: none;
         border-radius: 0;
-        padding: 40px;
+        padding:32px;
         padding-top: 64px;
         background-color: #d3d3d385 !important;
         backdrop-filter: blur(6px);
@@ -97,15 +97,19 @@ $lighterBlue: #b5bbdf;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            align-items: center;
+            align-items: flex-start;
             width: 100%;
             height: fit-content;
             gap: 12px;
 
-            a, p {
-                font-size: 2rem;
+            a, p.contact {
+                font-size: 1.8rem;
                 height: fit-content;
                 color: #222222 !important;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 6px;
                 
                 &:hover {
                     cursor: pointer;
@@ -121,6 +125,7 @@ $lighterBlue: #b5bbdf;
             justify-content: center;
             align-items: center;
             gap: 20px;
+            width: 100%;
             p {
                 height: fit-content;
                 font-weight: 300px;

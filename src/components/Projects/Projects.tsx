@@ -4,6 +4,7 @@ import { IAppProps } from '../../App'; // Update the import path
 import ProjectCard from '../ProjectCard/ProjectCard';
 import ProjectsData, { ProjectProps } from '../../data/projects';
 import Skills from '../Skills/Skills';
+import { BiSolidBriefcaseAlt } from 'react-icons/bi'
 
 interface ProjectsProps extends IAppProps {
   // Add any other specific props for the Projects component if needed
@@ -23,7 +24,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
             <Skills 
                 isDark={isDark}
             />
-            <h3 id='work'>Some of my work<br></br><span>click project for details</span></h3>
+            <h3 id='work'><BiSolidBriefcaseAlt />Some of my work<br></br><span>click project for details</span></h3>
             <div className="projects">
             {
                 projectsData.map((project,index) => (

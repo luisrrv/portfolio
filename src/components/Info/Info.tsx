@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './Info.scss';
 
-import { BiLogoGithub, BiLogoFigma, BiLogoReact, BiLogoTypescript, BiLogoNetlify } from 'react-icons/bi';
-import { MdOutlineDarkMode, MdSunny } from 'react-icons/md';
+import { BiLogoGithub, BiLogoFigma, BiLogoReact, BiLogoTypescript, BiLogoNetlify, BiSolidBriefcaseAlt, BiSolidBrain } from 'react-icons/bi';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { RiUser5Fill } from 'react-icons/ri';
+import { MdOutlineDarkMode, MdSunny, MdAlternateEmail } from 'react-icons/md';
 import { AiOutlineClose } from 'react-icons/ai'
 
 interface InfoProps {
@@ -44,10 +46,12 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
             </div>
             <div className="content">
                 <div className="nav">
-                  <a href="#" className="about">About me</a>
-                  <a href="#skills" className="skills">Skills</a>
-                  <a href="#work" className="work">My work</a>
-                  <p className="contact">Contact</p>
+                  <a href="#" className="about"><RiUser5Fill />About me</a>
+                  <a href="#skills" className="skills"><BiSolidBrain />My skills</a>
+                  <a href="#work" className="work"><BiSolidBriefcaseAlt />Some of my work</a>
+                  <p className="contact"><BsGithub />Github</p>
+                  <p className="contact"><BsLinkedin />LinkedIn</p>
+                  <p className="contact"><MdAlternateEmail />Send me an Email</p>
                 </div>
                 <p>Designed and coded by <a onMouseEnter={handleMouseEnter('content')} onMouseLeave={handleMouseLeave('content')} className='underline' href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer"><BiLogoGithub />luisrrv</a>.</p>
                 <div className="icons">

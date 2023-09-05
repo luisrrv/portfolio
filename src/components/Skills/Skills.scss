@@ -59,6 +59,10 @@ $animationSpeed: 30s;
     width: 100%;
 
     h3.title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
         padding: 40px 16px !important;
         text-align: center;
         width: 100%;

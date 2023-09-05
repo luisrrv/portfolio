@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './About.scss';
+import { RiUser5Fill } from 'react-icons/ri';
 
 interface AboutProps {
   isDark: boolean;
@@ -169,6 +170,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
         </div>
         <div className="divider"></div>
         <div className="text">
+          < RiUser5Fill size={20} />
           <p>
             A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced
             in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.

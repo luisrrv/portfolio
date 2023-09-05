@@ -2,7 +2,7 @@ import './Skills.scss';
 
 // import { TailwindcssOriginalWordmark, } from 'devicons-react';
 import { TiHtml5 } from 'react-icons/ti';
-import { BiLogoPostgresql } from 'react-icons/bi';
+import { BiLogoPostgresql, BiSolidBrain } from 'react-icons/bi';
 
 import { 
     SiCss3,
@@ -62,7 +62,7 @@ export default function Header({ isDark }: SkillsProps) {
 
   return (
     <div id='skills' className={`skills-container ${compClassName}`}>
-        <h3 className='title'>Skills</h3>
+        <h3 className='title'><BiSolidBrain />Skills</h3>
         <div className="skills">
             <div className="frontend">
                 {/* <p className="type">Frontend</p> */}
