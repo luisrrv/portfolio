@@ -25,7 +25,7 @@ $lighterBlue: #b5bbdf;
     // padding-right: 36px;
     // background-color: #e6e6e694 !important;
     background-color: transparent !important;
-    backdrop-filter: blur(4px) !important;
+    backdrop-filter: blur(10px) !important;
     animation: loading ease-in 800ms;
     
     &.hidden {
@@ -92,7 +92,7 @@ $lighterBlue: #b5bbdf;
     &.dark {
         // background-color: #25252a4c !important;
         background-color: transparent !important;
-        backdrop-filter: blur(4px) !important;
+        backdrop-filter: blur(10px) !important;
         button {
             color: #f0f0f0;
         }

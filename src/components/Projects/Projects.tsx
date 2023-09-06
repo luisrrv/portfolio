@@ -19,6 +19,18 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
     // const isDarkMode = useDarkMode();
     const compClassName = isDark ? 'dark' : 'light';
 
+    const handleMouseEnter = (element: string): React.MouseEventHandler<HTMLElement> => () => {
+        setTimeout(() => {
+          handleContactMouseOverChange(true, element);
+        }, 200);
+    };
+      
+    const handleMouseLeave = (element: string): React.MouseEventHandler<HTMLElement> => () => {
+        setTimeout(() => {
+            handleContactMouseOverChange(false, element);
+        }, 200);
+    };
+
     return (
         <div id='projects_container' className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`} /*style={{marginTop:`${window.innerHeight}px`}}*/>
             <Skills 
@@ -46,6 +58,16 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
                     />
                 ))
             }
+            </div>
+            <div className="all-projects">
+                <a 
+                    href="https://github.com/luisrrv?tab=repositories" 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    onMouseEnter={handleMouseEnter('content')} 
+                    onMouseLeave={handleMouseLeave('content')}
+                    >See all
+                </a>
             </div>
         </div>
     );

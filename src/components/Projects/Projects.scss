@@ -11,17 +11,22 @@ $darkBlue: #333fb0;
 $darkerBlue: #10153e;
 $lighterBlue: #b5bbdf;
 
+
 #projects_container {
     position: relative;
     margin-top: 100vh;
     height: fit-content;
     min-height: 100vh;
     width: 100%;
-    padding-bottom: 200px;
+    padding-bottom: 60px;
     // border-radius: 8px 8px 0 0;
     color: #25252a;
     background-color: #e6e6e6 !important;
     animation: loading ease-in 800ms;
+    
+    #work {
+        scroll-margin-top: 64px;
+    }
 
     &.hidden {
         opacity: 0;
@@ -41,6 +46,9 @@ $lighterBlue: #b5bbdf;
         .mobile-instr {
             color: #e6e6e6;
             -webkit-text-stroke: unset;
+        }
+        .all-projects {
+            color: #e6e6e6;
         }
     }
     
@@ -86,6 +94,22 @@ $lighterBlue: #b5bbdf;
         z-index: 8;
 
     }
+
+    .all-projects {
+        text-align: center;
+        width: 100%;
+        font-size: 16px;
+        color: #222222;
+        padding: 60px 0;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 200ms;
+        &:hover {
+            letter-spacing: 2px;
+        }
+
+    }
+
     @keyframes loading {
         0% {
           opacity: 0;

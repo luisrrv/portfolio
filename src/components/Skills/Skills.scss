@@ -53,9 +53,13 @@ $animationSpeed: 30s;
 	background: linear-gradient(to right,  #22222200 0%,#22222200 100%);
 }
 
+#skills {
+    scroll-margin-top: 64px;
+}
+
 .skills-container {
     background-color: transparent !important;
-    overflow: hidden;
+    // overflow: hidden;
     width: 100%;
 
     h3.title {

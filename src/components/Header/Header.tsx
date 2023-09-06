@@ -89,7 +89,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
               <a href="https://www.linkedin.com/in/luisrrv/" target="_blank" rel="noopener noreferrer">
                 <BsLinkedin size={18} />
               </a>
-              <a href="mailto:rodluisr@gmail.com">
+              <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%72%6F%64%6C%75%69%73%72%40%67%6D%61%69%6C%2E%63%6F%6D">
                 <MdAlternateEmail size={22} />
               </a>
             </div>
