@@ -18,9 +18,18 @@ $lighterBlue: #b5bbdf;
 #App {
   text-align: center;
   height: 100%;
-  animation: loading ease-in 800ms;
   background-color: #e6e6e6;
+  opacity: 1;
+  /* transition: opacity 800ms; */
 }
+
+#App:not(.hidden) {
+  animation: loading ease-in 800ms;
+  /* animation-delay: 2500ms; */
+}
+/* #App.loaded {
+  animation: loading ease-in 800ms;
+} */
 
 .dark {
   background-color: #25252a;
@@ -38,10 +47,14 @@ $lighterBlue: #b5bbdf;
   justify-content: center;
   align-items: center;
   animation: loading ease-in 700ms;
+  z-index: 9999;
 }
 .loader-bg.dark {
   position: relative;
   background-color: #25252a;
+}
+.loader-bg.closing {
+  animation: closing ease-out 300ms;
 }
 /* .dark .loader-txt {
   -webkit-text-stroke: 1px #be3144 !important;
@@ -288,14 +301,13 @@ $lighterBlue: #b5bbdf;
   0% {
     opacity: 0;
   }
-  25% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
   100% {
-    opacity: 0;
+    opacity: 1;
+  }
+}
+@keyframes closing {
+  to {
+    opacity:0;
   }
 }
 

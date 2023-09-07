@@ -69,7 +69,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
   return (
     <div 
       id='header_container' 
-      className={`header_container ${compClassName} ${hideApp ? 'hidden' : ''}`}
+      className={`header_container ${compClassName} ${hideApp ? 'hidden' : 'hdr'}`}
       onMouseEnter={() => handleOnOff('on')}
       onMouseLeave={() => handleOnOff('off')}
       >

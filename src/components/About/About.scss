@@ -32,9 +32,9 @@ $lighterBlue: #b5bbdf;
     background-color: $darkBlue;
     animation: loading ease-in 800ms;
 
-    &.hidden {
-        opacity: 0;
-    }
+    // &.hidden {
+    //     // opacity: 0;
+    // }
 
     .content {
         margin: 0;
@@ -395,26 +395,26 @@ $lighterBlue: #b5bbdf;
         padding: 25px;
     }
 }
-@media (max-height:630px) {
-    #about_container {
-        // position: initial;
-        // padding-top: 4px;
-        // height: fit-content;
-        .content {
-            // opacity: 1 !important;
-            // height: fit-content;
-        }
-    }
-}
-@media (max-height:667px) {
-    #about_container {
-        // padding-top: 4px;
-        // position: absolute;
-        .content {
-            // margin-top: 0;
-        }
-    }
-}
+// @media (max-height:630px) {
+//     #about_container {
+//         // position: initial;
+//         // padding-top: 4px;
+//         // height: fit-content;
+//         .content {
+//             // opacity: 1 !important;
+//             // height: fit-content;
+//         }
+//     }
+// }
+// @media (max-height:667px) {
+//     #about_container {
+//         // padding-top: 4px;
+//         // position: absolute;
+//         .content {
+//             // margin-top: 0;
+//         }
+//     }
+// }
 @media (min-height:800px) and (min-width: 600px) {
     #about_container {
         .content {

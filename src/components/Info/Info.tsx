@@ -55,36 +55,39 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
                   <a href="#" className="about" onClick={hideDialog}><RiUser5Fill />About me</a>
                   <a href="#skills" className="skills" onClick={hideDialog}><BiSolidBrain />My skills</a>
                   <a href="#work" className="work" onClick={hideDialog}><BiSolidBriefcaseAlt />Some of my work</a>
-                  <a 
-                    href="https://github.com/luisrrv" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="contact" 
-                    onMouseEnter={handleMouseEnter('content')}
-                    onMouseLeave={handleMouseLeave('content')}
-                    >
-                      <BsGithub />GitHub
-                  </a>
-                  <a 
-                    href="https://www.linkedin.com/in/luisrrv/" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="contact" 
-                    onMouseEnter={handleMouseEnter('content')}
-                    onMouseLeave={handleMouseLeave('content')}
-                    >
-                      <BsLinkedin />LinkedIn
-                  </a>
-                  <a 
-                    href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%72%6F%64%6C%75%69%73%72%40%67%6D%61%69%6C%2E%63%6F%6D" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="contact" 
-                    onMouseEnter={handleMouseEnter('content')}
-                    onMouseLeave={handleMouseLeave('content')}
-                    >
-                      <MdAlternateEmail />Send me an Email
-                  </a>
+                  <div className="ext">
+                    <a 
+                      href="https://github.com/luisrrv" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="contact" 
+                      onMouseEnter={handleMouseEnter('content')}
+                      onMouseLeave={handleMouseLeave('content')}
+                      >
+                        <BsGithub />GitHub
+                    </a>
+                    <a 
+                      href="https://www.linkedin.com/in/luisrrv/" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="contact" 
+                      onMouseEnter={handleMouseEnter('content')}
+                      onMouseLeave={handleMouseLeave('content')}
+                      >
+                        <BsLinkedin />LinkedIn
+                    </a>
+                    <a 
+                      href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%72%6F%64%6C%75%69%73%72%40%67%6D%61%69%6C%2E%63%6F%6D" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="contact" 
+                      onMouseEnter={handleMouseEnter('content')}
+                      onMouseLeave={handleMouseLeave('content')}
+                      >
+                        <MdAlternateEmail />Send me an Email
+                    </a>
+
+                  </div>
                 </div>
                 <p>Designed and coded by <a onMouseEnter={handleMouseEnter('content')} onMouseLeave={handleMouseLeave('content')} className='underline' href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer"><BiLogoGithub />luisrrv</a>.</p>
                 <div className="icons">

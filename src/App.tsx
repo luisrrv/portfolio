@@ -20,6 +20,8 @@ function App({ className, isDarkMode }: IAppProps) {
   const [isDark, setIsDark] = useState(darkMode);
   const appClassName = isDark ? 'dark' : 'light';
   const [loading, setLoading] = useState(true);
+  const [loadingClose, setLoadingClose] = useState(false);
+  const [showApp, setShowApp] = useState(false);
   const [hideApp, setHideApp] = useState(true);
   const [showContact, setShowContact] = useState(false);
   const [contactMS, setContactMS] = useState(false);
@@ -32,10 +34,14 @@ function App({ className, isDarkMode }: IAppProps) {
   const [scrollingTimeout, setScrollingTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    setShowApp(true);
+    setTimeout(() => {
+      setLoadingClose(true);
+    }, 2500);
     setTimeout(() => {
       setHideApp(false);
       setLoading(false);
-    }, 2700);
+    }, 2800);
   },[]);
   
   useEffect(() => {
@@ -173,13 +179,12 @@ function App({ className, isDarkMode }: IAppProps) {
 
   return (
     <>
-    {loading ? (
-      <div className={`loader-bg ${appClassName}`}>
-        <Loader isDark={isDark} />
-        {/* <p className='loader-txt'>LR</p> */}
-      </div>
-      ) : (
-      <div id='App' className={`App ${appClassName}`} onScroll={() => setScrolling(true)}>
+      {loading && (
+        <div className={`loader-bg ${appClassName} ${loadingClose ? 'closing' : ''}`}>
+          <Loader isDark={isDark} loadingClose={loadingClose} />
+        </div>
+      )}
+      <div id='App' className={`App ${appClassName} ${showApp ? '' : 'hidden'}`} onScroll={() => setScrolling(true)}>
         <MouseTracker 
           size={60} 
           sizeSmall={12} 
@@ -225,7 +230,6 @@ function App({ className, isDarkMode }: IAppProps) {
           handleDarkModeChange={handleDarkModeChange}
         />
       </div>
-      )}
     </>
   );
 }

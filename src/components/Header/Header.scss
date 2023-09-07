@@ -22,15 +22,16 @@ $lighterBlue: #b5bbdf;
     justify-content:space-between;
     align-items: center;
     padding: 8px 20px;
-    // padding-right: 36px;
-    // background-color: #e6e6e694 !important;
-    background-color: transparent !important;
+    background-color: $darkBlue !important;
     backdrop-filter: blur(10px) !important;
     animation: loading ease-in 800ms;
     
-    &.hidden {
-        opacity: 0;
+    &.hdr {
+        background-color: transparent !important;
     }
+    // &.hidden {
+    //     // opacity: 0;
+    // }
 
     .header-logo {
         color: $lighterBlue;
@@ -90,9 +91,12 @@ $lighterBlue: #b5bbdf;
     }
     
     &.dark {
-        // background-color: #25252a4c !important;
-        background-color: transparent !important;
+        background-color: $darkBlue !important;
         backdrop-filter: blur(10px) !important;
+
+        &.hdr {
+            background-color: transparent !important;
+        }
         button {
             color: #f0f0f0;
         }

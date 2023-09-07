@@ -33,17 +33,27 @@ $lighterBlue: #b5bbdf;
   scroll-behavior: smooth;
 }
 html {
+  /* background-color: #e6e6e6; */
   background-color: #333fb0;
 }
 html.dark {
+  /* background-color: #25252a; */
   background-color: #333fb0 !important;
 }
-body {
+html:not(.App.hidden) {
+  /* background-color: #333fb0 !important; */
+  animation: loading ease-in 800ms;
+  /* animation-delay: 200ms; */
+}
+/* html.dark:has(.App.loaded) {
+  animation: loadingDark ease-in 800ms;
+} */
+/* body {
   background-color: #333fb0;
 }
 body.dark {
   background-color: #333fb0 !important;
-}
+} */
 /* body {
   overflow: hidden;
 } */
@@ -82,4 +92,21 @@ p {
 }
 .highlight-s {
   -webkit-text-stroke: 1.5px #333fb0 !important;
+}
+
+@keyframes loading {
+  0% {
+    background-color: #e6e6e6 !important;
+  }
+  100% {
+    background-color: #333fb0 !important;
+  }
+}
+@keyframes loadingDark {
+  0% {
+    background-color: #25252a !important;
+  }
+  100% {
+    background-color: #333fb0 !important;
+  }
 }

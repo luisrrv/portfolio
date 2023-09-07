@@ -118,6 +118,18 @@ $lighterBlue: #b5bbdf;
                     letter-spacing: 2px;
                 }
             }
+            .ext {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                // gap: 8px;
+                width: 100%;
+                height: fit-content;
+                a {
+                    padding-bottom: 12px;
+                }
+            }
         }
     
         .content {
