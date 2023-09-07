@@ -33,7 +33,7 @@ $lighterBlue: #b5bbdf;
     animation: loading ease-in 800ms;
 
     .shw {
-        animation: slideDown ease-in 600ms;
+        animation: slideDo ease-in 600ms;
     }
 
     .content {
@@ -383,10 +383,10 @@ $lighterBlue: #b5bbdf;
             transform: rotateY(360deg);
         }
     }
-    @keyframes slideDown {
+    @keyframes slideDo {
         0% {
             opacity: 0;
-            transform: translateY(-100px);
+            transform: translateY(-30px);
         }
         100% {
             opacity: 1;
@@ -396,7 +396,7 @@ $lighterBlue: #b5bbdf;
     @keyframes slideUe {
         0% {
             opacity: 0;
-            transform: translateY(100px);
+            transform: translateY(30px);
         }
         100% {
             opacity: 1;
