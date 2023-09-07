@@ -59,6 +59,9 @@ $lighterBlue: #b5bbdf;
         // height: 40px;
     }
     .header-right {
+        &.shw {
+            animation: show ease-in 400ms;
+        }
         .contact-opts {
             a {
                 color: #e6e6e6 !important;

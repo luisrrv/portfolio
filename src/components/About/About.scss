@@ -32,9 +32,9 @@ $lighterBlue: #b5bbdf;
     background-color: $darkBlue;
     animation: loading ease-in 800ms;
 
-    // &.hidden {
-    //     // opacity: 0;
-    // }
+    .shw {
+        animation: slideDown ease-in 600ms;
+    }
 
     .content {
         margin: 0;
@@ -246,6 +246,11 @@ $lighterBlue: #b5bbdf;
             width: 90%;
             max-width: 314px;
             z-index: 1;
+
+            &.shw {
+                animation: slideUe ease-in 600ms;
+            }
+
             p {
                 height: fit-content;
                 font-size: 12px;
@@ -378,6 +383,26 @@ $lighterBlue: #b5bbdf;
             transform: rotateY(360deg);
         }
     }
+    @keyframes slideDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-100px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes slideUe {
+        0% {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
     // @keyframes fillAnimationDark {
     //     0% {
@@ -415,7 +440,7 @@ $lighterBlue: #b5bbdf;
 //         }
 //     }
 // }
-@media (min-height:800px) and (min-width: 600px) {
+@media (min-height:1000px) and (min-width: 600px) {
     #about_container {
         .content {
             justify-content: center;
@@ -433,17 +458,30 @@ $lighterBlue: #b5bbdf;
             }
         }
     }
-    @media (any-hover: none) {
-        span.letter {
-            &.blur-in {
-                animation: none !important;
+}
+@media (max-height:740px) {
+    #about_container {
+        margin-top: 50px;
+        .content {
+            margin-top: 0;
+            .text {
+                p {
+                    font-size: 10px;
+                }
             }
-            &.blur-out {
-                opacity: 1 !important;
-                filter: none !important;
-                transition: none !important;
-                animation: none !important;
-            }
+        }
+    }
+}
+@media (any-hover: none) {
+    span.letter {
+        &.blur-in {
+            animation: none !important;
+        }
+        &.blur-out {
+            opacity: 1 !important;
+            filter: none !important;
+            transition: none !important;
+            animation: none !important;
         }
     }
 }

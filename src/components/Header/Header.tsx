@@ -19,11 +19,13 @@ interface HeaderProps {
   aboutMS: boolean;
   aboutMSOn: () => void;
   aboutMSOff: () => void;
+  opZero: boolean;
 }
 
-export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange, hideApp, showDialog, aboutMS, aboutMSOn, aboutMSOff }: HeaderProps) {
+export default function Header({ showContact, handleShowContact, handleContactMouseOverChange, isDark, handleDarkModeChange, hideApp, showDialog, aboutMS, aboutMSOn, aboutMSOff, opZero }: HeaderProps) {
 
   const compClassName = isDark ? 'dark' : 'light';
+  const showClassName = opZero ? 'shw' : '';
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Update isScrolled state based on scroll position
@@ -75,7 +77,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
       >
       <div className={`header-logo ${isScrolled ? 'show' : ''}`}>LR</div>
 
-      <div className={`header-right ${isScrolled ? 'show' : ''}`}>
+      <div className={`header-right ${isScrolled ? 'show' : ''} ${showClassName}`}>
         <div className="contact-opts-m">
           {showContact && (
             <div 

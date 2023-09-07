@@ -7,10 +7,12 @@ interface AboutProps {
   hideApp: boolean;
   aboutMSOn: () => void;
   aboutMSOff: () => void;
+  opZero: boolean;
 }
 
-export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutProps) {
+export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
+  const showClassName = opZero ? 'shw' : '';
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -44,12 +46,14 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
         const randomLetters = Array.from(randomLetterIndexes).map(index => letters[index] as HTMLElement);
 
         randomLetters[0].classList.add('flip');
+        randomLetters[0].classList.remove('shw');
         setTimeout(() => {
           randomLetters[0].classList.remove('flip');
         }, 1800);
 
         setTimeout(()=> {
           randomLetters[1].classList.add('flip');
+          randomLetters[1].classList.remove('shw');
           setTimeout(() => {
             randomLetters[1].classList.remove('flip');
           }, 1800);
@@ -57,6 +61,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
         
         setTimeout(()=> {
           randomLetters[2].classList.add('flip');
+          randomLetters[2].classList.remove('shw');
           setTimeout(() => {
             randomLetters[2].classList.remove('flip');
           }, 1800);
@@ -117,7 +122,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
       onMouseLeave={() => handleOnOff('off')}
       >
       <div className="content" style={fadeOutStyle}>
-        <div className="me-img"></div>
+        {/* <div className="me-img"></div> */}
         <div className="special">
           <p className="small hello">HELLO, I'M</p>
           {/* <div className='name-img'></div> */}
@@ -126,10 +131,10 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
             <span className='letter faded'>U</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>S</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>L</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>S</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>L</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>S</span>
             <span className='letter faded'>L</span>
             <span className='letter faded'>U</span>
             <span className='letter faded'>I</span>
@@ -139,9 +144,9 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
             <span className='letter faded'>U</span>
             <span className='letter faded'>E</span>
             <span className='letter faded'>Z</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O <span className="me-img"></span></span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>D</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O <span className="me-img"></span></span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>D</span>
             <span className='letter faded'>R</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>G</span>
@@ -149,9 +154,9 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
             <span className='letter faded'>R</span>
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>G</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>G</span>
             <span className='letter faded'>U</span>
             <span className='letter faded'>E</span>
             <span className='letter faded'>Z</span>
@@ -159,9 +164,9 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
             <span className='letter faded'>R</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>G</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>E</span>
-            <span className={`letter highlight-s`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>Z</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>E</span>
+            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>Z</span>
             <span className='letter faded'>R</span>
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
@@ -169,7 +174,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff }: AboutP
           <p className="small name">LUIS RODRIGUEZ</p>
         </div>
         <div className="divider"></div>
-        <div className="text">
+        <div className={`text ${showClassName}`}>
           < RiUser5Fill size={20} />
           <p>
             A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced

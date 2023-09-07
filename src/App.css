@@ -31,6 +31,30 @@ $lighterBlue: #b5bbdf;
   animation: loading ease-in 800ms;
 } */
 
+#App .app-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e6e6e6;
+  z-index: 9998;
+  opacity: 1;
+}
+#App.dark .app-overlay {
+  background-color: #25252a;
+  transition: opacity 400ms;
+}
+#App .app-overlay.hide {
+  animation: overlayClose 400ms;
+}
+#App .app-overlay.op-z {
+  opacity: 0;
+}
+#App .app-overlay.bck {
+  z-index: -9999;
+}
+
 .dark {
   background-color: #25252a;
   color: #f0f0f0;
@@ -49,16 +73,16 @@ $lighterBlue: #b5bbdf;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: loading ease-in 700ms;
+  animation: loading ease-in 300ms;
   z-index: 9999;
 }
 .loader-bg.dark {
   position: relative;
   background-color: #25252a;
 }
-.loader-bg.closing {
+/* .loader-bg.closing {
   animation: closing ease-out 300ms;
-}
+} */
 /* .dark .loader-txt {
   -webkit-text-stroke: 1px #be3144 !important;
   color: #3e1017;
@@ -310,7 +334,12 @@ $lighterBlue: #b5bbdf;
 }
 @keyframes closing {
   to {
-    opacity:0;
+    opacity: 0;
+  }
+}
+@keyframes overlayClose {
+  to {
+    opacity: 0;
   }
 }
 

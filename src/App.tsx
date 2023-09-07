@@ -21,8 +21,10 @@ function App({ className, isDarkMode }: IAppProps) {
   const appClassName = isDark ? 'dark' : 'light';
   const [loading, setLoading] = useState(true);
   const [loadingClose, setLoadingClose] = useState(false);
-  const [showApp, setShowApp] = useState(false);
+  const [opZero, setOpZero] = useState(false);
+  const [back, setBack] = useState(false);
   const [hideApp, setHideApp] = useState(true);
+  const [hideOverlay, setHideOverlay] = useState(true);
   const [showContact, setShowContact] = useState(false);
   const [contactMS, setContactMS] = useState(false);
   const [projectMS, setProjectMS] = useState(false);
@@ -34,14 +36,22 @@ function App({ className, isDarkMode }: IAppProps) {
   const [scrollingTimeout, setScrollingTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    setShowApp(true);
+    // setShowApp(true);
     setTimeout(() => {
       setLoadingClose(true);
     }, 2500);
     setTimeout(() => {
       setHideApp(false);
       setLoading(false);
+      setLoadingClose(false);
+      setHideOverlay(true);
     }, 2800);
+    setTimeout(() => {
+      setOpZero(true)
+    }, 3200);
+    setTimeout(() => {
+      setBack(true)
+    }, 3600);
   },[]);
   
   useEffect(() => {
@@ -180,11 +190,12 @@ function App({ className, isDarkMode }: IAppProps) {
   return (
     <>
       {loading && (
-        <div className={`loader-bg ${appClassName} ${loadingClose ? 'closing' : ''}`}>
+        <div className={`loader-bg ${appClassName}`}>
           <Loader isDark={isDark} loadingClose={loadingClose} />
         </div>
       )}
-      <div id='App' className={`App ${appClassName} ${showApp ? '' : 'hidden'}`} onScroll={() => setScrolling(true)}>
+      <div id='App' className={`App ${appClassName}`} onScroll={() => setScrolling(true)}>
+          <div className={`app-overlay ${hideOverlay ? 'hide' : ''} ${opZero ? 'op-z' : ''} ${back ? 'bck' : ''}`}></div>
         <MouseTracker 
           size={60} 
           sizeSmall={12} 
@@ -209,12 +220,14 @@ function App({ className, isDarkMode }: IAppProps) {
           aboutMS={aboutMS}
           aboutMSOn={aboutMSOn} 
           aboutMSOff={aboutMSOff}
+          opZero={opZero}
         />
         <About 
           isDark={isDark} 
           hideApp={hideApp} 
           aboutMSOn={aboutMSOn} 
           aboutMSOff={aboutMSOff} 
+          opZero={opZero}
         />
         <Projects 
           isDark={isDark} 
