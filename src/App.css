@@ -39,6 +39,9 @@ $lighterBlue: #b5bbdf;
 /* LOADING COMPONENT */
 
 .loader-bg {
+  position: fixed !important;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   background-color: #e6e6e6;
