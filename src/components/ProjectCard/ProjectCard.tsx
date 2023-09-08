@@ -99,6 +99,7 @@ export default function ProjectCard({
     }
 
     const compClassName = isDark ? 'dark' : 'light';
+    const cardTitleClass = title.split(' ')[0];
 
     const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number) => {
       if (element) {
@@ -191,17 +192,19 @@ export default function ProjectCard({
 
     const addIcon = (element: EventTarget) => {
       const el = element as HTMLElement;
+      el.classList.add('over');
       if(el.classList.contains('github')) setGithubIcon(true);
       else if(el.classList.contains('web')) setWebIcon(true);
     }
     const removeIcon = (element: EventTarget) => {
       const el = element as HTMLElement;
+      el.classList.remove('over');
       if(el.classList.contains('github')) setGithubIcon(false);
       else if(el.classList.contains('web')) setWebIcon(false);
     }
 
   return (
-    <div id='card' className={`card ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''}`}>
+    <div id='card' className={`card ${cardTitleClass} ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''}`}>
       <div className={`card-cover on`}>
         <div className='name-container'>
             <p>{title}
@@ -255,7 +258,7 @@ export default function ProjectCard({
                     rel="noopener noreferrer" 
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >{webIcon ? <MdWeb /> : 'Check it out'}
+                    >{webIcon ? <MdWeb /> : ''}
                   </a>
               </div>
               <div className='project-pics'>

@@ -407,6 +407,36 @@ $lighterBlue: #b5bbdf;
       }
     }
 
+  &.Travel {
+    .content .cta a.web:not(.over)::after {
+      content: 'Journal';
+    }
+  }
+  &.Bicho {
+    .content .cta a.web:not(.over)::after {
+      content: "Bot's profile";
+    }
+  }
+  &.Web {
+    .content .cta a.web:not(.over)::after {
+      content: 'Chat!';
+    }
+  }
+  &.Ally {
+    .content .cta a.web:not(.over)::after {
+      content: 'Check it out';
+    }
+  }
+  &.News {
+    .content .cta a.web:not(.over)::after {
+      content: 'Browse';
+    }
+  }
+  &.Rubber {
+    .content .cta a.web:not(.over)::after {
+      content: 'Try it!';
+    }
+  }
 
   @keyframes loading {
       0% {
@@ -520,14 +550,25 @@ $lighterBlue: #b5bbdf;
   
   @media (max-width: 600px) {
     &:has(.selected) {
-      height: 600px;
-      min-height: 600px;
-      max-height: 600px;
+      height: 550px;
+      min-height: 550px;
+      max-height: 550px;
       
       .open-card {
-        height: 600px;
-        min-height: 600px;
-        max-height: 600px;
+        height: 550px;
+        min-height: 550px;
+        max-height: 550px;
+
+        .project-title {
+          font-size: 24px;
+        }
+        .content {
+          .project-info {
+            p {
+              font-size: 13px;
+            }
+          }
+        }
       }
       .project-pics {
         bottom: -60px;

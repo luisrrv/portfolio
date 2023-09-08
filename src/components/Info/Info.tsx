@@ -84,7 +84,7 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
                       onMouseEnter={handleMouseEnter('content')}
                       onMouseLeave={handleMouseLeave('content')}
                       >
-                        <MdAlternateEmail />Send me an Email
+                        <MdAlternateEmail />Send me an email
                     </a>
 
                   </div>
