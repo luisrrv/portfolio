@@ -74,14 +74,8 @@ $animationSpeed: 30s;
         -webkit-text-stroke: 1px #555555;
     }
     .mobile-instr {
-        display: none;
-        text-transform: lowercase;
-        font-size: 12px;
-        font-weight: 300;
-        letter-spacing: 2px;
         color: #555;
-        padding-top: 4px;
-        -webkit-text-stroke: unset;
+        -webkit-text-stroke: #555 !important;
     }
 
     .skills {
@@ -300,18 +294,5 @@ $animationSpeed: 30s;
                 }
             }
         }
-    }
-    @media (pointer: coarse) {
-        .skills-container {
-            h3 {
-                padding-bottom: 0;
-                line-height: 0;
-            }
-            .mobile-instr {
-                display: block;
-                padding-bottom: 40px;
-            }
-        }
-    
     }
 }

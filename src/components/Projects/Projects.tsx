@@ -37,7 +37,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
                 isDark={isDark}
             />
             <h3 id='work'><BiSolidBriefcaseAlt />Some of my work</h3>
-            <p className='mobile-instr'>click project for details</p>
+            <p className='mobile-instr'>click on a project for details</p>
             <div className="projects">
             {
                 projectsData.map((project,index) => (

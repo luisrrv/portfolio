@@ -138,8 +138,8 @@ $lighterBlue: #b5bbdf;
 @media (pointer: coarse) {
     #projects_container {
         h3 {
-            padding-bottom: 0;
-            line-height: 0;
+            padding-bottom: 0 !important;
+            line-height: 0 !important;
         }
         .mobile-instr {
             display: block;

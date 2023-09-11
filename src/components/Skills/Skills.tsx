@@ -81,7 +81,7 @@ const removeSkills = (type: string) => {
   return (
     <div id='skills' className={`skills-container ${compClassName}`}>
         <h3 className='title'><BiSolidBrain />Skills</h3>
-        <p className='mobile-instr'>click on row to view skills </p>
+        <p className='mobile-instr'>click on a row to view skills </p>
         <div className="skills">
             <div className="frontend" onMouseEnter={() => addSkills('front')} onMouseLeave={() => removeSkills('front')}>
                 <div className='code-container'>
