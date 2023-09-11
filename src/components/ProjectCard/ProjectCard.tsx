@@ -237,7 +237,7 @@ export default function ProjectCard({
         <div className="content">
           <div className="project-info">
             <p>{description}</p>
-            <div>
+            <div className='more'>
               <div className={`stack`}>
                   {setIcons().map((icon) => icon)}
               </div>
