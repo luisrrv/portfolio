@@ -152,6 +152,7 @@ $lighterBlue: #b5bbdf;
       width: 100%;
       height: 70%;
       z-index: 9;
+      transition: 300ms;
       
       .pic {
         width: 100px;
@@ -218,7 +219,7 @@ $lighterBlue: #b5bbdf;
             opacity: 1;
             pointer-events: all;
             transform: translateY(0);
-            animation: picsSlideUp ease-in 300ms;
+            // animation: picsSlideUp ease-in 300ms;
             // animation-delay: 200ms;
           }
         }
@@ -505,16 +506,16 @@ $lighterBlue: #b5bbdf;
       transform: translateY(0);
     }
   }
-  @keyframes picsSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  // @keyframes picsSlideUp {
+  //   0% {
+  //     opacity: 0;
+  //     transform: translateY(100px);
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //     transform: translateY(0);
+  //   }
+  // }
   // @keyframes heightChange {
   //   0% {
   //     height: 140px;
