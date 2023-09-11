@@ -125,10 +125,6 @@ $lighterBlue: #b5bbdf;
         //   transform: translateX(0);
         //   animation: slideRight ease-in 400ms;
         // }
-        // .project-pics {
-        //   transform: translateX(0);
-        //   animation: slideLeft2 ease-in 400ms;
-        // }
       }
 
       &.off {
@@ -136,10 +132,6 @@ $lighterBlue: #b5bbdf;
         // .name-container {
         //   transform: translateX(-100px);
         //   animation: slideLeft ease-in 400ms;
-        // }
-        // .project-pics {
-        //   transform: translateX(100px);
-        //   animation: slideRight2 ease-in 400ms;
         // }
       }
     }
@@ -225,11 +217,9 @@ $lighterBlue: #b5bbdf;
           .project-pics {
             opacity: 1;
             pointer-events: all;
+            transform: translateY(0);
             animation: picsSlideUp ease-in 300ms;
             // animation-delay: 200ms;
-            transform: translateY(0);
-            // transform: translate(-50%,0);
-            // bottom: -80px;
           }
         }
       }
@@ -340,9 +330,6 @@ $lighterBlue: #b5bbdf;
       // }
       .content {
         flex-direction: row;
-        .project-pics {
-          justify-content: center;
-        }
       }
     }
     &:nth-child(2),
@@ -357,9 +344,6 @@ $lighterBlue: #b5bbdf;
       // }
       .content {
         flex-direction: row-reverse;
-        .project-pics {
-          justify-content: center;
-        }
       }
     }
 
@@ -523,9 +507,11 @@ $lighterBlue: #b5bbdf;
   }
   @keyframes picsSlideUp {
     0% {
+      opacity: 0;
       transform: translateY(100px);
     }
     100% {
+      opacity: 1;
       transform: translateY(0);
     }
   }
@@ -608,24 +594,6 @@ $lighterBlue: #b5bbdf;
         height: fit-content;
         // padding: 24px 0;
       }
-      // &.on {
-      //   .name-container {
-      //     animation: slideDown ease-in 2s !important;
-      //   }
-      //   .project-pics {
-      //     animation: slideDown ease-in 2ms !important;
-      //   }
-      // }
-      // &.off {
-      //   .name-container {
-      //     transform: translateY(-100px) !important;
-      //     animation: slideUp ease-in 2s !important;
-      //   }
-      //   .project-pics {
-      //     transform: translateY(100px) !important;
-      //     animation: slideUp  ease-in 2 !important;
-      //   }
-      // }
     }
   }
 }
