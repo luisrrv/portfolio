@@ -73,6 +73,16 @@ $animationSpeed: 30s;
         color: #e6e6e6;
         -webkit-text-stroke: 1px #555555;
     }
+    .mobile-instr {
+        display: none;
+        text-transform: lowercase;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        color: #555;
+        padding-top: 4px;
+        -webkit-text-stroke: unset;
+    }
 
     .skills {
         background-color: transparent !important;
@@ -84,20 +94,38 @@ $animationSpeed: 30s;
         .other {
             position: relative;
             padding: 16px 0;
-            .type {
+            .code-container {
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                color: #2979e272 !important;
-                font-size: 40px;
-                font-weight: bold;
+                width: 90%;
+                height: fit-content;
+                background-color: transparent;
+                z-index: 9;
+            }
+            .type {
+                opacity: 0;
+                margin:  0 auto;
+                color: rgb(0, 0, 0) !important;
+                font-size: 10px;
+                font-weight:300;
+                width: fit-content;
+                line-height: 18px;
+                text-align: start;
                 // z-index: 1;
-                -webkit-text-stroke: unset;
-                // padding: 20px;
+                -webkit-text-stroke: unset !important;
+                background-color: #c8c8c890;
+                backdrop-filter: blur(12px);
+                padding: 8px 12px;
+                border-radius: 2px;
+                transition: 600ms;
                 // padding-top: 40px;
-                letter-spacing: 2px;
-                color: #555555;
+                // letter-spacing: 2px;
+                // color: #555555;
+                &.on {
+                    opacity: 1;
+                }
             }
 
             .skillset {
@@ -197,7 +225,9 @@ $animationSpeed: 30s;
             .other {
     
                 .type {
-                    color: #e6e6e6;
+                    color: rgb(255, 255, 255) !important;
+                    -webkit-text-stroke: rgb(255, 255, 255) !important;
+                    background-color: #32323990;
                 }
     
                 .skillset {
@@ -270,5 +300,18 @@ $animationSpeed: 30s;
                 }
             }
         }
+    }
+    @media (pointer: coarse) {
+        .skills-container {
+            h3 {
+                padding-bottom: 0;
+                line-height: 0;
+            }
+            .mobile-instr {
+                display: block;
+                padding-bottom: 40px;
+            }
+        }
+    
     }
 }

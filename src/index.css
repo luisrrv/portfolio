@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&family=Source+Code+Pro:wght@200&display=swap');
 /* 
 
 // reds
@@ -48,8 +48,10 @@ body.dark {
   background-color: #333fb0 !important;
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Source Code Pro', monospace;
+}
+  .code {
+  font-family: 'Source Code Pro', monospace !important;
 }
 
 a {

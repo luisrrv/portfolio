@@ -27,6 +27,7 @@ import {
     SiTailwindcss,
     SiVite
 } from 'react-icons/si';
+import { useState } from 'react';
 // import { 
 //     SiHtml5,
 //     SiCss3,
@@ -57,15 +58,35 @@ interface SkillsProps {
 
 export default function Header({ isDark }: SkillsProps) {
 
+  const [frontOn, setFrontOn] = useState<boolean>(false);
+  const [backOn, setBackOn] = useState<boolean>(false);
+  const [otherOn, setOtherOn] = useState<boolean>(false);
   const compClassName = isDark ? 'dark' : 'light';
+
+  const addSkills = (type: string) => {
+    if (!type) return;
+    if (type === 'front') setFrontOn(true);
+    else if (type === 'back') setBackOn(true);
+    else if (type === 'other') setOtherOn(true);
+}
+const removeSkills = (type: string) => {
+    if (!type) return;
+    if (type === 'front') setFrontOn(false);
+    else if (type === 'back') setBackOn(false);
+    else if (type === 'other') setOtherOn(false);
+
+  }
 
 
   return (
     <div id='skills' className={`skills-container ${compClassName}`}>
         <h3 className='title'><BiSolidBrain />Skills</h3>
+        <p className='mobile-instr'>click on row to view skills </p>
         <div className="skills">
-            <div className="frontend">
-                {/* <p className="type">Frontend</p> */}
+            <div className="frontend" onMouseEnter={() => addSkills('front')} onMouseLeave={() => removeSkills('front')}>
+                <div className='code-container'>
+                    <p className={`type code ${frontOn ? 'on' : ''}`}>[html, css, javascript, typescript, react, vue, sass, tailwind, bootstrap, vite] // Front-end</p>
+                </div>
                 <div className="skillset">
                     <div className="skillset-track front">
                         <div className="skill">
@@ -152,8 +173,10 @@ export default function Header({ isDark }: SkillsProps) {
                 </div>
             </div>
 
-            <div className="backend">
-                {/* <p className="type">Backend</p> */}
+            <div className="backend" onMouseEnter={() => addSkills('back')} onMouseLeave={() => removeSkills('back')}>
+            <div className='code-container'>
+                <p className={`type code ${backOn ? 'on' : ''}`}>[php, ruby, rails, python, mysql, postgress, firebase, redis] // Back-end</p>
+            </div>
                 <div className="skillset">
                     <div className="skillset-track back">
                         <div className="skill">
@@ -232,8 +255,10 @@ export default function Header({ isDark }: SkillsProps) {
                 </div>
             </div>
 
-            <div className="other">
-                {/* <p className="type">Other</p> */}
+            <div className="other" onMouseEnter={() => addSkills('other')} onMouseLeave={() => removeSkills('other')}>
+            <div className='code-container'>
+                <p className={`type code ${otherOn ? 'on' : ''}`}>[aws, docker, netlify, figma, photoshop] // Other</p>
+            </div>
                 <div className="skillset">
                     <div className="skillset-track other">
                         <div className="skill">
