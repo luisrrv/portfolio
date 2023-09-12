@@ -97,18 +97,21 @@ $animationSpeed: 30s;
                 height: fit-content;
                 background-color: transparent;
                 z-index: 9;
+                //  & * {
+                //     -webkit-text-stroke: unset !important;
+                //  }
             }
             .type {
                 opacity: 0;
                 margin:  0 auto;
-                color: rgb(0, 0, 0) !important;
-                font-size: 10px;
-                font-weight:300;
+                color: #333333 !important;
+                font-size: 14px;
+                font-weight:400;
                 width: fit-content;
                 line-height: 18px;
                 text-align: start;
                 // z-index: 1;
-                -webkit-text-stroke: unset !important;
+                -webkit-text-stroke: 1px #333333 !important;
                 background-color: #c8c8c890;
                 backdrop-filter: blur(12px);
                 padding: 8px 12px;
@@ -205,7 +208,7 @@ $animationSpeed: 30s;
     &.dark {
         background-color: transparent !important;
         color: #222222;
-        -webkit-text-stroke: 1px #e6e6e6;
+        // -webkit-text-stroke: 1px #e6e6e6;
 
         .title {
             color: #222222;
@@ -219,8 +222,8 @@ $animationSpeed: 30s;
             .other {
     
                 .type {
-                    color: rgb(255, 255, 255) !important;
-                    -webkit-text-stroke: rgb(255, 255, 255) !important;
+                    color: #e6e6e6 !important;
+                    -webkit-text-stroke: 1px #e6e6e6 !important;
                     background-color: #32323990;
                 }
     

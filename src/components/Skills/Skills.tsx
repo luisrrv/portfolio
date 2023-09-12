@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import './Skills.scss';
 
 // import { TailwindcssOriginalWordmark, } from 'devicons-react';
@@ -85,7 +86,7 @@ const removeSkills = (type: string) => {
         <div className="skills">
             <div className="frontend" onMouseEnter={() => addSkills('front')} onMouseLeave={() => removeSkills('front')}>
                 <div className='code-container'>
-                    <p className={`type code ${frontOn ? 'on' : ''}`}>[html, css, javascript, typescript, react, vue, sass, tailwind, bootstrap, vite] // Front-end</p>
+                    <p className={`type code ${frontOn ? 'on' : ''}`}>// Front-end <br />[html, css, javascript, typescript, react, vue, sass, tailwind, bootstrap, vite]</p>
                 </div>
                 <div className="skillset">
                     <div className="skillset-track front">
@@ -175,7 +176,7 @@ const removeSkills = (type: string) => {
 
             <div className="backend" onMouseEnter={() => addSkills('back')} onMouseLeave={() => removeSkills('back')}>
             <div className='code-container'>
-                <p className={`type code ${backOn ? 'on' : ''}`}>[php, ruby, rails, python, mysql, postgress, firebase, redis] // Back-end</p>
+                <p className={`type code ${backOn ? 'on' : ''}`}>// Back-end <br />[php, ruby, rails, python, mysql, postgress, firebase, redis]</p>
             </div>
                 <div className="skillset">
                     <div className="skillset-track back">
@@ -257,7 +258,7 @@ const removeSkills = (type: string) => {
 
             <div className="other" onMouseEnter={() => addSkills('other')} onMouseLeave={() => removeSkills('other')}>
             <div className='code-container'>
-                <p className={`type code ${otherOn ? 'on' : ''}`}>[aws, docker, netlify, figma, photoshop] // Other</p>
+                <p className={`type code ${otherOn ? 'on' : ''}`}>// Other <br />[aws, docker, netlify, figma, photoshop]</p>
             </div>
                 <div className="skillset">
                     <div className="skillset-track other">
