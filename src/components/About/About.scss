@@ -1,6 +1,7 @@
 // reds
 $lightRed: #e22941;
 $darkRed: #be3144;
+$bgRed: #950014;
 // $darkerRed: #7e1928;
 $darkerRed: #3e1017;
 $lighterRed: #dfb5bb;
@@ -29,7 +30,9 @@ $lighterBlue: #b5bbdf;
     // color: #25252a;
     color: #e6e6e6;
     // background-color: #e6e6e6;
-    background-color: $darkBlue;
+    background-color: $bgRed;
+    // background: rgb(149,0,20);
+    // background: linear-gradient(135deg, rgba(149,0,20,1) 0%, rgba(149,0,20,1) 40%, rgba(226,41,65,1) 100%);
     animation: loading ease-in 800ms;
 
     .shw {
@@ -90,6 +93,8 @@ $lighterBlue: #b5bbdf;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
                     span.letter {
+                        font-family: 'Poppins', sans-serif;
+                        font-weight: bold;
                         position: relative;
                         width: 78px !important;
 
@@ -107,6 +112,8 @@ $lighterBlue: #b5bbdf;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;;
                     span.letter {
+                        font-family: 'Poppins', sans-serif;
+                        font-weight: bold;
                         position: relative;
                         width: 100px !important;
 
@@ -158,6 +165,9 @@ $lighterBlue: #b5bbdf;
 
                     &.highlight-s {
                         // -webkit-text-stroke: 1.5px $lightRed !important;
+                        font-family: 'Poppins', sans-serif;
+                        // color: #e6e6e6 !important;
+                        font-weight: bold !important;
                         -webkit-text-stroke: 1.5px #e6e6e6 !important;
                                                 
                         &:before {
@@ -259,10 +269,10 @@ $lighterBlue: #b5bbdf;
 
                 span.bold {
                     padding: 2px;
-                    background-image: -webkit-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
-                    background-image: -moz-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
-                    background-image: -ms-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
-                    background-image: linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
+                    background-image: -webkit-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
+                    background-image: -moz-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
+                    background-image: -ms-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
+                    background-image: linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
                     color: #e6e6e6 !important;
                     // color: #555555 !important;
                     // transition: background-image ease-in 300ms;
@@ -278,7 +288,9 @@ $lighterBlue: #b5bbdf;
         }
     }
     &.dark {
-        background-color: $darkBlue !important;
+        background-color: $bgRed !important;
+        // background: rgb(149,0,20);
+        // background: linear-gradient(135deg, rgba(149,0,20,1) 0%, rgba(149,0,20,1) 40%, rgba(226,41,65,1) 100%);
         color: #FFFFFF;
         .special {
             p {
@@ -318,10 +330,10 @@ $lighterBlue: #b5bbdf;
             p {
                 span.bold {
                     color: #e6e6e6 !important;
-                    background-image: -webkit-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
-                    background-image: -moz-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
-                    background-image: -ms-linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
-                    background-image: linear-gradient(#00000000 60%, #6070fdbb 0%) !important;
+                    background-image: -webkit-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
+                    background-image: -moz-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
+                    background-image: -ms-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
+                    background-image: linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
                 }
             }
         }

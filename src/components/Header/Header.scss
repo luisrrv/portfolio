@@ -1,7 +1,7 @@
 // reds
 $lightRed: #e22941;
 $darkRed: #be3144;
-// $darkerRed: #7e1928;
+$bgRed: #950014;
 $darkerRed: #3e1017;
 $lighterRed: #dfb5bb;
 // blues
@@ -22,7 +22,7 @@ $lighterBlue: #b5bbdf;
     justify-content:space-between;
     align-items: center;
     padding: 8px 20px;
-    background-color: $darkBlue !important;
+    background-color: $bgRed !important;
     backdrop-filter: blur(10px) !important;
     animation: loading ease-in 800ms;
     
@@ -94,7 +94,7 @@ $lighterBlue: #b5bbdf;
     }
     
     &.dark {
-        background-color: $darkBlue !important;
+        background-color: $bgRed !important;
         backdrop-filter: blur(10px) !important;
 
         &.hdr {

@@ -91,17 +91,18 @@ $animationSpeed: 30s;
             align-items: center;
             gap: 12px;
             margin-top: 12px;
+            margin-bottom: 4px;
             p {
                 color: #333333;
                 width: 100px;
                 padding: 12px 8px;
                 border: 1px solid #666666;
-                border-radius: 6px;
+                border-radius: 8px;
                 font-size: 12px;
 
                 &.on {
-                    border-color: $darkBlue;
-                    color: $darkBlue !important;
+                    border-color: $lightRed;
+                    color: $lightRed !important;
                 }
 
                 &:hover {
@@ -252,8 +253,8 @@ $animationSpeed: 30s;
                     color: #e6e6e6;
 
                     &.on {
-                        border-color: $lightBlue;
-                        color: $lightBlue !important;
+                        border-color: $lightRed;
+                        color: $lightRed !important;
                     }
                 }
             }

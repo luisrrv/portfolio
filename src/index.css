@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&family=Source+Code+Pro:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Poppins:wght@200;300;400;700&family=Source+Code+Pro:wght@200&display=swap');
 /* 
 
 // reds
@@ -7,6 +7,7 @@ $darkRed: #be3144;
 // $darkerRed: #7e1928;
 $darkerRed: #3e1017;
 $lighterRed: #dfb5bb;
+$bgRed: #950014;
 
 // blues
 $lightBlue: #2979e2;
@@ -33,19 +34,19 @@ $lighterBlue: #b5bbdf;
   scroll-behavior: smooth;
 }
 html {
-  background-color: #333fb0;
+  background-color: #950014;
 }
 html.dark {
-  background-color: #333fb0 !important;
+  background-color: #950014 !important;
 }
 html:not(.App.hidden) {
   animation: loading ease-in 800ms;
 }
 body {
-  background-color: #333fb0;
+  background-color: #950014;
 }
 body.dark {
-  background-color: #333fb0 !important;
+  background-color: #950014 !important;
 }
 code {
   font-family: 'Source Code Pro', monospace;
@@ -80,10 +81,10 @@ p {
 }
 
 .highlight {
-  color: #333fb0 !important;
+  color: #950014 !important;
 }
 .highlight-s {
-  -webkit-text-stroke: 1.5px #333fb0 !important;
+  -webkit-text-stroke: 1.5px #950014 !important;
 }
 
 @keyframes loading {
@@ -91,7 +92,7 @@ p {
     background-color: #e6e6e6 !important;
   }
   100% {
-    background-color: #333fb0 !important;
+    background-color: #950014 !important;
   }
 }
 @keyframes loadingDark {
@@ -99,6 +100,6 @@ p {
     background-color: #25252a !important;
   }
   100% {
-    background-color: #333fb0 !important;
+    background-color: #950014 !important;
   }
 }

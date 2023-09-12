@@ -108,6 +108,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
 
   const handleClick = () => {
     const circle = document.querySelector('.follow-circle');
+    if (circle && circle.classList.contains('button')) return;
     if (circle && !circle.classList.contains('clicked')) {
       setIsClicked(true);
 
