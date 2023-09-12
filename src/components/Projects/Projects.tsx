@@ -35,6 +35,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
         <div id='projects_container' className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`} /*style={{marginTop:`${window.innerHeight}px`}}*/>
             <Skills 
                 isDark={isDark}
+                handleContactMouseOverChange={handleContactMouseOverChange}
             />
             <h3 id='work'><BiSolidBriefcaseAlt />Some of my work</h3>
             <p className='mobile-instr'>click on a project for details</p>

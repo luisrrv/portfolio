@@ -68,12 +68,14 @@ $animationSpeed: 30s;
         align-items: center;
         gap: 4px;
         padding: 40px 16px !important;
+        padding-bottom: 0 !important;
         text-align: center;
         width: 100%;
         color: #e6e6e6;
         -webkit-text-stroke: 1px #555555;
     }
     .mobile-instr {
+        display: block !important;
         color: #555;
         -webkit-text-stroke: #555 !important;
     }
@@ -82,6 +84,32 @@ $animationSpeed: 30s;
         background-color: transparent !important;
         max-width: 1300px;
         margin: 0 auto;
+
+        .skill-types {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+            p {
+                color: #333333;
+                width: 100px;
+                padding: 12px 8px;
+                border: 1px solid #666666;
+                border-radius: 6px;
+                font-size: 12px;
+
+                &.on {
+                    border-color: $darkBlue;
+                    color: $darkBlue !important;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+            }
+        }
 
         .frontend,
         .backend,
@@ -108,6 +136,7 @@ $animationSpeed: 30s;
                 font-size: 14px;
                 font-weight:400;
                 width: fit-content;
+                min-width: 50%;
                 line-height: 18px;
                 text-align: start;
                 // z-index: 1;
@@ -217,6 +246,18 @@ $animationSpeed: 30s;
     
         .skills {
             background-color: transparent !important;
+
+            .skill-types {
+                p {
+                    color: #e6e6e6;
+
+                    &.on {
+                        border-color: $lightBlue;
+                        color: $lightBlue !important;
+                    }
+                }
+            }
+
             .frontend,
             .backend,
             .other {

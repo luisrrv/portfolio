@@ -55,36 +55,99 @@ import { useState } from 'react';
 
 interface SkillsProps {
     isDark: boolean;
+    handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
 }
 
-export default function Header({ isDark }: SkillsProps) {
+export default function Header({ isDark, handleContactMouseOverChange }: SkillsProps) {
 
   const [frontOn, setFrontOn] = useState<boolean>(false);
   const [backOn, setBackOn] = useState<boolean>(false);
   const [otherOn, setOtherOn] = useState<boolean>(false);
   const compClassName = isDark ? 'dark' : 'light';
 
-  const addSkills = (type: string) => {
-    if (!type) return;
-    if (type === 'front') setFrontOn(true);
-    else if (type === 'back') setBackOn(true);
-    else if (type === 'other') setOtherOn(true);
-}
-const removeSkills = (type: string) => {
-    if (!type) return;
-    if (type === 'front') setFrontOn(false);
-    else if (type === 'back') setBackOn(false);
-    else if (type === 'other') setOtherOn(false);
+const showSkills = (type: string, element: EventTarget | undefined) => {
+    if (!type || !element) return;
+    const frontBtn = document.querySelector('.skill-types .f');
+    const backBtn = document.querySelector('.skill-types .b');
+    const otherBtn = document.querySelector('.skill-types .o');
+    
+    if (type === 'front') {
+        frontBtn && frontBtn.classList.add('on');
+        backBtn && backBtn.classList.remove('on');
+        otherBtn && otherBtn.classList.remove('on');
+        setFrontOn(true);
+        setBackOn(false);
+        setOtherOn(false);
+    } else if (type === 'back') {
+        backBtn && backBtn.classList.add('on');
+        frontBtn && frontBtn.classList.remove('on');
+        otherBtn && otherBtn.classList.remove('on');
+        setBackOn(true);
+        setFrontOn(false);
+        setOtherOn(false);
+    } else if (type === 'other') {
+        otherBtn && otherBtn.classList.add('on');
+        frontBtn && frontBtn.classList.remove('on');
+        backBtn && backBtn.classList.remove('on');
+        setOtherOn(true);
+        setFrontOn(false);
+        setBackOn(false);
+    }
+  }
+  const handleMouseTrackerEnter = (type:string, element: EventTarget | undefined): any => {
+    // setTimeout(() => {
+      handleContactMouseOverChange(true, type, element);
+    // }, 200);
+  };
+  const handleMouseTrackerLeave = (type:string, element: EventTarget | undefined): any => {
+    // setTimeout(() => {
+      handleContactMouseOverChange(false, type, element);
+    // }, 200);
+  };
 
+  const addIcon = (element: EventTarget) => {
+    const el = element as HTMLElement;
+    el.classList.add('over');
+    // if(el.classList.contains('github')) setGithubIcon(true);
+    // else if(el.classList.contains('web')) setWebIcon(true);
+  }
+  const removeIcon = (element: EventTarget) => {
+    const el = element as HTMLElement;
+    el.classList.remove('over');
+    // if(el.classList.contains('github')) setGithubIcon(false);
+    // else if(el.classList.contains('web')) setWebIcon(false);
   }
 
 
   return (
     <div id='skills' className={`skills-container ${compClassName}`}>
         <h3 className='title'><BiSolidBrain />Skills</h3>
-        <p className='mobile-instr'>click on a row to view skills </p>
+        <p className='mobile-instr'>click to view skills </p>
         <div className="skills">
-            <div className="frontend" onMouseEnter={() => addSkills('front')} onMouseLeave={() => removeSkills('front')}>
+            <div className="skill-types">
+                <p 
+                    className="f" 
+                    onClick={(e) => showSkills('front', e.target)}
+                    onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+                    onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+                    >Front-end
+                </p>
+                <p 
+                    className="b" 
+                    onClick={(e) => showSkills('back', e.target)}
+                    onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+                    onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+                    >Back-end
+                </p>
+                <p 
+                    className="o" 
+                    onClick={(e) => showSkills('other', e.target)}
+                    onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+                    onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+                    >Other
+                </p>
+            </div>
+            <div className="frontend">
                 <div className='code-container'>
                     <p className={`type code ${frontOn ? 'on' : ''}`}>// Front-end <br />[html, css, javascript, typescript, react, vue, sass, tailwind, bootstrap, vite]</p>
                 </div>
@@ -174,7 +237,7 @@ const removeSkills = (type: string) => {
                 </div>
             </div>
 
-            <div className="backend" onMouseEnter={() => addSkills('back')} onMouseLeave={() => removeSkills('back')}>
+            <div className="backend">
             <div className='code-container'>
                 <p className={`type code ${backOn ? 'on' : ''}`}>// Back-end <br />[php, ruby, rails, python, mysql, postgress, firebase, redis]</p>
             </div>
@@ -256,7 +319,7 @@ const removeSkills = (type: string) => {
                 </div>
             </div>
 
-            <div className="other" onMouseEnter={() => addSkills('other')} onMouseLeave={() => removeSkills('other')}>
+            <div className="other">
             <div className='code-container'>
                 <p className={`type code ${otherOn ? 'on' : ''}`}>// Other <br />[aws, docker, netlify, figma, photoshop]</p>
             </div>
