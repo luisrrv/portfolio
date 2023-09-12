@@ -67,6 +67,14 @@ export default function Header({ isDark, handleContactMouseOverChange }: SkillsP
 
 const showSkills = (type: string, element: EventTarget | undefined) => {
     if (!type || !element) return;
+    const el = element as HTMLElement;
+    if (el.classList.contains('on')) {
+        el.classList.remove('on');
+        setFrontOn(false);
+        setBackOn(false);
+        setOtherOn(false);
+        return;
+    }
     const frontBtn = document.querySelector('.skill-types .f');
     const backBtn = document.querySelector('.skill-types .b');
     const otherBtn = document.querySelector('.skill-types .o');

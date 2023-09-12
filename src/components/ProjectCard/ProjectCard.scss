@@ -394,11 +394,12 @@ $lighterBlue: #b5bbdf;
             background-color: #e6e6e621;
             backdrop-filter: blur(12px) !important;
 
-            // &:hover {
-            //   // color: #be3144 !important;
-            //   // font-size: 20px;
-            //   // background-color: #94434e8a;
-            // }
+            &:hover {
+              // color: #be3144 !important;
+              // font-size: 20px;
+              border-color: $lightRed !important;
+              background-color: $lightRed !important;
+            }
           }
         }
       }

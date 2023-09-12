@@ -102,7 +102,7 @@ $animationSpeed: 30s;
 
                 &.on {
                     border-color: $lightRed;
-                    color: $lightRed !important;
+                    background-color: $lightRed !important;
                 }
 
                 &:hover {
@@ -254,7 +254,7 @@ $animationSpeed: 30s;
 
                     &.on {
                         border-color: $lightRed;
-                        color: $lightRed !important;
+                        background-color: $lightRed !important;
                     }
                 }
             }

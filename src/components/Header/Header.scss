@@ -34,8 +34,8 @@ $lighterBlue: #b5bbdf;
     // }
 
     .header-logo {
-        color: $lighterBlue;
-        -webkit-text-stroke: 1px $lightBlue !important;
+        color: $lighterRed;
+        -webkit-text-stroke: 1px $lightRed !important;
         font-size: 30px;
         font-weight: bold;
         height: fit-content;
@@ -108,8 +108,8 @@ $lighterBlue: #b5bbdf;
         }
         
         .header-logo {
-            color: $darkerBlue;
-            -webkit-text-stroke: 1px $lightBlue !important;
+            color: $darkerRed;
+            -webkit-text-stroke: 1px $lightRed !important;
 
             // background-image: url(../../assets/images/lr_logo_b.png);
             // background-image: url(../../assets/images/lr_logo_w.png);
