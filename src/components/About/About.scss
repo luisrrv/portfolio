@@ -76,6 +76,7 @@ $bgDark: #25252a;
             height: 432px;
             width: 314px;
             width: 100%;
+            background-color: #e6e6e6;
 
             // .name-img {
             //     background-image: url(../../assets/images/name_w.png);
@@ -91,6 +92,7 @@ $bgDark: #25252a;
                 height: fit-content;
                 line-height: 18px;
                 &.big.first {
+                    background-color: #e6e6e6;
                     position: relative;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
@@ -110,6 +112,7 @@ $bgDark: #25252a;
                     }
                 }
                 &.big.last {
+                    background-color: #e6e6e6;
                     position: relative;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;;
@@ -168,7 +171,7 @@ $bgDark: #25252a;
                     &.highlight-s {
                         // -webkit-text-stroke: 1.5px $lightRed !important;
                         font-family: 'Poppins', sans-serif;
-                        // color: $bgRed !important;
+                        color: $lighterRed !important;
                         font-weight: bold !important;
                         -webkit-text-stroke: 1.5px $lightRed !important;
                                                 
@@ -271,10 +274,10 @@ $bgDark: #25252a;
 
                 span.bold {
                     padding: 2px;
-                    background-image: -webkit-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
-                    background-image: -moz-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
-                    background-image: -ms-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
-                    background-image: linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
+                    // background-image: -webkit-linear-gradient(#00000000 60%, $lighterRed 0%) !important;
+                    // background-image: -moz-linear-gradient(#00000000 60%, $lighterRed 0%) !important;
+                    // background-image: -ms-linear-gradient(#00000000 60%, $lighterRed 0%) !important;
+                    // background-image: linear-gradient(#00000000 60%, $lighterRed 0%) !important;
                     color: #222222 !important;
                     // color: #555555 !important;
                     // transition: background-image ease-in 300ms;
@@ -295,7 +298,11 @@ $bgDark: #25252a;
         // background: linear-gradient(135deg, rgba(149,0,20,1) 0%, rgba(149,0,20,1) 40%, rgba(226,41,65,1) 100%);
         color: #FFFFFF;
         .special {
+            background-color: #25252a;
             p {
+                &.big {
+                    background-color: #25252a !important;
+                }
                 &.big span.letter{
                     // color: $darkerRed !important;
                     color: transparent !important;
@@ -305,6 +312,7 @@ $bgDark: #25252a;
                     }
                     
                     &.highlight-s {
+                        color: $darkerRed !important;
                         // -webkit-text-stroke: 1.5px $lightRed !important;
                         // -webkit-text-stroke: 1.5px #e6e6e6 !important;
                         // animation: BlurAnimation 1s ease-in;
@@ -332,10 +340,10 @@ $bgDark: #25252a;
             p {
                 span.bold {
                     color: #e6e6e6 !important;
-                    background-image: -webkit-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
-                    background-image: -moz-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
-                    background-image: -ms-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
-                    background-image: linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
+                    // background-image: -webkit-linear-gradient(#00000000 90%, $darkRed 0%) !important;
+                    // background-image: -moz-linear-gradient(#00000000 90%, $darkRed 0%) !important;
+                    // background-image: -ms-linear-gradient(#00000000 90%, $darkRed 0%) !important;
+                    // background-image: linear-gradient(#00000000 90%, $darkRed 0%) !important;
                 }
             }
         }
@@ -417,16 +425,6 @@ $bgDark: #25252a;
             transform: translateY(0);
         }
     }
-
-    // @keyframes fillAnimationDark {
-    //     0% {
-    //       color: transparent; /* Start with transparent color */
-    //     }
-    //     100% {
-    //       color: $darkerRed; /* End with desired color */
-    //     }
-    // }
-    
 }
 
 @media (max-width:440px) {

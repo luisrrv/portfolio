@@ -124,6 +124,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero }
       <div className="content" style={fadeOutStyle}>
         {/* <div className="me-img"></div> */}
         <div className="special">
+          {/* <div className="grain"></div> */}
           <p className="small hello">HELLO, I'M</p>
           {/* <div className='name-img'></div> */}
           <p className={`big first`}>

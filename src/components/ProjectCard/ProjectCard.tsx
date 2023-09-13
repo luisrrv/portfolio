@@ -233,6 +233,7 @@ export default function ProjectCard({
         onMouseEnter={(e) => {handleMouseEnter(e.target); handleMouseTrackerEnter('project', undefined);}}
         onMouseLeave={() => {handleMouseLeave(); handleMouseTrackerLeave('project', undefined);}}
         >
+        <div className="grain"></div>
         <h4 className='project-title'>{title}</h4>
         <div className="content">
           <div className="project-info">
