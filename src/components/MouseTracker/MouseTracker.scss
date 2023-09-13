@@ -23,7 +23,7 @@ $blacker: #222222;
     align-items: center;
     position: fixed;
     background-color: transparent !important;
-    border: 1px solid $white !important;
+    border: 1px solid $black !important;
     border-radius: 50%;
     pointer-events: none;
     transition: border ease-in-out 300ms;
@@ -92,7 +92,7 @@ $blacker: #222222;
 
     .follow-circle-small {
         position: fixed;
-        background-color: $white;
+        background-color: $black;
         border-radius: 50%;
         pointer-events: none;
         transition: ease-in-out;
@@ -155,7 +155,7 @@ $blacker: #222222;
     }
     &.button {
       border-width: 2px !important;
-      border-color: $white !important;
+      border-color: $lightRed !important;
       transition: 200ms;
 
       .follow-circle-small {
@@ -185,7 +185,7 @@ $blacker: #222222;
         }
       }
       &.button {
-        border-color: $lighterRed !important;
+        border-color: $lightRed !important;
       }
       &#loading {
         border: none !important;

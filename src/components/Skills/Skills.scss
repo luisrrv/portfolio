@@ -103,6 +103,7 @@ $animationSpeed: 30s;
                 &.on {
                     border-color: $lightRed;
                     background-color: $lightRed !important;
+                    color: #e6e6e6;
                 }
 
                 &:hover {

@@ -11,6 +11,8 @@ $darkBlue: #333fb0;
 $darkerBlue: #10153e;
 $lighterBlue: #b5bbdf;
 
+$bgDark: #25252a;
+
 #header_container {
     position: fixed;
     top: 0;
@@ -22,7 +24,7 @@ $lighterBlue: #b5bbdf;
     justify-content:space-between;
     align-items: center;
     padding: 8px 20px;
-    background-color: $bgRed !important;
+    background-color: #e6e6e6 !important;
     backdrop-filter: blur(10px) !important;
     animation: loading ease-in 800ms;
     
@@ -64,9 +66,9 @@ $lighterBlue: #b5bbdf;
         }
         .contact-opts {
             a {
-                color: #e6e6e6 !important;
+                color: #25252a !important;
                 svg {
-                    color: #e6e6e6 !important;  
+                    color: #25252a !important;  
                 }
             }
         }
@@ -86,25 +88,28 @@ $lighterBlue: #b5bbdf;
                 border-left: 1px solid #25252a3f !important;
             }
         }
+        .divider {
+            border-left: 1px solid #25252a3f !important;
+        }
 
     }
     svg {
-        color: #e6e6e6;
+        color: #25252a;
 
     }
     
     &.dark {
-        background-color: $bgRed !important;
+        background-color: $bgDark !important;
         backdrop-filter: blur(10px) !important;
 
         &.hdr {
             background-color: transparent !important;
         }
         button {
-            color: #f0f0f0;
+            color: #f0f0f0 !important;
         }
         svg {
-            color: #FFFFFF;
+            color: #FFFFFF !important;
         }
         
         .header-logo {
@@ -118,9 +123,9 @@ $lighterBlue: #b5bbdf;
         .header-right {
             .contact-opts {
                 a {
-                    color: #FFFFFF;
+                    color: #FFFFFF !important;
                     svg {
-                        color: #FFFFFF;
+                        color: #FFFFFF !important;
                     }
                 }
             }

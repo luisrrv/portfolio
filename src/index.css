@@ -34,19 +34,23 @@ $lighterBlue: #b5bbdf;
   scroll-behavior: smooth;
 }
 html {
-  background-color: #950014;
+  /* background-color: #950014; */
+  background-color: #e6e6e6;
 }
 html.dark {
-  background-color: #950014 !important;
+  /* background-color: #950014 !important; */
+  background-color: #25252a !important;
 }
 html:not(.App.hidden) {
   animation: loading ease-in 800ms;
 }
 body {
-  background-color: #950014;
+  /* background-color: #950014; */
+  background-color: #e6e6e6;
 }
 body.dark {
-  background-color: #950014 !important;
+  /* background-color: #950014 !important; */
+  background-color: #25252a !important;
 }
 code {
   font-family: 'Source Code Pro', monospace;

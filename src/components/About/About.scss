@@ -12,6 +12,8 @@ $darkBlue: #333fb0;
 $darkerBlue: #10153e;
 $lighterBlue: #b5bbdf;
 
+$bgDark: #25252a;
+
 #about_container {
     position: relative;
     display: flex;
@@ -28,9 +30,9 @@ $lighterBlue: #b5bbdf;
     transform: translateX(-50%);
     padding: 20px 0;
     // color: #25252a;
-    color: #e6e6e6;
+    color: #222222;
     // background-color: #e6e6e6;
-    background-color: $bgRed;
+    background-color: #e6e6e6;
     // background: rgb(149,0,20);
     // background: linear-gradient(135deg, rgba(149,0,20,1) 0%, rgba(149,0,20,1) 40%, rgba(226,41,65,1) 100%);
     animation: loading ease-in 800ms;
@@ -154,7 +156,7 @@ $lighterBlue: #b5bbdf;
                     font-weight: bold;
                     white-space: initial;
                     word-wrap: break-word;
-                    -webkit-text-stroke: 1.5px #e6e6e6;
+                    -webkit-text-stroke: 1.5px #222222;
                     span {
                         line-height: 8px;
                         font-size: 12px;
@@ -166,9 +168,9 @@ $lighterBlue: #b5bbdf;
                     &.highlight-s {
                         // -webkit-text-stroke: 1.5px $lightRed !important;
                         font-family: 'Poppins', sans-serif;
-                        // color: #e6e6e6 !important;
+                        // color: $bgRed !important;
                         font-weight: bold !important;
-                        -webkit-text-stroke: 1.5px #e6e6e6 !important;
+                        -webkit-text-stroke: 1.5px $lightRed !important;
                                                 
                         &:before {
                             content: "";
@@ -178,7 +180,7 @@ $lighterBlue: #b5bbdf;
                             right: 0;
                             bottom: 0;
                             left: 0;
-                            background: linear-gradient(-45deg, #000a8f20 0%, #333fb020 100% );
+                            background: linear-gradient(-45deg, #8f000005 0%, #b0333305 100% );
                             transform: translate3d(0px, 20px, 0) scale(0.95);
                             filter: blur(20px);
                             opacity: var(0.7);
@@ -212,7 +214,7 @@ $lighterBlue: #b5bbdf;
                 &.small {
                     font-size: 12px;
                     // color: #25252a;
-                    color: #e6e6e6;
+                    color: #222222;
                     padding: 4px 0;
                     text-align: center;
                     letter-spacing: 4px;
@@ -238,7 +240,7 @@ $lighterBlue: #b5bbdf;
             max-width: 314px;
             height: 8px;
             // border-top: 0.5px solid #25252a;
-            border-top: 0.5px solid #e6e6e6;
+            border-top: 0.5px solid #222222;
             margin-top: 10px;
             margin-bottom: 16px;
             z-index: 1;
@@ -273,7 +275,7 @@ $lighterBlue: #b5bbdf;
                     background-image: -moz-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
                     background-image: -ms-linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
                     background-image: linear-gradient(#00000000 60%, #fd6060bb 0%) !important;
-                    color: #e6e6e6 !important;
+                    color: #222222 !important;
                     // color: #555555 !important;
                     // transition: background-image ease-in 300ms;
 
@@ -288,7 +290,7 @@ $lighterBlue: #b5bbdf;
         }
     }
     &.dark {
-        background-color: $bgRed !important;
+        background-color: $bgDark !important;
         // background: rgb(149,0,20);
         // background: linear-gradient(135deg, rgba(149,0,20,1) 0%, rgba(149,0,20,1) 40%, rgba(226,41,65,1) 100%);
         color: #FFFFFF;
@@ -304,7 +306,7 @@ $lighterBlue: #b5bbdf;
                     
                     &.highlight-s {
                         // -webkit-text-stroke: 1.5px $lightRed !important;
-                        -webkit-text-stroke: 1.5px #e6e6e6 !important;
+                        // -webkit-text-stroke: 1.5px #e6e6e6 !important;
                         // animation: BlurAnimation 1s ease-in;
                     }
                     &.blur-in {
