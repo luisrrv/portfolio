@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 //icons
 import { BsFillFileEarmarkCodeFill, BsGithub } from 'react-icons/bs';
 import {MdWeb } from 'react-icons/md'
+import {LiaWindowMinimizeSolid } from 'react-icons/lia'
 import { SiRubyonrails, 
         SiPostgresql, 
         SiHeroku, 
@@ -101,41 +102,42 @@ export default function ProjectCard({
     const compClassName = isDark ? 'dark' : 'light';
     const cardTitleClass = title.split(' ')[0];
 
-    const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number) => {
+    const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number = 0) => {
       if (element) {
         const el = element as HTMLElement;
         
         setTimeout(() => {
-          if (scrolling) return;
-          if (mouseLeaveRef.current) return;
+          // if (scrolling) return;
+          // if (mouseLeaveRef.current) return;
 
           el.classList.add(className);
         }, timeout);
       }
     };
     
-    const handleMouseEnter = (element: EventTarget | null, depth: number = 0): void => {
+    const handleOpenCard = (element: EventTarget | null, depth: number = 0): void => {
       if (!element || depth > 5) {
         return;
       }
-      
       setMouseLeave(false);
       mouseLeaveRef.current = false;
-
+      
       const el = element as HTMLElement;
+      // handleCloseCards();
+      
       if (el.classList.contains('open-card')) {
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-          if (!scrolling) {
-            addClassWithTimeout(el, 'selected', 0);
-            addClassWithTimeout(el, 'cta', 600);
-          }
-        }
-        else{
-          if (!scrolling) {
-            addClassWithTimeout(el, 'selected', 800);
-            addClassWithTimeout(el, 'cta', 1400);
-          }
-        }
+          addClassWithTimeout(el, 'selected', 0);
+          addClassWithTimeout(el, 'cta', 600);
+        // if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        //   if (!scrolling) {
+        //   }
+        // }
+        // else{
+        //   if (!scrolling) {
+        //     addClassWithTimeout(el, 'selected', 800);
+        //     addClassWithTimeout(el, 'cta', 1400);
+        //   }
+        // }
     
         const cover: HTMLElement | null = el.previousSibling as HTMLElement;
         if (cover) {
@@ -157,37 +159,48 @@ export default function ProjectCard({
           }
         }
       } else {
-        handleMouseEnter(el.parentElement, depth + 1);
+        handleOpenCard(el.parentElement, depth + 1);
+        handleCloseCards();
       }
     };
 
-    const handleMouseLeave = (): void => {
-      setMouseLeave(true);
-      mouseLeaveRef.current = true;
+    const handleCloseCards = (): void => {
+      const openCards: NodeList = document.querySelectorAll('.open-card');
+      if (openCards && openCards.length > 0) {
+        [].forEach.call(openCards, (card: HTMLElement) => {
+          card.classList.remove('selected');
+          card.classList.remove('cta');
+          const cover: HTMLElement|undefined = card.previousSibling ? card.previousSibling as HTMLElement : undefined;
+          cover?.classList.remove('off');
+          cover?.classList.add('on');
+        })
+      }
+    }
+
+    const closeAll = (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+      event.preventDefault();
+      event.stopPropagation();
 
       const openCards: NodeList = document.querySelectorAll('.open-card');
       if (openCards && openCards.length > 0) {
         [].forEach.call(openCards, (card: HTMLElement) => {
-          // if (card.classList.contains('selected'))  {
-            card.classList.remove('selected');
-            card.classList.remove('cta');
-            const cover: HTMLElement|undefined = card.previousSibling ? card.previousSibling as HTMLElement : undefined;
-            cover?.classList.remove('off');
-            cover?.classList.add('on');
-          // }
+          card.classList.remove('selected');
+          card.classList.remove('cta');
+          const cover: HTMLElement|undefined = card.previousSibling ? card.previousSibling as HTMLElement : undefined;
+          cover?.classList.remove('off');
+          cover?.classList.add('on');
         })
       }
     }
 
     const handleMouseTrackerEnter = (type:string, element: EventTarget | undefined): any => {
-      // setTimeout(() => {
+      const el = element as HTMLElement;
+      if (!element || el.classList.contains('selected') || el.classList.contains('github') || el.classList.contains('web')) {
         handleContactMouseOverChange(true, type, element);
-      // }, 200);
+      }
     };
     const handleMouseTrackerLeave = (type:string, element: EventTarget | undefined): any => {
-      // setTimeout(() => {
-        handleContactMouseOverChange(false, type, element);
-      // }, 200);
+      handleContactMouseOverChange(false, type, element);
     };
 
     const addIcon = (element: EventTarget) => {
@@ -230,10 +243,14 @@ export default function ProjectCard({
       </div>
       <div className="open-card"
         style={isDark ? {backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`} : {backgroundImage:`linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(${bg})`}}
-        onMouseEnter={(e) => {handleMouseEnter(e.target); handleMouseTrackerEnter('project', undefined);}}
-        onMouseLeave={() => {handleMouseLeave(); handleMouseTrackerLeave('project', undefined);}}
+        onMouseEnter={(e) => {handleMouseTrackerEnter('project', e.target);}}
+        onMouseLeave={() => {handleMouseTrackerLeave('project', undefined);}}
+        onClick={(e) => {handleOpenCard(e.target); handleMouseTrackerEnter('project', undefined);}}
         >
         <div className="grain"></div>
+        <div className="minimize">
+          <p onClick={(e) => closeAll(e)}><LiaWindowMinimizeSolid /></p>
+        </div>
         <h4 className='project-title'>{title}</h4>
         <div className="content">
           <div className="project-info">

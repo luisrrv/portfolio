@@ -32,7 +32,10 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
     };
 
     return (
-        <div id='projects_container' className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`} /*style={{marginTop:`${window.innerHeight}px`}}*/>
+        <div 
+            id='projects_container' 
+            className={`projects_container ${className ? className : ''} ${compClassName} ${hideApp && 'hidden'}`} /*style={{marginTop:`${window.innerHeight}px`}}*/
+            >
             <Skills 
                 isDark={isDark}
                 handleContactMouseOverChange={handleContactMouseOverChange}

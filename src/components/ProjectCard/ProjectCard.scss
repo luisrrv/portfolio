@@ -195,31 +195,47 @@ $lighterBlue: #b5bbdf;
       animation: bgMove 120s linear infinite;
       filter: blur(20px);
 
-          .grain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            pointer-events: none;
-            z-index: 300;
-            transform: translateZ(0);
+      .grain {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        z-index: 300;
+        transform: translateZ(0);
 
-            &:before {
-                content: "";
-                top: -10rem;
-                left: -10rem;
-                width: calc(100% + 20rem);
-                height: calc(100% + 20rem);
-                z-index: 9999;
-                position: fixed;
-                background-image: url(../../assets/images/grain_bg.png);
-                -webkit-animation: noise 1s steps(2) infinite;
-                animation: noise 1s steps(2) infinite;
-                opacity: 0.15;
-                pointer-events: none;
-            }
+        &:before {
+            content: "";
+            top: -10rem;
+            left: -10rem;
+            width: calc(100% + 20rem);
+            height: calc(100% + 20rem);
+            z-index: 9999;
+            position: fixed;
+            background-image: url(../../assets/images/grain_bg.png);
+            -webkit-animation: noise 1s steps(2) infinite;
+            animation: noise 1s steps(2) infinite;
+            opacity: 0.15;
+            pointer-events: none;
         }
+      }
+
+      .minimize {
+        height: fit-content;
+        width: 100%;
+        z-index: 9999;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        p {
+          padding: 0 8px;
+          
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
 
       a {
         opacity: 0;
