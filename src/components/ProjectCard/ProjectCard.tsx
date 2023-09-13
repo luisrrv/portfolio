@@ -249,7 +249,7 @@ export default function ProjectCard({
         >
         <div className="grain"></div>
         <div className="minimize">
-          <p onClick={(e) => closeAll(e)}><LiaWindowMinimizeSolid /></p>
+          <p onClick={(e) => closeAll(e)}><LiaWindowMinimizeSolid size={20} /></p>
         </div>
         <h4 className='project-title'>{title}</h4>
         <div className="content">
