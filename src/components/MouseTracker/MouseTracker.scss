@@ -28,6 +28,10 @@ $blacker: #222222;
     pointer-events: none;
     transition: border ease-in-out 300ms;
     z-index: 9999;
+
+    &.scrolling {
+      opacity: 0.1;
+    }
     
     &.light {
         border-color: $white !important;
@@ -67,7 +71,8 @@ $blacker: #222222;
           }
         }
       }
-      &.button {
+      &.button,
+      &.cover {
         border-width: 2px !important;
         border-color: $lightRed !important;
         transition: 200ms;
@@ -82,7 +87,8 @@ $blacker: #222222;
     
     &.clicked {
         animation: pulseAnimation 500ms ease-in-out;
-        &.button {
+        &.button,
+        &.cover {
           animation: none !important;
           .follow-circle-small {
             display: none !important;
@@ -153,7 +159,8 @@ $blacker: #222222;
         }
       }
     }
-    &.button {
+    &.button,
+    &.cover {
       border-width: 2px !important;
       border-color: $lightRed !important;
       transition: 200ms;
@@ -184,7 +191,8 @@ $blacker: #222222;
           }
         }
       }
-      &.button {
+      &.button,
+      &.cover {
         border-color: $lightRed !important;
       }
       &#loading {

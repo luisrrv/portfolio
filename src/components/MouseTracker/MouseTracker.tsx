@@ -14,13 +14,15 @@ interface FollowCircleProps {
   projectMS: boolean;
   githubMS: EventTarget|HTMLElement|boolean;
   webMS: EventTarget|HTMLElement|boolean;
+  coverMS: EventTarget|HTMLElement|boolean;
   isDark: boolean;
   handleDarkModeChange: (toggle: boolean) => void;
+  handleMouseCoverChange: (toggle: boolean) => void;
   scrolling: boolean;
   aboutMS: boolean;
 }
 
-const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS, projectMS, githubMS, webMS, isDark, handleDarkModeChange, scrolling, aboutMS}) => {
+const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS, contactOptsMS, projectMS, githubMS, webMS, coverMS, isDark, handleDarkModeChange, handleMouseCoverChange, scrolling, aboutMS}) => {
   // const isDarkMode = useDarkMode();
   const appClassName = isDark ? 'light' : 'dark';
   const circleRef = useRef<HTMLDivElement | null>(null);
@@ -28,16 +30,15 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isClicked, setIsClicked] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [projectIcon, setProjectIcon] = useState(false);
 
-  const handleMouseMove = (event: MouseEvent, github: EventTarget|HTMLElement|boolean = githubMS, web: EventTarget|HTMLElement|boolean = webMS) => {
+  const handleMouseMove = (event: MouseEvent, github: EventTarget|HTMLElement|boolean = githubMS, web: EventTarget|HTMLElement|boolean = webMS, cover: EventTarget|HTMLElement|boolean = coverMS) => {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
     // const easeInOut = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
     const linear = (t: number) => t;
-
 
     requestAnimationFrame(() => {
       const circleElement = circleRef.current;
@@ -79,22 +80,28 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
               circleElement.style.width = web.offsetWidth + 'px';
               circleElement.style.height = web.offsetHeight + 'px';
               circleElement.style.borderRadius = '8px';
-          } else {
-              circleElement.classList.remove('button');
-              const nextX = currentX + distanceX * easeT;
-              const nextY = currentY + distanceY * easeT;
-              
-              circleElement.style.left = nextX + 'px';
-              circleElement.style.top = nextY + 'px';
+          } else if (cover instanceof HTMLElement) {
+            circleElement.classList.add('button');
+            circleElement.style.left = cover.getBoundingClientRect().left + 'px';
+            circleElement.style.top = cover.getBoundingClientRect().top + 'px';
+            circleElement.style.width = cover.offsetWidth + 'px';
+            circleElement.style.height = cover.offsetHeight + 'px';
+            circleElement.style.borderRadius = '8px';
+        } else {
+            circleElement.classList.remove('button');
+            const nextX = currentX + distanceX * easeT;
+            const nextY = currentY + distanceY * easeT;
             
-              const boundingRect = circleElement.getBoundingClientRect();
-              const circleSize = size || Math.max(boundingRect.width, boundingRect.height);
-              circleElement.style.width = `${circleSize}px`;
-              circleElement.style.height = `${circleSize}px`;
-              circleElement.style.borderRadius = '50%';
-              circleElement.style.borderWidth = '1px !important';
-
-          }
+            circleElement.style.left = nextX + 'px';
+            circleElement.style.top = nextY + 'px';
+          
+            const boundingRect = circleElement.getBoundingClientRect();
+            const circleSize = size || Math.max(boundingRect.width, boundingRect.height);
+            circleElement.style.width = `${circleSize}px`;
+            circleElement.style.height = `${circleSize}px`;
+            circleElement.style.borderRadius = '50%';
+            circleElement.style.borderWidth = '1px !important';
+        }
 
 
           currentFrame++;
@@ -141,7 +148,7 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
       window.removeEventListener('mousemove', handleMouseMove);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [size, sizeSmall, githubMS, webMS]);
+  }, [size, sizeSmall, githubMS, webMS, coverMS]);
 
   useEffect(() => {
     // window.addEventListener("scroll", (e) => setScrolling(true));
@@ -155,11 +162,22 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
   }, []);
 
   useEffect(() => {
+    if (scrolling) {
+      if (circleRef.current?.classList.contains('cover') ||
+          circleRef.current?.classList.contains('button')) {
+        circleRef.current?.classList.add('scrolling');
+      }
+    } else {
+      circleRef.current?.classList.remove('scrolling');
+    }
+  }, [scrolling]);
+
+  useEffect(() => {
     if (scrolling) return;
     if(projectMS) {
-      setLoading(true);
+      // setLoading(true);
       setTimeout(() => {
-        setLoading(false);
+        // setLoading(false);
         setProjectIcon(true);
       }, 800);
     } else if (!projectMS) {
@@ -176,8 +194,18 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
         <div
           ref={circleRef}
           onClick={handleClick}
-          id={`${projectMS && loading ? 'loading' : ''}`}
-          className={`follow-circle ${appClassName} ${isClicked ? 'clicked' : ''} ${contactMS ? 'contact' : ''} ${contactOptsMS ? 'external' : ''} ${(projectMS && projectIcon && !githubMS && !webMS) ? 'project' : (projectMS && githubMS instanceof HTMLElement) ? 'github' : (projectMS && webMS instanceof HTMLElement) ? 'web' : ''} ${!isDark && !aboutMS ? 'black' : ''}`}
+          // id={`${projectMS && loading ? 'loading' : ''}`}
+          className={
+            `
+            follow-circle ${appClassName} 
+            ${isClicked ? 'clicked' : ''} 
+            ${contactMS ? 'contact' : ''} 
+            ${contactOptsMS ? 'external' : ''} 
+            ${(projectMS && projectIcon && !githubMS && !webMS) ? 'project' : (projectMS && githubMS instanceof HTMLElement) ? 'github' : (projectMS && webMS instanceof HTMLElement) ? 'web' : ''} 
+            ${!projectMS && !githubMS && !webMS && coverMS ? 'cover' : ''}
+            ${!isDark && !aboutMS ? 'black' : ''}
+            `
+          }
           style={{
             left: position.x - size / 2,
             top: position.y - size / 2,

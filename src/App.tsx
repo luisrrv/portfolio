@@ -31,6 +31,7 @@ function App({ className, isDarkMode }: IAppProps) {
   const [aboutMS, setAboutMS] = useState<boolean>(false);
   const [githubMS, setGithubMS] = useState<EventTarget|HTMLElement|boolean>(false);
   const [webMS, setWebMS] = useState<EventTarget|HTMLElement|boolean>(false);
+  const [coverMS, setCoverMS] = useState<EventTarget|HTMLElement|boolean>(false);
   const [contactOptsMS, setContactOptsMS] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [scrollingTimeout, setScrollingTimeout] = useState<NodeJS.Timeout | null>(null);
@@ -124,6 +125,16 @@ function App({ className, isDarkMode }: IAppProps) {
       } else {
         setWebMS(isMouseOver);
       }
+    } else if (type==='cover') {
+      if (element) {
+       if (isMouseOver===true) {
+         setCoverMS(element);
+       } else {
+        setCoverMS(isMouseOver);
+       }
+      } else {
+        setCoverMS(isMouseOver);
+      }
     }
   };
 
@@ -138,6 +149,9 @@ function App({ className, isDarkMode }: IAppProps) {
     setIsDark(toggle);
     document.body.classList.toggle('dark');
     document.querySelector('html')?.classList.toggle('dark');
+  };
+  const handleMouseCoverChange = (toggle: boolean) => {
+    setCoverMS(toggle);
   };
 
   const showDialog = () => {
@@ -204,8 +218,10 @@ function App({ className, isDarkMode }: IAppProps) {
           projectMS={projectMS}
           githubMS={githubMS}
           webMS={webMS}
+          coverMS={coverMS}
           isDark={isDark}
           handleDarkModeChange={handleDarkModeChange}
+          handleMouseCoverChange={handleMouseCoverChange}
           scrolling={scrolling}
           aboutMS={aboutMS}
         />

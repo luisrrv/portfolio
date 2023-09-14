@@ -195,12 +195,26 @@ export default function ProjectCard({
 
     const handleMouseTrackerEnter = (type:string, element: EventTarget | undefined): any => {
       const el = element as HTMLElement;
+      const card = hasParentWithId(el, 'card');
       if (!element || el.classList.contains('selected') || el.classList.contains('github') || el.classList.contains('web')) {
         handleContactMouseOverChange(true, type, element);
+      } else if (card && !el.classList.contains('selected')) {
+        const cover = card.querySelector('.card-cover.on');
+        const elm = cover as HTMLElement;
+        // elm.style.cursor = 'pointer';
+        handleContactMouseOverChange(true, 'cover', elm);
       }
     };
     const handleMouseTrackerLeave = (type:string, element: EventTarget | undefined): any => {
-      handleContactMouseOverChange(false, type, element);
+      handleContactMouseOverChange(false, type, undefined);
+      const el = element as HTMLElement;
+      const card = hasParentWithId(el, 'card');
+      if (card) {
+        const cover = card.querySelector('.card-cover.on');
+        const elm = cover as HTMLElement;
+        // elm.style.cursor = 'default';
+        handleContactMouseOverChange(false, 'cover', elm);
+      }
     };
 
     const addIcon = (element: EventTarget) => {
@@ -216,8 +230,21 @@ export default function ProjectCard({
       else if(el.classList.contains('web')) setWebIcon(false);
     }
 
+    const hasParentWithId = (element: HTMLElement | null, parentId: string): HTMLElement | false => {
+      if (!element) {
+        return false;
+      }
+      if (element.id === parentId) {
+        return element;
+      }
+      return hasParentWithId(element.parentElement, parentId);
+    };
+
   return (
-    <div id='card' className={`card ${cardTitleClass} ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''}`}>
+    <div 
+      id='card' 
+      className={`card ${cardTitleClass} ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''}`}
+      >
       <div className={`card-cover on`}>
         <div className='name-container'>
             <p>{title}
@@ -244,7 +271,7 @@ export default function ProjectCard({
       <div className="open-card"
         style={isDark ? {backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`} : {backgroundImage:`linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(${bg})`}}
         onMouseEnter={(e) => {handleMouseTrackerEnter('project', e.target);}}
-        onMouseLeave={() => {handleMouseTrackerLeave('project', undefined);}}
+        onMouseLeave={(e) => {handleMouseTrackerLeave('project', e.target);}}
         onClick={(e) => {handleOpenCard(e.target); handleMouseTrackerEnter('project', undefined);}}
         >
         <div className="grain"></div>
