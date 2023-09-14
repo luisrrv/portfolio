@@ -58,7 +58,6 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
                     pics={project.pics}
                     handleContactMouseOverChange={handleContactMouseOverChange}
                     scrolling={scrolling}
-
                     />
                 ))
             }

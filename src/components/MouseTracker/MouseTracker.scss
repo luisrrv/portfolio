@@ -30,7 +30,7 @@ $blacker: #222222;
     z-index: 9999;
 
     &.scrolling {
-      opacity: 0.1;
+      opacity: 0;
     }
     
     &.light {
@@ -62,7 +62,7 @@ $blacker: #222222;
       &.external {
         background-color: transparent !important;
         transition: 200ms;
-
+        
         .follow-circle-small{
           background-color: $whiter !important;
 
@@ -71,8 +71,7 @@ $blacker: #222222;
           }
         }
       }
-      &.button,
-      &.cover {
+      &.button {
         border-width: 2px !important;
         border-color: $lightRed !important;
         transition: 200ms;
@@ -87,13 +86,22 @@ $blacker: #222222;
     
     &.clicked {
         animation: pulseAnimation 500ms ease-in-out;
-        &.button,
-        &.cover {
+        &.button {
           animation: none !important;
           .follow-circle-small {
             display: none !important;
           }
         }
+    }
+
+    &:not(.contact),
+    &:not(.project),
+    &:not(.github),
+    &:not(.web),
+    &:not(.external) {
+      .follow-circle-small {
+        animation: showUp 300ms ease-in;
+      }
     }
 
     .follow-circle-small {
@@ -159,8 +167,7 @@ $blacker: #222222;
         }
       }
     }
-    &.button,
-    &.cover {
+    &.button {
       border-width: 2px !important;
       border-color: $lightRed !important;
       transition: 200ms;
@@ -191,8 +198,7 @@ $blacker: #222222;
           }
         }
       }
-      &.button,
-      &.cover {
+      &.button {
         border-color: $lightRed !important;
       }
       &#loading {
@@ -209,6 +215,14 @@ $blacker: #222222;
     }
 }
 
+@keyframes showUp {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
 @keyframes pulseAnimation {
     0% {
       transform: scale(1);
@@ -225,9 +239,11 @@ $blacker: #222222;
       transform: scale(1);
     }
     50% {
+      opacity: 1;
       transform: scale(3);
     }
     100% {
+      opacity: 0;
       transform: scale(1);
     }
 }
@@ -245,6 +261,7 @@ $blacker: #222222;
 
 @keyframes bounce {
   0% {
+    opacity: 0;
     transform: scale(2);
   }
   25% {
@@ -254,6 +271,7 @@ $blacker: #222222;
     transform: scale(2);
   }
   75% {
+    opacity: 1;
     transform: scale(2.4);
   }
   100% {
