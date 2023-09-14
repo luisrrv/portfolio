@@ -45,9 +45,9 @@ $lighterBlue: #b5bbdf;
       }
     }
 
-    // &.scrolling {
-    //   pointer-events: none;
-    // }
+    &:hover {
+      cursor: pointer;
+    }
 
     &.hidden {
         opacity: 0;

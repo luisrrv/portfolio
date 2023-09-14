@@ -157,7 +157,7 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
             </div>
             <div className="frontend">
                 <div className='code-container'>
-                    <p className={`type code ${frontOn ? 'on' : ''}`}>// Front-end <br />[html, css, javascript, typescript, react, vue, sass, tailwind, bootstrap, vite]</p>
+                    <p className={`type code ${frontOn ? 'on' : ''}`}><span className='gray'>// Front-end</span><br />[html, css, javascript, typescript, react, vue, sass, tailwind, bootstrap, vite]</p>
                 </div>
                 <div className="skillset">
                     <div className="skillset-track front">
@@ -247,7 +247,7 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
 
             <div className="backend">
             <div className='code-container'>
-                <p className={`type code ${backOn ? 'on' : ''}`}>// Back-end <br />[php, ruby, rails, python, mysql, postgress, firebase, redis]</p>
+                <p className={`type code ${backOn ? 'on' : ''}`}><span className='gray'>// Back-end</span><br />[php, ruby, rails, python, mysql, postgress, firebase, redis]</p>
             </div>
                 <div className="skillset">
                     <div className="skillset-track back">
@@ -329,7 +329,7 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
 
             <div className="other">
             <div className='code-container'>
-                <p className={`type code ${otherOn ? 'on' : ''}`}>// Other <br />[aws, docker, netlify, figma, photoshop]</p>
+                <p className={`type code ${otherOn ? 'on' : ''}`}><span className='gray'>// Other</span><br />[aws, docker, netlify, figma, photoshop]</p>
             </div>
                 <div className="skillset">
                     <div className="skillset-track other">

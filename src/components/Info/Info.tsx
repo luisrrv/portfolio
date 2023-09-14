@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './Info.scss';
 
-import { BiLogoGithub, BiLogoFigma, BiLogoReact, BiLogoTypescript, BiSolidBriefcaseAlt, BiSolidBrain } from 'react-icons/bi';
+import { BiLogoFigma, BiLogoReact, BiLogoTypescript, BiSolidBriefcaseAlt, BiSolidBrain } from 'react-icons/bi';
 import { SiNetlify } from 'react-icons/si';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { RiUser5Fill } from 'react-icons/ri';
@@ -89,7 +89,7 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
 
                   </div>
                 </div>
-                <p>Designed and coded by <a onMouseEnter={handleMouseEnter('content')} onMouseLeave={handleMouseLeave('content')} className='underline' href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer"><BiLogoGithub />luisrrv</a>.</p>
+                <p>Designed and coded by <a onMouseEnter={handleMouseEnter('content')} onMouseLeave={handleMouseLeave('content')} className='underline' href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer">me</a>.</p>
                 <div className="icons">
                     <BiLogoFigma />
                     <BiLogoReact />

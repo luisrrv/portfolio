@@ -91,7 +91,7 @@ $animationSpeed: 30s;
             align-items: center;
             gap: 12px;
             margin-top: 12px;
-            margin-bottom: 4px;
+            margin-bottom: 12px;
             p {
                 color: #333333;
                 width: 100px;
@@ -139,20 +139,24 @@ $animationSpeed: 30s;
                 font-weight:400;
                 width: fit-content;
                 min-width: 50%;
-                line-height: 18px;
+                line-height: 24px;
                 text-align: start;
                 // z-index: 1;
                 -webkit-text-stroke: 1px #333333 !important;
                 background-color: #c8c8c890;
                 backdrop-filter: blur(12px);
-                padding: 8px 12px;
-                border-radius: 2px;
+                padding: 12px;
+                border-radius: 6px;
                 transition: 600ms;
                 // padding-top: 40px;
                 // letter-spacing: 2px;
                 // color: #555555;
                 &.on {
                     opacity: 1;
+                }
+                .gray {
+                    color: #999999 !important;
+                    -webkit-text-stroke: 0px #999999 !important;
                 }
             }
 
@@ -268,6 +272,11 @@ $animationSpeed: 30s;
                     color: #e6e6e6 !important;
                     -webkit-text-stroke: 1px #e6e6e6 !important;
                     background-color: #32323990;
+                    
+                    .gray {
+                        color: #999999 !important;
+                        -webkit-text-stroke: 0px #999999 !important;
+                    }
                 }
     
                 .skillset {

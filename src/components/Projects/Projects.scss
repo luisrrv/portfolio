@@ -38,9 +38,12 @@ $lighterBlue: #b5bbdf;
 
         h3 {
             // color: #25252a;
-            // -webkit-text-stroke: 1px #e6e6e6;
-            color: #e6e6e6;
-            // -webkit-text-stroke: unset !important;
+            -webkit-text-stroke: 1px $lightRed !important;
+            color: $lightRed;
+            // -webkit-text-stroke: unset !important\
+            svg {
+                color: #bbbbbb !important;
+            }
 
         }
         .mobile-instr {
@@ -55,27 +58,36 @@ $lighterBlue: #b5bbdf;
     h3 {
         // height: fit-content;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 4px;
-        padding: 40px 16px;
-        font-size: 20px;
-        font-weight: 300;
+        padding: 100px 16px;
+        padding-bottom: 0;
+        line-height: 26px;
+        font-size: 30px;
+        letter-spacing: 3px;
         text-transform: uppercase;
         font-weight: bold;
-        // color: #e6e6e6;
-        // -webkit-text-stroke: 1px #555;
-        color: #555555;
-        -webkit-text-stroke: unset !important;
+        color: $lightRed;
+        -webkit-text-stroke: 1px $lightRed !important;
+        // color: #555555;
+        // -webkit-text-stroke: unset !important;
+        
+        svg {
+            color: #555 !important;
+            font-size: 20px;
+        }
     }
     .mobile-instr {
-        display: none;
+        // display: none;
         text-transform: lowercase;
         font-size: 12px;
         font-weight: 300;
         letter-spacing: 2px;
         color: #555;
         padding-top: 4px;
+        padding-bottom: 40px;
         -webkit-text-stroke: unset;
     }
     .projects {
@@ -135,11 +147,20 @@ $lighterBlue: #b5bbdf;
     }
 }
 
+@media (max-width: 450px) {
+    #projects_container {
+        h3 {
+            font-size: 26px;
+            line-height: 26px;
+        }
+    }
+
+}
 @media (pointer: coarse) {
     #projects_container {
         h3 {
             padding-bottom: 0 !important;
-            line-height: 0 !important;
+            // line-height: 0 !important;
         }
         .mobile-instr {
             display: block;
