@@ -132,6 +132,7 @@ $blacker: #222222;
         
         &.clicked {
           animation: none;
+          // animation: pulseAnimationSmall 500ms ease-in-out;
         }
         
         svg {
@@ -228,19 +229,22 @@ $blacker: #222222;
       transform: scale(1);
     }
     50% {
-      transform: scale(0.6);
+      opacity: 1;
+      transform: scale(0.8);
     }
     100% {
+      opacity: 0;
       transform: scale(1);
     }
 }
 @keyframes pulseAnimationSmall {
     0% {
+      opacity: 1;
       transform: scale(1);
     }
     50% {
-      opacity: 1;
-      transform: scale(3);
+      // opacity: 1;
+      transform: scale(5.2);
     }
     100% {
       opacity: 0;
