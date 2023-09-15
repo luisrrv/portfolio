@@ -130,7 +130,7 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
   return (
     <div id='skills' className={`skills-container ${compClassName}`}>
         <h3 className='title'><BiSolidBrain />Skills</h3>
-        <p className='mobile-instr'>click to view skills </p>
+        <p className='mobile-instr'>click on array values to view skills</p>
         <div className="skills">
             <div className="skill-types">
                 <p 
