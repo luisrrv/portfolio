@@ -87,23 +87,36 @@ $animationSpeed: 30s;
 
         .skill-types {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             gap: 12px;
             margin-top: 12px;
             margin-bottom: 12px;
+            padding: 0 16px;
             p {
                 color: #333333;
-                width: 100px;
-                padding: 12px 8px;
-                border: 1px solid #666666;
+                // width: 100px;
+                width: fit-content;
+                min-width: 230px;
+                // padding: 12px 8px;
+                padding: 16px 12px;
+                // border: 1px solid #666666;
+                border: 1px solid transparent;
                 border-radius: 8px;
-                font-size: 12px;
+                // font-size: 12px;
+                line-height: 26px;
+                font-size: 30px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: transparent;
+                -webkit-text-stroke: 1px $lightRed !important;
 
                 &.on {
-                    border-color: $lightRed;
-                    background-color: $lightRed !important;
-                    color: #e6e6e6;
+                    // border-color: $lightRed;
+                    // background-color: $lightRed !important;
+                    // color: #e6e6e6;
+                    color: $lightRed;
                 }
 
                 &:hover {
@@ -255,11 +268,11 @@ $animationSpeed: 30s;
 
             .skill-types {
                 p {
-                    color: #e6e6e6;
+                    // color: #e6e6e6;
 
                     &.on {
-                        border-color: $lightRed;
-                        background-color: $lightRed !important;
+                        // border-color: $lightRed;
+                        // background-color: $lightRed !important;
                     }
                 }
             }
@@ -316,6 +329,26 @@ $animationSpeed: 30s;
             }
         }
     }
+    @media (max-width:800px) {
+        .skills {
+            .skill-types {
+                p {
+                    font-size: 24px;
+                    min-width: 200px;
+                }
+            }
+        }
+    }
+    @media (max-width:700px) {
+        .skills {
+            .skill-types {
+                p {
+                    font-size: 20px;
+                    min-width: 160px;
+                }
+            }
+        }
+    }
     @media (max-width: 600px) {
         .skills {
             .skillset {
@@ -333,6 +366,19 @@ $animationSpeed: 30s;
             }
         }
     }
+    @media (max-width:550px) {
+        .skills {
+            .skill-types {
+                justify-content: center;
+                gap: 0;
+                p {
+                    font-size: 20px;
+                    min-width: 148px;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
     @media (max-width: 460px) {
         .skills {
             .skillset {
@@ -346,6 +392,41 @@ $animationSpeed: 30s;
                     &.other {
                         animation: scroll-left-small $animationSpeed linear infinite !important;
                     }
+                }
+            }
+            .skill-types {
+                gap: 0;
+                p {
+                    font-size: 18px;
+                    min-width: unset;
+                    letter-spacing: 1px;
+                    -webkit-text-stroke: 0.5px $lightRed !important;
+                }
+            }
+        }
+    }
+    @media (max-width:400px) {
+        .skills {
+            .skill-types {
+                gap: 0;
+                p {
+                    font-size: 16px;
+                    min-width: unset;
+                    letter-spacing: 1px;
+                    -webkit-text-stroke: 0.5px $lightRed !important;
+                }
+            }
+        }
+    }
+    @media (max-width:380px) {
+        .skills {
+            .skill-types {
+                gap: 0;
+                p {
+                    font-size: 14px;
+                    min-width: unset;
+                    letter-spacing: 1px;
+                    -webkit-text-stroke: 0.5px $lightRed !important;
                 }
             }
         }
