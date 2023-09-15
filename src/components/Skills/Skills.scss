@@ -81,17 +81,18 @@ $animationSpeed: 30s;
     }
 
     .skills {
+        position: relative;
         background-color: transparent !important;
         max-width: 1300px;
         margin: 0 auto;
 
         .skill-types {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             gap: 12px;
-            margin-top: 12px;
-            margin-bottom: 12px;
+            // margin-top: 12px;
+            // margin-bottom: 12px;
             padding: 0 16px;
             p {
                 color: #333333;
@@ -125,53 +126,68 @@ $animationSpeed: 30s;
 
             }
         }
+        .code-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 500px;
+            height: fit-content;
+            background-color: transparent;
+            z-index: 9;
+            //  & * {
+            //     -webkit-text-stroke: unset !important;
+            //  }
+            .type {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                opacity: 0;
+                height: 0;
+                margin: 0;
+                padding: 0;
+                background-color: #c8c8c890;
+                backdrop-filter: blur(12px);
+                border-radius: 6px;
+                transition: 600ms;
+                // padding-top: 40px;
+                // letter-spacing: 2px;
+                // color: #555555;
+                p {
+                    color: #333333 !important;
+                    font-size: 14px;
+                    font-weight:400;
+                    width: fit-content;
+                    min-width: 50%;
+                    line-height: 24px;
+                    text-align: center;
+                    // z-index: 1;
+                    -webkit-text-stroke: 0 #333333 !important;
+                    height: 0;
+                }
+                &.on {
+                    margin: 0 auto;
+                    padding: 24px 16px;
+                    opacity: 1;
+                    height: fit-content;
+                    // height: 100px;
+                    p {
+                        height: fit-content;
+                    }
+                }
+                // .gray {
+                //     color: #999999 !important;
+                //     -webkit-text-stroke: 0px #999999 !important;
+                // }
+            }
+        }
 
         .frontend,
         .backend,
         .other {
             position: relative;
             padding: 16px 0;
-            .code-container {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 90%;
-                height: fit-content;
-                background-color: transparent;
-                z-index: 9;
-                //  & * {
-                //     -webkit-text-stroke: unset !important;
-                //  }
-            }
-            .type {
-                opacity: 0;
-                margin:  0 auto;
-                color: #333333 !important;
-                font-size: 14px;
-                font-weight:400;
-                width: fit-content;
-                min-width: 50%;
-                line-height: 24px;
-                text-align: start;
-                // z-index: 1;
-                -webkit-text-stroke: 1px #333333 !important;
-                background-color: #c8c8c890;
-                backdrop-filter: blur(12px);
-                padding: 12px;
-                border-radius: 6px;
-                transition: 600ms;
-                // padding-top: 40px;
-                // letter-spacing: 2px;
-                // color: #555555;
-                &.on {
-                    opacity: 1;
-                }
-                .gray {
-                    color: #999999 !important;
-                    -webkit-text-stroke: 0px #999999 !important;
-                }
-            }
 
             .skillset {
                 // display: flex;
@@ -184,7 +200,7 @@ $animationSpeed: 30s;
                 position: relative;
 
                 background: #e6e6e6;
-                height: 60px;
+                height: 30px;
                 margin: auto;
                 overflow:hidden;
                 position: relative;
@@ -266,31 +282,33 @@ $animationSpeed: 30s;
         .skills {
             background-color: transparent !important;
 
-            .skill-types {
-                p {
-                    // color: #e6e6e6;
+            // .skill-types {
+            //     p {
+            //         // color: #e6e6e6;
 
-                    &.on {
-                        // border-color: $lightRed;
-                        // background-color: $lightRed !important;
-                    }
+            //         &.on {
+            //             // border-color: $lightRed;
+            //             // background-color: $lightRed !important;
+            //         }
+            //     }
+            // }
+            
+            .type {
+                background-color: #51515a90;
+                p {
+                    color: #e6e6e6 !important;
+                    -webkit-text-stroke: 0 #e6e6e6 !important;
                 }
+                // .gray {
+                //     color: #999999 !important;
+                //     -webkit-text-stroke: 0px #999999 !important;
+                // }
             }
 
             .frontend,
             .backend,
             .other {
     
-                .type {
-                    color: #e6e6e6 !important;
-                    -webkit-text-stroke: 1px #e6e6e6 !important;
-                    background-color: #51515a90;
-                    
-                    .gray {
-                        color: #999999 !important;
-                        -webkit-text-stroke: 0px #999999 !important;
-                    }
-                }
     
                 .skillset {
                     background: #222222;

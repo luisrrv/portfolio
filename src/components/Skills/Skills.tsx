@@ -138,27 +138,33 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
                     onClick={(e) => showSkills('front', e.target)}
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >Front-end
+                    >[Front-end,
                 </p>
                 <p 
                     className="b" 
                     onClick={(e) => showSkills('back', e.target)}
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >Back-end
+                    >Back-end,
                 </p>
                 <p 
                     className="o" 
                     onClick={(e) => showSkills('other', e.target)}
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >Other
+                    >Other]
                 </p>
             </div>
+            {/* <div className='code-container'>
+                <p className={`type code ${frontOn ? 'on' : ''}`}><span className='gray'>// Front-end</span><br />[html, css, javascript, typescript, react, vue, sass, tailwind, bootstrap, vite]</p>
+                <p className={`type code ${backOn ? 'on' : ''}`}><span className='gray'>// Back-end</span><br />[php, ruby, rails, python, mysql, postgress, firebase, redis]</p>
+                <p className={`type code ${otherOn ? 'on' : ''}`}><span className='gray'>// Other</span><br />[aws, docker, netlify, figma, photoshop]</p>
+            </div> */}
+            {/* <div className='code-container'>
+            </div>
+            <div className='code-container'>
+            </div> */}
             <div className="frontend">
-                <div className='code-container'>
-                    <p className={`type code ${frontOn ? 'on' : ''}`}><span className='gray'>// Front-end</span><br />[html, css, javascript, typescript, react, vue, sass, tailwind, bootstrap, vite]</p>
-                </div>
                 <div className="skillset">
                     <div className="skillset-track front">
                         <div className="skill">
@@ -246,9 +252,11 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
             </div>
 
             <div className="backend">
-            <div className='code-container'>
-                <p className={`type code ${backOn ? 'on' : ''}`}><span className='gray'>// Back-end</span><br />[php, ruby, rails, python, mysql, postgress, firebase, redis]</p>
-            </div>
+                <div className='code-container'>
+                    <div className={`type code f ${frontOn ? 'on' : ''}`}><p>HTML, CSS, JavaScript, TypeScript, React, Vue, SASS, Tailwind, Bootstrap, Vite</p></div>
+                    <div className={`type code b ${backOn ? 'on' : ''}`}><p>PHP, Ruby, Rails, Python, MySQL, Postgress, Firebase, Redis</p></div>
+                    <div className={`type code o ${otherOn ? 'on' : ''}`}><p>AWS, Docker, Netlify, Figma, Photoshop</p></div>
+                </div>
                 <div className="skillset">
                     <div className="skillset-track back">
                         <div className="skill">
@@ -328,9 +336,6 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
             </div>
 
             <div className="other">
-            <div className='code-container'>
-                <p className={`type code ${otherOn ? 'on' : ''}`}><span className='gray'>// Other</span><br />[aws, docker, netlify, figma, photoshop]</p>
-            </div>
                 <div className="skillset">
                     <div className="skillset-track other">
                         <div className="skill">
