@@ -38,11 +38,11 @@ $lighterBlue: #b5bbdf;
 
         h3 {
             // color: #25252a;
-            -webkit-text-stroke: 1px $lightRed !important;
-            color: $lightRed;
+            -webkit-text-stroke: 1px #e6e6e6 !important;
+            color: #e6e6e6;
             // -webkit-text-stroke: unset !important\
             svg {
-                color: #bbbbbb !important;
+                color: $lightRed !important;
             }
 
         }
@@ -69,13 +69,13 @@ $lighterBlue: #b5bbdf;
         letter-spacing: 3px;
         text-transform: uppercase;
         font-weight: bold;
-        color: $lightRed;
-        -webkit-text-stroke: 1px $lightRed !important;
+        color: #333333;
+        -webkit-text-stroke: 1px #333333 !important;
         // color: #555555;
         // -webkit-text-stroke: unset !important;
         
         svg {
-            color: #555 !important;
+            color: $lightRed !important;
             font-size: 20px;
         }
     }
@@ -147,11 +147,30 @@ $lighterBlue: #b5bbdf;
     }
 }
 
+@media (max-width: 600px) {
+    #projects_container {
+        h3 {
+            font-size: 20px !important;
+            line-height: 20px !important;
+            padding-top: 32px !important;
+        }
+        .mobile-instr {
+            font-size: 10px !important;
+            padding-bottom: 32px !important;
+        }
+        .skills-container {
+            .mobile-instr {
+                padding-bottom: 0px !important;
+            }
+        }
+    }
+} 
+
 @media (max-width: 450px) {
     #projects_container {
         h3 {
-            font-size: 26px;
-            line-height: 26px;
+            // font-size: 26px;
+            // line-height: 26px;
         }
     }
 
@@ -164,7 +183,7 @@ $lighterBlue: #b5bbdf;
         }
         .mobile-instr {
             display: block;
-            padding-bottom: 40px;
+            // padding-bottom: 40px; 
         }
     }
 

@@ -3,8 +3,9 @@ $lightRed: #e22941;
 $darkRed: #be3144;
 $bgRed: #950014;
 // $darkerRed: #7e1928;
+$darkerReder: #670b0b;
 $darkerRed: #3e1017;
-$lighterRed: #dfb5bb;
+$lighterRed: #d897a1;
 // blues
 $lightBlue: #2979e2;
 $darkBlue: #333fb0;
@@ -171,9 +172,9 @@ $bgDark: #25252a;
                     &.highlight-s {
                         // -webkit-text-stroke: 1.5px $lightRed !important;
                         font-family: 'Poppins', sans-serif;
-                        color: $lighterRed !important;
+                        color: $lightRed !important;
                         font-weight: bold !important;
-                        -webkit-text-stroke: 1.5px $lightRed !important;
+                        -webkit-text-stroke: 3px $darkerReder !important;
                                                 
                         &:before {
                             content: "";
@@ -312,7 +313,7 @@ $bgDark: #25252a;
                     }
                     
                     &.highlight-s {
-                        color: $darkerRed !important;
+                        // color: $darkerRed !important;
                         // -webkit-text-stroke: 1.5px $lightRed !important;
                         // -webkit-text-stroke: 1.5px #e6e6e6 !important;
                         // animation: BlurAnimation 1s ease-in;

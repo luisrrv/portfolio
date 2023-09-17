@@ -78,6 +78,7 @@ $animationSpeed: 30s;
         display: block !important;
         color: #555;
         -webkit-text-stroke: #555 !important;
+        padding-bottom: 16px !important;
     }
 
     .skills {
@@ -111,7 +112,7 @@ $animationSpeed: 30s;
                 text-transform: uppercase;
                 font-weight: bold;
                 color: transparent;
-                -webkit-text-stroke: 1px $lightRed !important;
+                -webkit-text-stroke: 2px $lightRed !important;
 
                 &.on {
                     // border-color: $lightRed;
@@ -137,17 +138,20 @@ $animationSpeed: 30s;
             background-color: transparent;
             z-index: 9;
             //  & * {
-            //     -webkit-text-stroke: unset !important;
-            //  }
-            .type {
-                display: flex;
-                justify-content: center;
-                align-content: center;
+                //     -webkit-text-stroke: unset !important;
+                //  }
+                .type {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                place-items: center;
+                // display: flex;
+                // justify-content: center;
+                // align-content: center;
                 opacity: 0;
                 height: 0;
                 margin: 0;
                 padding: 0;
-                background-color: #c8c8c890;
+                background-color: #d7d7d7f7;
                 backdrop-filter: blur(12px);
                 border-radius: 6px;
                 transition: 600ms;
@@ -157,7 +161,7 @@ $animationSpeed: 30s;
                 p {
                     color: #333333 !important;
                     font-size: 14px;
-                    font-weight:400;
+                    font-weight: bold;
                     width: fit-content;
                     min-width: 50%;
                     line-height: 24px;
@@ -165,6 +169,7 @@ $animationSpeed: 30s;
                     // z-index: 1;
                     -webkit-text-stroke: 0 #333333 !important;
                     height: 0;
+                    opacity: 0;
                 }
                 &.on {
                     margin: 0 auto;
@@ -173,6 +178,7 @@ $animationSpeed: 30s;
                     height: fit-content;
                     // height: 100px;
                     p {
+                        opacity: 1;
                         height: fit-content;
                     }
                 }
@@ -200,7 +206,7 @@ $animationSpeed: 30s;
                 position: relative;
 
                 background: #e6e6e6;
-                height: 30px;
+                height: 40px;
                 margin: auto;
                 overflow:hidden;
                 position: relative;
@@ -294,7 +300,7 @@ $animationSpeed: 30s;
             // }
             
             .type {
-                background-color: #51515a90;
+                background-color: #35363bf7;
                 p {
                     color: #e6e6e6 !important;
                     -webkit-text-stroke: 0 #e6e6e6 !important;
@@ -334,6 +340,7 @@ $animationSpeed: 30s;
     @media (max-width: 900px) {
         .skills {
             .skillset {
+                height: 32px !important;
                 .skill {
                     height: 30px !important;
                     width: 30px !important;
@@ -369,8 +376,25 @@ $animationSpeed: 30s;
     }
     @media (max-width: 600px) {
         .skills {
+            .frontend,
+            .backend,
+            .other {
+                padding: 8px;
+            }
+            .code-container {
+                .type.on {
+                    padding: 16px 16px;
+                }
+            }
             .skillset {
+                height: 24px;
                 .skillset-track {
+                    .skill {
+                        svg {
+                            height: 24px !important;
+                            width: 24px !important;
+                        }
+                    }
                     &.front {
                         animation: scroll-left-med $animationSpeed linear infinite !important;
                     }
@@ -418,7 +442,7 @@ $animationSpeed: 30s;
                     font-size: 18px;
                     min-width: unset;
                     letter-spacing: 1px;
-                    -webkit-text-stroke: 0.5px $lightRed !important;
+                    -webkit-text-stroke: 1.5px $lightRed !important;
                 }
             }
         }
@@ -431,7 +455,7 @@ $animationSpeed: 30s;
                     font-size: 16px;
                     min-width: unset;
                     letter-spacing: 1px;
-                    -webkit-text-stroke: 0.5px $lightRed !important;
+                    -webkit-text-stroke: 1.5px $lightRed !important;
                 }
             }
         }
@@ -444,7 +468,7 @@ $animationSpeed: 30s;
                     font-size: 14px;
                     min-width: unset;
                     letter-spacing: 1px;
-                    -webkit-text-stroke: 0.5px $lightRed !important;
+                    -webkit-text-stroke: 1.5px $lightRed !important;
                 }
             }
         }

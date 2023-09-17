@@ -253,9 +253,35 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
 
             <div className="backend">
                 <div className='code-container'>
-                    <div className={`type code f ${frontOn ? 'on' : ''}`}><p>HTML, CSS, JavaScript, TypeScript, React, Vue, SASS, Tailwind, Bootstrap, Vite</p></div>
-                    <div className={`type code b ${backOn ? 'on' : ''}`}><p>PHP, Ruby, Rails, Python, MySQL, Postgress, Firebase, Redis</p></div>
-                    <div className={`type code o ${otherOn ? 'on' : ''}`}><p>AWS, Docker, Netlify, Figma, Photoshop</p></div>
+                    <div className={`type code f ${frontOn ? 'on' : ''}`}>
+                        <p>HTML</p>
+                        <p>CSS</p>
+                        <p>JavaScript</p>
+                        <p>TypeScript</p>
+                        <p>React</p>
+                        <p>Vue</p>
+                        <p>SASS</p>
+                        <p>Tailwind</p>
+                        <p>Bootstrap</p>
+                        <p>Vite</p>
+                    </div>
+                    <div className={`type code b ${backOn ? 'on' : ''}`}>
+                        <p>PHP</p>
+                        <p>Ruby</p>
+                        <p>Rails</p>
+                        <p>Python</p>
+                        <p>MySQL</p>
+                        <p>Postgress</p>
+                        <p>Firebase</p>
+                        <p>Redis</p>
+                    </div>
+                    <div className={`type code o ${otherOn ? 'on' : ''}`}>
+                        <p>AWS</p>
+                        <p>Docker</p>
+                        <p>Netlify</p>
+                        <p>Figma</p>
+                        <p>Photoshop</p>
+                    </div>
                 </div>
                 <div className="skillset">
                     <div className="skillset-track back">

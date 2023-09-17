@@ -257,6 +257,9 @@ $lighterBlue: #b5bbdf;
             pointer-events: all;
             transform: translateY(0);
             z-index: 99;
+            svg {
+              color: #e6e6e6;
+            }
           }
           .project-pics {
             opacity: 1;
@@ -617,35 +620,58 @@ $lighterBlue: #b5bbdf;
   }
   
   @media (max-width: 600px) {
+    height: 120px;
     &:has(.selected) {
-      height: 550px;
-      min-height: 550px;
-      max-height: 550px;
+      height: 450px;
+      min-height: 450px;
+      max-height: 450px;
       
       .open-card {
-        height: 550px;
-        min-height: 550px;
-        max-height: 550px;
+        height: 450px;
+        min-height: 450px;
+        max-height: 450px;
 
         .project-title {
-          font-size: 24px;
+          padding-top: 0;
+          font-size: 22px;
         }
         .content {
+          justify-content: flex-start;
+          height: fit-content;
+          overflow: hidden;
           .project-info {
+            height: fit-content;
             p {
-              font-size: 13px;
+              font-size: 11px;
+            }
+            .more {
+              justify-content: flex-start;
+              .stack {
+                padding: 12px 0;
+                height: fit-content;
+                svg {
+                  font-size: 20px;
+                } 
+              }
+              .cta {
+                a {
+                  padding: 8px 12px !important;
+                  min-width: 112px !important;
+                }
+              }
             }
           }
         }
       }
       .project-pics {
         // bottom: -60px;
+        height: fit-content;
         .pic {
-          height: 172px;
-          width: 90px;
+          height: 140px;
+          width: 76px;
           &.wide {
-            height: 150px;
-            width: 180px;
+            height: 132px;
+            width: 170px;
           }
         }
       }
@@ -655,6 +681,13 @@ $lighterBlue: #b5bbdf;
       .name-container {
         height: fit-content;
         // padding: 24px 0;
+        p {
+          font-size: 16px !important;
+          letter-spacing: 1px !important;
+          svg {
+            font-size: 20px !important;
+          }
+        }
       }
     }
   }
