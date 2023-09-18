@@ -290,6 +290,17 @@ $bgDark: #25252a;
                     //     background-image: linear-gradient(#ff8495bb 40%, #00000000 0%) !important;
                     // }
                 }
+                &.more {
+                    color: $lighterRed;
+                    // text-transform: uppercase;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    padding: 4px 8px;
+                    &:hover {
+                        cursor: pointer;
+                        color: $lightRed;
+                    }
+                }
             }
         }
     }

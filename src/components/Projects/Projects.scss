@@ -149,6 +149,9 @@ $lighterBlue: #b5bbdf;
 
 @media (max-width: 600px) {
     #projects_container {
+        #work {
+            scroll-margin-top: 64px;
+        }
         h3 {
             font-size: 20px !important;
             line-height: 20px !important;

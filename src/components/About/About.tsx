@@ -8,9 +8,10 @@ interface AboutProps {
   aboutMSOn: () => void;
   aboutMSOff: () => void;
   opZero: boolean;
+  handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
 }
 
-export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero }: AboutProps) {
+export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
 
@@ -113,6 +114,28 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero }
       aboutMSOff();
     }
   }
+  const handleMouseTrackerEnter = (type:string, element: EventTarget | undefined): any => {
+    // setTimeout(() => {
+      handleContactMouseOverChange(true, type, element);
+    // }, 200);
+  };
+  const handleMouseTrackerLeave = (type:string, element: EventTarget | undefined): any => {
+    // setTimeout(() => {
+      handleContactMouseOverChange(false, type, element);
+    // }, 200);
+  };
+  const addIcon = (element: EventTarget) => {
+    const el = element as HTMLElement;
+    el.classList.add('over');
+    // if(el.classList.contains('github')) setGithubIcon(true);
+    // else if(el.classList.contains('web')) setWebIcon(true);
+  }
+  const removeIcon = (element: EventTarget) => {
+    const el = element as HTMLElement;
+    el.classList.remove('over');
+    // if(el.classList.contains('github')) setGithubIcon(false);
+    // else if(el.classList.contains('web')) setWebIcon(false);
+  }
 
   return (
     <div 
@@ -180,6 +203,14 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero }
           <p>
             A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced
             in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.
+          </p>
+          <p 
+            className="more"
+            // onClick={(e) => showSkills('front', e.target)}
+            onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+            onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+          >
+            more
           </p>
         </div>
       </div>

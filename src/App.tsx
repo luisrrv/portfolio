@@ -228,6 +228,7 @@ function App({ className, isDarkMode }: IAppProps) {
           aboutMSOn={aboutMSOn} 
           aboutMSOff={aboutMSOff} 
           opZero={opZero}
+          handleContactMouseOverChange={handleContactMouseOverChange}
         />
         <Projects 
           isDark={isDark} 
