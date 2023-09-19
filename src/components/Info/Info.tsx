@@ -13,9 +13,10 @@ interface InfoProps {
     hideDialog: () => void;
     handleContactMouseOverChange: (isMouseOver: boolean, element: string) => void;
     handleDarkModeChange: (toggle: boolean) => void;
+    handleMore: (value: boolean) => void;
 }
 
-export default function Header({ isDark, hideDialog, handleContactMouseOverChange, handleDarkModeChange}: InfoProps) {
+export default function Header({ isDark, hideDialog, handleContactMouseOverChange, handleDarkModeChange, handleMore }: InfoProps) {
 
   const compClassName = isDark ? 'dark' : 'light';
 
@@ -52,7 +53,7 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
             </div>
             <div className="content">
                 <div className="nav">
-                  <a href="#" className="about" onClick={hideDialog}><RiUser5Fill />About me</a>
+                  <a href="#" className="about" onClick={() => {hideDialog(); handleMore(true);}}><RiUser5Fill />About me</a>
                   <a href="#skills" className="skills" onClick={hideDialog}><BiSolidBrain />My skills</a>
                   <a href="#work" className="work" onClick={hideDialog}><BiSolidBriefcaseAlt />Some of my work</a>
                   <div className="ext">

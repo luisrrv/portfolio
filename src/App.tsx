@@ -254,20 +254,21 @@ function App({ className, isDarkMode }: IAppProps) {
             moreOn={moreOn}
             handleMore={handleMore}
             handleContactMouseOverChange={handleContactMouseOverChange}
-          />
-        )}
+            />
+            )}
         <Projects 
           isDark={isDark} 
           hideApp={hideApp} 
           handleContactMouseOverChange={handleContactMouseOverChange}
           scrolling={scrolling}
-
-        />
+          
+          />
         <Info 
           isDark={isDark} 
           hideDialog={hideDialog} 
           handleContactMouseOverChange={handleContactMouseOverChange}
           handleDarkModeChange={handleDarkModeChange}
+          handleMore={handleMore}
         />
       </div>
     </>
