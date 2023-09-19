@@ -104,12 +104,12 @@ function App({ className, isDarkMode }: IAppProps) {
       setMore(value);
       setTimeout(() => {
         setMoreOn(value);
-      }, 500);
+      }, 300);
     } else {
       setMoreOn(value);
       setTimeout(() => {
         setMore(value);
-      }, 500);
+      }, 300);
     }
   };
 
@@ -253,6 +253,7 @@ function App({ className, isDarkMode }: IAppProps) {
             more={more}
             moreOn={moreOn}
             handleMore={handleMore}
+            handleContactMouseOverChange={handleContactMouseOverChange}
           />
         )}
         <Projects 

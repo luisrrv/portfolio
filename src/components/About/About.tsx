@@ -207,7 +207,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
           </p>
           <p 
             className="more"
-            onClick={() => handleMore(true)}
+            onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
             onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
             onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
           >
