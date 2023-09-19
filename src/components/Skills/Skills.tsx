@@ -58,7 +58,7 @@ interface SkillsProps {
     handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
 }
 
-export default function Header({ isDark, handleContactMouseOverChange }: SkillsProps) {
+export default function Skills({ isDark, handleContactMouseOverChange }: SkillsProps) {
 
   const [frontOn, setFrontOn] = useState<boolean>(false);
   const [backOn, setBackOn] = useState<boolean>(false);

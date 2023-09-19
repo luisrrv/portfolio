@@ -8,6 +8,7 @@ import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import MouseTracker from './components/MouseTracker/MouseTracker';
 import Info from './components/Info/Info';
+import More from './components/More/More';
 
 export interface IAppProps {
   className?: string;
@@ -34,6 +35,8 @@ function App({ className, isDarkMode }: IAppProps) {
   const [contactOptsMS, setContactOptsMS] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [scrollingTimeout, setScrollingTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [more, setMore] = useState(false);
+  const [moreOn, setMoreOn] = useState(false);
 
   useEffect(() => {
     // setShowApp(true);
@@ -94,6 +97,19 @@ function App({ className, isDarkMode }: IAppProps) {
       checkElements('contact','hide');
     } else {
       setShowContact((prev) => !prev);
+    }
+  };
+  const handleMore = (value: boolean) => {
+    if (value) {
+      setMore(value);
+      setTimeout(() => {
+        setMoreOn(value);
+      }, 500);
+    } else {
+      setMoreOn(value);
+      setTimeout(() => {
+        setMore(value);
+      }, 500);
     }
   };
 
@@ -229,7 +245,16 @@ function App({ className, isDarkMode }: IAppProps) {
           aboutMSOff={aboutMSOff} 
           opZero={opZero}
           handleContactMouseOverChange={handleContactMouseOverChange}
+          handleMore={handleMore}
         />
+        {more && (
+          <More 
+            isDark={isDark}
+            more={more}
+            moreOn={moreOn}
+            handleMore={handleMore}
+          />
+        )}
         <Projects 
           isDark={isDark} 
           hideApp={hideApp} 

@@ -9,9 +9,10 @@ interface AboutProps {
   aboutMSOff: () => void;
   opZero: boolean;
   handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
+  handleMore: (value: boolean) => void;
 }
 
-export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange }: AboutProps) {
+export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
 
@@ -206,7 +207,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
           </p>
           <p 
             className="more"
-            // onClick={(e) => showSkills('front', e.target)}
+            onClick={() => handleMore(true)}
             onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
             onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
           >
