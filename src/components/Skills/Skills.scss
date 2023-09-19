@@ -278,44 +278,22 @@ $animationSpeed: 30s;
     &.dark {
         background-color: transparent !important;
         color: #222222;
-        // -webkit-text-stroke: 1px #e6e6e6;
-
         .title {
             color: #222222;
             -webkit-text-stroke: 1px #e6e6e6;
         }
-    
         .skills {
             background-color: transparent !important;
-
-            // .skill-types {
-            //     p {
-            //         // color: #e6e6e6;
-
-            //         &.on {
-            //             // border-color: $lightRed;
-            //             // background-color: $lightRed !important;
-            //         }
-            //     }
-            // }
-            
             .type {
                 background-color: #35363bf7;
                 p {
                     color: #e6e6e6 !important;
                     -webkit-text-stroke: 0 #e6e6e6 !important;
                 }
-                // .gray {
-                //     color: #999999 !important;
-                //     -webkit-text-stroke: 0px #999999 !important;
-                // }
             }
-
             .frontend,
             .backend,
             .other {
-    
-    
                 .skillset {
                     background: #222222;
                     &::before,

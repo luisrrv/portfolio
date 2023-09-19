@@ -128,11 +128,9 @@ $blacker: #222222;
         transform: scale(2);
         animation: bounce 500ms ease-in;
         padding: 4px;
-        // background-color: #f0f0f0;
         
         &.clicked {
           animation: none;
-          // animation: pulseAnimationSmall 500ms ease-in-out;
         }
         
         svg {
@@ -153,7 +151,6 @@ $blacker: #222222;
         transform: scale(2);
         animation: bounce2 500ms ease-in;
         padding: 4px;
-        // background-color: #f0f0f0;
         
         &.clicked {
           animation: none;
@@ -188,8 +185,6 @@ $blacker: #222222;
       &.external,
       &.project {
         border-color: $black !important;
-        // background-color: transparent !important;
-        // transition: 200ms;
 
         .follow-circle-small{
           background-color: $blacker !important;

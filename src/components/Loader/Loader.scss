@@ -30,13 +30,8 @@ $timingFunction: ease;
     }
 
     .loader {
-        // -webkit-text-stroke: 1px $lightBlue !important;
         color: $lightRed;
     }
-    // .loader-txt {
-    //     -webkit-text-stroke: 1px $lightBlue !important;
-    //     color: $darkerBlue;
-    // }
 }
 
 .loader-container {
@@ -46,8 +41,6 @@ $timingFunction: ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  // transform:scale(#{$scale * .5});
-  // margin-bottom: 40px;
 
   &.closing {
     animation: loaderClose ease-out 300ms;
@@ -57,17 +50,11 @@ $timingFunction: ease;
   }
 
   .loader {
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%,-50%);
     height: fit-content;
     color: $darkBlue;
     font-size: 60px;
     opacity: 0.8;
-    // margin-top: 40px;
     font-weight: bold;
-    // -webkit-text-stroke: 1px $lightBlue !important;
     -webkit-user-select: none;  
     -moz-user-select: none;    
     -ms-user-select: none;  
@@ -98,116 +85,4 @@ $timingFunction: ease;
       }
     }
   }
-  // .loader-txt {
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%,-50%);
-  //   color: $lighterBlue;
-  //   font-size: 108px;
-  //   margin-top: 40px;
-  //   font-weight: bold;
-  //   -webkit-text-stroke: 1px $lightBlue !important;
-  //   text-transform: uppercase;
-  //   animation: loadertxt 2.7s ease-in;
-  //   -webkit-user-select: none;  
-  //   -moz-user-select: none;    
-  //   -ms-user-select: none;  
-  //   user-select: none; 
-  // }
 }
-
-// .cube {
-//   position:absolute;
-//   width:86px;
-//   height:100px;
-// }
-
-// .right {
-//   background: $backgroundLight;
-//   border: 1.5px solid $lighterBlue;
-//   transform: rotate(-30deg) skewX(-30deg) translate(49px, 65px) scaleY(0.86);
-// }
-
-// .left {
-//   background: $backgroundLight;
-//   border: 1.5px solid $lighterBlue;
-//   transform: rotate(90deg) skewX(-30deg) scaleY(0.86) translate(25px, -50px);
-// }
-
-// .top {
-//   background: $backgroundLight;
-//   border: 1.5px solid $lighterBlue;
-//   transform: rotate(210deg) skew(-30deg) translate(-75px, -22px) scaleY(0.86);
-//   z-index:2;
-// }
-
-// .face {
-//   height:50px;
-//   width:50px;
-//   position:absolute;
-//   transform-origin: 0 0;
-// }
-
-// @mixin slice($h, $w, $l) {
-//   .h#{$h}.w#{$w}.l#{$l} {
-//     z-index: (-#{$h});
-//     animation-name: h#{$h}w#{$w}l#{$l};
-//     animation-timing-function: $timingFunction;
-//     animation-duration: $duration;
-//     animation-iteration-count: infinite;
-//     }
-//   @keyframes h#{$h}w#{$w}l#{$l} {
-//     0% {
-//       transform:translate(($w * -50% - 50%) + ($l * 50% + 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 25 + 25%));
-//     } 
-//     14% {
-//       transform:translate(($w * -50% - 50%) + ($l * 100% - 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 50 - 25%));
-//     }
-//     28% {
-//       transform:translate(($w * -100% + 50%) + ($l * 100% - 50%), ($h * 50 - 200%) + ($w * 50% - 75%) + ($l * 50 - 25%));
-//     }
-//     43% {
-//       transform:translate(($w * -100% - 100%) + ($l * 100% + 100%), ($h * 100 - 400%) + ($w * 50% - 50%) + ($l * 50 + 50%));
-//     }
-//     57% {
-//       transform:translate(($w * -100% - 100%) + ($l * 50% + 200%), ($h * 100 - 400%) + ($w * 50% - 50%) + ($l * 25 + 100%));
-//     }
-//     71% {
-//       transform:translate(($w * -50% - 200%) + ($l * 50% + 200%), ($h * 100 - 375%) + ($w * 25% - 25%) + ($l * 25 + 100%));
-//     }
-//     85% {
-//       transform:translate(($w * -50% - 50%) + ($l * 50% + 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 25 + 25%));
-//     }
-//     100% {
-//       transform:translate(($w * -50% - 50%) + ($l * 50% + 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 25 + 25%));
-//     }
-//   }
-// }
-
-// @mixin generateSlice() {
-//   @for $i from 1 to 4 {
-//     @for $j from 1 to 4 {
-//       @for $k from 1 to 4 {
-//         @include slice($i, $j, $k);
-//       }
-//     }
-//   }
-// }
-
-// @include generateSlice();
-
-// @keyframes loadertxt {
-//     0% {
-//       opacity: 0;
-//       font-size: 128px;
-//     }
-//     50% {
-//       opacity: 1;
-//       font-size: 108px;
-//     }
-//     100% {
-//       opacity: 1;
-//       font-size: 108px;
-//     }
-// }

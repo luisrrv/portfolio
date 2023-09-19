@@ -32,9 +32,6 @@ $bgDark: #25252a;
     &.hdr {
         background-color: transparent !important;
     }
-    // &.hidden {
-    //     // opacity: 0;
-    // }
 
     .header-logo {
         color: $lightRed;
@@ -52,14 +49,6 @@ $bgDark: #25252a;
             opacity: 1;
             animation: show 500ms ease-in;
         }
-
-        // background-image: url(../../assets/images/lr_logo_w.png);
-        // // background-image: url(../../assets/images/lr_logo_b.png);
-        // background-size: contain;
-        // background-position: center;
-        // background-repeat: no-repeat;
-        // width: 40px;
-        // height: 40px;
     }
     .header-right {
         &.shw {
@@ -111,14 +100,6 @@ $bgDark: #25252a;
         }
         svg {
             color: #FFFFFF !important;
-        }
-        
-        .header-logo {
-            // color: $darkerRed;
-            // -webkit-text-stroke: 1px $lightRed !important;
-
-            // background-image: url(../../assets/images/lr_logo_b.png);
-            // background-image: url(../../assets/images/lr_logo_w.png);
         }
 
         .header-right {
@@ -212,7 +193,6 @@ $bgDark: #25252a;
             }
         }
         .divider {
-            // border-left: 1px solid #25252a3f;
             border-left: 1px solid #f0f0f03f;
             height: 28px;
             width: 12px;
@@ -262,15 +242,12 @@ $bgDark: #25252a;
     @keyframes show {
         0% {
             opacity: 0;
-            // transform: scale(0.9);
         }
         50% {
             opacity: 0.6;
-            // transform: scale(1.1);
         }
         100% {
             opacity: 1;
-            // transform: scale(1);
         }
     }
 }

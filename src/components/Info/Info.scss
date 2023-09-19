@@ -65,13 +65,9 @@ $lighterBlue: #b5bbdf;
             max-width: 100%;
             margin-bottom: 0;
             padding-top: 18px;
-            // animation: slideLeft ease-in 300ms;
 
         }
         .toggles {
-            // position: absolute;
-            // top: 18px;
-            // right: 20px;
             height: fit-content;
             display: flex;
             justify-content: flex-end;
@@ -123,7 +119,6 @@ $lighterBlue: #b5bbdf;
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
-                // gap: 8px;
                 width: 100%;
                 height: fit-content;
                 a {
@@ -156,8 +151,6 @@ $lighterBlue: #b5bbdf;
                     align-items: center;
                     gap: 1px;
                     width: fit-content;
-                    // text-decoration: underline;
-                    // text-underline-offset: 4px;
                 }
             }
             .icons {
@@ -169,8 +162,6 @@ $lighterBlue: #b5bbdf;
                 gap: 12px;
                 
                 svg {
-                    // background-color: transparent;
-                    // border: 1.5px solid $lightRed;
                     border-radius: 50%;
                     height: 32px;
                     width: 32px;
@@ -189,24 +180,6 @@ $lighterBlue: #b5bbdf;
                 background-repeat: no-repeat;
             }
         }
-        // button {
-        //     position: absolute;
-        //     top: 12px;
-        //     right: 12px;
-        //     height: fit-content;
-        //     width: fit-content;
-        //     background-color: transparent;
-        //     border: none;
-        //     &:hover{
-        //         cursor: pointer;
-        //     }
-        //     svg {
-        //         color: #444444;
-        //     }
-        //     &:focus {
-        //         outline: none;
-        //     }
-        // }
     }
     &.dark {
         background-color: #00000000 !important;
@@ -223,7 +196,6 @@ $lighterBlue: #b5bbdf;
                         &.underline {
                             border-bottom: 1px solid $lightRed;
                         }
-
                     }
                 }
                 .icons {
@@ -245,11 +217,6 @@ $lighterBlue: #b5bbdf;
             .info-img {
                 border-color: $lightRed;
             }
-            // button {
-            //     svg {
-            //         color: #f0f0f0 !important;
-            //     }
-            // }
         }
 
     }
@@ -279,16 +246,6 @@ $lighterBlue: #b5bbdf;
             opacity: 0;
         }
     }
-    // @keyframes slideLeft {
-    //     0% {
-    //         transform: translateX(800px);
-    //         opacity: 0;
-    //     }
-    //     100% {
-    //         transform: translateX(0);
-    //         opacity: 1;
-    //     }
-    // }
     @keyframes rotate {
         0% {
             transform: rotate(0);

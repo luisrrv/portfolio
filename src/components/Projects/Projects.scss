@@ -19,7 +19,6 @@ $lighterBlue: #b5bbdf;
     min-height: 100vh;
     width: 100%;
     padding-bottom: 60px;
-    // border-radius: 8px 8px 0 0;
     color: #25252a;
     background-color: #e6e6e6 !important;
     animation: loading ease-in 800ms;
@@ -28,19 +27,13 @@ $lighterBlue: #b5bbdf;
         scroll-margin-top: 0;
     }
 
-    // &.hidden {
-    //     // opacity: 0;
-    // }
-
     &.dark {
         color: #e6e6e6;
         background-color: #25252a !important;
 
         h3 {
-            // color: #25252a;
             -webkit-text-stroke: 1px #e6e6e6 !important;
             color: #e6e6e6;
-            // -webkit-text-stroke: unset !important\
             svg {
                 color: $lightRed !important;
             }
@@ -56,7 +49,6 @@ $lighterBlue: #b5bbdf;
     }
     
     h3 {
-        // height: fit-content;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -71,8 +63,6 @@ $lighterBlue: #b5bbdf;
         font-weight: bold;
         color: #333333;
         -webkit-text-stroke: 1px #333333 !important;
-        // color: #555555;
-        // -webkit-text-stroke: unset !important;
         
         svg {
             color: $lightRed !important;
@@ -80,7 +70,6 @@ $lighterBlue: #b5bbdf;
         }
     }
     .mobile-instr {
-        // display: none;
         text-transform: lowercase;
         font-size: 12px;
         font-weight: 300;
@@ -97,12 +86,8 @@ $lighterBlue: #b5bbdf;
         align-items: start;
         grid-gap: 28px;
         margin: 0 auto;
-        // min-height: 600px;
-        // height: fit-content;
         width: 95%;
         max-width: 900px;
-        // border: 1px solid #DDD;
-        // border-radius: 8px;
         z-index: 8;
 
     }
@@ -119,7 +104,6 @@ $lighterBlue: #b5bbdf;
         &:hover {
             letter-spacing: 2px;
         }
-
     }
 
     @keyframes loading {
@@ -168,25 +152,13 @@ $lighterBlue: #b5bbdf;
         }
     }
 } 
-
-@media (max-width: 450px) {
-    #projects_container {
-        h3 {
-            // font-size: 26px;
-            // line-height: 26px;
-        }
-    }
-
-}
 @media (pointer: coarse) {
     #projects_container {
         h3 {
             padding-bottom: 0 !important;
-            // line-height: 0 !important;
         }
         .mobile-instr {
             display: block;
-            // padding-bottom: 40px; 
         }
     }
 
