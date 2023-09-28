@@ -261,14 +261,20 @@ $lighterBlue: #b5bbdf;
         .cta {
           height: fit-content;
           a {
-            background-color: #25252a21 !important;
-            border-color: #f0f0f0 !important;
+            background-color: #ff000009 !important;
+            border-color: #fb445c !important;
+            color: #fb445c !important;
+
+            &:first-child {
+              border-color: #e6e6e6 !important;
+              color: #e6e6e6 !important;
+            }
           }
         }
       }
     }
     .project-title {
-      height: 70px;
+      height: fit-content;
       width: 100%;
       padding: 16px 0;
       font-size: 28px;
@@ -362,16 +368,20 @@ $lighterBlue: #b5bbdf;
           justify-content: center;
           align-items: center;
           gap: 16px;
-          height: 70px;
+          height: fit-content;
           a {
             padding: 12px 14px;
             border-radius: 8px;
-            color: #222222;
-            border: 1px solid #222222;
+            color: $lightRed;
+            border: 1px solid $lightRed;
             min-width: 130px;
             transition: 400ms !important;
-            background-color: #e6e6e621;
-            backdrop-filter: blur(12px) !important;
+            background-color: #ff000009;
+            backdrop-filter: blur(18px) !important;
+            &:first-child {
+              border-color: #222222;
+              color: #222222;
+            }
 
             &:hover {
               border-color: $lightRed !important;
@@ -564,7 +574,7 @@ $lighterBlue: #b5bbdf;
               }
               .cta {
                 a {
-                  padding: 8px 12px !important;
+                  padding: 12px 14px !important;
                   min-width: 112px !important;
                 }
               }
