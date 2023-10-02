@@ -25,13 +25,14 @@ $lighterBlue: #b5bbdf;
     transition: 400ms;
     
     .more-container {
-        height: 80%;
-        width: 500px;
+        max-height: 84%;
+        height: fit-content;
+        width: 700px;
         max-width: 90%;
         border-radius: 8px;
         background-color: #d3d3d3;
         backdrop-filter: blur(12px);
-        padding: 16px;
+        padding: 16px 36px;
         transform: scale(0.8);
         display: flex;
         flex-direction: column;
@@ -55,6 +56,18 @@ $lighterBlue: #b5bbdf;
         }
         .more-content {
             overflow-y: scroll;
+            font-size: 12px;
+            text-align: center;
+            flex-grow: 1;
+            span {
+                display: block;
+                height: fit-content;
+                width: 100%;
+                &.title {
+                    font-size: 14px;
+                    margin: 8px 0 2px 0;
+                }
+            }
         }
         .close-more {
             padding: 8px 12px;
@@ -81,6 +94,33 @@ $lighterBlue: #b5bbdf;
         opacity: 1;
         .more-container {
             transform: scale(1);
+        }
+    }
+    @media (max-width: 600px) {
+        .more-container {
+            padding: 16px 16px;
+        }
+    }
+    @media (max-width: 450px) {
+        .more-container {
+            max-width: 98%;
+        }
+    }
+    @media (max-width: 400px) {
+        .more-container {
+            max-width: 98%;
+            .more-content {
+                font-size: 11px;
+                span.title {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+    @media (max-height: 680px) {
+        .more-container {
+            max-width: 98%;
+            max-height: 80%;
         }
     }
 }

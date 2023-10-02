@@ -56,13 +56,66 @@ export default function More({ isDark, more, moreOn, handleMore, handleContactMo
             >
             <h3 className='more-title'><RiUser5Fill /></h3>
             <p className='more-content'
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ducimus debitis reiciendis velit accusamus voluptatum molestias natus veniam et qui aut, tenetur aspernatur possimus harum quaerat ipsa corporis ad suscipit.
+                >
+                <span>
+                I'm a passionate software developer based in Tokyo experienced in crafting web and native applications. I live for clean and maintainable code.
+                </span>
+
+                <span className='title'>
+                Front-end Development
+                </span>
+
+                <span>
+                Proficient in React for both web and native applications, with a focus on delivering user-friendly and responsive experiences.
+                </span>
+
+                <span className='title'>
+                Full-Stack Proficiency
+                </span>
+
+                <span>
+                Strong backend skills using PHP, ensuring robust server-side functionality. Experienced with databases such as MySQL and Redis, optimizing data management and performance.
+                </span>
+
+                <span className='title'>
+                Problem Solver
+                </span>
+
+                <span>
+                Adept at dissecting complex challenges and devising creative solutions to ensure smooth project delivery.
+                </span>
+
+                <span className='title'>
+                Collaboration
+                </span>
+
+                <span>
+                Effective communication and teamwork are at the core of my approach. I thrive in collaborative environments and value open feedback and knowledge sharing.
+                </span>
+                
+                <span className='title'>
+                Attention to Detail
+                </span>
+
+                <span>
+                I believe that the little things matter in software development. I'm meticulous in my work, ensuring high-quality and bug-free code.
+                </span>
+
+                <span className='title'>
+                Continuous Learner
+                </span>
+
+                <span>
+                The tech landscape is constantly evolving, and I stay up-to-date with the latest trends and technologies to deliver cutting-edge solutions.
+                </span>
                 <br></br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ducimus debitis reiciendis velit accusamus voluptatum molestias natus veniam et qui aut, tenetur aspernatur possimus harum quaerat ipsa corporis ad suscipit.
-                <br></br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ducimus debitis reiciendis velit accusamus voluptatum molestias natus veniam et qui aut, tenetur aspernatur possimus harum quaerat ipsa corporis ad suscipit.
-                <br></br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ducimus debitis reiciendis velit accusamus voluptatum molestias natus veniam et qui aut, tenetur aspernatur possimus harum quaerat ipsa corporis ad suscipit.
+                <span>
+                My goal is to leverage my technical skills and collaborative mindset to contribute to exciting projects that make a positive impact. Whether you're interested in discussing potential collaborations or simply want to chat about tech, please feel free to reach out :)
+                </span>
+
+                {/* <span>
+                Let's build something great together!
+                </span> */}
             </p>
             <p 
                 className="close-more"
