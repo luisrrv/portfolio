@@ -58,10 +58,14 @@ export default function More({ isDark, more, moreOn, handleMore, handleContactMo
             <p className='more-content'
                 >
                 <span>
-                I'm a passionate software developer based in Tokyo experienced in crafting web and native applications. I live for clean and maintainable code.
+                I'm a passionate software developer based in Tokyo experienced in crafting web and native applications.
+                </span>
+                <br></br>
+                <span className='title'>
+                I live for clean and maintainable code.
                 </span>
 
-                <span className='title'>
+                {/* <span className='title'>
                 Front-end Development
                 </span>
 
@@ -107,7 +111,7 @@ export default function More({ isDark, more, moreOn, handleMore, handleContactMo
 
                 <span>
                 The tech landscape is constantly evolving, and I stay up-to-date with the latest trends and technologies to deliver cutting-edge solutions.
-                </span>
+                </span> */}
                 <br></br>
                 <span>
                 My goal is to leverage my technical skills and collaborative mindset to contribute to exciting projects that make a positive impact. Whether you're interested in discussing potential collaborations or simply want to chat about tech, please feel free to reach out :)
