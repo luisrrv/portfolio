@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './About.scss';
 import { RiUser5Fill } from 'react-icons/ri';
+import { AiOutlineArrowDown } from 'react-icons/ai';
 
 interface AboutProps {
   isDark: boolean;
@@ -213,6 +214,11 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
           >
             more
           </p>
+        </div>
+      </div>
+      <div className="scroll-ind">
+        <div className='int'>
+          <AiOutlineArrowDown />
         </div>
       </div>
     </div>
