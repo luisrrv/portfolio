@@ -216,11 +216,11 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
           </p>
         </div>
       </div>
-      <div className="scroll-ind">
+      <a href='#skills' className="scroll-ind">
         <div className='int'>
           <AiOutlineArrowDown />
         </div>
-      </div>
+      </a>
     </div>
   );
 }
