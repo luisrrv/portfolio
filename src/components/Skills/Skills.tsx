@@ -43,7 +43,7 @@ export default function Skills({ isDark, handleContactMouseOverChange }: SkillsP
   const { ref, inView } = useInView({
       threshold: 0.3,
     });
-  const inViewClassName = inView ? 'inView' : '';
+  const inViewClassName = inView ? 'inView' : 'noView';
 
 const showSkills = (type: string, element: EventTarget | undefined) => {
     if (!type || !element) return;

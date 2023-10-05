@@ -60,7 +60,7 @@ export default function ProjectCard({
     const { ref, inView } = useInView({
       threshold: 0.3,
     });
-    const inViewClassName = inView ? 'inView' : '';
+    const inViewClassName = inView ? 'inView' : 'noView';
 
     const setIcons = () => {
         let stackIcons = stack && stack.map((t,index) => {
@@ -223,11 +223,10 @@ export default function ProjectCard({
 
   return (
     <div 
-      ref={ref}
       id='card' 
-      className={`card ${cardTitleClass} ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''} ${inViewClassName}`}
+      className={`card ${cardTitleClass} ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''}`}
       >
-      <div className={`card-cover on`}>
+      <div ref={ref} className={`card-cover on ${inViewClassName}`}>
         <div className='name-container'>
             <p>{title}
             <span className={`stack`}>
