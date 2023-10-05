@@ -1,5 +1,5 @@
 import './Projects.scss';
-
+import { useInView } from 'react-intersection-observer';
 import { IAppProps } from '../../App'; // Update the import path
 import ProjectCard from '../ProjectCard/ProjectCard';
 import ProjectsData, { ProjectProps } from '../../data/projects';
@@ -16,8 +16,11 @@ interface ProjectsProps extends IAppProps {
 
 export default function App ({className, isDark, hideApp, handleContactMouseOverChange, scrolling}: ProjectsProps) {
     const projectsData: ProjectProps[] = ProjectsData();
-    // const isDarkMode = useDarkMode();
     const compClassName = isDark ? 'dark' : 'light';
+    const { ref, inView } = useInView({
+        threshold: 0.1,
+      });
+    const inViewClassName = inView ? 'inView' : '';
 
     const handleMouseEnter = (element: string): React.MouseEventHandler<HTMLElement> => () => {
         setTimeout(() => {
@@ -40,8 +43,8 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
                 isDark={isDark}
                 handleContactMouseOverChange={handleContactMouseOverChange}
             />
-            <h3 id='work'><BiSolidBriefcaseAlt />Some of my work</h3>
-            <p className='mobile-instr'>click on a project for details</p>
+            <h3 ref={ref} id='work' className={inViewClassName}><BiSolidBriefcaseAlt />Some of my work</h3>
+            <p ref={ref} className={`mobile-instr ${inViewClassName}`}>click on a project for details</p>
             <div className="projects">
             {
                 projectsData.map((project,index) => (

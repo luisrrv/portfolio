@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import './Skills.scss';
-
-// import { TailwindcssOriginalWordmark, } from 'devicons-react';
+import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { TiHtml5 } from 'react-icons/ti';
 import { BiLogoPostgresql, BiSolidBrain } from 'react-icons/bi';
 
@@ -28,30 +28,6 @@ import {
     SiTailwindcss,
     SiVite
 } from 'react-icons/si';
-import { useState } from 'react';
-// import { 
-//     SiHtml5,
-//     SiCss3,
-//     SiSass,
-//     SiBootstrap,
-//     SiPhp,
-//     SiRubyonrails, 
-//     SiMysql,
-//     SiRedis,
-//     SiPostgresql, 
-//     SiHeroku, 
-//     SiReact,
-//     SiTypescript,
-//     SiFirebase,
-//     SiPython,
-//     SiAmazonaws,
-//     SiDocker,
-//     SiVuedotjs,
-//     SiJavascript,
-//     SiFigma,
-//     SiAdobephotoshop,
-//     SiRuby,
-// } from 'react-icons/si';
 
 interface SkillsProps {
     isDark: boolean;
@@ -64,6 +40,10 @@ export default function Skills({ isDark, handleContactMouseOverChange }: SkillsP
   const [backOn, setBackOn] = useState<boolean>(false);
   const [otherOn, setOtherOn] = useState<boolean>(false);
   const compClassName = isDark ? 'dark' : 'light';
+  const { ref, inView } = useInView({
+      threshold: 0.3,
+    });
+  const inViewClassName = inView ? 'inView' : '';
 
 const showSkills = (type: string, element: EventTarget | undefined) => {
     if (!type || !element) return;
@@ -128,7 +108,11 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
 
 
   return (
-    <div id='skills' className={`skills-container ${compClassName}`}>
+    <div 
+        ref={ref}
+        id='skills' 
+        className={`skills-container ${compClassName} ${inViewClassName}`}
+        >
         <h3 className='title'><BiSolidBrain />Skills</h3>
         <p className='mobile-instr'>click on array values to view skills</p>
         <div className="skills">

@@ -1,5 +1,6 @@
 import './ProjectCard.scss';
 import { useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 // import useDarkMode from '../../hooks/useDarkMode';
 
 //icons
@@ -56,6 +57,10 @@ export default function ProjectCard({
     const [webIcon,setWebIcon] = useState<boolean>(false)
     const [mouseLeave,setMouseLeave] = useState<boolean>(true);
     const mouseLeaveRef = useRef(mouseLeave);
+    const { ref, inView } = useInView({
+      threshold: 0.3,
+    });
+    const inViewClassName = inView ? 'inView' : '';
 
     const setIcons = () => {
         let stackIcons = stack && stack.map((t,index) => {
@@ -218,8 +223,9 @@ export default function ProjectCard({
 
   return (
     <div 
+      ref={ref}
       id='card' 
-      className={`card ${cardTitleClass} ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''}`}
+      className={`card ${cardTitleClass} ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''} ${inViewClassName}`}
       >
       <div className={`card-cover on`}>
         <div className='name-container'>
