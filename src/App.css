@@ -78,6 +78,7 @@ $lighterBlue: #b5bbdf;
 }
 .noView {
   opacity: 0 !important;
+  transform: translateY(40px);
 }
 .inView {
   animation: in-view ease-in 1s;
@@ -105,8 +106,10 @@ $lighterBlue: #b5bbdf;
 @keyframes in-view {
   0% {
     opacity: 0;
+    transform: translateY(40px);
   }
   100% {
     opacity: 1 !important;
+    transform: translateY(0);
   }
 }

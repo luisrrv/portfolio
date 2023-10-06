@@ -58,7 +58,8 @@ export default function ProjectCard({
     const [mouseLeave,setMouseLeave] = useState<boolean>(true);
     const mouseLeaveRef = useRef(mouseLeave);
     const { ref, inView } = useInView({
-      threshold: 0.3,
+      threshold: 0.5,
+      triggerOnce: true,
     });
     const inViewClassName = inView ? 'inView' : 'noView';
 

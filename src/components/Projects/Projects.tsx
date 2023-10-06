@@ -19,6 +19,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
     const compClassName = isDark ? 'dark' : 'light';
     const { ref, inView } = useInView({
         threshold: 0.1,
+        triggerOnce: true,
       });
     const inViewClassName = inView ? 'inView' : 'noView';
 
