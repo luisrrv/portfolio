@@ -21,7 +21,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
         threshold: 0.1,
         triggerOnce: true,
       });
-    const inViewClassName = inView ? 'inView' : 'noView';
+    const inViewClassName = inView ?  'in-v' : 'no-v';
 
     const handleMouseEnter = (element: string): React.MouseEventHandler<HTMLElement> => () => {
         setTimeout(() => {

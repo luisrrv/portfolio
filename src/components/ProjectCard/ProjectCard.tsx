@@ -61,7 +61,7 @@ export default function ProjectCard({
       threshold: 0.5,
       triggerOnce: true,
     });
-    const inViewClassName = inView ? 'inView' : 'noView';
+    const inViewClassName = inView ?  'in-v' : 'no-v';
 
     const setIcons = () => {
         let stackIcons = stack && stack.map((t,index) => {

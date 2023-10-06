@@ -69,6 +69,9 @@ $blacker: #222222;
           svg {
             color: $lightRed !important;
           }
+          &.clicked {
+            animation: none !important;
+          }
         }
       }
       &.button {
@@ -77,6 +80,9 @@ $blacker: #222222;
         transition: 200ms;
         .follow-circle-small {
           display: none !important;
+          &.clicked {
+            animation: none !important;
+          }
         }
         &.clicked {
           animation: none !important;
@@ -90,6 +96,9 @@ $blacker: #222222;
           animation: none !important;
           .follow-circle-small {
             display: none !important;
+            &.clicked {
+              animation: none !important;
+            }
           }
         }
     }
@@ -100,7 +109,8 @@ $blacker: #222222;
     &:not(.web),
     &:not(.external) {
       .follow-circle-small {
-        animation: showUp 300ms ease-in;
+        // animation: showUp 300ms ease-in;
+        
       }
     }
 
@@ -130,7 +140,7 @@ $blacker: #222222;
         padding: 4px;
         
         &.clicked {
-          animation: none;
+          animation: none !important;
         }
         
         svg {
@@ -149,11 +159,11 @@ $blacker: #222222;
         position: relative;
         background-color: $whiter !important;
         transform: scale(2);
-        animation: bounce2 500ms ease-in;
+        animation: bounce 500ms ease-in;
         padding: 4px;
         
         &.clicked {
-          animation: none;
+          animation: none !important;
         }
         
         svg {
@@ -206,6 +216,9 @@ $blacker: #222222;
           svg {
             opacity: 0;
           }
+          &.clicked {
+            animation: none !important;
+          }
         }
       }
     }
@@ -247,45 +260,17 @@ $blacker: #222222;
       transform: scale(1);
     }
 }
-@keyframes pulseAnimationSmallIcon {
-    0% {
-      transform: scale(2);
-    }
-    50% {
-      transform: scale(4);
-    }
-    100% {
-      transform: scale(2);
-    }
-}
 
 @keyframes bounce {
   0% {
     opacity: 0;
-    transform: scale(2);
-  }
-  25% {
-    transform: scale(2.8);
-  }
-  50% {
-    transform: scale(2);
-  }
-  75% {
-    opacity: 1;
-    transform: scale(2.4);
   }
   100% {
-    transform: scale(2);
+    opacity: 1;
   }
 }
 @keyframes bounce2 {
   0% {
-    transform: scale(2);
-  }
-  25% {
-    transform: scale(2.8);
-  }
-  50% {
     transform: scale(2);
   }
   75% {

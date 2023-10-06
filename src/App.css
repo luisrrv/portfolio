@@ -76,11 +76,11 @@ $lighterBlue: #b5bbdf;
   position: relative;
   background-color: #25252a;
 }
-.noView {
+.no-v {
   opacity: 0 !important;
   transform: translateY(40px);
 }
-.inView {
+.in-v {
   animation: in-view ease-in 1s;
 }
 
