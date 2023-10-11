@@ -16,7 +16,6 @@ interface AboutProps {
 export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
-
   const [scrollPosition, setScrollPosition] = useState(0);
 
   // Update scroll position on scroll
@@ -146,6 +145,11 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
       onMouseEnter={() => handleOnOff('on')}
       onMouseLeave={() => handleOnOff('off')}
       >
+      {/* <video loop muted autoPlay 
+        poster="img/videoframe.jpg" 
+        className="about-vid"
+        src={Video}
+      /> */}
       <div className="content" style={fadeOutStyle}>
         {/* <div className="me-img"></div> */}
         <div className="special">

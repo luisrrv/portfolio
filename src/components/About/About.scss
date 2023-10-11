@@ -31,7 +31,8 @@ $bgDark: #25252a;
     transform: translateX(-50%);
     padding: 20px 0;
     color: #222222;
-    background-color: #e6e6e6;
+    // background-color: #e6e6e6;
+    background-color: transparent;
     animation: loading ease-in 800ms;
 
     .shw {
@@ -139,9 +140,9 @@ $bgDark: #25252a;
 
                     &.highlight-s {
                         font-family: 'Poppins', sans-serif;
-                        color: $lightRed !important;
+                        color: transparent !important;
                         font-weight: bold !important;
-                        -webkit-text-stroke: 1px $darkerReder !important;
+                        -webkit-text-stroke: 1px $lightRed !important;
                                                 
                         &:before {
                             content: "";
@@ -244,7 +245,8 @@ $bgDark: #25252a;
         }
     }
     &.dark {
-        background-color: $bgDark !important;
+        // background-color: $bgDark !important;
+        background-color: transparent !important;
         color: #FFFFFF;
         .special {
             background-color: #25252a;
