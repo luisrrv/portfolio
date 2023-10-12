@@ -480,7 +480,7 @@ $bgDark: #25252a;
                 p.big.first,
                 p.big.last {
                     span.letter {
-                        font-size: 92px !important;
+                        font-size: 98px !important;
                         width: 68px !important;
                         height: 80px !important;
                     }
@@ -489,13 +489,44 @@ $bgDark: #25252a;
                     margin-bottom: 16px;
                     .me-img {
                         top: 60% !important;
-                        left: 53% !important;
+                        left: 56% !important;
                     }
                 }
             }
         }        
     }
 }
+
+@media (pointer: coarse) and (max-width:440px) {
+    #about_container {
+        padding: 25px;
+        .content {
+            .special {
+                width: fit-content;
+                height: fit-content;
+                p.small {
+                    font-size: 8px !important;
+                }
+                p.big.first,
+                p.big.last {
+                    span.letter {
+                        font-size: 98px !important;
+                        width: 68px !important;
+                        height: 80px !important;
+                    }
+                }
+                p.big.last {
+                    margin-bottom: 16px;
+                    .me-img {
+                        top: 60% !important;
+                        left: 56% !important;
+                    }
+                }
+            }
+        }        
+    }
+}
+
 @media (min-height:1000px) and (min-width: 600px) {
     #about_container {
         .content {
