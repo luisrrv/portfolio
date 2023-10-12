@@ -26,16 +26,19 @@ $bgDark: #25252a;
     align-items: center;
     padding: 8px 20px;
     background-color: #e6e6e6 !important;
-    backdrop-filter: blur(10px) !important;
+    backdrop-filter: unset !important;
     animation: loading ease-in 800ms;
     
+    &.b {
+        backdrop-filter: blur(10px) !important;
+    }
     &.hdr {
         background-color: transparent !important;
     }
 
     .header-logo {
-        color: $lightRed;
-        -webkit-text-stroke: 1px $darkerReder !important;
+        color: transparent;
+        -webkit-text-stroke: 2px $lightRed !important;
         font-size: 30px;
         font-weight: bold;
         height: fit-content;
@@ -81,7 +84,6 @@ $bgDark: #25252a;
         .divider {
             border-left: 1px solid #25252a3f !important;
         }
-
     }
     svg {
         color: #25252a;
@@ -90,7 +92,7 @@ $bgDark: #25252a;
     
     &.dark {
         background-color: $bgDark !important;
-        backdrop-filter: blur(10px) !important;
+        // backdrop-filter: blur(10px) !important;
 
         &.hdr {
             background-color: transparent !important;

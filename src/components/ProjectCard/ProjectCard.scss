@@ -97,6 +97,10 @@ $lighterBlue: #b5bbdf;
 
       &.on {
         filter: blur(0px);
+
+        &.in-v {
+          animation: card-in-view ease-in 1s !important;
+        }
       }
 
       &.off {
@@ -510,6 +514,18 @@ $lighterBlue: #b5bbdf;
       80% { transform: translate3d(-9rem,1rem,0) }
       90% { transform: translate3d(6rem,-5rem,0) }
       to { transform: translate3d(-7rem,0,0) }
+  }
+
+  @keyframes card-in-view {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+
+    }
   }
 
   @media (max-width: 700px) {

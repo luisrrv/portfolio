@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './About.scss';
 import { RiUser5Fill } from 'react-icons/ri';
 import { AiOutlineArrowDown } from 'react-icons/ai';
@@ -16,22 +16,22 @@ interface AboutProps {
 export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
-  const [scrollPosition, setScrollPosition] = useState(0);
+  // const [scrollPosition, setScrollPosition] = useState(0);
 
   // Update scroll position on scroll
-  const handleScroll = () => {
-    requestAnimationFrame(() => {
-      setScrollPosition(window.scrollY);
-    });
-  };
+  // const handleScroll = () => {
+  //   requestAnimationFrame(() => {
+  //     setScrollPosition(window.scrollY);
+  //   });
+  // };
 
-  // Add event listener on mount and remove it on unmount
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  // // Add event listener on mount and remove it on unmount
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const flipLetters = () => {
@@ -80,33 +80,33 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
 
 
   // Calculate the opacity based on the scroll position
-  const calculateOpacity = () => {
-    const maxScroll = window.innerHeight * 1.2; // Adjust the value as needed for the fade-out distance
-    const opacity = 1 - scrollPosition / maxScroll;
-    return opacity < 0 ? 0 : opacity; // Make sure opacity doesn't go below 0
-  };
+  // const calculateOpacity = () => {
+  //   const maxScroll = window.innerHeight * 1.2; // Adjust the value as needed for the fade-out distance
+  //   const opacity = 1 - scrollPosition / maxScroll;
+  //   return opacity < 0 ? 0 : opacity; // Make sure opacity doesn't go below 0
+  // };
 
-  // Apply the opacity to the element's style
-  const fadeOutStyle: React.CSSProperties = {
-    opacity: calculateOpacity(),
-  };
+  // // Apply the opacity to the element's style
+  // const fadeOutStyle: React.CSSProperties = {
+  //   opacity: calculateOpacity(),
+  // };
 
-  const HandleBlurIn = (e:any) => {
-    if(e) return;
-    if (e.target.classList.contains('blur-in')) return;
-    e.target.classList.add('blur-in');
-    setTimeout(()=>{
-      e.target.classList.remove('blur-in');
-    },1000)
-  }
-  const HandleBlurOut = (e:any) => {
-    if(e) return;
-    if (e.target.classList.contains('blur-out')) return;
-    e.target.classList.add('blur-out');
-    setTimeout(()=>{
-      e.target.classList.remove('blur-out');
-    },1000)
-  }
+  // const HandleBlurIn = (e:any) => {
+  //   if(e) return;
+  //   if (e.target.classList.contains('blur-in')) return;
+  //   e.target.classList.add('blur-in');
+  //   setTimeout(()=>{
+  //     e.target.classList.remove('blur-in');
+  //   },1000)
+  // }
+  // const HandleBlurOut = (e:any) => {
+  //   if(e) return;
+  //   if (e.target.classList.contains('blur-out')) return;
+  //   e.target.classList.add('blur-out');
+  //   setTimeout(()=>{
+  //     e.target.classList.remove('blur-out');
+  //   },1000)
+  // }
 
   const handleOnOff = (toggle: string): React.MouseEventHandler<HTMLDivElement> | void => {
     if(toggle==='on') {
@@ -145,12 +145,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
       onMouseEnter={() => handleOnOff('on')}
       onMouseLeave={() => handleOnOff('off')}
       >
-      {/* <video loop muted autoPlay 
-        poster="img/videoframe.jpg" 
-        className="about-vid"
-        src={Video}
-      /> */}
-      <div className="content" style={fadeOutStyle}>
+      <div className="content">
         {/* <div className="me-img"></div> */}
         <div className="special">
           {/* <div className="grain"></div> */}
@@ -161,10 +156,10 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>U</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>S</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>L</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>S</span>
+            <span className={`letter highlight-s ${showClassName}`}>L</span>
+            <span className={`letter highlight-s ${showClassName}`}>U</span>
+            <span className={`letter highlight-s ${showClassName}`}>I</span>
+            <span className={`letter highlight-s ${showClassName}`}>S</span>
             <span className='letter faded'>L</span>
             <span className='letter faded'>U</span>
             <span className='letter faded'>I</span>
@@ -174,9 +169,9 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>U</span>
             <span className='letter faded'>E</span>
             <span className='letter faded'>Z</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>O <span className="me-img"></span></span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>D</span>
+            <span className={`letter highlight-s ${showClassName}`}>R</span>
+            <span className={`letter highlight-s ${showClassName}`}>O <span className="me-img"></span></span>
+            <span className={`letter highlight-s ${showClassName}`}>D</span>
             <span className='letter faded'>R</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>G</span>
@@ -184,9 +179,9 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>R</span>
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>R</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>I</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>G</span>
+            <span className={`letter highlight-s ${showClassName}`}>R</span>
+            <span className={`letter highlight-s ${showClassName}`}>I</span>
+            <span className={`letter highlight-s ${showClassName}`}>G</span>
             <span className='letter faded'>U</span>
             <span className='letter faded'>E</span>
             <span className='letter faded'>Z</span>
@@ -194,9 +189,9 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>R</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>G</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>U</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>E</span>
-            <span className={`letter highlight-s ${showClassName}`} onMouseEnter={(e)=>{HandleBlurOut(e)}} onMouseLeave={(e)=>{HandleBlurIn(e)}}>Z</span>
+            <span className={`letter highlight-s ${showClassName}`}>U</span>
+            <span className={`letter highlight-s ${showClassName}`}>E</span>
+            <span className={`letter highlight-s ${showClassName}`}>Z</span>
             <span className='letter faded'>R</span>
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
