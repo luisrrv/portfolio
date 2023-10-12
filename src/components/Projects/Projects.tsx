@@ -5,6 +5,7 @@ import ProjectCard from '../ProjectCard/ProjectCard';
 import ProjectsData, { ProjectProps } from '../../data/projects';
 import Skills from '../Skills/Skills';
 import { BiSolidBriefcaseAlt } from 'react-icons/bi'
+import { BsArrowDownShort } from 'react-icons/bs';
 
 interface ProjectsProps extends IAppProps {
   // Add any other specific props for the Projects component if needed
@@ -45,7 +46,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
                 handleContactMouseOverChange={handleContactMouseOverChange}
             />
             <h3 ref={ref} id='work' className={inViewClassName}><BiSolidBriefcaseAlt />Some of my work</h3>
-            <p ref={ref} className={`mobile-instr ${inViewClassName}`}>click on a project for details</p>
+            <p ref={ref} className={`mobile-instr ${inViewClassName}`}>click on a project for details <BsArrowDownShort size={16}/></p>
             <div className="projects">
             {
                 projectsData.map((project,index) => (

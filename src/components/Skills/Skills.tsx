@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { TiHtml5 } from 'react-icons/ti';
 import { BiLogoPostgresql, BiSolidBrain } from 'react-icons/bi';
+import { BsArrowDownShort } from 'react-icons/bs';
 
 import { 
     SiCss3,
@@ -115,7 +116,7 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
         className={`skills-container ${compClassName} ${inViewClassName}`}
         >
         <h3 className='title'><BiSolidBrain />Skills</h3>
-        <p className='mobile-instr'>click on array values to view skills</p>
+        <p className='mobile-instr'>click to view skills <BsArrowDownShort size={16}/></p>
         <div className="skills">
             <div className="skill-types">
                 <p 

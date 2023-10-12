@@ -82,6 +82,7 @@ $bgDark: #25252a;
                     position: relative;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+                    place-items: center;
                     span.letter {
                         font-family: 'Poppins', sans-serif;
                         font-weight: bold;
@@ -102,6 +103,7 @@ $bgDark: #25252a;
                     position: relative;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;;
+                    place-items: center;
                     span.letter {
                         font-family: 'Poppins', sans-serif;
                         font-weight: bold;
@@ -467,6 +469,24 @@ $bgDark: #25252a;
 @media (max-width:440px) {
     #about_container {
         padding: 25px;
+
+        .content {
+            .special {
+                width: fit-content;
+                height: fit-content;
+                p.big.first,
+                p.big.last {
+                    span.letter {
+                        font-size: 92px !important;
+                        width: 68px !important;
+                        height: 80px !important;
+                    }
+                }
+                p.big.last {
+                    margin-bottom: 16px;
+                }
+            }
+        }        
     }
 }
 @media (min-height:1000px) and (min-width: 600px) {

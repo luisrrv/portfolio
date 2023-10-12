@@ -75,10 +75,16 @@ $animationSpeed: 30s;
         -webkit-text-stroke: 1px #555555;
     }
     .mobile-instr {
-        display: block !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
         color: #555;
         -webkit-text-stroke: #555 !important;
         padding-bottom: 16px !important;
+
+        svg {
+            height: fit-content;
+        }
     }
 
     .skills {

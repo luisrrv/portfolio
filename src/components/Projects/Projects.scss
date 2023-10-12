@@ -70,6 +70,9 @@ $lighterBlue: #b5bbdf;
         }
     }
     .mobile-instr {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-transform: lowercase;
         font-size: 12px;
         font-weight: 300;
@@ -158,7 +161,7 @@ $lighterBlue: #b5bbdf;
             padding-bottom: 0 !important;
         }
         .mobile-instr {
-            display: block;
+            display: flex;
         }
     }
 
