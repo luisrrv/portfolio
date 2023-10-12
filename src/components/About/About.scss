@@ -475,7 +475,7 @@ $bgDark: #25252a;
                 width: fit-content;
                 height: fit-content;
                 p.small {
-                    font-size: 11px;
+                    font-size: 11px !important;
                 }
                 p.big.first,
                 p.big.last {
@@ -487,6 +487,10 @@ $bgDark: #25252a;
                 }
                 p.big.last {
                     margin-bottom: 16px;
+                    .me-img {
+                        top: 60% !important;
+                        left: 53% !important;
+                    }
                 }
             }
         }        
