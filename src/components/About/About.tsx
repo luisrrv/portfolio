@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './About.scss';
 import { RiUser5Fill } from 'react-icons/ri';
 import { AiOutlineArrowDown } from 'react-icons/ai';
+import { PiCardsFill } from 'react-icons/pi';
 
 interface AboutProps {
   isDark: boolean;
@@ -204,15 +205,24 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
           <p>
             A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced
             in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.
+            <br></br>
+            <span 
+            className="more"
+            onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
+            onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+            onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+          >
+            more <PiCardsFill />
+          </span>
           </p>
-          <p 
+          {/* <span 
             className="more"
             onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
             onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
             onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
           >
             more
-          </p>
+          </span> */}
         </div>
       </div>
       <a href='#skills' className="scroll-ind">

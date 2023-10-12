@@ -154,7 +154,7 @@ $bgDark: #25252a;
                         font-family: 'Poppins', sans-serif;
                         color: transparent !important;
                         font-weight: bold !important;
-                        -webkit-text-stroke: 1px $lightRed !important;
+                        -webkit-text-stroke: 2px $lightRed !important;
                                                 
                         &:before {
                             content: "";
@@ -239,16 +239,23 @@ $bgDark: #25252a;
                 font-size: 12px;
                 line-height: 20px;
                 font-weight: 300;
+                &:hover{
+                    cursor: default;
+                }
 
                 span.bold {
                     padding: 2px;
                     color: #222222 !important;
                 }
-                &.more {
+                span.more {
                     color: $lighterRed;
                     font-weight: bold;
                     letter-spacing: 1px;
                     padding: 4px 8px;
+
+                    svg {
+                        height: fit-content;
+                    }
                     &:hover {
                         cursor: pointer;
                         color: $lightRed;
@@ -471,6 +478,17 @@ $bgDark: #25252a;
             }
             .divider {
                 width: 465px;
+            }
+        }
+    }
+}
+@media (max-height:940px) {
+    #about_container {
+        .content {
+            .text {
+                p {
+                    font-size: 10px;
+                }
             }
         }
     }
