@@ -474,6 +474,9 @@ $bgDark: #25252a;
             .special {
                 width: fit-content;
                 height: fit-content;
+                p.small {
+                    font-size: 11px;
+                }
                 p.big.first,
                 p.big.last {
                     span.letter {
