@@ -49,29 +49,29 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
 
         randomLetters[0].classList.add('flip');
         randomLetters[0].classList.remove('shw');
+
         setTimeout(() => {
           randomLetters[0].classList.remove('flip');
-        }, 1800);
+        }, 2800);
 
         setTimeout(()=> {
           randomLetters[1].classList.add('flip');
           randomLetters[1].classList.remove('shw');
           setTimeout(() => {
             randomLetters[1].classList.remove('flip');
-          }, 1800);
-        },500)
+          }, 2800);
+        },1500)
         
         setTimeout(()=> {
           randomLetters[2].classList.add('flip');
           randomLetters[2].classList.remove('shw');
           setTimeout(() => {
             randomLetters[2].classList.remove('flip');
-          }, 1800);
-        },1000)
+          }, 2800);
+        },2000)
       }
     };
-
-    const intervalId = setInterval(flipLetters, 2000); // Run flipLetters every 3 seconds
+    const intervalId = setInterval(flipLetters, 7000); // Run flipLetters every 7 seconds
 
     return () => {
       clearInterval(intervalId); // Clean up the interval on unmount
