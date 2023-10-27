@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import './About.scss';
-import { RiUser5Fill } from 'react-icons/ri';
+// import { RiUser5Fill } from 'react-icons/ri';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import { PiCardsFill } from 'react-icons/pi';
+// import hacker from '../../assets/images/menobg.png';
+// import hackerShadow from '../../assets/images/menobg_stencil.png';
 
 interface AboutProps {
   isDark: boolean;
@@ -148,11 +150,13 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
       >
       <div className="content">
         {/* <div className="me-img"></div> */}
+
+
         <div className="special">
           {/* <div className="grain"></div> */}
           <p className="small hello">HELLO, I'M</p>
           {/* <div className='name-img'></div> */}
-          <p className={`big first`}>
+          {/* <p className={`big first`}>
             <span className='letter faded'>L</span>
             <span className='letter faded'>U</span>
             <span className='letter faded'>I</span>
@@ -165,8 +169,8 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>U</span>
             <span className='letter faded'>I</span>
             <span className='letter faded'>S</span>
-            </p>
-          <p className={`big last`}>
+            </p> */}
+          {/* <p className={`big last`}>
             <span className='letter faded'>U</span>
             <span className='letter faded'>E</span>
             <span className='letter faded'>Z</span>
@@ -196,13 +200,29 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>R</span>
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
-            </p>
-          <p className="small name">LUIS RODRIGUEZ</p>
+            </p> */}
+          <p className="small name bold">LUIS RODRIGUEZ</p>
         </div>
-        <div className="divider"></div>
+        
+
+
+        {/* <div className="divider"></div> */}
+        <div className="hacker-cont">
+          <img className='hacker shadow' alt="hacker" />
+          <img className='hacker' alt="hacker" />
+          {/* <p 
+            className="more"
+            onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
+            onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+            onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+          >
+            about me <PiCardsFill />
+          </p> */}
+        </div>
+
         <div className={`text ${showClassName}`}>
-          < RiUser5Fill size={20} />
-          <p>
+          {/* < RiUser5Fill size={20} /> */}
+          <p className='small name'>
             A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced
             in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.
             <br></br>

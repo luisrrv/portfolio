@@ -51,12 +51,13 @@ $bgDark: #25252a;
         filter: invert(100%);
         -webkit-filter: invert(100%);
         margin: 0;
-        // width: 100%;
-        width: 1100px;
+        width: 100%;
+        // width: 1100px;
         max-width: 1100px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        // justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         height: 100%;
         margin-top: 20px;
@@ -68,8 +69,11 @@ $bgDark: #25252a;
             align-items: center;
             height: fit-content;
             z-index: 1;
-            height: 432px;
-            width: 314px;
+            // height: 432px;
+            height: fit-content;
+            // padding: 40px 0;
+            margin-bottom: 20px;
+            // width: 314px;
             width: 100%;
             // background-color: #e6e6e6;
             background-color: transparent !important;
@@ -206,6 +210,9 @@ $bgDark: #25252a;
                     user-select: none;
                     background-color: transparent !important;
                 }
+                &.bold {
+                    font-weight: bold;
+                }
             }
         }
 
@@ -218,6 +225,70 @@ $bgDark: #25252a;
             margin-bottom: 2px;
             z-index: 1;
         }
+        .hacker-cont {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 12px 0;
+            margin-left: 60px;
+            .hacker {
+                width: 300px;
+                height: 300px;
+                transition: 300ms;
+                // content: url(../../assets/images/menobg.png);
+                &.shadow {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    content: url(../../assets/images/menobg_stencil.png);
+                }
+                &:not(.shadow) {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    content: url(../../assets/images/menobg.png);
+                    filter: grayscale(100%);
+                    &:hover {
+                        filter: grayscale(0%);
+                        top: 52%;
+                        left: 48%;
+                        transform: translate(-52%, -48%);
+                    }
+                }
+            }
+            // p.more {
+            //     position: absolute;
+            //     top: 95%;
+            //     left: 50%;
+            //     transform: translate(-95%, -50%);
+            //     display: block;
+            //     padding: 0 8px !important;
+            //     color: $lightRed;
+            //     // color: #e6e6e6;
+            //     border-radius: 4px;
+            //     // opacity: 0;
+            //     font-size: 10px;
+            //     font-weight: bold;
+            //     letter-spacing: 1px;
+            //     padding: 4px 8px;
+            //     // height: 23px !important;
+            //     width: fit-content;
+            //     margin: 0 auto;
+            //     margin-left: 10px;
+            //     z-index: 9;
+
+            //     svg {
+            //         height: fit-content;
+            //         height: 10px;
+            //     }
+            //     &:hover {
+            //         cursor: pointer;
+            //         opacity: 1;
+            //     }
+            // }
+        }
         
         .text {
             display: flex;
@@ -229,8 +300,10 @@ $bgDark: #25252a;
             gap: 4px;
             margin-bottom: 40px;
             width: 90%;
-            max-width: 314px;
+            max-width: 514px;
             z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 4px;
 
             &.shw {
                 animation: slideUe ease-in 600ms;
@@ -310,6 +383,13 @@ $bgDark: #25252a;
         }
         .divider {
             border-top: 0.5px solid #f0f0f0;
+        }
+        .hacker-cont {
+            .hacker {
+                &.shadow {
+                    content: url(../../assets/images/menobg_stencil_w.png);
+                }
+            }
         }
 
         .text {
@@ -466,14 +546,29 @@ $bgDark: #25252a;
     }
 }
 
+@media (max-width: 500px) {
+    #about_container {
+        .content {
+            .hacker-cont {
+                width: 200px;
+                height: 200px;
+                .hacker {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width:440px) {
     #about_container {
         padding: 25px;
 
         .content {
             .special {
-                width: fit-content;
-                height: fit-content;
+                // width: fit-content;
+                // height: fit-content;
                 p.small {
                     font-size: 11px !important;
                 }
@@ -502,8 +597,8 @@ $bgDark: #25252a;
         padding: 25px;
         .content {
             .special {
-                width: fit-content;
-                height: fit-content;
+                // width: fit-content;
+                // height: fit-content;
                 p.small {
                     font-size: 8px !important;
                 }
@@ -533,7 +628,7 @@ $bgDark: #25252a;
             justify-content: center;
             margin-bottom: 80px;
             .special {
-                height: 640px;
+                // height: 640px;
                 // width: 465px;
                 .big {
                     font-size: 180px !important;
