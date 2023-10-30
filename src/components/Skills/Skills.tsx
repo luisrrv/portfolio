@@ -2,6 +2,7 @@
 import './Skills.scss';
 import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import Tilt from 'react-parallax-tilt';
 import { TiHtml5 } from 'react-icons/ti';
 import { BiLogoPostgresql, BiSolidBrain } from 'react-icons/bi';
 import { BsArrowDownShort } from 'react-icons/bs';
@@ -41,6 +42,7 @@ export default function Skills({ isDark, handleContactMouseOverChange }: SkillsP
   const [backOn, setBackOn] = useState<boolean>(false);
   const [otherOn, setOtherOn] = useState<boolean>(false);
   const compClassName = isDark ? 'dark' : 'light';
+  const glareClr = isDark ? '#cccccc70' :'#55555570';
   const { ref, inView } = useInView({
       threshold: 0.3,
       triggerOnce: true,
@@ -239,35 +241,65 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
 
             <div className="backend">
                 <div className='code-container'>
-                    <div className={`type code f ${frontOn ? 'on' : ''}`}>
-                        <p>HTML</p>
-                        <p>CSS</p>
-                        <p>JavaScript</p>
-                        <p>TypeScript</p>
-                        <p>React</p>
-                        <p>Vue</p>
-                        <p>SASS</p>
-                        <p>Tailwind</p>
-                        <p>Bootstrap</p>
-                        <p>Vite</p>
-                    </div>
-                    <div className={`type code b ${backOn ? 'on' : ''}`}>
-                        <p>PHP</p>
-                        <p>Ruby</p>
-                        <p>Rails</p>
-                        <p>Python</p>
-                        <p>MySQL</p>
-                        <p>Postgress</p>
-                        <p>Firebase</p>
-                        <p>Redis</p>
-                    </div>
-                    <div className={`type code o ${otherOn ? 'on' : ''}`}>
-                        <p>AWS</p>
-                        <p>Docker</p>
-                        <p>Netlify</p>
-                        <p>Figma</p>
-                        <p>Photoshop</p>
-                    </div>
+                    <Tilt 
+                        trackOnWindow={true}
+                        tiltEnable={false}
+                        glareEnable={true} 
+                        glareMaxOpacity={0.8} 
+                        glareColor={glareClr} 
+                        glarePosition="all"
+                        glareBorderRadius="6px"
+                        >
+                        <div className={`type code f ${frontOn ? 'on' : ''}`}>
+                            <p>HTML</p>
+                            <p>CSS</p>
+                            <p>JavaScript</p>
+                            <p>TypeScript</p>
+                            <p>React</p>
+                            <p>Vue</p>
+                            <p>SASS</p>
+                            <p>Tailwind</p>
+                            <p>Bootstrap</p>
+                            <p>Vite</p>
+                        </div>
+                    </Tilt>
+                    <Tilt 
+                        trackOnWindow={true}
+                        tiltEnable={false}
+                        glareEnable={true} 
+                        glareMaxOpacity={0.8} 
+                        glareColor={glareClr} 
+                        glarePosition="all"
+                        glareBorderRadius="6px"
+                        >
+                        <div className={`type code b ${backOn ? 'on' : ''}`}>
+                            <p>PHP</p>
+                            <p>Ruby</p>
+                            <p>Rails</p>
+                            <p>Python</p>
+                            <p>MySQL</p>
+                            <p>Postgress</p>
+                            <p>Firebase</p>
+                            <p>Redis</p>
+                        </div>
+                    </Tilt>
+                    <Tilt 
+                        trackOnWindow={true}
+                        tiltEnable={false}
+                        glareEnable={true} 
+                        glareMaxOpacity={0.8} 
+                        glareColor={glareClr} 
+                        glarePosition="all"
+                        glareBorderRadius="6px"
+                        >
+                        <div className={`type code o ${otherOn ? 'on' : ''}`}>
+                            <p>AWS</p>
+                            <p>Docker</p>
+                            <p>Netlify</p>
+                            <p>Figma</p>
+                            <p>Photoshop</p>
+                        </div>
+                    </Tilt>
                 </div>
                 <div className="skillset">
                     <div className="skillset-track back">

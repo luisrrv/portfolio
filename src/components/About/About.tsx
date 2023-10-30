@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './About.scss';
+// import Tilt from 'react-parallax-tilt';
 // import { RiUser5Fill } from 'react-icons/ri';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import { PiCardsFill } from 'react-icons/pi';
@@ -207,18 +208,20 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
 
 
         {/* <div className="divider"></div> */}
-        <div className="hacker-cont">
-          <img className='hacker shadow' alt="hacker" />
-          <img className='hacker' alt="hacker" />
-          {/* <p 
-            className="more"
-            onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
-            onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
-            onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-          >
-            about me <PiCardsFill />
-          </p> */}
-        </div>
+        {/* <Tilt> */}
+          <div className="hacker-cont">
+            <img className='hacker shadow' alt="hacker" />
+            <img className='hacker' alt="hacker" />
+            {/* <p 
+              className="more"
+              onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
+              onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+              onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+            >
+              about me <PiCardsFill />
+            </p> */}
+          </div>
+        {/* </Tilt> */}
 
         <div className={`text ${showClassName}`}>
           {/* < RiUser5Fill size={20} /> */}
