@@ -75,7 +75,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
       onMouseEnter={() => handleOnOff('on')}
       onMouseLeave={() => handleOnOff('off')}
       >
-      <div className={`header-logo ${isScrolled ? 'show' : ''}`}>LR</div>
+      <div className={`header-logo ${isScrolled ? 'show' : ''}`}></div>
 
       <div className={`header-right ${isScrolled ? 'show' : ''} ${showClassName}`}>
         <div className="contact-opts-m">

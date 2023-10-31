@@ -208,6 +208,10 @@ $bgDark: #080808;
                     padding: 4px 0;
                     text-align: center;
                     letter-spacing: 4px;
+                    &.name.bold {
+                        color: transparent;
+                        -webkit-text-stroke: 1px #222222 !important;
+                    }
                 }
                 &.big {
                     pointer-events: none;
@@ -382,6 +386,10 @@ $bgDark: #080808;
                 }
                 &.small {
                     color: #f0f0f0;
+                    &.name.bold {
+                        color: transparent;
+                        -webkit-text-stroke: 1px #f0f0f0 !important;
+                    }
                 }
             }
         }

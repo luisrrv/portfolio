@@ -38,7 +38,7 @@ $bgDark: #080808;
 
     .header-logo {
         color: transparent;
-        -webkit-text-stroke: 2px $lightRed !important;
+        -webkit-text-stroke: 1px $lightRed !important;
         font-size: 30px;
         font-weight: bold;
         height: fit-content;
@@ -47,9 +47,15 @@ $bgDark: #080808;
         -moz-user-select: none;    
         -ms-user-select: none;  
         user-select: none; 
+        width: 32px;
+        height: 32px;
+        background-image: url(../../assets/images/menobg_stencil.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
 
         &.show {
-            opacity: 1;
+            opacity: 0.8;
             animation: show 500ms ease-in;
         }
     }
@@ -94,6 +100,9 @@ $bgDark: #080808;
         background-color: $bgDark !important;
         // backdrop-filter: blur(10px) !important;
 
+        .header-logo {
+            background-image: url(../../assets/images/menobg_stencil_w.png);
+        }
         &.hdr {
             background-color: transparent !important;
         }
@@ -245,11 +254,11 @@ $bgDark: #080808;
         0% {
             opacity: 0;
         }
-        50% {
-            opacity: 0.6;
-        }
+        // 50% {
+        //     opacity: 0.3;
+        // }
         100% {
-            opacity: 1;
+            opacity: 0.8;
         }
     }
 }
