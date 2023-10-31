@@ -42,7 +42,7 @@ export default function Skills({ isDark, handleContactMouseOverChange }: SkillsP
   const [backOn, setBackOn] = useState<boolean>(false);
   const [otherOn, setOtherOn] = useState<boolean>(false);
   const compClassName = isDark ? 'dark' : 'light';
-  const glareClr = isDark ? '#cccccc70' :'#55555570';
+  const glareClr = isDark ? '#aaaaaa70' :'#66666670';
   const { ref, inView } = useInView({
       threshold: 0.3,
       triggerOnce: true,
@@ -242,7 +242,7 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
             <div className="backend">
                 <div className='code-container'>
                     <Tilt 
-                        trackOnWindow={true}
+                        trackOnWindow={false}
                         tiltEnable={false}
                         glareEnable={true} 
                         glareMaxOpacity={0.8} 

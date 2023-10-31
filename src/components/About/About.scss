@@ -13,7 +13,7 @@ $darkBlue: #333fb0;
 $darkerBlue: #10153e;
 $lighterBlue: #b5bbdf;
 
-$bgDark: #25252a;
+$bgDark: #080808;
 
 #about_container {
     position: relative;
@@ -203,7 +203,7 @@ $bgDark: #25252a;
                     }
                 }
                 &.small {
-                    font-size: 12px;
+                    font-size: 28px;
                     color: #222222;
                     padding: 4px 0;
                     text-align: center;
@@ -329,7 +329,7 @@ $bgDark: #25252a;
                 span.more {
                     display: block;
                     padding: 0 8px !important;
-                    color: $lighterRed;
+                    color: $lightRed;
                     font-weight: bold;
                     letter-spacing: 1px;
                     padding: 4px 8px;
@@ -343,7 +343,7 @@ $bgDark: #25252a;
                     }
                     &:hover {
                         cursor: pointer;
-                        color: $lightRed;
+                        color: $darkRed;
                     }
                 }
             }
@@ -360,10 +360,10 @@ $bgDark: #25252a;
             -webkit-filter: invert(0%);
         }
         .special {
-            // background-color: #25252a;
+            // background-color: #080808;
             p {
                 &.big {
-                    // background-color: #25252a !important;
+                    // background-color: #080808 !important;
                 }
                 &.big span.letter{
                     color: transparent !important;
@@ -574,7 +574,7 @@ $bgDark: #25252a;
                 // width: fit-content;
                 // height: fit-content;
                 p.small {
-                    font-size: 11px !important;
+                    font-size: 20px !important;
                 }
                 p.big.first,
                 p.big.last {
@@ -604,7 +604,7 @@ $bgDark: #25252a;
                 // width: fit-content;
                 // height: fit-content;
                 p.small {
-                    font-size: 8px !important;
+                    font-size: 18px !important;
                 }
                 p.big.first,
                 p.big.last {

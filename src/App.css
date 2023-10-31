@@ -18,7 +18,7 @@ $lighterBlue: #b5bbdf;
 #App {
   text-align: center;
   height: 100%;
-  background-color: #e6e6e6;
+  background-color: #f0f0f0;
   opacity: 1;
 }
 
@@ -33,12 +33,12 @@ $lighterBlue: #b5bbdf;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #e6e6e6;
+  background-color: #f0f0f0;
   z-index: 9998;
   opacity: 1;
 }
 #App.dark .app-overlay {
-  background-color: #25252a;
+  background-color: #080808;
   transition: opacity 400ms;
 }
 #App .app-overlay.hide {
@@ -52,7 +52,7 @@ $lighterBlue: #b5bbdf;
 }
 
 .dark {
-  background-color: #25252a;
+  background-color: #080808;
   color: #f0f0f0;
 }
 
@@ -64,7 +64,7 @@ $lighterBlue: #b5bbdf;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #e6e6e6;
+  background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,7 +74,7 @@ $lighterBlue: #b5bbdf;
 }
 .loader-bg.dark {
   position: relative;
-  background-color: #25252a;
+  background-color: #080808;
 }
 .no-v {
   opacity: 0 !important;

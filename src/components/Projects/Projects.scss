@@ -19,7 +19,7 @@ $lighterBlue: #b5bbdf;
     width: 100%;
     padding-bottom: 60px;
     color: #25252a;
-    background-color: #e6e6e6 !important;
+    background-color: #f0f0f0 !important;
     animation: loading ease-in 800ms;
     
     #work {
@@ -28,7 +28,7 @@ $lighterBlue: #b5bbdf;
 
     &.dark {
         color: #e6e6e6;
-        background-color: #25252a !important;
+        background-color: #080808 !important;
 
         h3 {
             -webkit-text-stroke: 1px #e6e6e6 !important;

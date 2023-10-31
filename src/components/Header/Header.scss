@@ -12,7 +12,7 @@ $darkBlue: #333fb0;
 $darkerBlue: #10153e;
 $lighterBlue: #b5bbdf;
 
-$bgDark: #25252a;
+$bgDark: #080808;
 
 #header_container {
     position: fixed;
@@ -25,7 +25,7 @@ $bgDark: #25252a;
     justify-content:space-between;
     align-items: center;
     padding: 8px 20px;
-    background-color: #e6e6e6 !important;
+    background-color: #f0f0f0 !important;
     backdrop-filter: unset !important;
     animation: loading ease-in 800ms;
     
