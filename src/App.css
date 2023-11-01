@@ -50,6 +50,9 @@ $lighterBlue: #b5bbdf;
 #App .app-overlay.bck {
   z-index: -9999;
 }
+p,span:hover {
+  cursor: default;
+}
 
 .dark {
   background-color: #080808;

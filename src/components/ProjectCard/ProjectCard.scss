@@ -217,8 +217,19 @@ $lighterBlue: #b5bbdf;
             pointer-events: all;
             transform: translateY(0);
             z-index: 99;
+            &:hover {
+              cursor: pointer;
+            }
             svg {
               color: #e6e6e6;
+            }
+
+            &.disabled {
+              opacity: 0.5;
+              pointer-events: none;
+              &:hover {
+                cursor: default;
+              }
             }
           }
           .project-pics {
@@ -314,6 +325,9 @@ $lighterBlue: #b5bbdf;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          &:hover {
+            cursor: default;
+          }
          }
       }
     }

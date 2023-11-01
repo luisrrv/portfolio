@@ -278,15 +278,28 @@ export default function ProjectCard({
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('github',e.target); removeIcon(e.target)}}
                     >{githubIcon ? <BsGithub /> : 'GitHub'}
                   </a>
-                  <a 
-                    className='web' 
-                    href={live} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
-                    onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >{webIcon ? <MdWeb /> : ''}
-                  </a>
+                  {
+                    (title === 'News Feed' || title === 'Ally Maps') ? (
+                      // eslint-disable-next-line jsx-a11y/anchor-is-valid
+                      <a 
+                        className='web disabled' 
+                        href={live} 
+                        onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+                        onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+                        >{webIcon ? <MdWeb /> : ''}
+                      </a>
+                    ) : (
+                      <a 
+                        className='web' 
+                        href={live} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+                        onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
+                        >{webIcon ? <MdWeb /> : ''}
+                      </a>
+                    )
+                  }
               </div>
               <div className='project-pics'>
                 {
