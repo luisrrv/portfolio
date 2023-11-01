@@ -42,14 +42,6 @@ $bgDark: #080808;
     animation: loading ease-in 800ms;
     filter: invert(100%);
     -webkit-filter: invert(100%);
-
-    .shw {
-        animation: slideDo ease-in 600ms;
-    }
-
-    // .content .hacker-cont > div {
-    //     height: fit-content;
-    // }
     
     .content {
         filter: invert(100%);
@@ -212,6 +204,19 @@ $bgDark: #080808;
                         color: transparent;
                         -webkit-text-stroke: 1px #222222 !important;
                     }
+                    &.hello.shw {
+                        animation: slideDo ease-in 600ms;
+                    }
+                    &.name.after {
+                        transform: translateY(-20px);
+                        opacity: 0;
+                        transition: 1s;
+                        transition-delay: 1s;
+                        &.shw {
+                            transform: translateY(0px);
+                            opacity: 1;
+                        }
+                    }
                 }
                 &.big {
                     pointer-events: none;
@@ -238,7 +243,8 @@ $bgDark: #080808;
             width: 300px;
             height: 300px;
             margin: 12px 0;
-            margin-left: 60px;
+            margin-left: 36px;
+            margin-bottom: 20px;
             .hacker {
                 width: 300px;
                 height: 300px;
@@ -257,9 +263,17 @@ $bgDark: #080808;
                     left: 50%;
                     transform: translate(-50%, -50%);
                     content: url(../../assets/images/menobg.png);
-                    filter: grayscale(100%);
+                    filter: grayscale(0%);
+                    transition: 300ms;
+                    transition-delay: 300ms;
                     &:hover {
-                        filter: grayscale(0%);
+                        filter: grayscale(0%) !important;
+                        top: 50% !important;
+                        left: 50% !important;
+                        transform: translate(-50%, -50%) !important;
+                    }
+                    &.shw {
+                        filter: grayscale(100%);
                         top: 52%;
                         left: 48%;
                         transform: translate(-52%, -48%);
@@ -366,9 +380,6 @@ $bgDark: #080808;
         .special {
             // background-color: #080808;
             p {
-                &.big {
-                    // background-color: #080808 !important;
-                }
                 &.big span.letter{
                     color: transparent !important;
                     -webkit-text-stroke: 1.5px #f0f0f0;
@@ -627,6 +638,15 @@ $bgDark: #080808;
                     .me-img {
                         top: 60% !important;
                         left: 50% !important;
+                    }
+                }
+            }
+            .hacker-cont .hacker {
+                &:not(.shadow).shw {
+                    &:hover {
+                        top: 52% !important;
+                        left: 48% !important;
+                        transform: translate(-52%, -48%) !important;
                     }
                 }
             }

@@ -155,7 +155,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
 
         <div className="special">
           {/* <div className="grain"></div> */}
-          <p className="small hello">HELLO, I'M</p>
+          <p className={`small hello ${showClassName}`}>HELLO, I'M</p>
           {/* <div className='name-img'></div> */}
           {/* <p className={`big first`}>
             <span className='letter faded'>L</span>
@@ -202,7 +202,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
             </p> */}
-          <p className="small name bold">LUIS RODRIGUEZ</p>
+          <p className={`small name after bold ${showClassName}`}>LUIS RODRIGUEZ</p>
         </div>
         
 
@@ -211,7 +211,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
         {/* <Tilt> */}
           <div className="hacker-cont">
             <img className='hacker shadow' alt="hacker" />
-            <img className='hacker' alt="hacker" />
+            <img className={`hacker ${showClassName}`} alt="hacker" />
             {/* <p 
               className="more"
               onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}

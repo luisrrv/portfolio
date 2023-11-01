@@ -70,7 +70,8 @@ $lighterBlue: #b5bbdf;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #f0f0f055;
+        // background-color: #f0f0f055;
+        background-color: transparent;
         backdrop-filter: blur(12px);
 
         p {
@@ -233,7 +234,7 @@ $lighterBlue: #b5bbdf;
       .card-cover {
         border-color: #e6e6e655;
         .name-container {
-          background-color: #2222222d;
+          // background-color: #2222222d;
           p {
             text-transform: uppercase;
             letter-spacing: 0px;
