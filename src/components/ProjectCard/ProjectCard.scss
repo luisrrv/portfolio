@@ -100,7 +100,7 @@ $lighterBlue: #b5bbdf;
         filter: blur(0px);
 
         &.in-v {
-          animation: card-in-view ease-in 1s !important;
+          animation: card-in-view ease-in 800ms !important;
         }
       }
 
@@ -535,10 +535,12 @@ $lighterBlue: #b5bbdf;
     0% {
       opacity: 0;
       transform: scale(0.9);
+      // transform: rotateX(60deg);
     }
     100% {
       opacity: 1;
       transform: scale(1);
+      // transform: rotateX(0);
 
     }
   }

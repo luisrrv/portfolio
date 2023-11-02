@@ -59,7 +59,7 @@ export default function ProjectCard({
     const mouseLeaveRef = useRef(mouseLeave);
     const { ref, inView } = useInView({
       threshold: 0.5,
-      triggerOnce: true,
+      // triggerOnce: true,
     });
     const inViewClassName = inView ?  'in-v' : 'no-v';
 
