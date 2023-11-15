@@ -258,7 +258,7 @@ $bgDark: #080808;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    content: url(../../assets/images/menobg_stencil.png);
+                    content: url(../../assets/images/menobg_stencil_b.png);
                 }
                 &:not(.shadow) {
                     position: absolute;
@@ -269,6 +269,7 @@ $bgDark: #080808;
                     filter: grayscale(0%);
                     transition: 300ms;
                     transition-delay: 300ms;
+                    // background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(0, 0, 0, 0)));
                     &:hover {
                         filter: grayscale(0%) !important;
                         top: 50% !important;

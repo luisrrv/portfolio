@@ -49,7 +49,7 @@ $bgDark: #080808;
         user-select: none; 
         width: 32px;
         height: 32px;
-        background-image: url(../../assets/images/menobg_stencil.png);
+        background-image: url(../../assets/images/menobg_stencil_logo_b.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -101,7 +101,7 @@ $bgDark: #080808;
         // backdrop-filter: blur(10px) !important;
 
         .header-logo {
-            background-image: url(../../assets/images/menobg_stencil_w.png);
+            background-image: url(../../assets/images/menobg_stencil_logo_w.png);
         }
         &.hdr {
             background-color: transparent !important;
