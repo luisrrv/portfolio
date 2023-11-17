@@ -117,17 +117,19 @@ $blacker: #222222;
     &:not(.web),
     &:not(.external) {
       .follow-circle-small {
-        // animation: showUp 300ms ease-in;
-        
+        width: 12px;
+        height: 12px;
       }
     }
 
     .follow-circle-small {
-        position: fixed;
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
         background-color: $black;
         border-radius: 50%;
         pointer-events: none;
-        transition: ease-in-out;
+        transition: 300ms ease-in-out;
         z-index: 99;
         
         &.clicked {
@@ -141,11 +143,10 @@ $blacker: #222222;
       transition: 200ms;
 
       .follow-circle-small {
-        position: relative;
         background-color: $whiter !important;
         transform: scale(2);
-        animation: bounce 500ms ease-in;
-        padding: 4px;
+        width: 14px !important;
+        height: 14px !important;
         
         &.clicked {
           animation: none !important;
@@ -153,10 +154,6 @@ $blacker: #222222;
         
         svg {
           color: $lightRed !important;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
         }
       }
     }
@@ -164,10 +161,8 @@ $blacker: #222222;
     &.github,
     &.web {
       .follow-circle-small {
-        position: relative;
         background-color: $whiter !important;
         transform: scale(2);
-        animation: bounce 500ms ease-in;
         padding: 4px;
         
         &.clicked {
@@ -176,10 +171,6 @@ $blacker: #222222;
         
         svg {
           color: $lightRed !important;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
         }
       }
     }
@@ -205,10 +196,10 @@ $blacker: #222222;
         border-color: $black !important;
 
         .follow-circle-small{
-          background-color: $blacker !important;
+          background-color: $lightRed !important;
 
           svg {
-            color: #ff566c !important;
+            color: #e6e6e6 !important;
           }
         }
       }
@@ -232,25 +223,17 @@ $blacker: #222222;
     }
 }
 
-@keyframes showUp {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-}
 @keyframes pulseAnimation {
     0% {
       opacity: 1;
       transform: scale(1);
     }
     50% {
-      opacity: 1;
-      transform: scale(0.8);
+      opacity: 0.6;
+      transform: scale(0.9);
     }
     100% {
-      opacity: 0;
+      opacity: 1;
       transform: scale(1);
     }
 }
@@ -267,26 +250,6 @@ $blacker: #222222;
       opacity: 0;
       transform: scale(1);
     }
-}
-
-@keyframes bounce {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes bounce2 {
-  0% {
-    transform: scale(2);
-  }
-  75% {
-    transform: scale(2.4);
-  }
-  100% {
-    transform: scale(2);
-  }
 }
 @keyframes circleLoad {
   0% {

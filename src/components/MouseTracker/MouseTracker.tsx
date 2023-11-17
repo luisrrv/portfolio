@@ -202,11 +202,11 @@ const FollowCircle: React.FC<FollowCircleProps> = ({ size, sizeSmall, contactMS,
             ref={circleRefSmall}
             className={`follow-circle-small ${isClicked ? 'clicked' : ''}`}
             >
-            {contactMS && (<BiSolidMessageRoundedDetail size={6} />)}
-            {contactOptsMS && (<BiLinkExternal size={6} />)}
-            {projectMS && !githubMS && !webMS && (<BiSolidBriefcaseAlt size={6} />)}
-            {githubMS && (<PiBracketsCurlyBold size={6} />)}
-            {webMS && (<MdWeb size={6} />)}
+            {contactMS && (<BiSolidMessageRoundedDetail size={7} />)}
+            {contactOptsMS && (<BiLinkExternal size={7} />)}
+            {projectMS && !githubMS && !webMS && (<BiSolidBriefcaseAlt size={7} />)}
+            {githubMS && (<PiBracketsCurlyBold size={7} />)}
+            {webMS && (<MdWeb size={7} />)}
           </div>
         </div>
       )}
