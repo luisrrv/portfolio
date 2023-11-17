@@ -4,9 +4,9 @@ import { useInView } from 'react-intersection-observer';
 // import useDarkMode from '../../hooks/useDarkMode';
 
 //icons
-import { BsFillFileEarmarkCodeFill, BsGithub } from 'react-icons/bs';
+import { BsFillFileEarmarkCodeFill } from 'react-icons/bs';
 import {MdWeb } from 'react-icons/md'
-import {LiaWindowMinimizeSolid } from 'react-icons/lia'
+import {LiaWindowMinimizeSolid, LiaGithub } from 'react-icons/lia'
 import { SiRubyonrails, 
         SiPostgresql, 
         SiHeroku, 
@@ -53,8 +53,8 @@ export default function ProjectCard({
   scrolling,
   }: ProjectCardProps) {
 
-    const [githubIcon,setGithubIcon] = useState<boolean>(false)
-    const [webIcon,setWebIcon] = useState<boolean>(false)
+    // const [githubIcon,setGithubIcon] = useState<boolean>(false)
+    // const [webIcon,setWebIcon] = useState<boolean>(false)
     const [mouseLeave,setMouseLeave] = useState<boolean>(true);
     const mouseLeaveRef = useRef(mouseLeave);
     const { ref, inView } = useInView({
@@ -107,6 +107,13 @@ export default function ProjectCard({
 
     const compClassName = isDark ? 'dark' : 'light';
     const cardTitleClass = title.split(' ')[0];
+    let ctaText = 'Page';
+    if (title === 'Travel Journal') ctaText = 'Journal';
+    if (title === 'Bicho Bot (Twitter Bot)') ctaText = "Bot's profile";
+    if (title === 'Web Chat App') ctaText = 'Chat!';
+    if (title === 'Ally Maps') ctaText = 'Check it out';
+    if (title === 'News Feed') ctaText = 'Browse';
+    if (title === 'Rubber Ducking') ctaText = 'Try it!';
 
     const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number = 0) => {
       if (element) {
@@ -209,18 +216,18 @@ export default function ProjectCard({
       handleContactMouseOverChange(false, type, undefined);
     };
 
-    const addIcon = (element: EventTarget) => {
-      const el = element as HTMLElement;
-      el.classList.add('over');
-      if(el.classList.contains('github')) setGithubIcon(true);
-      else if(el.classList.contains('web')) setWebIcon(true);
-    }
-    const removeIcon = (element: EventTarget) => {
-      const el = element as HTMLElement;
-      el.classList.remove('over');
-      if(el.classList.contains('github')) setGithubIcon(false);
-      else if(el.classList.contains('web')) setWebIcon(false);
-    }
+    // const addIcon = (element: EventTarget) => {
+    //   const el = element as HTMLElement;
+    //   el.classList.add('over');
+    //   if(el.classList.contains('github')) setGithubIcon(true);
+    //   else if(el.classList.contains('web')) setWebIcon(true);
+    // }
+    // const removeIcon = (element: EventTarget) => {
+    //   const el = element as HTMLElement;
+    //   el.classList.remove('over');
+    //   if(el.classList.contains('github')) setGithubIcon(false);
+    //   else if(el.classList.contains('web')) setWebIcon(false);
+    // }
 
   return (
     <div 
@@ -269,24 +276,19 @@ export default function ProjectCard({
                   {setIcons().map((icon) => icon)}
               </div>
               <div className={`cta`}>
-                  <a 
-                    className='github' 
-                    href={github} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    onMouseEnter={(e)=>{handleMouseTrackerEnter('github',e.target); addIcon(e.target);}} 
-                    onMouseLeave={(e)=>{handleMouseTrackerLeave('github',e.target); removeIcon(e.target)}}
-                    >{githubIcon ? <BsGithub /> : 'GitHub'}
-                  </a>
                   {
                     (title === 'News Feed' || title === 'Ally Maps') ? (
                       // eslint-disable-next-line jsx-a11y/anchor-is-valid
                       <a 
                         className='web disabled' 
                         href={live} 
-                        onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
-                        onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                        >{webIcon ? <MdWeb /> : ''}
+                        onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target);}} 
+                        onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target);}}
+                        >
+                          <p className="svg">
+                            <MdWeb /> 
+                            {ctaText}
+                          </p>
                       </a>
                     ) : (
                       <a 
@@ -294,12 +296,29 @@ export default function ProjectCard({
                         href={live} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
-                        onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                        >{webIcon ? <MdWeb /> : ''}
+                        onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target);}} 
+                        onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target);}}
+                        >
+                          <p className="svg">
+                            <MdWeb /> 
+                            {ctaText}
+                          </p>
                       </a>
                     )
                   }
+                  <a 
+                    className='github' 
+                    href={github} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    onMouseEnter={(e)=>{handleMouseTrackerEnter('github',e.target);}} 
+                    onMouseLeave={(e)=>{handleMouseTrackerLeave('github',e.target);}}
+                    >
+                      <p className="svg">
+                        <LiaGithub />
+                        Code
+                      </p>
+                  </a>
               </div>
               <div className='project-pics'>
                 {

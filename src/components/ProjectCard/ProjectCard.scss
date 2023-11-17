@@ -277,12 +277,9 @@ $lighterBlue: #b5bbdf;
         .cta {
           height: fit-content;
           a {
-            background-color: #ff000009 !important;
-            border-color: #fb445c !important;
-            color: #fb445c !important;
-
-            &:first-child {
-              border-color: #e6e6e6 !important;
+            border-color: #e6e6e6 !important;
+            color: #e6e6e6 !important;
+            svg {
               color: #e6e6e6 !important;
             }
           }
@@ -382,65 +379,55 @@ $lighterBlue: #b5bbdf;
         }
     
         .cta {
-          padding: 16px 8px 8px 8px;
+          padding: 8px;
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 16px;
-          height: fit-content;
+          gap: 0;
+          height: fit-content !important;
+          position: relative;
           a {
-            padding: 12px 14px;
-            border-radius: 8px;
-            color: $lightRed;
-            border: 1px solid $lightRed;
-            min-width: 130px;
-            transition: 400ms !important;
-            background-color: #ff000009;
+            padding: 12px 18px;
+            color: #333333;
+            border: 1px solid #333333;
+            background-color: #ff000009 !important;
+            transition: 100ms !important;
             backdrop-filter: blur(18px) !important;
-            &:first-child {
-              border-color: #222222;
-              color: #222222;
+            text-transform: uppercase;
+            font-size: 14px;
+            p.svg {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 4px;
+              padding: 0;
             }
-
+             svg {
+              font-size: 18px !important;
+              padding-bottom: 2px;
+              color: #333333 !important;
+              transition: 100ms !important;
+            }
+            &:first-child {
+              border-radius: 40px 0 0 40px !important;
+              border-right: none !important;
+            }
+            &:nth-child(2) {
+              border-radius: 0 40px 40px 0 !important;
+              border-left: none !important;
+            }
             &:hover {
-              border-color: $lightRed !important;
               background-color: $lightRed !important;
+              border-color: $lightRed !important;
+              color: #e6e6e6 !important;
+              svg {
+                color: #e6e6e6 !important;
+              }
             }
           }
         }
       }
     }
-
-  &.Travel {
-    .content .cta a.web:not(.over)::after {
-      content: 'Journal';
-    }
-  }
-  &.Bicho {
-    .content .cta a.web:not(.over)::after {
-      content: "Bot's profile";
-    }
-  }
-  &.Web {
-    .content .cta a.web:not(.over)::after {
-      content: 'Chat!';
-    }
-  }
-  &.Ally {
-    .content .cta a.web:not(.over)::after {
-      content: 'Check it out';
-    }
-  }
-  &.News {
-    .content .cta a.web:not(.over)::after {
-      content: 'Browse';
-    }
-  }
-  &.Rubber {
-    .content .cta a.web:not(.over)::after {
-      content: 'Try it!';
-    }
-  }
 
   @keyframes loading {
       0% {
@@ -604,12 +591,6 @@ $lighterBlue: #b5bbdf;
                 svg {
                   font-size: 20px;
                 } 
-              }
-              .cta {
-                a {
-                  padding: 12px 14px !important;
-                  min-width: 112px !important;
-                }
               }
             }
           }

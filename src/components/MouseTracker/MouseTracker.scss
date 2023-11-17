@@ -102,6 +102,14 @@ $blacker: #222222;
           }
         }
     }
+    &.web.button {
+      border-color: $lightRed !important;
+      border-radius:  40px 0 0 40px !important;
+    }
+    &.github.button {
+      border-color: $lightRed !important;
+      border-radius:  0 40px 40px 0 !important;
+     }
 
     &:not(.contact),
     &:not(.project),

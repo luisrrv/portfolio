@@ -126,21 +126,21 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
                     onClick={(e) => showSkills('front', e.target)}
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >[Front-end,
+                    >Front-end
                 </p>
                 <p 
                     className="b" 
                     onClick={(e) => showSkills('back', e.target)}
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >Back-end,
+                    >Back-end
                 </p>
                 <p 
                     className="o" 
                     onClick={(e) => showSkills('other', e.target)}
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >Other]
+                    >Other
                 </p>
             </div>
             {/* <div className='code-container'>
