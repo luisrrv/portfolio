@@ -6,7 +6,15 @@ import { useInView } from 'react-intersection-observer';
 //icons
 import { BsFillFileEarmarkCodeFill } from 'react-icons/bs';
 import {MdWeb } from 'react-icons/md'
-import {LiaWindowMinimizeSolid, LiaGithub } from 'react-icons/lia'
+import {LiaWindowMinimizeSolid, 
+        LiaGithub, 
+        LiaPlaneSolid,
+        LiaRobotSolid,
+        LiaRocketchat,
+        LiaMapMarkedAltSolid,
+        LiaNewspaper,
+        LiaPuzzlePieceSolid
+      } from 'react-icons/lia'
 import { SiRubyonrails, 
         SiPostgresql, 
         SiHeroku, 
@@ -107,13 +115,13 @@ export default function ProjectCard({
 
     const compClassName = isDark ? 'dark' : 'light';
     const cardTitleClass = title.split(' ')[0];
-    let ctaText = 'Page';
+    let ctaText = 'Website';
     if (title === 'Travel Journal') ctaText = 'Journal';
-    if (title === 'Bicho Bot (Twitter Bot)') ctaText = "Bot's profile";
-    if (title === 'Web Chat App') ctaText = 'Chat!';
-    if (title === 'Ally Maps') ctaText = 'Check it out';
-    if (title === 'News Feed') ctaText = 'Browse';
-    if (title === 'Rubber Ducking') ctaText = 'Try it!';
+    else if (title === 'Bicho Bot (Twitter Bot)') ctaText = "Bot's profile";
+    else if (title === 'Web Chat App') ctaText = 'Chat!';
+    else if (title === 'Ally Maps') ctaText = 'Check it out';
+    else if (title === 'News Feed') ctaText = 'Browse';
+    else if (title === 'Rubber Ducking') ctaText = 'Try it!';
 
     const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number = 0) => {
       if (element) {
@@ -216,6 +224,16 @@ export default function ProjectCard({
       handleContactMouseOverChange(false, type, undefined);
     };
 
+    const getIcon = () => {
+      if (ctaText==='Journal') return <LiaPlaneSolid />;
+      else if (ctaText==="Bot's profile") return <LiaRobotSolid />;
+      else if (ctaText==='Chat!') return <LiaRocketchat />;
+      else if (ctaText==='Check it out') return <LiaMapMarkedAltSolid />;
+      else if (ctaText==='Browse') return <LiaNewspaper />;
+      else if (ctaText==='Try it!') return <LiaPuzzlePieceSolid />;
+      else return <MdWeb />;
+    }
+
     // const addIcon = (element: EventTarget) => {
     //   const el = element as HTMLElement;
     //   el.classList.add('over');
@@ -286,7 +304,7 @@ export default function ProjectCard({
                         onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target);}}
                         >
                           <p className="svg">
-                            <MdWeb /> 
+                            {getIcon()}
                             {ctaText}
                           </p>
                       </a>
@@ -300,7 +318,7 @@ export default function ProjectCard({
                         onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target);}}
                         >
                           <p className="svg">
-                            <MdWeb /> 
+                            {getIcon()}
                             {ctaText}
                           </p>
                       </a>
