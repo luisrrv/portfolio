@@ -53,7 +53,7 @@ export default function Project(): ProjectProps[] {
       bg: travelbg,
     },
     {
-      name: 'Bicho Bot (Twitter Bot)',
+      name: 'Bicho Bot (X/Twitter Bot)',
       description: "A twitter bot that posts a new tweet twice a day. It also likes and retweets others' tweets related to famous football player Cristiano Ronaldo.",
       github: 'https://github.com/luisrrv/bicho-bot-lambda',
       live: 'https://twitter.com/bicho_bot',

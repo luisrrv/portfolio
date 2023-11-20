@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 // import useDarkMode from '../../hooks/useDarkMode';
 
 //icons
-import { BsFillFileEarmarkCodeFill } from 'react-icons/bs';
+import { BsFillFileEarmarkCodeFill, BsTwitterX } from 'react-icons/bs';
 import {MdWeb } from 'react-icons/md'
 import {LiaWindowMinimizeSolid, 
         LiaGithub, 
@@ -24,7 +24,7 @@ import { SiRubyonrails,
         SiPython,
         SiAmazonaws,
         SiDocker,
-        SiTwitter,
+        // SiTwitter,
         SiVuedotjs,
         SiJavascript,
         SiGooglechrome,
@@ -99,7 +99,7 @@ export default function ProjectCard({
                 case 'docker':
                   return <SiDocker key={index} />;
                 case 'twitter':
-                  return <SiTwitter key={index} />;
+                  return <BsTwitterX key={index} />;
                 case 'vue':
                   return <SiVuedotjs key={index} />;
                 case 'javascript':
@@ -117,7 +117,7 @@ export default function ProjectCard({
     const cardTitleClass = title.split(' ')[0];
     let ctaText = 'Website';
     if (title === 'Travel Journal') ctaText = 'Journal';
-    else if (title === 'Bicho Bot (Twitter Bot)') ctaText = "Bot's profile";
+    else if (title === 'Bicho Bot (X/Twitter Bot)') ctaText = "Bot's profile";
     else if (title === 'Web Chat App') ctaText = 'Chat!';
     else if (title === 'Ally Maps') ctaText = 'Check it out';
     else if (title === 'News Feed') ctaText = 'Browse';
