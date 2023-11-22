@@ -401,6 +401,9 @@ $lighterBlue: #b5bbdf;
               align-items: center;
               gap: 4px;
               padding: 0;
+              &:hover {
+                cursor: pointer;
+              }
             }
              svg {
               font-size: 18px !important;

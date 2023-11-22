@@ -145,9 +145,12 @@ $animationSpeed: 30s;
             transform: translate(-50%, -50%);
             width: 90%;
             max-width: 500px;
-            height: fit-content;
+            height: 0px;
             background-color: transparent;
             z-index: 9;
+            &:has(.on) {
+                height: fit-content;
+            }
             
             //  & * {
                 //     -webkit-text-stroke: unset !important;
@@ -160,10 +163,12 @@ $animationSpeed: 30s;
                 // justify-content: center;
                 // align-content: center;
                 opacity: 0;
-                height: 0;
+                height: 0 !important;
                 margin: 0;
                 padding: 0;
-                background-color: #d7d7d7f7;
+                // background-color: #d7d7d7f7;
+                background-color: #ebebebf7;
+                // border: 1px solid #999;
                 backdrop-filter: blur(12px);
                 border-radius: 6px;
                 transition: 600ms;
@@ -181,24 +186,20 @@ $animationSpeed: 30s;
                     text-align: center;
                     // z-index: 1;
                     -webkit-text-stroke: 0 #333333 !important;
-                    height: 0;
+                    height: 0 !important;
                     opacity: 0;
                 }
                 &.on {
                     margin: 0 auto;
                     padding: 24px 16px;
                     opacity: 1;
-                    height: fit-content;
-                    // height: 100px;
+                    height: fit-content !important;
+                    border: 1px solid #999;
                     p {
                         opacity: 1;
-                        height: fit-content;
+                        height: fit-content !important;
                     }
                 }
-                // .gray {
-                //     color: #999999 !important;
-                //     -webkit-text-stroke: 0px #999999 !important;
-                // }
             }
         }
 
@@ -298,10 +299,13 @@ $animationSpeed: 30s;
         .skills {
             background-color: transparent !important;
             .type {
-                background-color: #242222f7;
+                background-color: #000000f7;
                 p {
                     color: #e6e6e6 !important;
                     -webkit-text-stroke: 0 #e6e6e6 !important;
+                }
+                &.on {
+                    border: 1px solid #626262;
                 }
             }
             .frontend,
