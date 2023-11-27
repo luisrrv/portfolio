@@ -121,6 +121,11 @@ $blacker: #222222;
         height: 12px;
       }
     }
+    &:not(.project) {
+      svg {
+        opacity: 0;
+      }
+    }
 
     .follow-circle-small {
         display: flex;

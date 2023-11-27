@@ -66,7 +66,7 @@ export default function ProjectCard({
     const [mouseLeave,setMouseLeave] = useState<boolean>(true);
     const mouseLeaveRef = useRef(mouseLeave);
     const { ref, inView } = useInView({
-      threshold: 0.5,
+      threshold: 0,
       // triggerOnce: true,
     });
     const inViewClassName = inView ?  'in-v' : 'no-v';
@@ -252,7 +252,11 @@ export default function ProjectCard({
       id='card' 
       className={`card ${cardTitleClass} ${compClassName} ${hideApp ? 'hidden' : ''} ${scrolling ? 'scrolling' : ''}`}
       >
-      <div ref={ref} className={`card-cover on ${inViewClassName}`}>
+      <div 
+        ref={ref} 
+        className={`card-cover on ${inViewClassName}`}
+        style={isDark ? {backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`} : {backgroundImage:`linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(${bg})`}}
+      >
         <div className='name-container'>
             <p>{title}
             <span className={`stack`}>

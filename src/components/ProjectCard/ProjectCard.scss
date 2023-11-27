@@ -56,14 +56,22 @@ $lighterBlue: #b5bbdf;
       align-items: center;
       gap: 8px;
       padding: 12px;
-      border: 1px solid #999;
+      padding: 0;
+      border: 1px solid #d2d2d2;
       border-radius: 8px;
       filter: blur(0);
+      // backdrop-filter: blur(12px);
       transition: filter 1s;
       overflow: hidden;
+      // background-size: cover;
+      background-size: 200%;
+      background-position: center;
+      background-repeat: no-repeat;
+      // animation: bgMove 120s linear infinite !important;
 
       .name-container {
-        height: fit-content;
+        // height: fit-content;
+        height: 100%;
         width: 100%;
         border-radius: 8px;
         display: flex;
@@ -98,14 +106,21 @@ $lighterBlue: #b5bbdf;
 
       &.on {
         filter: blur(0px);
+        // backdrop-filter: blur(12px);
 
         &.in-v {
           animation: card-in-view ease-in 800ms !important;
+        }
+        &.no-v {
+          animation: card-out-of-view ease-in 800ms !important;
         }
       }
 
       &.off {
         filter: blur(20px);
+        backdrop-filter: blur(20px);
+        height: 100%;
+        // background-size: 200%;
       }
     }
     .project-pics {
@@ -243,7 +258,8 @@ $lighterBlue: #b5bbdf;
 
     &.dark {
       .card-cover {
-        border-color: #e6e6e655;
+        border: none !important;
+        border-color: #111;
         .name-container {
           // background-color: #2222222d;
           p {
@@ -525,13 +541,20 @@ $lighterBlue: #b5bbdf;
     0% {
       opacity: 0;
       transform: scale(0.9);
-      // transform: rotateX(60deg);
     }
     100% {
       opacity: 1;
       transform: scale(1);
-      // transform: rotateX(0);
-
+    }
+  }
+  @keyframes card-out-of-view {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(0.9);
     }
   }
 
@@ -615,7 +638,7 @@ $lighterBlue: #b5bbdf;
     .card-cover {
       flex-direction: column !important;
       .name-container {
-        height: fit-content;
+        // height: fit-content;
         // padding: 24px 0;
         p {
           font-size: 16px !important;
