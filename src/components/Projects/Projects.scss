@@ -20,6 +20,9 @@ $lighterBlue: #b5bbdf;
     padding-bottom: 60px;
     color: #25252a;
     background-color: #f0f0f0 !important;
+    // background: rgb(240,240,240);
+    // background: linear-gradient(95deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 54%, rgba(250,250,250,1) 80%, rgba(255,255,255,1) 80.1%, rgba(250,250,250,1) 80.2%, rgba(240,240,240,1) 86%, rgba(240,240,240,1) 100%);
+
     animation: loading ease-in 800ms;
     
     #work {
@@ -49,37 +52,37 @@ $lighterBlue: #b5bbdf;
             #card:first-child {
                 .card-cover.on {
                     background: rgb(8,18,27);
-                    background: linear-gradient(90deg, rgba(8,18,27,1) 0%, rgba(33,43,54,1) 35%, rgba(80,74,68,1) 100%);
+                    background: linear-gradient(135deg, rgba(8,18,27,0.15) 0%, rgba(33,43,54,0.15) 35%, rgba(80,74,68,0.15) 100%);
                 }
             }
             #card:nth-child(2) {
                 .card-cover.on {
                     background: rgb(77,81,83);
-                    background: linear-gradient(90deg, rgba(77,81,83,1) 0%, rgba(87,52,50,1) 35%, rgba(26,24,22,1) 100%);
+                    background: linear-gradient(135deg, rgba(77,81,83,0.15) 0%, rgba(87,52,50,0.15) 35%, rgba(26,24,22,0.15) 100%);
                 }
             }
             #card:nth-child(3) {
                 .card-cover.on {
                     background: rgb(61,53,48);
-                    background: linear-gradient(90deg, rgba(61,53,48,1) 0%, rgba(52,56,58,1) 35%, rgba(96,84,77,1) 100%);
+                    background: linear-gradient(135deg, rgba(61,53,48,0.15) 0%, rgba(52,56,58,0.15) 35%, rgba(96,84,77,0.15) 100%);
                 }
             }
             #card:nth-child(4) {
                 .card-cover.on {
                     background: rgb(27,28,23);
-                    background: linear-gradient(90deg, rgba(27,28,23,1) 0%, rgba(104,90,75,1) 35%, rgba(13,18,15,1) 100%);
+                    background: linear-gradient(135deg, rgba(27,28,23,0.15) 0%, rgba(104,90,75,0.15) 35%, rgba(13,18,15,0.15) 100%);
                 }
             }
             #card:nth-child(5) {
                 .card-cover.on {
                     background: rgb(140,125,114);
-                    background: linear-gradient(90deg, rgba(140,125,114,1) 0%, rgba(21,15,13,1) 35%, rgba(90,49,34,1) 100%);
+                    background: linear-gradient(135deg, rgba(140,125,114,0.15) 0%, rgba(21,15,13,0.15) 35%, rgba(90,49,34,0.15) 100%);
                 }
             }
             #card:nth-child(6) {
                 .card-cover.on {
-                    background: rgb(208,139,47);
-                    background: linear-gradient(90deg, rgba(208,139,47,1) 0%, rgba(128,48,18,1) 35%, rgba(28,36,43,1) 100%);
+                    background: rgb(135, 113, 63);
+                    background: linear-gradient(135deg, rgba(135, 113, 63,0.15) 0%, rgba(128,48,18,0.15) 35%, rgba(28,36,43,0.15) 100%);
                 }
             }
         }
@@ -133,37 +136,37 @@ $lighterBlue: #b5bbdf;
         #card:first-child {
             .card-cover.on {
                 background: rgb(199,199,206);
-                background: linear-gradient(90deg, rgba(199,199,206,1) 0%, rgba(228,221,215,1) 35%, rgba(226,208,205,1) 100%);
+                background: linear-gradient(135deg, rgba(199,199,206,0.2) 0%, rgba(228,221,215,0.2) 35%, rgba(226,208,205,0.2) 100%);
             }
         }
         #card:nth-child(2) {
             .card-cover.on {
                 background: rgb(199,198,192);
-                background: linear-gradient(90deg, rgba(199,198,192,1) 0%, rgba(225,199,196,1) 35%, rgba(180,190,184,1) 100%);
+                background: linear-gradient(135deg, rgba(199,198,192,0.2) 0%, rgba(225,199,196,0.2) 35%, rgba(180,190,184,0.2) 100%);
             }
         }
         #card:nth-child(3) {
             .card-cover.on {
                 background: rgb(190,187,185);
-                background: linear-gradient(90deg, rgba(190,187,185,1) 0%, rgba(235,236,236,1) 35%, rgba(240,225,217,1) 100%);
+                background: linear-gradient(135deg, rgba(190,187,185,0.2) 0%, rgba(235,236,236,0.2) 35%, rgba(240,225,217,0.2) 100%);
             }
         }
         #card:nth-child(4) {
             .card-cover.on {
                 background: rgb(210,210,210);
-                background: linear-gradient(90deg, rgba(210,210,210,1) 0%, rgba(219,199,167,1) 35%, rgba(182,183,182,1) 100%);
+                background: linear-gradient(135deg, rgba(210,210,210,0.2) 0%, rgba(219,199,167,0.2) 35%, rgba(182,183,182,0.2) 100%);
             }
         }
         #card:nth-child(5) {
             .card-cover.on {
                 background: rgb(180,175,174);
-                background: linear-gradient(90deg, rgba(180,175,174,1) 0%, rgba(230,217,204,1) 35%, rgba(188,183,181,1) 100%);
+                background: linear-gradient(135deg, rgba(180,175,174,0.2) 0%, rgba(230,217,204,0.2) 35%, rgba(188,183,181,0.2) 100%);
             }
         }
         #card:nth-child(6) {
             .card-cover.on {
                 background: rgb(234,192,117);
-                background: linear-gradient(90deg, rgba(234,192,117,1) 0%, rgba(188,183,170,1) 35%, rgba(215,209,205,1) 100%);
+                background: linear-gradient(135deg, rgba(234,192,117,0.2) 0%, rgba(188,183,170,0.2) 35%, rgba(215,209,205,0.2) 100%);
             }
         }
     }
