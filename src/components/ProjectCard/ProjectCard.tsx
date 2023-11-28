@@ -255,7 +255,7 @@ export default function ProjectCard({
       <div 
         ref={ref} 
         className={`card-cover on ${inViewClassName}`}
-        style={isDark ? {backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`} : {backgroundImage:`linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(${bg})`}}
+        // style={isDark ? {backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(${bg})`} : {backgroundImage:`linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(${bg})`}}
       >
         <div className='name-container'>
             <p>{title}

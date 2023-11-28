@@ -57,20 +57,12 @@ $lighterBlue: #b5bbdf;
       gap: 8px;
       padding: 12px;
       padding: 0;
-      border: 1px solid #d2d2d2;
       border-radius: 8px;
       filter: blur(0);
-      // backdrop-filter: blur(12px);
       transition: filter 1s;
       overflow: hidden;
-      // background-size: cover;
-      background-size: 200%;
-      background-position: center;
-      background-repeat: no-repeat;
-      // animation: bgMove 120s linear infinite !important;
 
       .name-container {
-        // height: fit-content;
         height: 100%;
         width: 100%;
         border-radius: 8px;
@@ -78,16 +70,15 @@ $lighterBlue: #b5bbdf;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // background-color: #f0f0f055;
         background-color: transparent;
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(0) !important;
 
         p {
           text-transform: uppercase;
           letter-spacing: 0px;
           font-weight: bold;
           font-size: 24px;
-          color: #333333;
+          color: #444444;
           -webkit-text-stroke: unset !important;
         }
         .stack {
@@ -99,14 +90,13 @@ $lighterBlue: #b5bbdf;
           margin-top: 6px;
           svg {
             font-size: 28px;
-            color: #555555;
+            color: #444444;
           }
         }
       }
 
       &.on {
         filter: blur(0px);
-        // backdrop-filter: blur(12px);
 
         &.in-v {
           animation: card-in-view ease-in 800ms !important;
@@ -120,7 +110,6 @@ $lighterBlue: #b5bbdf;
         filter: blur(20px);
         backdrop-filter: blur(20px);
         height: 100%;
-        // background-size: 200%;
       }
     }
     .project-pics {
@@ -259,9 +248,7 @@ $lighterBlue: #b5bbdf;
     &.dark {
       .card-cover {
         border: none !important;
-        border-color: #111;
         .name-container {
-          // background-color: #2222222d;
           p {
             text-transform: uppercase;
             letter-spacing: 0px;

@@ -14,7 +14,7 @@ interface MoreProps {
 export default function More({ isDark, more, moreOn, handleMore, handleContactMouseOverChange }: MoreProps) {
   const compClassName = isDark ? 'dark' : 'light';
   let activeClass = moreOn ? 'on' : '';
-  const glareClr = isDark ? '#62626270' :'#90909050';
+  const glareClr = isDark ? '#60606080' :'#ffffff80';
 
   const closeMore = (): void => {
     handleMore(false);

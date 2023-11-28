@@ -42,7 +42,7 @@ export default function Skills({ isDark, handleContactMouseOverChange }: SkillsP
   const [backOn, setBackOn] = useState<boolean>(false);
   const [otherOn, setOtherOn] = useState<boolean>(false);
   const compClassName = isDark ? 'dark' : 'light';
-  const glareClr = isDark ? '#62626270' :'#90909050';
+  const glareClr = isDark ? '#60606080' :'#ffffff80';
   const { ref, inView } = useInView({
       threshold: 0.3,
       triggerOnce: true,
