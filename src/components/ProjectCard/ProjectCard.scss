@@ -98,6 +98,7 @@ $lighterBlue: #b5bbdf;
       &.on {
         filter: blur(0px);
         border: 1px solid #e1e1e1;
+        background-color: #e6e6e6;
 
         &.in-v {
           animation: card-in-view ease-in 800ms !important;
@@ -248,7 +249,8 @@ $lighterBlue: #b5bbdf;
 
     &.dark {
       .card-cover {
-        border-color: #2b2b2b;
+        border-color: #222222;
+        background: #111111;
         
         .name-container {
           p {
