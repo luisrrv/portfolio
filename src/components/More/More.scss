@@ -69,7 +69,7 @@ $lighterBlue: #b5bbdf;
             
             svg {
                 color: $lightRed;
-                font-size: 26px;
+                font-size: 22px;
             }
         }
         .more-content {
@@ -110,9 +110,9 @@ $lighterBlue: #b5bbdf;
     &.dark {
         background-color: #00000000 !important;
         .more-container {
-            background: rgb(8,8,8);
-            background: linear-gradient(117deg, rgba(8,8,8,1) 0%, rgba(8,8,8,1) 25%, rgba(25,25,25,1) 70%, rgba(8,8,8,1) 100%);
-            border: 1px solid #222222;
+            background: #111111;
+            background: linear-gradient(117deg, rgba(17,17,17, 1) 0%, rgba(17,17,17, 1) 25%, rgba(34, 34, 34, 1) 70%, rgba(17,17,17, 1) 100%);
+            border: 1px solid #202020;
     
             .more-title {
                 color: #e6e6e6;
