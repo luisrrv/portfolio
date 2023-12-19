@@ -397,7 +397,7 @@ $lighterBlue: #b5bbdf;
             padding: 12px 18px;
             color: #333333;
             border: 1px solid #333333;
-            background-color: #ff000009 !important;
+            background-color: #ffffff09 !important;
             // transition: 100ms !important;
             backdrop-filter: blur(18px) !important;
             text-transform: uppercase;
@@ -551,6 +551,11 @@ $lighterBlue: #b5bbdf;
 
   @media (max-width: 700px) {
     width: 84% !important;
+    .open-card {
+      height: 500px;
+      min-height: 500px;
+      max-height: 500px;
+    }
     &:has(.selected) {
       width: 100% !important;
       height: 500px;
@@ -579,6 +584,11 @@ $lighterBlue: #b5bbdf;
   
   @media (max-width: 600px) {
     height: 120px;
+    .open-card {
+      height: 450px;
+      min-height: 450px;
+      max-height: 450px;
+    }
     &:has(.selected) {
       height: 450px;
       min-height: 450px;
