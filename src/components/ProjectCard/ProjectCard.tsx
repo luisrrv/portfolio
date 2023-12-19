@@ -181,20 +181,45 @@ export default function ProjectCard({
         }
       } else {
         handleOpenCard(el.parentElement, depth + 1);
-        handleCloseCards();
+        handleCloseCards(element);
       }
     };
 
-    const handleCloseCards = (): void => {
-      const openCards: NodeList = document.querySelectorAll('.open-card');
-      if (openCards && openCards.length > 0) {
-        [].forEach.call(openCards, (card: HTMLElement) => {
-          card.classList.remove('selected');
-          card.classList.remove('cta');
-          const cover: HTMLElement|undefined = card.previousSibling ? card.previousSibling as HTMLElement : undefined;
-          cover?.classList.remove('off');
-          cover?.classList.add('on');
-        })
+    const handleCloseCards = (element: EventTarget | null, depth: number = 0): void => {
+      if (!element || depth > 5) {
+        return;
+      }
+
+      const closeCards = (cElement: HTMLElement) => {
+        const openCards: NodeListOf<Element> = document.querySelectorAll('.open-card');
+        const cardsArray: Element[] = Array.from(openCards);
+        const selected = cardsArray.find(card => card.classList.contains('selected'));
+
+        if (openCards && openCards.length > 0) {
+          [].forEach.call(openCards, (card: HTMLElement) => {
+            if (card === cElement && selected) {
+              // do nothing
+            }
+            else {
+              card.classList.remove('selected');
+              card.classList.remove('cta');
+            }
+            const cover: HTMLElement|undefined = card.previousSibling ? card.previousSibling as HTMLElement : undefined;
+            cover?.classList.remove('off');
+            cover?.classList.add('on');
+          })
+        }
+      }
+
+      const el = element as HTMLElement;
+      let clickedEl: string|HTMLElement = '';
+
+      if (el.classList.contains('open-card')) {
+        clickedEl = el;
+        closeCards(clickedEl);
+
+      } else {
+        handleCloseCards(el.parentElement, depth + 1);
       }
     }
 
