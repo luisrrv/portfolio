@@ -249,8 +249,8 @@ $lighterBlue: #b5bbdf;
 
     &.dark {
       .card-cover {
-        border-color: #252525;
-        background: #202020; // change this???
+        border-color: #202020;
+        background: #151515; // change this???
         
         .name-container {
           p {
@@ -550,7 +550,9 @@ $lighterBlue: #b5bbdf;
   }
 
   @media (max-width: 700px) {
+    width: 84% !important;
     &:has(.selected) {
+      width: 100% !important;
       height: 500px;
       min-height: 500px;
       max-height: 500px;

@@ -58,6 +58,10 @@ $animationSpeed: 30s;
 .skills-container {
     background-color: transparent !important;
     width: 100%;
+    opacity: 0;
+    &.in-v {
+      opacity: 0.8;  
+    }
 
     h3.title {
         display: flex;
@@ -272,7 +276,7 @@ $animationSpeed: 30s;
         .skills {
             background-color: transparent !important;
             .type {
-                background: #111111;
+                background: #151515;
                 p {
                     color: #e6e6e6 !important;
                     -webkit-text-stroke: 0 #e6e6e6 !important;

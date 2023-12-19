@@ -22,7 +22,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
         threshold: 0.1,
         triggerOnce: true,
       });
-    const inViewClassName = inView ?  'in-v' : 'no-v';
+    const inViewClassName = inView ?  'in-v' : '';
 
     const handleMouseEnter = (element: string): React.MouseEventHandler<HTMLElement> => () => {
         setTimeout(() => {
@@ -46,7 +46,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
                 handleContactMouseOverChange={handleContactMouseOverChange}
             />
             <h3 ref={ref} id='work' className={inViewClassName}><BiSolidBriefcaseAlt />Some of my work</h3>
-            <p ref={ref} className={`mobile-instr ${inViewClassName}`}>click on a project for details <BsArrowDownShort size={16}/></p>
+            <p ref={ref} className={`mobile-instr w ${inViewClassName}`}>click on a project for details <BsArrowDownShort size={16}/></p>
             <div className="projects">
             {
                 projectsData.map((project,index) => (

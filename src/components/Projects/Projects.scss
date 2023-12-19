@@ -26,6 +26,11 @@ $lighterBlue: #b5bbdf;
     
     #work {
         scroll-margin-top: 0;
+        opacity: 0;
+
+        &.in-v {
+            opacity: 0.8;  
+        }
     }
 
     &.dark {
@@ -44,6 +49,13 @@ $lighterBlue: #b5bbdf;
         .mobile-instr {
             color: #e6e6e6;
             -webkit-text-stroke: unset;
+            &.w {
+                opacity: 0;
+
+                &.in-v {
+                    opacity: 0.8;  
+                  }
+            }
         }
         .all-projects {
             color: #e6e6e6;

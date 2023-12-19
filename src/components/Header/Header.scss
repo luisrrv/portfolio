@@ -60,7 +60,8 @@ $bgDark: #080808;
 
         &.show {
             opacity: 0.8;
-            animation: show 500ms ease-in;
+            transition: 500ms ease-in;
+            // animation: show 500ms ease-in;
         }
     }
     .header-right {
@@ -264,9 +265,6 @@ $bgDark: #080808;
         0% {
             opacity: 0;
         }
-        // 50% {
-        //     opacity: 0.3;
-        // }
         100% {
             opacity: 0.8;
         }
