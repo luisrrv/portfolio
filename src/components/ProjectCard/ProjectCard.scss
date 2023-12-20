@@ -588,6 +588,44 @@ $lighterBlue: #b5bbdf;
       height: 450px;
       min-height: 450px;
       max-height: 450px;
+
+      .project-title {
+        padding-top: 0;
+        font-size: 22px;
+      }
+      .content {
+        justify-content: flex-start;
+        height: fit-content;
+        overflow: hidden;
+        .project-info {
+          height: fit-content;
+          p {
+            font-size: 11px;
+          }
+          .more {
+            justify-content: flex-start;
+            .stack {
+              padding: 12px 0;
+              height: fit-content;
+              svg {
+                font-size: 20px;
+              } 
+            }
+          }
+        }
+      }
+    }
+    .project-pics {
+      // bottom: -60px;
+      height: fit-content;
+      .pic {
+        height: 140px;
+        width: 76px;
+        &.wide {
+          height: 132px;
+          width: 170px;
+        }
+      }
     }
     &:has(.selected) {
       height: 450px;
@@ -598,44 +636,6 @@ $lighterBlue: #b5bbdf;
         height: 450px;
         min-height: 450px;
         max-height: 450px;
-
-        .project-title {
-          padding-top: 0;
-          font-size: 22px;
-        }
-        .content {
-          justify-content: flex-start;
-          height: fit-content;
-          overflow: hidden;
-          .project-info {
-            height: fit-content;
-            p {
-              font-size: 11px;
-            }
-            .more {
-              justify-content: flex-start;
-              .stack {
-                padding: 12px 0;
-                height: fit-content;
-                svg {
-                  font-size: 20px;
-                } 
-              }
-            }
-          }
-        }
-      }
-      .project-pics {
-        // bottom: -60px;
-        height: fit-content;
-        .pic {
-          height: 140px;
-          width: 76px;
-          &.wide {
-            height: 132px;
-            width: 170px;
-          }
-        }
       }
     }
     .card-cover {
