@@ -55,19 +55,20 @@ p,span:hover {
 }
 
 .dark {
-  background-color: #080808;
+  background-color: #111111;
   color: #f0f0f0;
 }
 
 /* LOADING COMPONENT */
 
-.loader-bg {
+#loaderBg.loader-bg {
   position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #f0f0f0 !important;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,9 +76,10 @@ p,span:hover {
   animation: loading ease-in 300ms;
   z-index: 9999;
 }
-.loader-bg.dark {
+#loaderBg.loader-bg.dark {
   position: relative;
-  background-color: #080808;
+  background-color: #111111 !important;
+  background: linear-gradient(90deg, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 15%, rgb(34, 34, 34) 50%, rgba(17,17,17,1) 85%, rgba(17,17,17,1) 100%) !important;
 }
 .no-v {
   opacity: 0 !important;

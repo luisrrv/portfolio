@@ -153,6 +153,7 @@ $animationSpeed: 30s;
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 place-items: center;
+                row-gap: 8px;
                 opacity: 0;
                 height: 0 !important;
                 margin: 0;
@@ -161,6 +162,16 @@ $animationSpeed: 30s;
                 backdrop-filter: blur(12px);
                 border-radius: 6px;
                 transition: 600ms;
+                .p {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    // margin-bottom: 8px;
+                }
+                svg {
+                    color: #222222;
+                }
                 p {
                     color: #333333 !important;
                     font-size: 14px;
@@ -277,6 +288,9 @@ $animationSpeed: 30s;
             background-color: transparent !important;
             .type {
                 background: #151515;
+                svg {
+                    color: #f0f0f0;
+                }
                 p {
                     color: #e6e6e6 !important;
                     -webkit-text-stroke: 0 #e6e6e6 !important;

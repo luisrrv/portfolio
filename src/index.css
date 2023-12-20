@@ -40,7 +40,7 @@ html {
 }
 html.dark {
   /* background-color: #950014 !important; */
-  background-color: #080808 !important;
+  background-color: #111111 !important;
 }
 html:not(.App.hidden) {
   animation: loading ease-in 800ms;
@@ -51,7 +51,7 @@ body {
 }
 body.dark {
   /* background-color: #950014 !important; */
-  background-color: #080808 !important;
+  background-color: #111111 !important;
 }
 code {
   font-family: 'Source Code Pro', monospace;
@@ -73,7 +73,7 @@ p {
 }
 
 .dark {
-  background-color: #080808 !important;
+  background-color: #111111 !important;
   color: #f0f0f0;
 }
 

@@ -251,16 +251,46 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
                         glareBorderRadius="6px"
                         >
                         <div className={`type code f ${frontOn ? 'on' : ''}`}>
-                            <p>HTML</p>
-                            <p>CSS</p>
-                            <p>JavaScript</p>
-                            <p>TypeScript</p>
-                            <p>React</p>
-                            <p>Vue</p>
-                            <p>SASS</p>
-                            <p>Tailwind</p>
-                            <p>Bootstrap</p>
-                            <p>Vite</p>
+                            <div className="p">
+                                <TiHtml5 />
+                                <p>HTML</p>
+                            </div>
+                            {/* <div className="p">
+                                <SiCss3 />
+                                <p>CSS</p>
+                            </div> */}
+                            <div className="p">
+                                <SiCss3 />
+                                <p>CSS/SCSS</p>
+                            </div>
+                            <div className="p">
+                                <SiJavascript />
+                                <p>JavaScript</p>
+                            </div>
+                            <div className="p">
+                                <SiTypescript />
+                                <p>TypeScript</p>
+                            </div>
+                            <div className="p">
+                                <SiReact />
+                                <p>React/Native</p>
+                            </div>
+                            <div className="p">
+                                <SiVuedotjs />
+                                <p>Vue</p>
+                            </div>
+                            <div className="p">
+                                <SiTailwindcss />
+                                <p>Tailwind</p>
+                            </div>
+                            {/* <div className="p">
+                                <SiBootstrap />
+                                <p>Bootstrap</p>
+                            </div> */}
+                            <div className="p">
+                                <SiVite />
+                                <p>Vite</p>
+                            </div>
                         </div>
                     </Tilt>
                     <Tilt 
@@ -273,14 +303,38 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
                         glareBorderRadius="6px"
                         >
                         <div className={`type code b ${backOn ? 'on' : ''}`}>
-                            <p>PHP</p>
-                            <p>Ruby</p>
-                            <p>Rails</p>
-                            <p>Python</p>
-                            <p>MySQL</p>
-                            <p>Postgress</p>
-                            <p>Firebase</p>
-                            <p>Redis</p>
+                            <div className="p">
+                                <SiPhp />
+                                <p>PHP</p>
+                            </div>
+                            <div className="p">
+                                <SiRuby />
+                                <p>Ruby</p>
+                            </div>
+                            <div className="p">
+                                <SiRubyonrails />
+                                <p>Rails</p>
+                            </div>
+                            <div className="p">
+                                <SiPython />
+                                <p>Python</p>
+                            </div>
+                            <div className="p">
+                                <SiMysql />
+                                <p>MySQL</p>
+                            </div>
+                            <div className="p">
+                                <BiLogoPostgresql />
+                                <p>Postgress</p>
+                            </div>
+                            <div className="p">
+                                <SiFirebase />
+                                <p>Firebase</p>
+                            </div>
+                            <div className="p">
+                                <SiRedis />
+                                <p>Redis</p>
+                            </div>
                         </div>
                     </Tilt>
                     <Tilt 
@@ -293,11 +347,26 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
                         glareBorderRadius="6px"
                         >
                         <div className={`type code o ${otherOn ? 'on' : ''}`}>
-                            <p>AWS</p>
-                            <p>Docker</p>
-                            <p>Netlify</p>
-                            <p>Figma</p>
-                            <p>Photoshop</p>
+                            <div className="p">
+                                <SiAmazonaws />
+                                <p>AWS</p>
+                            </div>
+                            <div className="p">
+                                <SiDocker />
+                                <p>Docker</p>
+                            </div>
+                            <div className="p">
+                                <SiNetlify />
+                                <p>Netlify</p>
+                            </div>
+                            <div className="p">
+                                <SiFigma />
+                                <p>Figma</p>
+                            </div>
+                            {/* <div className="p">
+                                <SiAdobephotoshop />
+                                <p>Photoshop</p>
+                            </div> */}
                         </div>
                     </Tilt>
                 </div>

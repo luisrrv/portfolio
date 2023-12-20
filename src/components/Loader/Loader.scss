@@ -12,7 +12,7 @@ $darkerBlue: #10153e;
 $lighterBlue: #b5bbdf;
 
 $backgroundLight: #f0f0f0;
-$backgroundDark: #080808;
+$backgroundDark: #111111;
 $leftFace: $lightBlue;
 $rightFace: $lightBlue;
 $topFace: $lightBlue;
@@ -22,6 +22,8 @@ $duration: 2.7s;
 $timingFunction: ease;
 
 .loader-container.dark {
+  background: linear-gradient(90deg, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 15%, rgba(30,30,30,1) 50%, rgba(17,17,17,1) 85%, rgba(17,17,17,1) 100%);
+
     .right,
     .left,
     .top {
@@ -41,6 +43,7 @@ $timingFunction: ease;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(90deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 15%, rgba(227,227,227,1) 50%, rgba(240,240,240,1) 85%, rgba(240,240,240,1) 100%);
 
   &.closing {
     animation: loaderClose ease-out 300ms;
