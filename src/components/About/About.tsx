@@ -149,6 +149,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
       onMouseEnter={() => handleOnOff('on')}
       onMouseLeave={() => handleOnOff('off')}
       >
+        <div className="jumbo"></div>
       <div className="content">
         {/* <div className="me-img"></div> */}
 

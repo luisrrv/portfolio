@@ -1,10 +1,10 @@
 // reds
-$lightRed: #e22941;
-$darkRed: #be3144;
-$bgRed: #950014;
+$lightRed: #4f23ff;
+$darkRed: #6200ff;
+$bgRed: #4c00a4;
 // $darkerRed: #7e1928;
-$darkerReder: #670b0b;
-$darkerRed: #3e1017;
+$darkerReder: #33007b;
+$darkerRed: #31004a;
 $lighterRed: #d897a1;
 // blues
 $lightBlue: #2979e2;
@@ -35,13 +35,68 @@ $bgDark: #080808;
     color: #222222;
     // background-color: #e6e6e6;
     background-color: transparent;
-    background-image: url(../../assets/images/coding.gif);
+    // background-image: url(../../assets/images/coding.gif);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom left;
     animation: loading ease-in 800ms;
-    filter: invert(100%);
-    -webkit-filter: invert(100%);
+    // filter: invert(100%);
+    // -webkit-filter: invert(100%);
+
+     // CHARM UI ========================================================================
+     @keyframes jumbo {
+        from {
+            background-position: 50% 50%, 50% 50%;
+        }
+        to {
+            background-position: 350% 50%, 350% 50%;
+        }
+    }
+    
+    .jumbo {
+        --stripes: repeating-linear-gradient(100deg, #f0f0f0 0%, #f0f0f0 7%, transparent 10%, transparent 12%, #f0f0f0 16%);
+        --stripesDark: repeating-linear-gradient(100deg, #111111 0%, #111111 7%, transparent 10%, transparent 12%, #111111 16%);
+        --rainbow: repeating-linear-gradient(100deg, #60a5fa 10%, #e879f9 15%, #60a5fa 20%, #5eead4 25%, #60a5fa 30%);
+        // background-color: #f0f0f0 !important;
+        background-image: var(--stripes), var(--rainbow) !important;
+        background-size: 300%, 200%;
+        background-position: 50% 50%, 50% 50%;
+
+        width: 100%;
+        height: 100%;
+    
+        filter: blur(10px) invert(100%);
+    
+        mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+    
+        pointer-events: none;
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.4;
+    }
+    
+    .jumbo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: var(--stripes), var(--rainbow) !important;
+        background-size: 200%, 100%;
+        animation: jumbo 60s linear infinite !important;
+        background-attachment: fixed;
+        mix-blend-mode: difference;
+    }
+    
+    &.dark .jumbo {
+        // background-color: #111111 !important;
+        background-image: var(--stripesDark), var(--rainbow) !important;
+        filter: blur(10px) opacity(50%) saturate(200%) !important;
+    }
+    &.dark .jumbo::after {
+        background-image: var(--stripesDark), var(--rainbow) !important;
+    }
+    // CHARM UI END ========================================================================
     
     .content {
         filter: invert(100%);
@@ -73,6 +128,8 @@ $bgDark: #080808;
             width: 100%;
             // background-color: #e6e6e6;
             background-color: transparent !important;
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
             p {
                 width: 100%;
                 height: fit-content;
@@ -240,6 +297,8 @@ $bgDark: #080808;
             margin-top: 10px;
             margin-bottom: 2px;
             z-index: 1;
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
         }
         .hacker-cont {
             position: relative;
@@ -248,6 +307,8 @@ $bgDark: #080808;
             margin: 12px 0;
             margin-left: 36px;
             margin-bottom: 20px;
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
             .hacker {
                 width: 300px;
                 height: 300px;
@@ -330,6 +391,8 @@ $bgDark: #080808;
             z-index: 1;
             text-transform: uppercase;
             letter-spacing: 4px;
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
 
             &.shw {
                 animation: slideUe ease-in 600ms;
@@ -383,6 +446,8 @@ $bgDark: #080808;
         }
         .special {
             // background-color: #080808;
+            filter: unset;
+            -webkit-filter: unset;
             p {
                 &.big span.letter{
                     color: transparent !important;
@@ -410,8 +475,12 @@ $bgDark: #080808;
         }
         .divider {
             border-top: 0.5px solid #f0f0f0;
+            filter: unset;
+            -webkit-filter: unset;
         }
         .hacker-cont {
+            filter: unset;
+            -webkit-filter: unset;
             .hacker {
                 &.shadow {
                     content: url(../../assets/images/menobg_stencil_w.png);
@@ -420,6 +489,8 @@ $bgDark: #080808;
         }
 
         .text {
+            filter: unset;
+            -webkit-filter: unset;
             p {
                 span.bold {
                     color: #e6e6e6 !important;
@@ -446,8 +517,10 @@ $bgDark: #080808;
         transform: translateX(-50%);
         height: 60px;
         width: 20px;
-        filter: invert(100%);
-        -webkit-filter: invert(100%);
+        // filter: invert(100%);
+        // -webkit-filter: invert(100%);
+        filter: unset;
+        -webkit-filter: unset;
         opacity: 0.9;
         
         .int {

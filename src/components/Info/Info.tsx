@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './Info.scss';
 
-import { BiLogoFigma, BiLogoReact, BiLogoTypescript, BiSolidBriefcaseAlt, BiSolidBrain } from 'react-icons/bi';
-import { SiNetlify } from 'react-icons/si';
+import { BiLogoFigma, BiLogoReact, BiLogoTypescript, BiSolidBriefcaseAlt, BiSolidBrain, BiLogoGithub } from 'react-icons/bi';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { RiUser5Fill } from 'react-icons/ri';
 import { MdOutlineDarkMode, MdSunny, MdAlternateEmail } from 'react-icons/md';
@@ -95,7 +94,7 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
                     <BiLogoFigma />
                     <BiLogoReact />
                     <BiLogoTypescript />
-                    <SiNetlify />
+                    <BiLogoGithub />
                     <div className="info-img"></div>
                 </div>
             </div>
