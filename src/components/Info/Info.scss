@@ -48,7 +48,7 @@ $lighterBlue: #b5bbdf;
         border-radius: 0;
         padding:32px;
         padding-top: 18px;
-        background-color: #d3d3d385 !important;
+        background-color: #ededef85 !important;
         backdrop-filter: blur(10px);
         color: #25252a;
         display: flex;
@@ -112,7 +112,7 @@ $lighterBlue: #b5bbdf;
                 justify-content: flex-start;
                 align-items: center;
                 gap: 8px;
-                
+
                 &:hover {
                     cursor: pointer;
                     letter-spacing: 2px;
@@ -130,7 +130,7 @@ $lighterBlue: #b5bbdf;
                 }
             }
         }
-    
+
         .content {
             flex-grow: 1;
             display: flex;
@@ -165,7 +165,7 @@ $lighterBlue: #b5bbdf;
                 width: 100%;
                 height: fit-content;
                 gap: 12px;
-                
+
                 svg {
                     border-radius: 50%;
                     height: 32px;
@@ -190,9 +190,9 @@ $lighterBlue: #b5bbdf;
         background-color: #00000000 !important;
 
         #info_container {
-            background-color: #08080870 !important;
-    
-    
+            background-color: #11111370 !important;
+
+
             .content {
                 p {
                     color: #ababab !important;
@@ -225,7 +225,7 @@ $lighterBlue: #b5bbdf;
         }
 
     }
-    
+
     @media (max-width:440px) {
         #info_container {
             width: 90%;

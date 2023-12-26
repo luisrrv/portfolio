@@ -30,12 +30,15 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
   // };
 
   // // Add event listener on mount and remove it on unmount
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const jumboBg = document.querySelector('.jumbo');
+    if (jumboBg) {
+      jumboBg.classList.add('loaded');
+      return () => {
+        jumboBg.classList.remove('loaded');
+      };
+    }
+  }, []);
 
   useEffect(() => {
     const flipLetters = () => {
@@ -65,7 +68,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             randomLetters[1].classList.remove('flip');
           }, 2800);
         },1500)
-        
+
         setTimeout(()=> {
           randomLetters[2].classList.add('flip');
           randomLetters[2].classList.remove('shw');
@@ -143,8 +146,8 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
   }
 
   return (
-    <div 
-      id='about_container' 
+    <div
+      id='about_container'
       className={`about_container ${compClassName} ${hideApp && 'hidden'}`}
       onMouseEnter={() => handleOnOff('on')}
       onMouseLeave={() => handleOnOff('off')}
@@ -205,7 +208,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             </p> */}
           <p className={`small name after bold ${showClassName}`}>LUIS RODRIGUEZ</p>
         </div>
-        
+
 
 
         {/* <div className="divider"></div> */}
@@ -213,10 +216,10 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
           <div className="hacker-cont">
             <img className='hacker shadow' alt="hacker" />
             <img className={`hacker ${showClassName}`} alt="hacker" />
-            {/* <p 
+            {/* <p
               className="more"
               onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
-              onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+              onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}}
               onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
             >
               about me <PiCardsFill />
@@ -230,19 +233,19 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced
             in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.
             <br></br>
-            <span 
+            <span
             className="more"
             onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
-            onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+            onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}}
             onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
           >
             more <PiCardsFill />
           </span>
           </p>
-          {/* <span 
+          {/* <span
             className="more"
             onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
-            onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
+            onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}}
             onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
           >
             more

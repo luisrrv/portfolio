@@ -28,15 +28,15 @@ $bgDark: #080808;
     background-color: #f0f0f0 !important;
     backdrop-filter: unset !important;
     animation: loading ease-in 800ms;
-    
+
     &.b {
         backdrop-filter: blur(10px) !important;
     }
     &.hdr {
         background-color: transparent !important;
         &.b {
-            background-color: #f0f0f088 !important;
-            background: linear-gradient(90deg, rgba(240,240,240,0.533) 0%, rgba(240,240,240,0.533) 30%, rgba(217,217,217,0.533) 50%, rgba(240,240,240,0.533) 70%, rgba(240,240,240,0.533) 100%);
+            background-color: #ededef88 !important;
+            background: linear-gradient(90deg, rgba(237, 237, 239,0.533) 0%, rgba(237, 237, 239,0.533) 15%, rgba(220, 221, 225, 0.533) 50%, rgba(237, 237, 239,0.533) 85%, rgba(237, 237, 239,0.533) 100%);
         }
     }
 
@@ -47,10 +47,10 @@ $bgDark: #080808;
         font-weight: bold;
         height: fit-content;
         opacity: 0;
-        -webkit-user-select: none;  
-        -moz-user-select: none;    
-        -ms-user-select: none;  
-        user-select: none; 
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
         width: 32px;
         height: 32px;
         background-image: url(../../assets/images/menobg_stencil_logo_b.png);
@@ -72,7 +72,7 @@ $bgDark: #080808;
             a {
                 color: #25252a !important;
                 svg {
-                    color: #25252a !important;  
+                    color: #25252a !important;
                 }
             }
         }
@@ -100,7 +100,7 @@ $bgDark: #080808;
         color: #25252a;
 
     }
-    
+
     &.dark {
         background-color: $bgDark !important;
         &.b {
@@ -113,8 +113,8 @@ $bgDark: #080808;
         &.hdr {
             background-color: transparent !important;
             &.b {
-                background-color: #11111188!important;
-                background: linear-gradient(90deg, rgba(17,17,17,0.533) 0%, rgba(17,17,17,0.533) 15%, rgba(34, 34, 34,0.533) 50%, rgba(17,17,17,0.533) 85%, rgba(17,17,17,0.533) 100%);
+                background-color: #11111388!important;
+                background: linear-gradient(90deg, rgba(17,17,19,0.533) 0%, rgba(17,17,19,0.533) 15%, rgba(31, 31, 37,0.533) 50%, rgba(17,17,19,0.533) 85%, rgba(17,17,19,0.533) 100%);
             }
         }
         button {

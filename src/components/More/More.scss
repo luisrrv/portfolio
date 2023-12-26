@@ -23,16 +23,16 @@ $lighterBlue: #b5bbdf;
     background-color: #ffffff00;
     opacity: 0;
     transition: 400ms;
-    
+
     .more-container {
         position: relative;
         box-sizing: border-box;
-        background: rgb(235,235,235);
-        background: linear-gradient(117deg, rgba(235,235,235,1) 0%, rgba(235,235,235,1) 57%, rgba(255,255,255,1) 75%, rgba(235,235,235,1) 100%);
-        border: 1px solid #e1e1e1;
+        background: rgb(237, 237, 239);
+        background: linear-gradient(117deg, rgba(237, 237, 239,1) 0%, rgba(237, 237, 239,1) 57%, rgba(255,255,255,1) 75%, rgba(237, 237, 239,1) 100%);
+        border: 1px solid #dcdde1;
         height: fit-content;
-        max-height: 84%;
-        min-height: 57%;
+        // max-height: fit-content;
+        min-height: 40%;
         width: 700px;
         max-width: 90%;
         border-radius: 8px;
@@ -41,7 +41,7 @@ $lighterBlue: #b5bbdf;
         transform: scale(0.8);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
 
         & > div {
@@ -57,7 +57,7 @@ $lighterBlue: #b5bbdf;
             height: 100%;
             border-radius: 8px;
         }
-        
+
         .more-title {
             display: flex;
             flex-direction: column;
@@ -66,7 +66,7 @@ $lighterBlue: #b5bbdf;
             height: fit-content;
             color: #333333;
             padding: 8px 0;
-            
+
             svg {
                 color: $lightRed;
                 font-size: 22px;
@@ -82,7 +82,7 @@ $lighterBlue: #b5bbdf;
             font-weight: 300;
             text-align: center;
             line-height: 28px;
-            flex-grow: 1;
+            // flex-grow: 1;
             padding: 12px 0;
             transition: 100ms !important;
             span {
@@ -110,10 +110,10 @@ $lighterBlue: #b5bbdf;
     &.dark {
         background-color: #00000000 !important;
         .more-container {
-            background: #111111;
-            background: linear-gradient(117deg, rgba(17,17,17, 1) 0%, rgba(17,17,17, 1) 25%, rgba(34, 34, 34, 1) 70%, rgba(17,17,17, 1) 100%);
-            border: 1px solid #202020;
-    
+            background: #111113;
+            background: linear-gradient(117deg, rgba(17,17,19, 1) 0%, rgba(17,17,19, 1) 25%, rgba(31, 31, 37, 1) 70%, rgba(17,17,19, 1) 100%);
+            border: 1px solid #1f1f25;
+
             .more-title {
                 color: #e6e6e6;
             }

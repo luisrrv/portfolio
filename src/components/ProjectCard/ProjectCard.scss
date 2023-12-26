@@ -24,7 +24,7 @@ $lighterBlue: #b5bbdf;
     overflow: hidden;
     border-radius: 8px;
     // transition: 300ms !important;
-    
+
     &:has(.selected) {
       height: 600px;
       min-height: 600px;
@@ -97,8 +97,8 @@ $lighterBlue: #b5bbdf;
 
       &.on {
         filter: blur(0px);
-        border: 1px solid #e1e1e1;
-        background-color: #e6e6e6;
+        border: 1px solid #dcdde1;
+        background-color: #ededef;
 
         &.in-v {
           animation: card-in-view ease-in 800ms !important;
@@ -126,7 +126,7 @@ $lighterBlue: #b5bbdf;
       height: 70%;
       z-index: 9;
       transition: 700ms;
-      
+
       .pic {
         width: 100px;
         height: 190px;
@@ -249,9 +249,9 @@ $lighterBlue: #b5bbdf;
 
     &.dark {
       .card-cover {
-        border-color: #202020;
-        background: #151515; // change this???
-        
+        border-color: #1f1f25;
+        background: #131315;
+
         .name-container {
           p {
             text-transform: uppercase;
@@ -369,7 +369,7 @@ $lighterBlue: #b5bbdf;
       p {
         padding: 8px 8px 0 8px;
       }
-      
+
       div {
         padding: 8px;
 
@@ -384,7 +384,7 @@ $lighterBlue: #b5bbdf;
             font-size: 28px;
           }
         }
-    
+
         .cta {
           padding: 8px;
           display: flex;
@@ -561,7 +561,7 @@ $lighterBlue: #b5bbdf;
       height: 500px;
       min-height: 500px;
       max-height: 500px;
-      
+
       .open-card {
         height: 500px;
         min-height: 500px;
@@ -581,7 +581,7 @@ $lighterBlue: #b5bbdf;
       }
     }
   }
-  
+
   @media (max-width: 600px) {
     height: 120px;
     .open-card {
@@ -609,7 +609,7 @@ $lighterBlue: #b5bbdf;
               height: fit-content;
               svg {
                 font-size: 20px;
-              } 
+              }
             }
           }
         }
@@ -631,7 +631,7 @@ $lighterBlue: #b5bbdf;
       height: 450px;
       min-height: 450px;
       max-height: 450px;
-      
+
       .open-card {
         height: 450px;
         min-height: 450px;

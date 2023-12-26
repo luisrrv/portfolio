@@ -19,24 +19,24 @@ $lighterBlue: #b5bbdf;
     width: 100%;
     padding-bottom: 60px;
     color: #25252a;
-    background-color: #f0f0f0 !important;
-    background: linear-gradient(90deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 15%, rgba(222,222,222,1) 50%, rgba(240,240,240,1) 85%, rgba(240,240,240,1) 100%);
+    background-color: #ededef !important;
+    background: linear-gradient(90deg, rgba(237, 237, 239,1) 0%, rgba(237, 237, 239,1) 15%, rgb(220, 221, 225) 50%, rgba(237, 237, 239,1) 85%, rgba(237, 237, 239,1) 100%);
 
     animation: loading ease-in 800ms;
-    
+
     #work {
         scroll-margin-top: 0;
         opacity: 0;
 
         &.in-v {
-            opacity: 0.8;  
+            opacity: 0.8;
         }
     }
 
     &.dark {
         color: #e6e6e6;
-        background-color: #111111!important;
-        background: linear-gradient(90deg, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 15%, rgba(30,30,30,1) 50%, rgba(17,17,17,1) 85%, rgba(17,17,17,1) 100%);
+        background-color: #111113!important;
+        background: linear-gradient(90deg, rgba(17,17,19,1) 0%, rgba(17,17,19,1) 15%, rgb(31, 31, 37) 50%, rgba(17,17,19,1) 85%, rgba(17,17,19,1) 100%);
 
         h3 {
             -webkit-text-stroke: 1px #e6e6e6 !important;
@@ -53,7 +53,7 @@ $lighterBlue: #b5bbdf;
                 opacity: 0;
 
                 &.in-v {
-                    opacity: 0.8;  
+                    opacity: 0.8;
                   }
             }
         }
@@ -61,7 +61,7 @@ $lighterBlue: #b5bbdf;
             color: #e6e6e6;
         }
     }
-    
+
     h3 {
         display: flex;
         flex-direction: column;
@@ -77,7 +77,7 @@ $lighterBlue: #b5bbdf;
         font-weight: bold;
         color: #333333;
         -webkit-text-stroke: 1px #333333 !important;
-        
+
         svg {
             color: $lightRed !important;
             font-size: 20px;
@@ -166,7 +166,7 @@ $lighterBlue: #b5bbdf;
             }
         }
     }
-} 
+}
 @media (pointer: coarse) {
     #projects_container {
         h3 {
@@ -178,4 +178,3 @@ $lighterBlue: #b5bbdf;
     }
 
 }
-

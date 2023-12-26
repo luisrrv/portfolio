@@ -56,11 +56,11 @@ function App({ className, isDarkMode }: IAppProps) {
       setBack(true)
     }, 3600);
   },[]);
-  
+
   useEffect(() => {
     setIsDark(darkMode);
   },[darkMode]);
-  
+
   const checkElements = (element: string, type: string, maxAttempts = 10, interval = 100) => {
     let attempts = 0;
     const checkElement = () => {
@@ -140,7 +140,7 @@ function App({ className, isDarkMode }: IAppProps) {
       } else {
         setWebMS(isMouseOver);
       }
-    } 
+    }
   };
 
   const aboutMSOn = () => {
@@ -212,9 +212,9 @@ function App({ className, isDarkMode }: IAppProps) {
       )}
       <div id='App' className={`App ${appClassName}`} onScroll={() => setScrolling(true)}>
           <div className={`app-overlay ${hideOverlay ? 'hide' : ''} ${opZero ? 'op-z' : ''} ${back ? 'bck' : ''}`}></div>
-        <MouseTracker 
-          size={60} 
-          sizeSmall={12} 
+        <MouseTracker
+          size={60}
+          sizeSmall={12}
           contactMS={contactMS}
           contactOptsMS={contactOptsMS}
           projectMS={projectMS}
@@ -234,21 +234,21 @@ function App({ className, isDarkMode }: IAppProps) {
           handleDarkModeChange={handleDarkModeChange}
           showDialog={showDialog}
           aboutMS={aboutMS}
-          aboutMSOn={aboutMSOn} 
+          aboutMSOn={aboutMSOn}
           aboutMSOff={aboutMSOff}
           opZero={opZero}
         />
-        <About 
-          isDark={isDark} 
-          hideApp={hideApp} 
-          aboutMSOn={aboutMSOn} 
-          aboutMSOff={aboutMSOff} 
+        <About
+          isDark={isDark}
+          hideApp={hideApp}
+          aboutMSOn={aboutMSOn}
+          aboutMSOff={aboutMSOff}
           opZero={opZero}
           handleContactMouseOverChange={handleContactMouseOverChange}
           handleMore={handleMore}
         />
         {more && (
-          <More 
+          <More
             isDark={isDark}
             more={more}
             moreOn={moreOn}
@@ -256,16 +256,16 @@ function App({ className, isDarkMode }: IAppProps) {
             handleContactMouseOverChange={handleContactMouseOverChange}
             />
             )}
-        <Projects 
-          isDark={isDark} 
-          hideApp={hideApp} 
+        <Projects
+          isDark={isDark}
+          hideApp={hideApp}
           handleContactMouseOverChange={handleContactMouseOverChange}
           scrolling={scrolling}
-          
+
           />
-        <Info 
-          isDark={isDark} 
-          hideDialog={hideDialog} 
+        <Info
+          isDark={isDark}
+          hideDialog={hideDialog}
           handleContactMouseOverChange={handleContactMouseOverChange}
           handleDarkModeChange={handleDarkModeChange}
           handleMore={handleMore}
