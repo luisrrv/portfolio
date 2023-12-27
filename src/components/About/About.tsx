@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './About.scss';
 // import Tilt from 'react-parallax-tilt';
 // import { RiUser5Fill } from 'react-icons/ri';
@@ -20,14 +20,24 @@ interface AboutProps {
 export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
-  // const [scrollPosition, setScrollPosition] = useState(0);
+  const [translate, setTranslate] = useState({ transform: 'translateX(0px)', });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
 
-  // Update scroll position on scroll
-  // const handleScroll = () => {
-  //   requestAnimationFrame(() => {
-  //     setScrollPosition(window.scrollY);
-  //   });
-  // };
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentPosition = window.scrollY;
+      setScrollPosition(currentPosition);
+      const translateValue = currentPosition * 0.1;
+      setTranslate({ transform: `translateX(${translateValue}px)` });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // // Add event listener on mount and remove it on unmount
   useEffect(() => {
@@ -152,7 +162,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
       onMouseEnter={() => handleOnOff('on')}
       onMouseLeave={() => handleOnOff('off')}
       >
-        <div className="jumbo"></div>
+        <div className="jumbo" style={translate}></div>
       <div className="content">
         {/* <div className="me-img"></div> */}
 
