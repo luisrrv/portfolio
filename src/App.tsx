@@ -38,26 +38,6 @@ function App({ className, isDarkMode }: IAppProps) {
   const [scrollingTimeout, setScrollingTimeout] = useState<NodeJS.Timeout | null>(null);
   const [more, setMore] = useState(false);
   const [moreOn, setMoreOn] = useState(false);
-  const [translate, setTranslate] = useState({ transform: 'translateX(0px)', });
-  const [scrollPosition, setScrollPosition] = useState<number>(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentPosition = window.scrollY;
-      setScrollPosition(currentPosition);
-      let translateValue = currentPosition * 0.1;
-      if (currentPosition < 1) {
-        translateValue = 1;
-      }
-      translateValue = parseFloat(translateValue.toFixed(2));
-      setTranslate({ transform: `translateX(${'-' + translateValue}px)` });
-    };
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   useEffect(() => {
     // setShowApp(true);
@@ -232,7 +212,7 @@ function App({ className, isDarkMode }: IAppProps) {
         </div>
       )}
       <div id='App' className={`App ${appClassName}`} onScroll={() => setScrolling(true)}>
-        <div className="jumbo" style={translate}></div>
+        <div className="jumbo"></div>
         <div className={`app-overlay ${hideOverlay ? 'hide' : ''} ${opZero ? 'op-z' : ''} ${back ? 'bck' : ''}`}></div>
         <MouseTracker
           size={60}
@@ -268,7 +248,6 @@ function App({ className, isDarkMode }: IAppProps) {
           opZero={opZero}
           handleContactMouseOverChange={handleContactMouseOverChange}
           handleMore={handleMore}
-          scrollPosition={scrollPosition}
         />
         {more && (
           <More

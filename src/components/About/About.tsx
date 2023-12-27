@@ -15,12 +15,13 @@ interface AboutProps {
   opZero: boolean;
   handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
   handleMore: (value: boolean) => void;
-  scrollPosition: number;
 }
 
-export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore, scrollPosition }: AboutProps) {
+export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [style, setStyle] = useState({ opacity: '1' });
 
   // // Add event listener on mount and remove it on unmount
@@ -35,14 +36,26 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
   }, []);
 
   useEffect(() => {
-    const maxScroll = 800;
-      let opacityValue = 1 - scrollPosition / maxScroll;
+    const handleScroll = () => {
+      const currentPosition = window.scrollY;
+      setScrollPosition(currentPosition);
+
+      const maxScroll = 800;
+      let opacityValue = 1 - currentPosition / maxScroll;
+
       if (opacityValue < 0) opacityValue = 0;
-      if (scrollPosition <= 0) opacityValue = 1;
+      if (currentPosition <= 0) opacityValue = 1;
+
       opacityValue = parseFloat(opacityValue.toFixed(1));
 
       setStyle({ opacity: `${opacityValue}` });
-  }, [scrollPosition]);
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const flipLetters = () => {
