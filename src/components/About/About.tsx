@@ -15,29 +15,13 @@ interface AboutProps {
   opZero: boolean;
   handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
   handleMore: (value: boolean) => void;
+  scrollPosition: number;
 }
 
-export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore }: AboutProps) {
+export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore, scrollPosition }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
-  const [translate, setTranslate] = useState({ transform: 'translateX(0px)', });
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [scrollPosition, setScrollPosition] = useState<number>(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentPosition = window.scrollY;
-      setScrollPosition(currentPosition);
-      const translateValue = currentPosition * 0.1;
-      setTranslate({ transform: `translateX(${translateValue}px)` });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const [style, setStyle] = useState({ opacity: '1' });
 
   // // Add event listener on mount and remove it on unmount
   useEffect(() => {
@@ -49,6 +33,16 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
       };
     }
   }, []);
+
+  useEffect(() => {
+    const maxScroll = 800;
+      let opacityValue = 1 - scrollPosition / maxScroll;
+      if (opacityValue < 0) opacityValue = 0;
+      if (scrollPosition <= 0) opacityValue = 1;
+      opacityValue = parseFloat(opacityValue.toFixed(1));
+
+      setStyle({ opacity: `${opacityValue}` });
+  }, [scrollPosition]);
 
   useEffect(() => {
     const flipLetters = () => {
@@ -162,10 +156,8 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
       onMouseEnter={() => handleOnOff('on')}
       onMouseLeave={() => handleOnOff('off')}
       >
-        <div className="jumbo" style={translate}></div>
-      <div className="content">
+      <div className="content" style={style}>
         {/* <div className="me-img"></div> */}
-
 
         <div className="special">
           {/* <div className="grain"></div> */}
@@ -263,7 +255,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
         </div>
       </div>
       <a href='#skills' className="scroll-ind">
-        <div className='int'>
+        <div className='int' style={style}>
           <AiOutlineArrowDown />
         </div>
       </a>

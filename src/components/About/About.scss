@@ -26,7 +26,7 @@ $bgDark: #080808;
     // width: 1100px;
     width: 100%;
     overflow: hidden;
-    position: fixed;
+    // position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -42,69 +42,6 @@ $bgDark: #080808;
     animation: loading ease-in 800ms;
     // filter: invert(100%);
     // -webkit-filter: invert(100%);
-
-     // CHARM UI ========================================================================
-    //  @keyframes jumbo {
-    //       0% {
-    //         // background-position: 50% 50%, 50% 50%;
-    //         transform: translateX(0);
-    //       }
-    //       50% {
-    //         // background-position: 100% 50%, 100% 50%;
-    //         transform: translateX(15%);
-    //       }
-    //       100% {
-    //         // background-position: 50% 50%, 50% 50%;
-    //         transform: translateX(0);
-    //     }
-    // }
-
-    .jumbo {
-        display: none;
-        &.loaded{
-          display: block;
-        }
-        --stripes: repeating-linear-gradient(100deg, #f0f0f0 0%, #f0f0f0 7%, transparent 10%, transparent 12%, #f0f0f0 16%);
-        --stripesDark: repeating-linear-gradient(100deg, #111111 0%, #111111 7%, transparent 10%, transparent 12%, #111111 16%);
-        --rainbow: repeating-linear-gradient(100deg, #60a5fa 10%, #79f9f5 15%, #60a5fa 20%, #4f23ff 25%, #60a5fa 30%);
-        // background-color: #f0f0f0 !important;
-        background-image: var(--stripes), var(--rainbow) !important;
-        background-size: 200%, 100%;
-        background-position: 50% 50%, 50% 50%;
-        width: 100%;
-        height: 100%;
-        filter: blur(10px);
-
-        mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-        // animation: jumbo 30s linear infinite !important;
-        pointer-events: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0.3;
-    }
-
-    // .jumbo::after {
-    //     content: "";
-    //     position: absolute;
-    //     inset: 0;
-    //     background-image: var(--stripes), var(--rainbow) !important;
-    //     // background-size: 200%, 100%;
-    //     // animation: jumbo 10s linear infinite !important;
-    //     background-attachment: fixed;
-    //     mix-blend-mode: difference;
-    // }
-
-    &.dark .jumbo {
-        // background-color: #111111 !important;
-        background-image: var(--stripesDark), var(--rainbow) !important;
-        filter: blur(10px) opacity(50%) saturate(200%) !important;
-        opacity: 0.2;
-    }
-    // &.dark .jumbo::after {
-    //     background-image: var(--stripesDark), var(--rainbow) !important;
-    // }
-    // CHARM UI END ========================================================================
 
     .content {
         filter: invert(100%);
