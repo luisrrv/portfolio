@@ -209,11 +209,11 @@ $bgDark: #080808;
                             0 0 7px #11111522,
                             0 0 10px #11111522,
                             0 0 21px #11111522,
-                            0 0 42px #4f23ff,
-                            0 0 82px #4f23ff,
-                            0 0 92px #4f23ff,
-                            0 0 102px #4f23ff,
-                            0 0 151px #4f23ff;
+                            0 0 42px #4f23ff80,
+                            0 0 82px #4f23ff80,
+                            0 0 92px #4f23ff80,
+                            0 0 102px #4f23ff80,
+                            0 0 151px #4f23ff80;
                     }
                     &.hello {
                         font-size: 24px;
@@ -332,7 +332,10 @@ $bgDark: #080808;
                 }
 
                 span.self-desc {
+                    display: inline-block;
                     font-weight: bold;
+                    height: 40px;
+                    min-height: 40px;
                 }
 
                 span.bold {
@@ -397,14 +400,14 @@ $bgDark: #080808;
                         color: transparent;
                         -webkit-text-stroke: 1px #f0f0f0 !important;
                         text-shadow:
-                            0 0 7px #f0f0f06c,
-                            0 0 10px #f0f0f06c,
-                            0 0 21px #f0f0f06c,
-                            0 0 42px #4f23ff,
-                            0 0 82px #4f23ff,
-                            0 0 92px #4f23ff,
-                            0 0 102px #4f23ff,
-                            0 0 151px #4f23ff;
+                            0 0 7px #f0f0f04f,
+                            0 0 10px #f0f0f04f,
+                            0 0 21px #f0f0f04f,
+                            0 0 42px #4f23ff80,
+                            0 0 82px #4f23ff80,
+                            0 0 92px #4f23ff80,
+                            0 0 102px #4f23ff80,
+                            0 0 151px #4f23ff80;
                     }
                 }
             }
@@ -645,7 +648,10 @@ $bgDark: #080808;
                         font-size: 16px !important;
                     }
                     &.name.after {
-                        font-size: 20px !important;
+                        font-size: 28px !important;
+                    }
+                    &.name.bold {
+                        text-shadow: none !important;
                     }
                 }
                 p.big.first,
@@ -673,6 +679,9 @@ $bgDark: #080808;
                     }
                 }
             }
+        }
+        &.dark .content .special .small.name.bold {
+            text-shadow: none !important;
         }
     }
 }
