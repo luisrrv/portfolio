@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.02900695.css",
-    "main.js": "/static/js/main.7c212654.js",
+    "main.css": "/static/css/main.3cbb5618.css",
+    "main.js": "/static/js/main.964f734b.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/tomando.gif": "/static/media/tomando.f4e6fa782d3f673c20f4.gif",
     "static/media/chat2_wide.png": "/static/media/chat2_wide.9854c0ef560d8f971b92.png",
@@ -32,12 +32,12 @@
     "static/media/menobg_stencil_logo_w.png": "/static/media/menobg_stencil_logo_w.6ea3f3050fc130933367.png",
     "static/media/menobg_stencil_logo_b.png": "/static/media/menobg_stencil_logo_b.45560332961d5de51b8d.png",
     "index.html": "/index.html",
-    "main.02900695.css.map": "/static/css/main.02900695.css.map",
-    "main.7c212654.js.map": "/static/js/main.7c212654.js.map",
+    "main.3cbb5618.css.map": "/static/css/main.3cbb5618.css.map",
+    "main.964f734b.js.map": "/static/js/main.964f734b.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.02900695.css",
-    "static/js/main.7c212654.js"
+    "static/css/main.3cbb5618.css",
+    "static/js/main.964f734b.js"
   ]
 }
