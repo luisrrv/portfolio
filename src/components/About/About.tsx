@@ -15,9 +15,10 @@ interface AboutProps {
   opZero: boolean;
   handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
   handleMore: (value: boolean) => void;
+  loading: boolean;
 }
 
-export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore }: AboutProps) {
+export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore, loading }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -34,6 +35,17 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
       };
     }
   }, []);
+  
+  useEffect(() => {
+    if (!loading) {
+      const selfDesc = document.querySelector('.self-desc');
+      if (selfDesc) {
+        setTimeout(() => {
+          selfDesc.classList.add('typewriter');
+        },3000);
+      }
+    }
+  }, [loading]);
 
   // Fade out content on scroll
   useEffect(() => {
@@ -247,8 +259,10 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
         <div className={`text ${showClassName}`}>
           {/* < RiUser5Fill size={20} /> */}
           <p className='small name'>
-            A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced
-            in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.
+            {/* <span className='typewriter'>
+              A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.
+            </span> */}
+            <span className='self-desc'></span>
             <br></br>
             <span
             className="more"

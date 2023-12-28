@@ -331,6 +331,10 @@ $bgDark: #080808;
                     cursor: default;
                 }
 
+                span.self-desc {
+                    font-weight: bold;
+                }
+
                 span.bold {
                     padding: 2px;
                     color: #222222 !important;
@@ -759,3 +763,114 @@ $bgDark: #080808;
         }
     }
 }
+
+// TYPEWRITER =====================
+@keyframes typing {
+    00.0%, 100% { content: ""; }
+    00.5%, 99.5% { content: "A"; }
+    01.0%, 20.0%, 38.0%, 99% { content: "A "; }
+    
+    01.5%, 19.5% { content: "A f"; }
+    02.0%, 19.0% { content: "A fr"; }
+    02.5%, 18.5% { content: "A fro"; }
+    03.0%, 18.0% { content: "A fron"; }
+    03.5%, 17.5% { content: "A front"; }
+    04.0%, 17.0% { content: "A front-"; }
+    04.5%, 16.5% { content: "A front-e"; }
+    05.0%, 16.0% { content: "A front-en"; }
+    05.5%, 15.5% { content: "A front-end"; }
+
+    20.5%, 37.5% { content: "A b"; }
+    21.0%, 37.0% { content: "A ba"; }
+    21.5%, 36.5% { content: "A bac"; }
+    22.0%, 36.0% { content: "A back"; }
+    22.5%, 35.5% { content: "A back-"; }
+    23.0%, 35.0% { content: "A back-e"; }
+    23.5%, 34.5% { content: "A back-en"; }
+    24.0%, 34.0% { content: "A back-end"; }
+    
+    38.5%, 98.5% { content: "A f"; }
+    39.0%, 98% { content: "A fu"; }
+    39.5%, 97.5% { content: "A ful"; }
+    40.0%, 97% { content: "A full"; }
+    40.5%, 96.5% { content: "A full-"; }
+    41.0%, 96% { content: "A full-s"; }
+    41.5%, 95.5% { content: "A full-st"; }
+    42.0%, 95% { content: "A full-sta"; }
+    42.5%, 94.5% { content: "A full-stac"; }
+    43.0%, 94% { content: "A full-stack"; }
+
+    43.5%, 93.5% { content: "A full-stack "; }
+    44.0%, 93% { content: "A full-stack s"; }
+    44.5%, 92.5% { content: "A full-stack so"; }
+    45.0%, 92% { content: "A full-stack sof"; }
+    45.5%, 91.5% { content: "A full-stack soft"; }
+    46.0%, 91% { content: "A full-stack softw"; }
+    46.5%, 90.5% { content: "A full-stack softwa"; }
+    47.0%, 90% { content: "A full-stack softwar"; }
+    47.5%, 89.5% { content: "A full-stack software"; }
+    48.0%, 89% { content: "A full-stack software "; }
+    48.5%, 88.5% { content: "A full-stack software d"; }
+    49.0%, 88% { content: "A full-stack software de"; }
+    49.5%, 87.5% { content: "A full-stack software dev"; }
+    50.0%, 87% { content: "A full-stack software deve"; }
+    50.5%, 86.5% { content: "A full-stack software devel"; }
+    51.0%, 86% { content: "A full-stack software develo"; }
+    51.5%, 85.5% { content: "A full-stack software develop"; }
+    52.0%, 85% { content: "A full-stack software develope"; }
+    52.5%, 84.5% { content: "A full-stack software developer"; }
+    53.0%, 84% { content: "A full-stack software developer "; }
+    53.5%, 83.5% { content: "A full-stack software developer b"; }
+    54.0%, 83% { content: "A full-stack software developer ba"; }
+    54.5%, 82.5% { content: "A full-stack software developer bas"; }
+    55.0%, 82% { content: "A full-stack software developer base"; }
+    55.5%, 81.5% { content: "A full-stack software developer based"; }
+    56.0%, 81% { content: "A full-stack software developer based "; }
+    56.5%, 80.5% { content: "A full-stack software developer based i"; }
+    57.0%, 80% { content: "A full-stack software developer based in"; }
+    57.5%, 79.5% { content: "A full-stack software developer based in "; }
+    58.0%, 79% { content: "A full-stack software developer based in T"; }
+    58.5%, 78.5% { content: "A full-stack software developer based in To"; }
+    59.0%, 78% { content: "A full-stack software developer based in Tok"; }
+    59.5%, 77.5% { content: "A full-stack software developer based in Toky"; }
+    60.0%, 77.0% { content: "A full-stack software developer based in Tokyo"; }
+    61.0%, 76.5% { content: "A full-stack software developer based in Tokyo."; }
+    // 82 steps to write whole sentence
+    // 47 steps to erase sentence
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .typewriter {
+    --caret: currentcolor;
+  }
+  
+  .typewriter::before {
+    content: "";
+    animation: typing 13.5s infinite;
+  }
+  
+  .typewriter::after {
+    content: "";
+    border-right: 1ch solid var(--caret);
+    animation: blink 0.5s linear infinite;
+  }
+
+  @media (prefers-reduced-motion) {
+    .typewriter::after {
+      animation: none;
+    }
+    
+    @keyframes sequencePopup {
+      0%, 100% { content: "A full-stack software developer based in Tokyo."; }
+    }
+  
+    .typewriter::before {
+      content: "A full-stack software developer based in Tokyo.";
+      animation: sequencePopup 24s linear infinite;
+    }
+  }
+// TYPEWRITER END =====================

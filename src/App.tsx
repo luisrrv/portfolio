@@ -248,6 +248,7 @@ function App({ className, isDarkMode }: IAppProps) {
           opZero={opZero}
           handleContactMouseOverChange={handleContactMouseOverChange}
           handleMore={handleMore}
+          loading={loading}
         />
         {more && (
           <More
