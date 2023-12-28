@@ -328,12 +328,14 @@ $bgDark: #080808;
                 font-size: 12px;
                 line-height: 20px;
                 font-weight: 300;
+                min-height: 20px;
                 &:hover{
                     cursor: default;
                 }
 
                 span.self-desc {
                     font-weight: bold;
+                    min-height: 14px;
                 }
 
                 span.bold {
@@ -777,7 +779,7 @@ $bgDark: #080808;
 @keyframes typing {
     00.0%, 100% { content: ""; }
     00.5%, 99.5% { content: "A"; }
-    01.0%, 20.0%, 38.0%, 99% { content: "A "; }
+    // 01.0%, 20.0%, 38.0%, 99% { content: "A "; }
     
     01.5%, 19.5% { content: "A f"; }
     02.0%, 19.0% { content: "A fr"; }
@@ -809,7 +811,7 @@ $bgDark: #080808;
     42.5%, 94.5% { content: "A full-stac"; }
     43.0%, 94% { content: "A full-stack"; }
 
-    43.5%, 93.5% { content: "A full-stack "; }
+    // 43.5%, 93.5% { content: "A full-stack "; }
     44.0%, 93% { content: "A full-stack s"; }
     44.5%, 92.5% { content: "A full-stack so"; }
     45.0%, 92% { content: "A full-stack sof"; }
@@ -818,7 +820,7 @@ $bgDark: #080808;
     46.5%, 90.5% { content: "A full-stack softwa"; }
     47.0%, 90% { content: "A full-stack softwar"; }
     47.5%, 89.5% { content: "A full-stack software"; }
-    48.0%, 89% { content: "A full-stack software "; }
+    // 48.0%, 89% { content: "A full-stack software "; }
     48.5%, 88.5% { content: "A full-stack software d"; }
     49.0%, 88% { content: "A full-stack software de"; }
     49.5%, 87.5% { content: "A full-stack software dev"; }
@@ -828,16 +830,16 @@ $bgDark: #080808;
     51.5%, 85.5% { content: "A full-stack software develop"; }
     52.0%, 85% { content: "A full-stack software develope"; }
     52.5%, 84.5% { content: "A full-stack software developer"; }
-    53.0%, 84% { content: "A full-stack software developer "; }
+    // 53.0%, 84% { content: "A full-stack software developer "; }
     53.5%, 83.5% { content: "A full-stack software developer b"; }
     54.0%, 83% { content: "A full-stack software developer ba"; }
     54.5%, 82.5% { content: "A full-stack software developer bas"; }
     55.0%, 82% { content: "A full-stack software developer base"; }
     55.5%, 81.5% { content: "A full-stack software developer based"; }
-    56.0%, 81% { content: "A full-stack software developer based "; }
+    // 56.0%, 81% { content: "A full-stack software developer based "; }
     56.5%, 80.5% { content: "A full-stack software developer based i"; }
     57.0%, 80% { content: "A full-stack software developer based in"; }
-    57.5%, 79.5% { content: "A full-stack software developer based in "; }
+    // 57.5%, 79.5% { content: "A full-stack software developer based in "; }
     58.0%, 79% { content: "A full-stack software developer based in T"; }
     58.5%, 78.5% { content: "A full-stack software developer based in To"; }
     59.0%, 78% { content: "A full-stack software developer based in Tok"; }
