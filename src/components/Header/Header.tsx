@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Header.scss';
-import { MdOutlineDarkMode, MdSunny } from 'react-icons/md';
+import { CgDarkMode } from 'react-icons/cg';
 // import useDarkMode from '../../hooks/useDarkMode';
 
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
@@ -136,7 +136,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
             <></>
           ) : (
             <div className="toggle">
-              <MdSunny size={18} onClick={changeMode} />
+              <CgDarkMode className='invert' size={22} onClick={changeMode} />
             </div>
           )
         ) : (
@@ -144,7 +144,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
             <></>
           ) : (
             <div className="toggle">
-              <MdOutlineDarkMode size={18} onClick={changeMode} />
+              <CgDarkMode size={22} onClick={changeMode} />
             </div>
           )
         )}

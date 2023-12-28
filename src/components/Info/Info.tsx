@@ -4,7 +4,8 @@ import './Info.scss';
 import { BiLogoFigma, BiLogoReact, BiLogoTypescript, BiSolidBriefcaseAlt, BiSolidBrain, BiLogoGithub } from 'react-icons/bi';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { RiUser5Fill } from 'react-icons/ri';
-import { MdOutlineDarkMode, MdSunny, MdAlternateEmail } from 'react-icons/md';
+import { MdAlternateEmail } from 'react-icons/md';
+import { CgDarkMode } from 'react-icons/cg';
 import { AiOutlineClose } from 'react-icons/ai'
 
 interface InfoProps {
@@ -44,9 +45,9 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
         <div id='info_container' className={`info_container ${(window.matchMedia("(any-hover: none)").matches) ? 'mobile' : ''}`}>
             <div className="toggles">
               {isDark ? (
-                <div className="toggle dm"><MdSunny size={24} onClick={() => changeMode()} /></div> 
+                <div className="toggle dm"><CgDarkMode className='invert' size={25} onClick={() => changeMode()} /></div> 
               ) : (
-                <div className="toggle dm"><MdOutlineDarkMode size={24} onClick={() => changeMode()} /></div> 
+                <div className="toggle dm"><CgDarkMode size={25} onClick={() => changeMode()} /></div> 
               )}
               <div className="close"><AiOutlineClose size={28} onClick={hideDialog} /></div> 
             </div>

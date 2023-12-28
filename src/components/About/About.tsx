@@ -24,7 +24,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [style, setStyle] = useState({ opacity: '1' });
 
-  // // Add event listener on mount and remove it on unmount
+  // Add event listener on mount and remove it on unmount
   useEffect(() => {
     const jumboBg = document.querySelector('.jumbo');
     if (jumboBg) {
@@ -35,6 +35,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
     }
   }, []);
 
+  // Fade out content on scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentPosition = window.scrollY;
@@ -57,53 +58,54 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
     };
   }, []);
 
-  useEffect(() => {
-    const flipLetters = () => {
-      const letters = document.querySelectorAll("span.letter.highlight-s:not(.flip)");
-      if (letters.length >= 3) {
-        const randomIndex = () => Math.floor(Math.random() * letters.length);
+  // Letters Flip (unused)
+  // useEffect(() => {
+  //   const flipLetters = () => {
+  //     const letters = document.querySelectorAll("span.letter.highlight-s:not(.flip)");
+  //     if (letters.length >= 3) {
+  //       const randomIndex = () => Math.floor(Math.random() * letters.length);
 
-        const randomLetterIndexes = new Set<number>();
+  //       const randomLetterIndexes = new Set<number>();
 
-        while (randomLetterIndexes.size < 3) {
-          randomLetterIndexes.add(randomIndex());
-        }
+  //       while (randomLetterIndexes.size < 3) {
+  //         randomLetterIndexes.add(randomIndex());
+  //       }
 
-        const randomLetters = Array.from(randomLetterIndexes).map(index => letters[index] as HTMLElement);
+  //       const randomLetters = Array.from(randomLetterIndexes).map(index => letters[index] as HTMLElement);
 
-        randomLetters[0].classList.add('flip');
-        randomLetters[0].classList.remove('shw');
+  //       randomLetters[0].classList.add('flip');
+  //       randomLetters[0].classList.remove('shw');
 
-        setTimeout(() => {
-          randomLetters[0].classList.remove('flip');
-        }, 2800);
+  //       setTimeout(() => {
+  //         randomLetters[0].classList.remove('flip');
+  //       }, 2800);
 
-        setTimeout(()=> {
-          randomLetters[1].classList.add('flip');
-          randomLetters[1].classList.remove('shw');
-          setTimeout(() => {
-            randomLetters[1].classList.remove('flip');
-          }, 2800);
-        },1500)
+  //       setTimeout(()=> {
+  //         randomLetters[1].classList.add('flip');
+  //         randomLetters[1].classList.remove('shw');
+  //         setTimeout(() => {
+  //           randomLetters[1].classList.remove('flip');
+  //         }, 2800);
+  //       },1500)
 
-        setTimeout(()=> {
-          randomLetters[2].classList.add('flip');
-          randomLetters[2].classList.remove('shw');
-          setTimeout(() => {
-            randomLetters[2].classList.remove('flip');
-          }, 2800);
-        },2000)
-      }
-    };
-    const intervalId = setInterval(flipLetters, 7000); // Run flipLetters every 7 seconds
+  //       setTimeout(()=> {
+  //         randomLetters[2].classList.add('flip');
+  //         randomLetters[2].classList.remove('shw');
+  //         setTimeout(() => {
+  //           randomLetters[2].classList.remove('flip');
+  //         }, 2800);
+  //       },2000)
+  //     }
+  //   };
+  //   const intervalId = setInterval(flipLetters, 7000); // Run flipLetters every 7 seconds
 
-    return () => {
-      clearInterval(intervalId); // Clean up the interval on unmount
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(intervalId); // Clean up the interval on unmount
+  //   };
+  // }, []);
 
 
-  // Calculate the opacity based on the scroll position
+  // Calculate the opacity based on the scroll position (unused)
   // const calculateOpacity = () => {
   //   const maxScroll = window.innerHeight * 1.2; // Adjust the value as needed for the fade-out distance
   //   const opacity = 1 - scrollPosition / maxScroll;

@@ -80,13 +80,16 @@ $lighterBlue: #b5bbdf;
                 color: #222222;
                 &:hover {
                     cursor: pointer;
-                    animation: rotate ease-in-out 400ms;
+                    transform: rotate(180deg);
                 }
             }
             .toggle.dm {
                 svg:hover {
                     animation: none !important;
-                    transform: scale(1.2) !important;
+                    transform: scale(1.2) rotate(180deg) !important;
+                }
+                .invert {
+                    transform: rotate(180deg);
                 }
             }
         }
@@ -213,6 +216,11 @@ $lighterBlue: #b5bbdf;
                 svg {
                     color: #e6e6e6;
                 }
+                .toggle.dm {
+                    svg:hover {
+                        transform: scale(1.2) !important;
+                    }
+                }
             }
             .nav {
                 a, p {
@@ -249,25 +257,6 @@ $lighterBlue: #b5bbdf;
         100% {
             transform: translateX(800px);
             opacity: 0;
-        }
-    }
-    @keyframes rotate {
-        0% {
-            transform: rotate(0);
-        }
-        100% {
-            transform: rotate(180deg);
-        }
-    }
-    @keyframes slightRotate {
-        0% {
-            transform: rotate(0);
-        }
-        50% {
-            transform: rotate(25deg);
-        }
-        100% {
-            transform: rotate(0);
         }
     }
 }

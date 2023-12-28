@@ -70,6 +70,7 @@ $bgDark: #080808;
             animation: show ease-in 400ms;
         }
         .contact-opts {
+            margin-top: 2px;
             a {
                 color: #25252a !important;
                 svg {
@@ -235,6 +236,9 @@ $bgDark: #080808;
             margin-bottom: 4px;
             &:hover {
                 cursor: pointer;
+            }
+            .invert {
+                transform: rotate(180deg);
             }
         }
     }
