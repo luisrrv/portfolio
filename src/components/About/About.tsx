@@ -264,14 +264,14 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             </span> */}
             <span className='self-desc'></span>
             <br></br>
-            <span
+          </p>
+          <p
             className="more"
             onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
             onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}}
             onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
           >
             more <PiCardsFill />
-          </span>
           </p>
           {/* <span
             className="more"

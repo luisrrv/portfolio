@@ -324,6 +324,7 @@ $bgDark: #080808;
 
             p {
                 height: fit-content;
+                min-height: 40px;
                 font-size: 12px;
                 line-height: 20px;
                 font-weight: 300;
@@ -332,34 +333,30 @@ $bgDark: #080808;
                 }
 
                 span.self-desc {
-                    display: inline-block;
                     font-weight: bold;
-                    height: 40px;
-                    min-height: 40px;
                 }
 
                 span.bold {
                     padding: 2px;
                     color: #222222 !important;
                 }
-                span.more {
-                    display: block;
-                    padding: 0 8px !important;
-                    color: $lightRed;
-                    font-weight: bold;
-                    letter-spacing: 1px;
-                    padding: 4px 8px;
-                    height: 21px !important;
-                    width: fit-content;
-                    margin: 0 auto;
-
-                    svg {
-                        height: fit-content;
-                        height: 10px;
-                    }
-                    &:hover {
-                        cursor: pointer;
-                    }
+            }
+            p.more {
+                color: $lightRed;
+                font-weight: bold;
+                letter-spacing: 1px;
+                padding: 4px 8px;
+                height: fit-content !important;
+                min-height: unset !important;
+                width: fit-content;
+                margin: 0 auto;
+                text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+                svg {
+                    height: fit-content;
+                    height: 10px;
+                }
+                &:hover {
+                    cursor: pointer;
                 }
             }
         }
@@ -433,6 +430,9 @@ $bgDark: #080808;
             p {
                 span.bold {
                     color: #e6e6e6 !important;
+                }
+                span.self-desc {
+                    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
                 }
             }
         }
