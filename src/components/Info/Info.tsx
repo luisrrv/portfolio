@@ -1,23 +1,28 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './Info.scss';
 
+import { useState } from 'react';
 import { BiLogoFigma, BiLogoReact, BiLogoTypescript, BiSolidBriefcaseAlt, BiSolidBrain, BiLogoGithub } from 'react-icons/bi';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { RiUser5Fill } from 'react-icons/ri';
 import { MdAlternateEmail } from 'react-icons/md';
 import { CgDarkMode } from 'react-icons/cg';
 import { AiOutlineClose } from 'react-icons/ai'
+import { LiaLanguageSolid } from 'react-icons/lia'
+import LanguageSwitcher from '../../components/Language/LanguageSwitcher'
 
 interface InfoProps {
     isDark: boolean;
+    langBtn: boolean;
+    handleLangBtn: (setting: boolean|undefined) => void;
     hideDialog: () => void;
     handleContactMouseOverChange: (isMouseOver: boolean, element: string) => void;
     handleDarkModeChange: (toggle: boolean) => void;
     handleMore: (value: boolean) => void;
+    translations: any;
 }
 
-export default function Header({ isDark, hideDialog, handleContactMouseOverChange, handleDarkModeChange, handleMore }: InfoProps) {
-
+export default function Header({ isDark, langBtn, handleLangBtn, hideDialog, handleContactMouseOverChange, handleDarkModeChange, handleMore, translations }: InfoProps) {
   const compClassName = isDark ? 'dark' : 'light';
 
   const handleMouseEnter = (element: string): React.MouseEventHandler<HTMLElement> => () => {
@@ -39,6 +44,13 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
       hideDialog();
     }
   };
+  
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [languageSwitcherClosed, setLanguageSwitcherClosed] = useState<boolean>(false);
+
+  const handleLanguageSwitcherClose = (closeSwitcher: boolean) => {
+    setLanguageSwitcherClosed(closeSwitcher);
+  };
 
   return (
     <div id="info_bg" className={`close ${compClassName}`} onClick={handleBackgroundClick}>  
@@ -49,13 +61,15 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
               ) : (
                 <div className="toggle dm"><CgDarkMode size={25} onClick={() => changeMode()} /></div> 
               )}
+              <div className="toggle lang"><LiaLanguageSolid size={28} onClick={e => handleLangBtn(undefined)} /></div> 
               <div className="close"><AiOutlineClose size={28} onClick={hideDialog} /></div> 
             </div>
             <div className="content">
+                {langBtn && <LanguageSwitcher onCloseSwitcher={handleLanguageSwitcherClose} />}
                 <div className="nav">
-                  <a href="#" className="about" onClick={() => {hideDialog(); handleMore(true);}}><RiUser5Fill />About me</a>
-                  <a href="#skills" className="skills" onClick={hideDialog}><BiSolidBrain />My skills</a>
-                  <a href="#work" className="work" onClick={hideDialog}><BiSolidBriefcaseAlt />Some of my work</a>
+                  <a href="#" className="about" onClick={() => {hideDialog(); handleMore(true);}}><RiUser5Fill />{translations.about_me}</a>
+                  <a href="#skills" className="skills" onClick={hideDialog}><BiSolidBrain />{translations.info_skills}</a>
+                  <a href="#work" className="work" onClick={hideDialog}><BiSolidBriefcaseAlt />{translations.projects_title}</a>
                   <div className="ext">
                     <a 
                       href="https://github.com/luisrrv" 
@@ -85,12 +99,12 @@ export default function Header({ isDark, hideDialog, handleContactMouseOverChang
                       onMouseEnter={handleMouseEnter('content')}
                       onMouseLeave={handleMouseLeave('content')}
                       >
-                        <MdAlternateEmail />Send me an email
+                        <MdAlternateEmail />{translations.send_email}
                     </a>
 
                   </div>
                 </div>
-                <p>Designed and coded by <a onMouseEnter={handleMouseEnter('content')} onMouseLeave={handleMouseLeave('content')} className='underline' href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer">me</a>.</p>
+                <p>{translations.info_footer}<a onMouseEnter={handleMouseEnter('content')} onMouseLeave={handleMouseLeave('content')} className='underline' href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer">{translations.info_footer_me}</a>.</p>
                 <div className="icons">
                     <BiLogoFigma />
                     <BiLogoReact />

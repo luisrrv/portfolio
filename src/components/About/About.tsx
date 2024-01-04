@@ -1,9 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import './About.scss';
-// import Tilt from 'react-parallax-tilt';
-// import { RiUser5Fill } from 'react-icons/ri';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import { PiCardsFill } from 'react-icons/pi';
+import { useLanguage } from '../../context/LanguageContext';
+import './About.scss';
+// import defaultTranslations  from '../../data/translations/en';
+
+// const getTranslations = (language: string) => {
+//   switch (language) {
+//     case 'en':
+//       return import('../../data/translations/en');
+//     case 'es':
+//       return import('../../data/translations/es');
+//     case 'pt':
+//       return import('../../data/translations/pt');
+//     case 'ja':
+//       return import('../../data/translations/ja');
+//     default:
+//       return import('../../data/translations/en'); // Fallback to English if language is not recognized
+//   }
+// };
+// import Tilt from 'react-parallax-tilt';
+// import { RiUser5Fill } from 'react-icons/ri';
 // import hacker from '../../assets/images/menobg.png';
 // import hackerShadow from '../../assets/images/menobg_stencil.png';
 
@@ -16,14 +33,17 @@ interface AboutProps {
   handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
   handleMore: (value: boolean) => void;
   loading: boolean;
+  translations: any;
 }
 
-export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore, loading }: AboutProps) {
+export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore, loading, translations }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [style, setStyle] = useState({ opacity: '1' });
+  
+  const { language } = useLanguage();
 
   // Add event listener on mount and remove it on unmount
   useEffect(() => {
@@ -176,6 +196,11 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
     // else if(el.classList.contains('web')) setWebIcon(false);
   }
 
+  if (!translations) {
+    // console.log('No translations - waiting...');
+    return <div>Loading...</div>;
+  }
+
   return (
     <div
       id='about_container'
@@ -188,7 +213,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
 
         <div className="special">
           {/* <div className="grain"></div> */}
-          <p className={`small hello ${showClassName}`}>HELLO, I'M</p>
+          <p className={`small hello ${showClassName}`}>{translations.hello}</p>
           {/* <div className='name-img'></div> */}
           {/* <p className={`big first`}>
             <span className='letter faded'>L</span>
@@ -235,7 +260,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
             </p> */}
-          <p className={`small name after bold ${showClassName}`}>LUIS RODRIGUEZ</p>
+          <p className={`small name after bold ${showClassName}`}>LUIS RODRIGUEZ{language==='ja' && <span className='after-name'>{translations.hello_after}</span>}</p>
         </div>
 
 
@@ -271,7 +296,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}}
             onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
           >
-            more <PiCardsFill />
+            {translations.more} <PiCardsFill />
           </p>
           {/* <span
             className="more"

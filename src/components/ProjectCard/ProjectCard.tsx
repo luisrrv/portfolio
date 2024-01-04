@@ -45,6 +45,8 @@ interface ProjectCardProps {
   hideApp: boolean; // Add hideApp prop to the interface
   handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
   scrolling: boolean;
+  translations: any;
+  language: string;
 }
 
 export default function ProjectCard({
@@ -59,6 +61,8 @@ export default function ProjectCard({
   hideApp,
   handleContactMouseOverChange,
   scrolling,
+  translations,
+  language
   }: ProjectCardProps) {
 
     // const [githubIcon,setGithubIcon] = useState<boolean>(false)
@@ -116,12 +120,12 @@ export default function ProjectCard({
     const compClassName = isDark ? 'dark' : 'light';
     const cardTitleClass = title.split(' ')[0];
     let ctaText = 'Website';
-    if (title === 'Travel Journal') ctaText = 'Journal';
-    else if (title === 'Bicho Bot (X/Twitter Bot)') ctaText = "Bot's profile";
-    else if (title === 'Web Chat App') ctaText = 'Chat!';
-    else if (title === 'Ally Maps') ctaText = 'Check it out';
-    else if (title === 'News Feed') ctaText = 'Browse';
-    else if (title === 'Rubber Ducking') ctaText = 'Try it!';
+    if (title === 'Travel Journal') ctaText = translations.card_button_one;
+    else if (title === 'Bicho Bot (X/Twitter Bot)') ctaText = translations.card_button_two;
+    else if (title === 'Web Chat App') ctaText = translations.card_button_three;
+    else if (title === 'Ally Maps') ctaText = translations.card_button_four;
+    else if (title === 'News Feed') ctaText = translations.card_button_five;
+    else if (title === 'Rubber Ducking') ctaText = translations.card_button_six;
 
     const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number = 0) => {
       if (element) {
@@ -363,7 +367,7 @@ export default function ProjectCard({
                     >
                       <p className="svg">
                         <LiaGithub />
-                        Code
+                        {translations.card_button_code}
                       </p>
                   </a>
               </div>

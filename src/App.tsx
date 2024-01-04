@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useDarkMode from './hooks/useDarkMode';
+import { useLanguage } from './context/LanguageContext';
 import './App.css';
 import './charm.scss';
 
@@ -10,6 +11,21 @@ import Projects from './components/Projects/Projects';
 import MouseTracker from './components/MouseTracker/MouseTracker';
 import Info from './components/Info/Info';
 import More from './components/More/More';
+
+const getTranslations = (language: string) => {
+  switch (language) {
+    case 'en':
+      return import('./data/translations/en');
+    case 'es':
+      return import('./data/translations/es');
+    case 'pt':
+      return import('./data/translations/pt');
+    case 'ja':
+      return import('./data/translations/ja');
+    default:
+      return import('./data/translations/en'); // Fallback to English if language is not recognized
+  }
+};
 
 export interface IAppProps {
   className?: string;
@@ -38,7 +54,16 @@ function App({ className, isDarkMode }: IAppProps) {
   const [scrollingTimeout, setScrollingTimeout] = useState<NodeJS.Timeout | null>(null);
   const [more, setMore] = useState(false);
   const [moreOn, setMoreOn] = useState(false);
+  const [langBtn, setLangBtn] = useState<boolean>(false);
+  const { language } = useLanguage();
+  const [translations, setTranslations] = useState<any>(null);
 
+  useEffect(() => {
+    getTranslations(language)
+      .then((module) => setTranslations(module.default))
+      .catch((error) => console.error('Error loading translations:', error));
+  }, [language]);
+  
   useEffect(() => {
     // setShowApp(true);
     setTimeout(() => {
@@ -61,6 +86,11 @@ function App({ className, isDarkMode }: IAppProps) {
   useEffect(() => {
     setIsDark(darkMode);
   },[darkMode]);
+
+  const handleLangBtn = (setting :boolean|undefined = undefined) => {
+    if(setting === true || setting === false) setLangBtn(setting);
+    else setLangBtn(!langBtn);
+  }
 
   const checkElements = (element: string, type: string, maxAttempts = 10, interval = 100) => {
     let attempts = 0;
@@ -204,6 +234,11 @@ function App({ className, isDarkMode }: IAppProps) {
     showContact && checkElements('contact', 'show');
   },[showContact]);
 
+  if (!translations) {
+    // console.log('No translations - waiting...');
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       {loading && (
@@ -249,6 +284,7 @@ function App({ className, isDarkMode }: IAppProps) {
           handleContactMouseOverChange={handleContactMouseOverChange}
           handleMore={handleMore}
           loading={loading}
+          translations={translations}
         />
         {more && (
           <More
@@ -257,6 +293,7 @@ function App({ className, isDarkMode }: IAppProps) {
             moreOn={moreOn}
             handleMore={handleMore}
             handleContactMouseOverChange={handleContactMouseOverChange}
+            translations={translations}
             />
             )}
         <Projects
@@ -264,14 +301,18 @@ function App({ className, isDarkMode }: IAppProps) {
           hideApp={hideApp}
           handleContactMouseOverChange={handleContactMouseOverChange}
           scrolling={scrolling}
-
+          translations={translations}
+          language={language}
           />
         <Info
           isDark={isDark}
+          langBtn= {langBtn}
+          handleLangBtn= {handleLangBtn}
           hideDialog={hideDialog}
           handleContactMouseOverChange={handleContactMouseOverChange}
           handleDarkModeChange={handleDarkModeChange}
           handleMore={handleMore}
+          translations={translations}
         />
       </div>
     </>

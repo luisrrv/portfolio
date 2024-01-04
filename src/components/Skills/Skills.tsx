@@ -34,9 +34,10 @@ import {
 interface SkillsProps {
     isDark: boolean;
     handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
+    translations: any;
 }
 
-export default function Skills({ isDark, handleContactMouseOverChange }: SkillsProps) {
+export default function Skills({ isDark, handleContactMouseOverChange, translations }: SkillsProps) {
 
   const [frontOn, setFrontOn] = useState<boolean>(false);
   const [backOn, setBackOn] = useState<boolean>(false);
@@ -117,8 +118,8 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
         id='skills' 
         className={`skills-container ${compClassName} ${inViewClassName}`}
         >
-        <h3 className='title'><BiSolidBrain />Skills</h3>
-        <p className='mobile-instr'>click to view skills <BsArrowDownShort size={16}/></p>
+        <h3 className='title'><BiSolidBrain />{translations.skills_title}</h3>
+        <p className='mobile-instr'>{translations.skills_desc}<BsArrowDownShort size={16}/></p>
         <div className="skills">
             <div className="skill-types">
                 <p 
@@ -126,21 +127,21 @@ const showSkills = (type: string, element: EventTarget | undefined) => {
                     onClick={(e) => showSkills('front', e.target)}
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >Front-end
+                    >{translations.skills_front}
                 </p>
                 <p 
                     className="b" 
                     onClick={(e) => showSkills('back', e.target)}
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >Back-end
+                    >{translations.skills_back}
                 </p>
                 <p 
                     className="o" 
                     onClick={(e) => showSkills('other', e.target)}
                     onMouseEnter={(e)=>{handleMouseTrackerEnter('web',e.target); addIcon(e.target);}} 
                     onMouseLeave={(e)=>{handleMouseTrackerLeave('web',e.target); removeIcon(e.target)}}
-                    >Other
+                    >{translations.skills_other}
                 </p>
             </div>
             {/* <div className='code-container'>

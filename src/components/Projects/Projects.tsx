@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './Projects.scss';
 import { useInView } from 'react-intersection-observer';
 import { IAppProps } from '../../App'; // Update the import path
@@ -8,14 +9,15 @@ import { BiSolidBriefcaseAlt } from 'react-icons/bi'
 import { BsArrowDownShort } from 'react-icons/bs';
 
 interface ProjectsProps extends IAppProps {
-  // Add any other specific props for the Projects component if needed
   isDark: boolean;
   hideApp: boolean;
   handleContactMouseOverChange: (isMouseOver: boolean, element: string) => void;
   scrolling: boolean;
+  translations: any;
+  language: string;
 }
 
-export default function App ({className, isDark, hideApp, handleContactMouseOverChange, scrolling}: ProjectsProps) {
+export default function App ({className, isDark, hideApp, handleContactMouseOverChange, scrolling, translations, language}: ProjectsProps) {
     const projectsData: ProjectProps[] = ProjectsData();
     const compClassName = isDark ? 'dark' : 'light';
     const { ref, inView } = useInView({
@@ -36,6 +38,50 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
         }, 200);
     };
 
+    const getDescriptions = (project: any = undefined) => {
+        if (!project) {
+            projectsData.forEach((proj: any) => {
+                switch (proj.name) {
+                  // eslint-disable-next-line react-hooks/exhaustive-deps
+                  case 'Travel Journal': proj.description = translations.card_desc_one;
+                  break;
+                  case 'Bicho Bot (X/Twitter Bot)': proj.description = translations.card_desc_two;
+                  break;
+                  case 'Web Chat App': proj.description = translations.card_desc_three;
+                  break;
+                  case 'Ally Maps': proj.description = translations.card_desc_four;
+                  break;
+                  case 'News Feed': proj.description = translations.card_desc_five;
+                  break;
+                  case 'Rubber Ducking': proj.description = translations.card_desc_six;
+                  break;
+                }
+            });
+        } else {
+            switch (project.name) {
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+                case 'Travel Journal': project.description = translations.card_desc_one;
+                break;
+                case 'Bicho Bot (X/Twitter Bot)': project.description = translations.card_desc_two;
+                break;
+                case 'Web Chat App': project.description = translations.card_desc_three;
+                break;
+                case 'Ally Maps': project.description = translations.card_desc_four;
+                break;
+                case 'News Feed': project.description = translations.card_desc_five;
+                break;
+                case 'Rubber Ducking': project.description = translations.card_desc_six;
+                break;
+            }
+            return project.description;
+        }
+    }
+
+    useEffect(() => {
+        getDescriptions();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [language]);
+
     return (
         <div 
             id='projects_container' 
@@ -44,16 +90,17 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
             <Skills 
                 isDark={isDark}
                 handleContactMouseOverChange={handleContactMouseOverChange}
+                translations={translations}
             />
-            <h3 ref={ref} id='work' className={inViewClassName}><BiSolidBriefcaseAlt />Some of my work</h3>
-            <p ref={ref} className={`mobile-instr w ${inViewClassName}`}>click on a project for details <BsArrowDownShort size={16}/></p>
+            <h3 ref={ref} id='work' className={inViewClassName}><BiSolidBriefcaseAlt />{translations.projects_title}</h3>
+            <p ref={ref} className={`mobile-instr w ${inViewClassName}`}>{translations.projects_desc}<BsArrowDownShort size={16}/></p>
             <div className="projects">
             {
                 projectsData.map((project,index) => (
                 <ProjectCard 
                     key={JSON.stringify(index)} 
                     title={project.name}
-                    description={project.description}
+                    description={getDescriptions(project)}
                     github={project.github} 
                     live={project.live}
                     stack={project.stack}
@@ -63,6 +110,8 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
                     pics={project.pics}
                     handleContactMouseOverChange={handleContactMouseOverChange}
                     scrolling={scrolling}
+                    translations={translations}
+                    language={language}
                     />
                 ))
             }
@@ -74,7 +123,7 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
                     rel="noreferrer" 
                     onMouseEnter={handleMouseEnter('content')} 
                     onMouseLeave={handleMouseLeave('content')}
-                    >See all
+                    >{translations.see_all_projects}
                 </a>
             </div>
         </div>

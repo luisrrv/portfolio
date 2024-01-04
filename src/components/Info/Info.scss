@@ -92,6 +92,12 @@ $lighterBlue: #b5bbdf;
                     transform: rotate(180deg);
                 }
             }
+            .toggle.lang {
+                svg:hover {
+                    animation: none !important;
+                    transform: scale(1.2) rotate(360deg) !important;
+                }
+            }
         }
 
         .nav {
@@ -143,6 +149,34 @@ $lighterBlue: #b5bbdf;
             margin-top: 24px;
             gap: 20px;
             width: 100%;
+
+            .languages-list {
+                animation: open ease-in 500ms;
+                position: absolute;
+                top: 80px;
+                right: 40px;
+                height: fit-content;
+                width: fit-content;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                border: 1px solid #cfd0d4;
+                background: rgb(237, 237, 239);
+                background: linear-gradient(117deg, rgba(237, 237, 239,1) 0%, rgba(237, 237, 239,1) 57%, rgba(255,255,255,1) 75%, rgba(237, 237, 239,1) 100%);
+                border-radius: 4px;
+
+                button {
+                    border: none;
+                    background-color: transparent;
+                    color: #333333;
+                    padding: 12px;
+                    letter-spacing: 1px;
+                    &:hover {
+                        background-color: $lightRed;
+                        color: #f0f0f0 !important;
+                    }
+                }
+            }
             p {
                 height: fit-content;
                 font-weight: 300px;
@@ -197,6 +231,14 @@ $lighterBlue: #b5bbdf;
 
 
             .content {
+                .languages-list {
+                    border: 1px solid #333333;
+                    background: #111113;
+                    background: linear-gradient(117deg, rgba(17,17,19, 1) 0%, rgba(17,17,19, 1) 25%, rgba(31, 31, 37, 1) 70%, rgba(17,17,19, 1) 100%);
+                    button {
+                        color: #f0f0f0;
+                    }
+                }
                 p {
                     color: #ababab !important;
                     a {

@@ -9,9 +9,10 @@ interface MoreProps {
     moreOn: boolean;
     handleMore: (value: boolean) => void;
     handleContactMouseOverChange: (isMouseOver: boolean, type: string, element: EventTarget | undefined) => void;
+    translations: any;
 }
 
-export default function More({ isDark, more, moreOn, handleMore, handleContactMouseOverChange }: MoreProps) {
+export default function More({ isDark, more, moreOn, handleMore, handleContactMouseOverChange, translations }: MoreProps) {
   const compClassName = isDark ? 'dark' : 'light';
   let activeClass = moreOn ? 'on' : '';
   const glareClr = isDark ? '#22222280' :'#ffffff80';
@@ -70,11 +71,11 @@ export default function More({ isDark, more, moreOn, handleMore, handleContactMo
             <p className='more-content'
                 >
                 <span>
-                I'm a passionate software developer based in Tokyo experienced in crafting web and native applications.
+                {translations.more_one}
                 </span>
                 <br></br>
                 <span className='title'>
-                I live for clean and maintainable code.
+                {translations.more_two}
                 </span>
 
                 {/* <span className='title'>
@@ -126,7 +127,7 @@ export default function More({ isDark, more, moreOn, handleMore, handleContactMo
                 </span> */}
                 <br></br>
                 <span>
-                My goal is to leverage my technical skills and collaborative mindset to contribute to exciting projects that make a positive impact. Whether you're interested in discussing potential collaborations or simply want to chat about tech, please feel free to reach out :)
+                {translations.more_three}
                 </span>
 
                 {/* <span>
