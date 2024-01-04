@@ -217,6 +217,7 @@ $bgDark: #080808;
                     }
                     &.hello {
                         font-size: 24px;
+                        text-transform: uppercase;
                         &.shw {
                             animation: slideDo ease-in 600ms;
                         }

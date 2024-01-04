@@ -164,13 +164,15 @@ $lighterBlue: #b5bbdf;
                 background: rgb(237, 237, 239);
                 background: linear-gradient(117deg, rgba(237, 237, 239,1) 0%, rgba(237, 237, 239,1) 57%, rgba(255,255,255,1) 75%, rgba(237, 237, 239,1) 100%);
                 border-radius: 4px;
-
+                
                 button {
                     border: none;
                     background-color: transparent;
                     color: #333333;
                     padding: 12px;
                     letter-spacing: 1px;
+                    border-radius: 4px;
+                    min-height: 44px !important;
                     &:hover {
                         background-color: $lightRed;
                         color: #f0f0f0 !important;
