@@ -261,8 +261,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
             </p> */}
-          <p className={`small name after bold ${showClassName}`}>LUIS RODRIGUEZ</p>
-          {language==='ja' && <p className='after-name'>{translations.hello_after}</p>}
+          <p className={`small name after bold ${showClassName}`}>{language==='ja' ? 'RODRIGUEZ LUIS' : 'LUIS RODRIGUEZ'}{language==='ja' && <span className='after-name'>{translations.hello_after}</span>}</p>
         </div>
 
 

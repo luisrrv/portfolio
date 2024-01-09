@@ -243,8 +243,7 @@ $bgDark: #080808;
                 }
             }
             .after-name {
-                padding-top: 2px;
-                font-size: 24px !important;
+                font-size: 14px !important;
                 font-weight: 400;
                 color: #222222 !important;
                 -webkit-text-stroke: 0px !important;
@@ -647,7 +646,7 @@ $bgDark: #080808;
                     }
                 }
                 .after-name {
-                    font-size: 18px !important;
+                    font-size: 12px !important;
                 }
             }
         }
@@ -688,7 +687,7 @@ $bgDark: #080808;
                     }
                 }
                 .after-name {
-                    font-size: 16px !important;
+                    font-size: 12px !important;
                 }
             }
             .hacker-cont .hacker {
@@ -703,6 +702,22 @@ $bgDark: #080808;
         }
         &.dark .content .special .small.name.bold {
             text-shadow: none !important;
+        }
+    }
+}
+@media (pointer: coarse) and (max-width: 380px) {
+    #about_container .content .special .after-name {
+        font-size: 10px !important;
+    }
+}
+
+@media (min-width: 800px) {
+    #about_container .content .special {
+        .hello {
+            margin-bottom: 8px;
+        }
+        p.small.name.after {
+            font-size: 36px !important;
         }
     }
 }
@@ -799,7 +814,6 @@ $bgDark: #080808;
     00.0%, 100% { content: ""; }
     00.5%, 99.5% { content: "A"; }
     // 01.0%, 20.0%, 38.0%, 99% { content: "A "; }
-    
     01.5%, 19.5% { content: "A f"; }
     02.0%, 19.0% { content: "A fr"; }
     02.5%, 18.5% { content: "A fro"; }
@@ -933,9 +947,6 @@ $bgDark: #080808;
     54.0%, 76.5% { content: "Un desarrollador full-stack de software en Toki"; }
     54.5%, 76.0% { content: "Un desarrollador full-stack de software en Tokio"; }
     55.0%, 75.5% { content: "Un desarrollador full-stack de software en Tokio."; }
-
-    // 82 steps to write whole sentence
-    // 47 steps to erase sentence
 }
 @keyframes typingPt {
     00.0%, 100% { content: ""; }
@@ -1002,9 +1013,6 @@ $bgDark: #080808;
     56.0%, 76.5% { content: "Um programador de software full-stack em Tóquio"; }
     56.5%, 76.0% { content: "Um programador de software full-stack em Tóquio."; }
     57.0%, 75.5% { content: "Um programador de software full-stack em Tóquio."; }
-
-    // 82 steps to write whole sentence
-    // 47 steps to erase sentence
 }
 @keyframes typingJa {
     00.0%, 100% { content: ""; }
@@ -1047,9 +1055,9 @@ $bgDark: #080808;
     43.5%, 89.5% { content: "東京を拠点とするフルスタックソフトウェア開"; }
     44.0%, 89.0% { content: "東京を拠点とするフルスタックソフトウェア開発"; }
     44.5%, 88.5% { content: "東京を拠点とするフルスタックソフトウェア開発者"; }
-    45.0%, 88.0% { content: "東京を拠点とするフルスタックソフトウェア開発者。"; }
-    // 82 steps to write whole sentence
-    // 47 steps to erase sentence
+    45.0%, 88.0% { content: "東京を拠点とするフルスタックソフトウェア開発者で"; }
+    45.5%, 87.5% { content: "東京を拠点とするフルスタックソフトウェア開発者です"; }
+    46.0%, 87.0% { content: "東京を拠点とするフルスタックソフトウェア開発者です。"; }
 }
   
   @keyframes blink {
@@ -1097,7 +1105,7 @@ $bgDark: #080808;
       0%, 100% { content: "Um programador de software full-stack em Tóquio."; }
     }
     @keyframes sequencePopupJa {
-      0%, 100% { content: "東京を拠点とするフルスタックソフトウェア開発者。"; }
+      0%, 100% { content: "東京を拠点とするフルスタックソフトウェア開発者です。"; }
     }
   
     .typewriter::before {
@@ -1113,7 +1121,7 @@ $bgDark: #080808;
       animation: sequencePopupPt 24s linear infinite;
     }
     .typewriter.ja::before {
-      content: "東京を拠点とするフルスタックソフトウェア開発者。";
+      content: "東京を拠点とするフルスタックソフトウェア開発者です。";
       animation: sequencePopupJa 24s linear infinite;
     }
   }
