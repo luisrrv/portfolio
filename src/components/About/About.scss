@@ -231,12 +231,6 @@ $bgDark: #080808;
                             transform: translateY(0px);
                             opacity: 1;
                         }
-                        span.after-name {
-                            font-size: 24px !important;
-                            font-weight: 400;
-                            color: #222222 !important;
-                            -webkit-text-stroke: 0px !important;
-                        }
                     }
                 }
                 &.big {
@@ -247,6 +241,13 @@ $bgDark: #080808;
                 &.bold {
                     font-weight: bold;
                 }
+            }
+            .after-name {
+                padding-top: 2px;
+                font-size: 24px !important;
+                font-weight: 400;
+                color: #222222 !important;
+                -webkit-text-stroke: 0px !important;
             }
         }
 
@@ -415,11 +416,11 @@ $bgDark: #080808;
                             0 0 102px #4f23ff80,
                             0 0 151px #4f23ff80;
 
-                        span.after-name {
-                            color: #f0f0f0 !important;
                         }
                     }
                 }
+            .after-name {
+                color: #f0f0f0 !important;
             }
         }
         .divider {
@@ -645,7 +646,7 @@ $bgDark: #080808;
                         left: 56% !important;
                     }
                 }
-                p.small.name.after span.after-name {
+                .after-name {
                     font-size: 18px !important;
                 }
             }
@@ -686,7 +687,7 @@ $bgDark: #080808;
                         left: 50% !important;
                     }
                 }
-                p.small.name.after span.after-name {
+                .after-name {
                     font-size: 16px !important;
                 }
             }
@@ -866,7 +867,190 @@ $bgDark: #080808;
     61.0%, 76.5% { content: "A full-stack software developer based in Tokyo."; }
     // 82 steps to write whole sentence
     // 47 steps to erase sentence
-  }
+}
+@keyframes typingEs {
+    00.0%, 100% { content: ""; }
+    00.5%, 99.5% { content: "U"; }
+    01.0%, 99.0% { content: "Un"; }
+    
+    01.5%, 98.5% { content: "Un "; }
+    02.0%, 98.0% { content: "Un d"; }
+    02.5%, 97.5% { content: "Un de"; }
+    03.0%, 97.0% { content: "Un des"; }
+    03.5%, 96.5% { content: "Un desa"; }
+    04.0%, 96.0% { content: "Un desar"; }
+    04.5%, 95.5% { content: "Un desarr"; }
+    05.0%, 95.0% { content: "Un desarro"; }
+    05.5%, 94.5% { content: "Un desarrol"; }
+    06.0%, 94.0% { content: "Un desarroll"; }
+    06.5%, 93.5% { content: "Un desarrolla"; }
+    07.0%, 93.0% { content: "Un desarrollad"; }
+    07.5%, 92.5% { content: "Un desarrollado"; }
+    08.0%, 92.0% { content: "Un desarrollador"; }
+    08.5%, 24.0%, 38.5%, 91.5% { content: "Un desarrollador "; }
+
+    09.0%, 23.5% { content: "Un desarrollador f"; }
+    09.5%, 23.0% { content: "Un desarrollador fr"; }
+    10.0%, 22.5% { content: "Un desarrollador fro"; }
+    10.5%, 22.0% { content: "Un desarrollador fron"; }
+    11.0%, 21.5% { content: "Un desarrollador front"; }
+    
+    24.5%, 38.0% { content: "Un desarrollador b"; }
+    25.0%, 37.5% { content: "Un desarrollador ba"; }
+    25.5%, 37.0% { content: "Un desarrollador bac"; }
+    26.0%, 36.5% { content: "Un desarrollador back"; }
+
+    39.0%, 91.0% { content: "Un desarrollador f"; }
+    40.0%, 90.5% { content: "Un desarrollador fu"; }
+    40.5%, 90.0% { content: "Un desarrollador ful"; }
+    41.0%, 89.5% { content: "Un desarrollador full"; }
+    41.5%, 89.0% { content: "Un desarrollador full-"; }
+    42.0%, 88.5% { content: "Un desarrollador full-s"; }
+    42.5%, 88.0% { content: "Un desarrollador full-st"; }
+    43.0%, 87.5% { content: "Un desarrollador full-sta"; }
+    43.5%, 87.0% { content: "Un desarrollador full-stac"; }
+    44.0%, 86.5% { content: "Un desarrollador full-stack"; }
+    44.5%, 86.0% { content: "Un desarrollador full-stack "; }
+    
+    45.0%, 85.5% { content: "Un desarrollador full-stack d"; }
+    45.5%, 85.0% { content: "Un desarrollador full-stack de"; }
+    46.0%, 84.5% { content: "Un desarrollador full-stack de "; }
+    46.5%, 84.0% { content: "Un desarrollador full-stack de s"; }
+    47.0%, 83.5% { content: "Un desarrollador full-stack de so"; }
+    47.5%, 83.0% { content: "Un desarrollador full-stack de sof"; }
+    48.0%, 82.5% { content: "Un desarrollador full-stack de soft"; }
+    48.5%, 82.0% { content: "Un desarrollador full-stack de softw"; }
+    49.0%, 81.5% { content: "Un desarrollador full-stack de softwa"; }
+    49.5%, 81.0% { content: "Un desarrollador full-stack de softwar"; }
+    50.0%, 80.5% { content: "Un desarrollador full-stack de software"; }
+    50.5%, 80.0% { content: "Un desarrollador full-stack de software "; }
+    51.0%, 79.5% { content: "Un desarrollador full-stack de software e"; }
+    51.5%, 79.0% { content: "Un desarrollador full-stack de software en"; }
+    52.0%, 78.5% { content: "Un desarrollador full-stack de software en "; }
+    52.5%, 78.0% { content: "Un desarrollador full-stack de software en T"; }
+    53.0%, 77.5% { content: "Un desarrollador full-stack de software en To"; }
+    53.5%, 77.0% { content: "Un desarrollador full-stack de software en Tok"; }
+    54.0%, 76.5% { content: "Un desarrollador full-stack de software en Toki"; }
+    54.5%, 76.0% { content: "Un desarrollador full-stack de software en Tokio"; }
+    55.0%, 75.5% { content: "Un desarrollador full-stack de software en Tokio."; }
+
+    // 82 steps to write whole sentence
+    // 47 steps to erase sentence
+}
+@keyframes typingPt {
+    00.0%, 100% { content: ""; }
+    00.5%, 99.5% { content: "U"; }
+    01.0%, 99.0% { content: "Um"; }
+    
+    01.5%, 98.5% { content: "Um "; }
+    02.0%, 98.0% { content: "Um p"; }
+    02.5%, 97.5% { content: "Um pr"; }
+    03.0%, 97.0% { content: "Um pro"; }
+    03.5%, 96.5% { content: "Um prog"; }
+    04.0%, 96.0% { content: "Um progr"; }
+    04.5%, 95.5% { content: "Um progra"; }
+    05.0%, 95.0% { content: "Um program"; }
+    05.5%, 94.5% { content: "Um programa"; }
+    06.0%, 94.0% { content: "Um programad"; }
+    06.5%, 93.5% { content: "Um programado"; }
+    07.0%, 93.0% { content: "Um programador"; }
+    07.5%, 92.5% { content: "Um programador "; }
+    08.0%, 92.0% { content: "Um programador d"; }
+    08.5%, 91.5% { content: "Um programador de"; }
+    09.0%, 91.0% { content: "Um programador de s"; }
+    09.5%, 90.5% { content: "Um programador de so"; }
+    10.0%, 90.0% { content: "Um programador de sof"; }
+    10.5%, 89.5% { content: "Um programador de soft"; }
+    11.0%, 89.0% { content: "Um programador de softw"; }
+    11.5%, 88.5% { content: "Um programador de softwa"; }
+    12.0%, 88.0% { content: "Um programador de softwar"; }
+    12.5%, 87.5% { content: "Um programador de software"; }
+    13.0%, 29.0%, 44.5%, 87.0% { content: "Um programador de software "; }
+    
+    13.5%, 28.5% { content: "Um programador de software f"; }
+    14.0%, 28.0% { content: "Um programador de software fr"; }
+    14.5%, 27.5% { content: "Um programador de software fro"; }
+    15.0%, 27.0% { content: "Um programador de software fron"; }
+    15.5%, 26.5% { content: "Um programador de software front"; }
+
+    30.0%, 44.0% { content: "Um programador de software b"; }
+    30.5%, 43.5% { content: "Um programador de software ba"; }
+    31.0%, 43.0% { content: "Um programador de software bac"; }
+    31.5%, 42.5% { content: "Um programador de software back"; }
+
+    46.0%, 86.5% { content: "Um programador de software f"; }
+    46.5%, 86.0% { content: "Um programador de software fu"; }
+    47.0%, 85.5% { content: "Um programador de software fu"; }
+    47.5%, 85.0% { content: "Um programador de software ful"; }
+    48.0%, 84.5% { content: "Um programador de software full"; }
+    48.5%, 84.0% { content: "Um programador de software full-"; }
+    49.0%, 83.5% { content: "Um programador de software full-s"; }
+    49.5%, 83.0% { content: "Um programador de software full-st"; }
+    50.0%, 82.5% { content: "Um programador de software full-sta"; }
+    50.5%, 82.0% { content: "Um programador de software full-stac"; }
+    51.0%, 81.5% { content: "Um programador de software full-stack"; }
+
+    51.5%, 81.0% { content: "Um programador de software full-stack "; }
+    52.0%, 80.5% { content: "Um programador de software full-stack e"; }
+    52.5%, 80.0% { content: "Um programador de software full-stack em"; }
+    53.0%, 79.5% { content: "Um programador de software full-stack em "; }
+    53.5%, 79.0% { content: "Um programador de software full-stack em T"; }
+    54.0%, 78.5% { content: "Um programador de software full-stack em Tó"; }
+    54.5%, 78.0% { content: "Um programador de software full-stack em Tóq"; }
+    55.0%, 77.5% { content: "Um programador de software full-stack em Tóqu"; }
+    55.5%, 77.0% { content: "Um programador de software full-stack em Tóqui"; }
+    56.0%, 76.5% { content: "Um programador de software full-stack em Tóquio"; }
+    56.5%, 76.0% { content: "Um programador de software full-stack em Tóquio."; }
+    57.0%, 75.5% { content: "Um programador de software full-stack em Tóquio."; }
+
+    // 82 steps to write whole sentence
+    // 47 steps to erase sentence
+}
+@keyframes typingJa {
+    00.0%, 100% { content: ""; }
+    00.5%, 99.5% { content: "東"; }
+    01.0%, 99.0% { content: "東京"; }
+    01.5%, 98.5% { content: "東京を"; }
+    02.0%, 98.0% { content: "東京を拠"; }
+    02.5%, 97.5% { content: "東京を拠点"; }
+    03.0%, 97.0% { content: "東京を拠点と"; }
+    03.5%, 96.5% { content: "東京を拠点とす"; }
+    04.0%, 21.0%, 37.0%, 96.0% { content: "東京を拠点とする"; }
+    
+    04.5%, 20.5% { content: "東京を拠点とするフ"; }
+    05.0%, 20.0% { content: "東京を拠点とするフロ"; }
+    05.5%, 19.5% { content: "東京を拠点とするフロン"; }
+    06.0%, 19.0% { content: "東京を拠点とするフロント"; }
+    06.5%, 18.5% { content: "東京を拠点とするフロントエ"; }
+    07.0%, 18.0% { content: "東京を拠点とするフロントエン"; }
+    07.5%, 17.5% { content: "東京を拠点とするフロントエンド"; }
+
+    21.5%, 36.5% { content: "東京を拠点とするバ"; }
+    22.0%, 36.0% { content: "東京を拠点とするバッ"; }
+    22.5%, 35.5% { content: "東京を拠点とするバック"; }
+    23.0%, 35.0% { content: "東京を拠点とするバックエ"; }
+    23.5%, 34.5% { content: "東京を拠点とするバックエン"; }
+    24.0%, 34.0% { content: "東京を拠点とするバックエンド"; }
+
+    37.5%, 95.5% { content: "東京を拠点とするフ"; }
+    38.0%, 95.0% { content: "東京を拠点とするフル"; }
+    38.5%, 94.5% { content: "東京を拠点とするフルス"; }
+    39.0%, 94.0% { content: "東京を拠点とするフルスタ"; }
+    39.5%, 93.5% { content: "東京を拠点とするフルスタッ"; }
+    40.0%, 93.0% { content: "東京を拠点とするフルスタック"; }
+    40.5%, 92.5% { content: "東京を拠点とするフルスタックソ"; }
+    41.0%, 92.0% { content: "東京を拠点とするフルスタックソフ"; }
+    41.5%, 91.5% { content: "東京を拠点とするフルスタックソフト"; }
+    42.0%, 91.0% { content: "東京を拠点とするフルスタックソフトウ"; }
+    42.5%, 90.5% { content: "東京を拠点とするフルスタックソフトウェ"; }
+    43.0%, 90.0% { content: "東京を拠点とするフルスタックソフトウェア"; }
+    43.5%, 89.5% { content: "東京を拠点とするフルスタックソフトウェア開"; }
+    44.0%, 89.0% { content: "東京を拠点とするフルスタックソフトウェア開発"; }
+    44.5%, 88.5% { content: "東京を拠点とするフルスタックソフトウェア開発者"; }
+    45.0%, 88.0% { content: "東京を拠点とするフルスタックソフトウェア開発者。"; }
+    // 82 steps to write whole sentence
+    // 47 steps to erase sentence
+}
   
   @keyframes blink {
     0%, 100% { opacity: 1; }
@@ -875,17 +1059,27 @@ $bgDark: #080808;
 
   .typewriter {
     --caret: currentcolor;
-  }
-  
-  .typewriter::before {
-    content: "";
-    animation: typing 13.5s infinite;
-  }
-  
-  .typewriter::after {
-    content: "";
-    border-right: 1ch solid var(--caret);
-    animation: blink 0.5s linear infinite;
+    &::before {
+        content: "";
+        animation: typing 13.5s infinite;
+    }
+    &::after {
+        content: "";
+        border-right: 1ch solid var(--caret);
+        animation: blink 0.5s linear infinite;
+    }
+    &.es::before {
+        content: "";
+        animation: typingEs 13.5s infinite;
+    }
+    &.pt::before {
+        content: "";
+        animation: typingPt 13.5s infinite;
+    }
+    &.ja::before {
+        content: "";
+        animation: typingJa 13.5s infinite;
+    }
   }
 
   @media (prefers-reduced-motion) {
@@ -896,10 +1090,31 @@ $bgDark: #080808;
     @keyframes sequencePopup {
       0%, 100% { content: "A full-stack software developer based in Tokyo."; }
     }
+    @keyframes sequencePopupEs {
+      0%, 100% { content: "Un desarrollador full-stack de software en Tokio."; }
+    }
+    @keyframes sequencePopupPt {
+      0%, 100% { content: "Um programador de software full-stack em Tóquio."; }
+    }
+    @keyframes sequencePopupJa {
+      0%, 100% { content: "東京を拠点とするフルスタックソフトウェア開発者。"; }
+    }
   
     .typewriter::before {
       content: "A full-stack software developer based in Tokyo.";
       animation: sequencePopup 24s linear infinite;
+    }
+    .typewriter.es::before {
+      content: "Un desarrollador full-stack de software en Tokio.";
+      animation: sequencePopupEs 24s linear infinite;
+    }
+    .typewriter.pt::before {
+      content: "Um programador de software full-stack em Tóquio.";
+      animation: sequencePopupPt 24s linear infinite;
+    }
+    .typewriter.ja::before {
+      content: "東京を拠点とするフルスタックソフトウェア開発者。";
+      animation: sequencePopupJa 24s linear infinite;
     }
   }
 // TYPEWRITER END =====================

@@ -44,6 +44,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
   const [style, setStyle] = useState({ opacity: '1' });
   
   const { language } = useLanguage();
+  let languageClass = language + ' typewriter' || 'en typewriter';
 
   // Add event listener on mount and remove it on unmount
   useEffect(() => {
@@ -260,7 +261,8 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className='letter faded'>O</span>
             <span className='letter faded'>D</span>
             </p> */}
-          <p className={`small name after bold ${showClassName}`}>LUIS RODRIGUEZ{language==='ja' && <span className='after-name'>{translations.hello_after}</span>}</p>
+          <p className={`small name after bold ${showClassName}`}>LUIS RODRIGUEZ</p>
+          {language==='ja' && <p className='after-name'>{translations.hello_after}</p>}
         </div>
 
 
@@ -287,7 +289,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             {/* <span className='typewriter'>
               A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.
             </span> */}
-            <span className='self-desc'></span>
+            <span className={`self-desc ${languageClass}`}></span>
             <br></br>
           </p>
           <p
