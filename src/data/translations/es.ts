@@ -13,8 +13,8 @@ const translations = {
     skills_back: "Back-End",
     skills_other: "Otros",
     // Projects
-    projects_title: "Mis projectos",
-    projects_desc: "haz click en un projecto para ver los detalles ",
+    projects_title: "Mis proyectos",
+    projects_desc: "haz click en un proyecto para ver los detalles ",
     see_all_projects: "Ver todos",
     // ProjectCard
     card_button_one: "Ver Diario",
