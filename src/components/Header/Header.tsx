@@ -5,7 +5,7 @@ import { CgDarkMode } from 'react-icons/cg';
 
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { MdAlternateEmail } from 'react-icons/md';
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 
 interface HeaderProps {
@@ -78,7 +78,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
       <div className={`header-logo ${isScrolled ? 'show' : ''}`}></div>
 
       <div className={`header-right ${isScrolled ? 'show' : ''} ${showClassName}`}>
-        <div className="contact-opts-m">
+        {/* <div className="contact-opts-m">
           {showContact && (
             <div 
               className="contact-opts out"
@@ -96,8 +96,8 @@ export default function Header({ showContact, handleShowContact, handleContactMo
               </a>
             </div>
           )}
-        </div>
-        <div className="contact-m hidden">
+        </div> */}
+        {/* <div className="contact-m hidden">
           {showContact ? (
               <button 
               className='open'
@@ -114,9 +114,9 @@ export default function Header({ showContact, handleShowContact, handleContactMo
               >Contact</button>
             )
           }
-        </div>
+        </div> */}
         <div 
-              className="contact-opts f"
+              className={`contact-opts f ${isScrolled ? 'show' : ''}`}
               onMouseEnter={handleMouseEnter('content')}
               onMouseLeave={handleMouseLeave('content')}
             >
@@ -130,7 +130,7 @@ export default function Header({ showContact, handleShowContact, handleContactMo
                 <MdAlternateEmail size={22} />
               </a>
         </div>
-        <div className="divider"></div>
+        <div className={`divider ${isScrolled ? 'show' : ''}`}></div>
         {isDark ? (
           (window.matchMedia("(any-hover: none)").matches) ? (
             <></>

@@ -70,12 +70,19 @@ $bgDark: #080808;
             animation: show ease-in 400ms;
         }
         .contact-opts {
+            transition: 500ms ease-in;
             margin-top: 2px;
+            pointer-events: none;
+            opacity: 0;
             a {
                 color: #25252a !important;
                 svg {
                     color: #25252a !important;
                 }
+            }
+            &.show {
+                opacity: 1;
+                pointer-events: all;
             }
         }
         &.show {
@@ -83,11 +90,17 @@ $bgDark: #080808;
                 color: #25252a !important;
             }
             .contact-opts {
+                pointer-events: none;
+                opacity: 0;
                 a {
                     color: #25252a !important;
                     svg {
                         color: #25252a !important;
                     }
+                }
+                &.show {
+                    opacity: 1;
+                    pointer-events: all;
                 }
             }
             .divider {
@@ -95,7 +108,12 @@ $bgDark: #080808;
             }
         }
         .divider {
+            transition: 500ms ease-in;
             border-left: 1px solid #25252a3f !important;
+            opacity: 0;
+                &.show {
+                    opacity: 1;
+                }
         }
     }
     svg {

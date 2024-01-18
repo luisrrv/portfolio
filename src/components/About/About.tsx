@@ -3,6 +3,8 @@ import { AiOutlineArrowDown } from 'react-icons/ai';
 import { PiCardsFill } from 'react-icons/pi';
 import { useLanguage } from '../../context/LanguageContext';
 import './About.scss';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { MdAlternateEmail } from 'react-icons/md';
 // import defaultTranslations  from '../../data/translations/en';
 
 // const getTranslations = (language: string) => {
@@ -291,6 +293,21 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             <span className={`self-desc ${languageClass}`}></span>
             <br></br>
           </p>
+          <div 
+              className='contact-opts f'
+              onMouseEnter={(e) => {handleMouseTrackerEnter('content',e.target)}}
+              onMouseLeave={(e) => {handleMouseTrackerLeave('content',e.target)}}
+            >
+              <a href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer">
+                <BsGithub size={18} />
+              </a>
+              <a href="https://www.linkedin.com/in/luisrrv/" target="_blank" rel="noopener noreferrer">
+                <BsLinkedin size={18} />
+              </a>
+              <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%72%6F%64%6C%75%69%73%72%40%67%6D%61%69%6C%2E%63%6F%6D">
+                <MdAlternateEmail size={22} />
+              </a>
+          </div>
           <p
             className="more"
             onClick={(e) => {handleMore(true); handleMouseTrackerLeave('web',e.target);}}
