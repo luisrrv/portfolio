@@ -1094,6 +1094,7 @@ $bgDark: #080808;
     &::before {
         content: "";
         animation: typing 13.5s infinite;
+        animation-delay: 1.5s;
     }
     &::after {
         content: "";
@@ -1148,5 +1149,10 @@ $bgDark: #080808;
       content: "東京を拠点とするフルスタックソフトウェア開発者です。";
       animation: sequencePopupJa 24s linear infinite;
     }
+  }
+
+  .typewriter.loading::before {
+    content: "";
+    animation: none !important;
   }
 // TYPEWRITER END =====================

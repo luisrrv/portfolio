@@ -41,6 +41,7 @@ interface AboutProps {
 export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore, loading, translations }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
+  const loadingClass = loading ? 'loading' : '';
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [style, setStyle] = useState({ opacity: '1' });
@@ -290,7 +291,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
             {/* <span className='typewriter'>
               A <span className='bold'>Software Developer</span> based in Tokyo. <br></br>Experienced in working on both  <span className='bold'>front-end</span> and  <span className='bold'>back-end</span> development for  <span className='bold'>web</span> and <span className='bold'>native apps</span>.
             </span> */}
-            <span className={`self-desc ${languageClass}`}></span>
+            <span className={`self-desc ${languageClass} ${loadingClass}`}></span>
             <br></br>
           </p>
           <div 
