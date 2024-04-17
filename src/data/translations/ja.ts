@@ -24,6 +24,7 @@ const translations = {
     card_button_four: "見てみる",
     card_button_five: "ブラウズ",
     card_button_six: "試してみる",
+    card_button_seven: "ホームページ",
 
     card_button_code: "コード",
 
@@ -33,6 +34,7 @@ const translations = {
     card_desc_four: "障害者のための旅行プランナーです。このアプリを使用すると、場所の検索から、旅程に含まれる場所への往復ルートまで、アクセシブルな旅行全体を計画することができます。",
     card_desc_five: "Vue.jsで作られたニュースフィードです。興味のあるニュース記事を検索したり、お気に入りのトピックを保存してフィードに表示することができます。",
     card_desc_six: "ラバーダック・デバッグ」のためのChrome拡張機能です。",
+    card_desc_seven: "Nextjs、Supabase、Github Actionsで作るサッカー選手をフォローするウェブアプリ。そして、ユーザーは、指定したDiscordチャンネルに直接、選手の現在のシーズン統計を毎日メッセージで受け取ることができます。",
     // Info
     about_me: "私について",
     info_skills: "スキル",

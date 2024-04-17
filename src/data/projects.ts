@@ -29,6 +29,9 @@ import newsbg from '../assets/images/projects/news/newsbg.jpeg';
 import duck1 from '../assets/images/projects/rubber/duck1_wide.png';
 import duckbg from '../assets/images/projects/rubber/duckbg.jpeg';
 
+import footy1 from '../assets/images/projects/footy/footy1_wide.png';
+import footy2 from '../assets/images/projects/footy/footy2.png';
+
 
 export interface ProjectProps {
   name: string;
@@ -44,13 +47,13 @@ export default function Project(): ProjectProps[] {
 
   const projects: ProjectProps[] = [
     {
-      name: 'Travel Journal',
-      description: "A React app to document my travels. For each location, you can browse through a collection of photos taken during the trip. you can also see where each photo was taken with its dedicated map.",
-      github: 'https://github.com/luisrrv/React-Travel-Journal',
-      live: 'https://luis-travel-journal.netlify.app',
-      pics: [travel1, travel2, travel3],
-      stack: ['react','typescript','firebase'],
-      bg: travelbg,
+      name: 'FootyPulse',
+      description: "A web app made with Nextjs and Github Actions to follow football players to then, get daily updates of their current seasonal stats directly to the user's specified Discord channel.",
+      github: 'https://github.com/luisrrv/footy-pulse',
+      live: 'https://fotytpulse.netlify.app',
+      pics: [footy1, footy2],
+      stack: ['nextjs','typescript','supabase','tailwind','actions','discord'],
+      bg: bichobg,
     },
     {
       name: 'Bicho Bot (X/Twitter Bot)',
@@ -71,6 +74,15 @@ export default function Project(): ProjectProps[] {
       bg: chatbg,
     },
     {
+      name: 'Travel Journal',
+      description: "A React app to document my travels. For each location, you can browse through a collection of photos taken during the trip. you can also see where each photo was taken with its dedicated map.",
+      github: 'https://github.com/luisrrv/React-Travel-Journal',
+      live: 'https://luis-travel-journal.netlify.app',
+      pics: [travel1, travel2, travel3],
+      stack: ['react','typescript','firebase'],
+      bg: travelbg,
+    },
+    {
       name: 'Ally Maps',
       description: 'A trip planner for people with disabilities. This app allows them to plan entire accessible trips from searching places to the routes to and from the places in their itineraries.',
       github: 'https://github.com/luisrrv/allymaps',
@@ -80,15 +92,6 @@ export default function Project(): ProjectProps[] {
       bg: allybg,
     },
     {
-      name: 'News Feed',
-      description: 'A news feed made with Vue.js. Search for news articles based on your interests and save your favorite topics to be displayed on the feed.',
-      github: 'https://github.com/luisrrv/vue-news',
-      live: '',
-      pics: [news1, news2, news3],
-      stack: ['vue'],
-      bg: newsbg,
-    },
-    {
       name: 'Rubber Ducking',
       description: 'A Chrome Extension made for "rubber duck debbugging"',
       github: 'https://github.com/luisrrv/Rubber-Ducking-Chrome-Extension',
@@ -96,6 +99,15 @@ export default function Project(): ProjectProps[] {
       pics: [duck1],
       stack: ['javascript','chrome'],
       bg: duckbg,
+    },
+    {
+      name: 'News Feed',
+      description: 'A news feed made with Vue.js. Search for news articles based on your interests and save your favorite topics to be displayed on the feed.',
+      github: 'https://github.com/luisrrv/vue-news',
+      live: '',
+      pics: [news1, news2, news3],
+      stack: ['vue'],
+      bg: newsbg,
     },
   ];
 

@@ -23,6 +23,7 @@ const translations = {
     card_button_four: "Echa un vistazo",
     card_button_five: "Explora",
     card_button_six: "Pruebalo",
+    card_button_seven: "Sitio web",
 
     card_button_code: "Código",
 
@@ -32,6 +33,7 @@ const translations = {
     card_desc_four: "Un planificador de viajes para personas con discapacidad. Esta app les permite planificar viajes accesibles completos, desde la búsqueda de lugares hasta las rutas de ida y vuelta en sus itinerarios.",
     card_desc_five: "Un feed de noticias hecho con Vue.js. Busque artículos de noticias basados en sus intereses y guarde sus temas favoritos para mostrarlos en el feed.",
     card_desc_six: 'Una extensión de Chrome hecha para "rubber duck debbugging"',
+    card_desc_seven: "Una aplicación web creada con Nextjs, Supabase y Github Actions para seguir a jugadores de fútbol y recibir mensajes diarios de sus estadísticas de la temporada directamente al canal de Discord especificado por el usuario.",
     // Info
     about_me: "Sobre mí",
     info_skills: "Mis habilidades",

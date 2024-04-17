@@ -5,6 +5,8 @@ import { useInView } from 'react-intersection-observer';
 
 //icons
 import { BsFillFileEarmarkCodeFill, BsTwitterX } from 'react-icons/bs';
+import { GiSoccerBall } from 'react-icons/gi';
+import { TbBrandNextjs } from "react-icons/tb";
 import {MdWeb } from 'react-icons/md'
 import {LiaWindowMinimizeSolid, 
         LiaGithub, 
@@ -31,6 +33,9 @@ import { SiRubyonrails,
         SiExpress,
         SiTailwindcss,
         SiSocketdotio,
+        SiDiscord,
+        SiGithubactions,
+        SiSupabase,
     } from 'react-icons/si';
 
 interface ProjectCardProps {
@@ -110,6 +115,14 @@ export default function ProjectCard({
                   return <SiJavascript key={index} />;
                 case 'chrome':
                   return <SiGooglechrome key={index} />;
+                case 'nextjs':
+                  return <TbBrandNextjs key={index} />;
+                case 'supabase':
+                  return <SiSupabase key={index} />;
+                case 'actions':
+                  return <SiGithubactions key={index} />;
+                case 'discord':
+                  return <SiDiscord key={index} />;
                 default:
                   return <BsFillFileEarmarkCodeFill key={index} />;
               }
@@ -126,6 +139,7 @@ export default function ProjectCard({
     else if (title === 'Ally Maps') ctaText = translations.card_button_four;
     else if (title === 'News Feed') ctaText = translations.card_button_five;
     else if (title === 'Rubber Ducking') ctaText = translations.card_button_six;
+    else if (title === 'FootyPulse') ctaText = translations.card_button_seven;
 
     const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number = 0) => {
       if (element) {
@@ -254,12 +268,13 @@ export default function ProjectCard({
     };
 
     const getIcon = () => {
-      if (ctaText==='Journal') return <LiaPlaneSolid />;
-      else if (ctaText==="Bot's profile") return <LiaRobotSolid />;
-      else if (ctaText==='Chat!') return <LiaRocketchat />;
-      else if (ctaText==='Check it out') return <LiaMapMarkedAltSolid />;
-      else if (ctaText==='Browse') return <LiaNewspaper />;
-      else if (ctaText==='Try it!') return <LiaPuzzlePieceSolid />;
+      if (ctaText===translations.card_button_one) return <LiaPlaneSolid />;
+      else if (ctaText===translations.card_button_two) return <LiaRobotSolid />;
+      else if (ctaText===translations.card_button_three) return <LiaRocketchat />;
+      else if (ctaText===translations.card_button_four) return <LiaMapMarkedAltSolid />;
+      else if (ctaText===translations.card_button_five) return <LiaNewspaper />;
+      else if (ctaText===translations.card_button_six) return <LiaPuzzlePieceSolid />;
+      else if (ctaText===translations.card_button_seven) return <GiSoccerBall />;
       else return <MdWeb />;
     }
 

@@ -42,24 +42,28 @@ export default function App ({className, isDark, hideApp, handleContactMouseOver
         if (!project) {
             projectsData.forEach((proj: any) => {
                 switch (proj.name) {
-                  // eslint-disable-next-line react-hooks/exhaustive-deps
-                  case 'Travel Journal': proj.description = translations.card_desc_one;
-                  break;
-                  case 'Bicho Bot (X/Twitter Bot)': proj.description = translations.card_desc_two;
-                  break;
-                  case 'Web Chat App': proj.description = translations.card_desc_three;
-                  break;
-                  case 'Ally Maps': proj.description = translations.card_desc_four;
-                  break;
-                  case 'News Feed': proj.description = translations.card_desc_five;
-                  break;
-                  case 'Rubber Ducking': proj.description = translations.card_desc_six;
-                  break;
+                    // eslint-disable-next-line react-hooks/exhaustive-deps
+                    case 'FootyPulse': proj.description = translations.card_desc_seven;
+                    break;
+                    case 'Travel Journal': proj.description = translations.card_desc_one;
+                    break;
+                    case 'Bicho Bot (X/Twitter Bot)': proj.description = translations.card_desc_two;
+                    break;
+                    case 'Web Chat App': proj.description = translations.card_desc_three;
+                    break;
+                    case 'Ally Maps': proj.description = translations.card_desc_four;
+                    break;
+                    case 'News Feed': proj.description = translations.card_desc_five;
+                    break;
+                    case 'Rubber Ducking': proj.description = translations.card_desc_six;
+                    break;
                 }
             });
         } else {
             switch (project.name) {
                 // eslint-disable-next-line react-hooks/exhaustive-deps
+                case 'FootyPulse': project.description = translations.card_desc_seven;
+                break;
                 case 'Travel Journal': project.description = translations.card_desc_one;
                 break;
                 case 'Bicho Bot (X/Twitter Bot)': project.description = translations.card_desc_two;
