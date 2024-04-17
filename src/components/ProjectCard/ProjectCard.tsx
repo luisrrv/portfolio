@@ -36,6 +36,7 @@ import { SiRubyonrails,
         SiDiscord,
         SiGithubactions,
         SiSupabase,
+        SiJest,
     } from 'react-icons/si';
 
 interface ProjectCardProps {
@@ -123,6 +124,8 @@ export default function ProjectCard({
                   return <SiGithubactions key={index} />;
                 case 'discord':
                   return <SiDiscord key={index} />;
+                case 'jest':
+                  return <SiJest key={index} />;
                 default:
                   return <BsFillFileEarmarkCodeFill key={index} />;
               }

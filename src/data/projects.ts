@@ -13,6 +13,8 @@ import bicho1 from '../assets/images/projects/bicho/bicho1_wide.png';
 import bicho2 from '../assets/images/projects/bicho/bicho2.png';
 import bichobg from '../assets/images/projects/bicho/bichobg.jpeg';
 
+import footybg from '../assets/images/projects/footy/footybg.jpeg';
+
 // import meme1 from '../assets/images/projects/meme/meme1_wide.png';
 // import meme2 from '../assets/images/projects/meme/meme2.png';
 // import memebg from '../assets/images/projects/meme/memebg.png';
@@ -52,8 +54,8 @@ export default function Project(): ProjectProps[] {
       github: 'https://github.com/luisrrv/footy-pulse',
       live: 'https://fotytpulse.netlify.app',
       pics: [footy1, footy2],
-      stack: ['nextjs','typescript','supabase','tailwind','actions','discord'],
-      bg: bichobg,
+      stack: ['nextjs','typescript','supabase','tailwind','jest','actions','discord'],
+      bg: footybg,
     },
     {
       name: 'Bicho Bot (X/Twitter Bot)',
