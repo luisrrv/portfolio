@@ -52,7 +52,7 @@ export default function Project(): ProjectProps[] {
       name: 'FootyPulse',
       description: "A web app made with Nextjs and Github Actions to follow football players to then, get daily updates of their current seasonal stats directly to the user's specified Discord channel.",
       github: 'https://github.com/luisrrv/footy-pulse',
-      live: 'https://footytpulse.netlify.app',
+      live: 'https://footypulse.netlify.app',
       pics: [footy1, footy2],
       stack: ['nextjs','typescript','supabase','tailwind','jest','actions','discord'],
       bg: footybg,
