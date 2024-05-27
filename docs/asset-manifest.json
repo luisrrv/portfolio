@@ -1,14 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.a0c48286.css",
-    "main.js": "/static/js/main.02b26e3a.js",
+    "main.css": "/static/css/main.dc60e30a.css",
+    "main.js": "/static/js/main.038622cb.js",
     "static/js/851.0a624ee4.chunk.js": "/static/js/851.0a624ee4.chunk.js",
     "static/js/297.81254688.chunk.js": "/static/js/297.81254688.chunk.js",
     "static/js/210.9ed4cb0f.chunk.js": "/static/js/210.9ed4cb0f.chunk.js",
     "static/js/13.50981107.chunk.js": "/static/js/13.50981107.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/footy1_wide.png": "/static/media/footy1_wide.daf64352114e7153d97b.png",
-    "static/media/tomando.gif": "/static/media/tomando.f4e6fa782d3f673c20f4.gif",
     "static/media/footy2.png": "/static/media/footy2.cd3cec17533c50e1b31c.png",
     "static/media/chat2_wide.png": "/static/media/chat2_wide.9854c0ef560d8f971b92.png",
     "static/media/allybg.jpg": "/static/media/allybg.3279fb7587e2117dc7ef.jpg",
@@ -30,17 +29,17 @@
     "static/media/ally1.png": "/static/media/ally1.b81f5c4d05f161df43e5.png",
     "static/media/ally3.png": "/static/media/ally3.ea2ef089a05dd2bc4a6d.png",
     "static/media/news3.png": "/static/media/news3.43945e6c115f6f4f80b5.png",
+    "static/media/logo_w.png": "/static/media/logo_w.a0b31c3261c013f34cff.png",
+    "static/media/logo_b.png": "/static/media/logo_b.e97749f3460bb1d30917.png",
     "static/media/duckbg.jpeg": "/static/media/duckbg.e2a6afacc4392457ae73.jpeg",
     "static/media/chat1.png": "/static/media/chat1.ebdbfefce549c6d28f4c.png",
     "static/media/bichobg.jpeg": "/static/media/bichobg.cdbb924e049ad0500e91.jpeg",
     "static/media/chatbg.jpeg": "/static/media/chatbg.84c31a09e49944f26e09.jpeg",
     "static/media/menobg_stencil_b.png": "/static/media/menobg_stencil_b.3fd362d8a6e4ea8526f8.png",
     "static/media/menobg_stencil_w.png": "/static/media/menobg_stencil_w.d2f17e6d3ef1669249e7.png",
-    "static/media/menobg_stencil_logo_w.png": "/static/media/menobg_stencil_logo_w.6ea3f3050fc130933367.png",
-    "static/media/menobg_stencil_logo_b.png": "/static/media/menobg_stencil_logo_b.45560332961d5de51b8d.png",
     "index.html": "/index.html",
-    "main.a0c48286.css.map": "/static/css/main.a0c48286.css.map",
-    "main.02b26e3a.js.map": "/static/js/main.02b26e3a.js.map",
+    "main.dc60e30a.css.map": "/static/css/main.dc60e30a.css.map",
+    "main.038622cb.js.map": "/static/js/main.038622cb.js.map",
     "851.0a624ee4.chunk.js.map": "/static/js/851.0a624ee4.chunk.js.map",
     "297.81254688.chunk.js.map": "/static/js/297.81254688.chunk.js.map",
     "210.9ed4cb0f.chunk.js.map": "/static/js/210.9ed4cb0f.chunk.js.map",
@@ -48,7 +47,7 @@
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a0c48286.css",
-    "static/js/main.02b26e3a.js"
+    "static/css/main.dc60e30a.css",
+    "static/js/main.038622cb.js"
   ]
 }
