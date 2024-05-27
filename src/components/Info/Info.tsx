@@ -104,14 +104,15 @@ export default function Header({ isDark, langBtn, handleLangBtn, hideDialog, han
 
                   </div>
                 </div>
-                <p>{translations.info_footer}<a onMouseEnter={handleMouseEnter('content')} onMouseLeave={handleMouseLeave('content')} className='underline' href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer">{translations.info_footer_me}</a>.</p>
                 <div className="icons">
+                    <div className="info-img"></div>
+                    <div className='divider'>|</div>
                     <BiLogoFigma />
                     <BiLogoReact />
                     <BiLogoTypescript />
                     <BiLogoGithub />
-                    <div className="info-img"></div>
                 </div>
+                <p>{translations.info_footer}<a onMouseEnter={handleMouseEnter('content')} onMouseLeave={handleMouseLeave('content')} className='underline' href="https://github.com/luisrrv" target="_blank" rel="noopener noreferrer">{translations.info_footer_me}</a>.</p>
             </div>
         </div>
     </div>

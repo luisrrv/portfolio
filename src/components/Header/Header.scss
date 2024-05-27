@@ -54,7 +54,8 @@ $bgDark: #080808;
         width: 24px;
         height: 24px;
         margin-bottom: 6px;
-        background-image: url(../../assets/images/menobg_stencil_logo_b.png);
+        // background-image: url(../../assets/images/menobg_stencil_logo_b.png);
+        background-image: url(../../assets/images/logo_b.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -128,7 +129,8 @@ $bgDark: #080808;
         }
 
         .header-logo {
-            background-image: url(../../assets/images/menobg_stencil_logo_w.png);
+            // background-image: url(../../assets/images/menobg_stencil_logo_w.png);
+            background-image: url(../../assets/images/logo_w.png);
         }
         &.hdr {
             background-color: transparent !important;

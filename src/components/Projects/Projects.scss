@@ -39,7 +39,8 @@ $lighterBlue: #b5bbdf;
         background: linear-gradient(90deg, rgba(17,17,19,1) 0%, rgba(17,17,19,1) 15%, rgb(31, 31, 37) 50%, rgba(17,17,19,1) 85%, rgba(17,17,19,1) 100%);
 
         h3 {
-            -webkit-text-stroke: 1px #e6e6e6 !important;
+            // font-weight: normal !important;
+            -webkit-text-stroke: 0px #e6e6e6 !important;
             color: #e6e6e6;
             svg {
                 color: $lightRed !important;
@@ -63,6 +64,7 @@ $lighterBlue: #b5bbdf;
     }
 
     h3 {
+        font-family: "Audiowide", sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -74,9 +76,9 @@ $lighterBlue: #b5bbdf;
         font-size: 30px;
         letter-spacing: 3px;
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: normal;
         color: #333333;
-        -webkit-text-stroke: 1px #333333 !important;
+        -webkit-text-stroke: 0px #333333 !important;
 
         svg {
             color: $lightRed !important;
@@ -115,10 +117,14 @@ $lighterBlue: #b5bbdf;
         color: #222222;
         padding: 60px 0;
         font-weight: bold;
-        text-transform: uppercase;
+        text-transform: cap;
         transition: 200ms;
+        letter-spacing: 2px;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-color: $lightRed;
         &:hover {
-            letter-spacing: 2px;
+            letter-spacing: 4px;
         }
     }
 

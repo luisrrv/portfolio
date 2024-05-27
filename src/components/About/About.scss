@@ -145,7 +145,7 @@ $bgDark: #080808;
                     font-weight: bold;
                     white-space: initial;
                     word-wrap: break-word;
-                    -webkit-text-stroke: 1.5px #222222;
+                    -webkit-text-stroke: 0px #222222;
                     span {
                         line-height: 8px;
                         font-size: 12px;
@@ -203,8 +203,13 @@ $bgDark: #080808;
                     text-align: center;
                     letter-spacing: 4px;
                     &.name.bold {
-                        color: transparent;
-                        -webkit-text-stroke: 1px #222222 !important;
+                        font-weight: normal !important;
+                        font-family: "Audiowide", sans-serif;
+                        letter-spacing: 2px;
+                        color: #222222 !important;
+                        -webkit-text-stroke: 0px #222222 !important;
+                        // color: transparent;
+                        // -webkit-text-stroke: 1px #222222 !important;
                         text-shadow:
                             0 0 7px #1111150f,
                             0 0 10px #1111150f,
@@ -216,8 +221,9 @@ $bgDark: #080808;
                             0 0 151px #4f23ff30;
                     }
                     &.hello {
-                        font-size: 24px;
-                        text-transform: uppercase;
+                        opacity: 0.8;
+                        font-size: 18px;
+                        text-transform: lowercase;
                         &.shw {
                             animation: slideDo ease-in 600ms;
                         }
@@ -320,7 +326,7 @@ $bgDark: #080808;
             width: 90%;
             max-width: 514px;
             z-index: 1;
-            text-transform: uppercase;
+            text-transform: lowercase;
             letter-spacing: 4px;
             filter: invert(100%);
             -webkit-filter: invert(100%);
@@ -341,7 +347,8 @@ $bgDark: #080808;
                 }
 
                 span.self-desc {
-                    font-weight: bold;
+                    opacity: 0.8;
+                    font-weight: normal;
                     min-height: 14px;
                 }
 
@@ -402,7 +409,7 @@ $bgDark: #080808;
             p {
                 &.big span.letter{
                     color: transparent !important;
-                    -webkit-text-stroke: 1.5px #f0f0f0;
+                    -webkit-text-stroke: 0px #f0f0f0;
                     span {
                         color: #f0f0f0;
                     }
@@ -418,8 +425,9 @@ $bgDark: #080808;
                 &.small {
                     color: #f0f0f0;
                     &.name.bold {
-                        color: transparent;
-                        -webkit-text-stroke: 1px #f0f0f0 !important;
+                        // color: transparent;
+                        color: #e6e6e6 !important;
+                        -webkit-text-stroke: 0px #f0f0f0 !important;
                         text-shadow:
                             0 0 7px #f0f0f021,
                             0 0 10px #f0f0f021,
@@ -648,7 +656,7 @@ $bgDark: #080808;
                 p.small {
                     &.hello {
                         font-size: 18px !important;
-                        text-transform: uppercase;
+                        text-transform: lowercase;
                     }
                     &.name.after {
                         font-size: 22px !important;
@@ -689,7 +697,7 @@ $bgDark: #080808;
                         font-size: 16px !important;
                     }
                     &.name.after {
-                        font-size: 28px !important;
+                        font-size: 24px !important;
                     }
                     &.name.bold {
                         text-shadow: none !important;

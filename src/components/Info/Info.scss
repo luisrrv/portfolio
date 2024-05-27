@@ -108,23 +108,28 @@ $lighterBlue: #b5bbdf;
             align-items: flex-start;
             width: 100%;
             height: fit-content;
-            gap: 16px;
+            gap: 20px;
 
             a, p.contact {
-                font-size: 1.3rem;
+                font-family: "Audiowide", sans-serif;
+                font-size: 1.1rem;
                 text-transform: uppercase;
-                font-weight: bold;
+                font-weight: normal;
                 letter-spacing: 1px;
                 height: fit-content;
                 color: #222222 !important;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                gap: 8px;
+                gap: 10px;
 
                 &:hover {
                     cursor: pointer;
                     letter-spacing: 2px;
+                }
+
+                svg {
+                    font-size: 22px;
                 }
             }
             .ext {
@@ -134,8 +139,9 @@ $lighterBlue: #b5bbdf;
                 align-items: flex-start;
                 width: 100%;
                 height: fit-content;
+                // gap: 20px
                 a {
-                    padding-bottom: 12px;
+                    padding-bottom: 20px;
                 }
             }
         }
@@ -188,6 +194,7 @@ $lighterBlue: #b5bbdf;
                 gap: 2px;
                 font-size: 12px;
                 letter-spacing: 2px;
+                text-transform: lowercase;
                 a.underline {
                     border-bottom: 1px solid $lightRed;
                     display: flex;
@@ -205,22 +212,30 @@ $lighterBlue: #b5bbdf;
                 height: fit-content;
                 gap: 12px;
 
+                .divider {
+                    padding-top: 4px;
+                    color: #222222;
+                }
+
                 svg {
                     border-radius: 50%;
                     height: 32px;
                     width: 32px;
                     font-size: 24px;
-                    color: $lightRed;
+                    // color: $lightRed;
+                    color: #222222;
                 }
             }
             .info-img {
                 width: 32px;
                 height: 32px;
-                border: 1.5px solid $lightRed;
+                // border: 1.5px solid $lightRed;
                 border-radius: 50%;
-                background-image: url(../../assets/images/tomando.gif);
-                background-size: 40px 40px;
-                background-position: top;
+                // background-image: url(../../assets/images/tomando.gif);
+                background-image: url(../../assets/images/logo_b.png);
+                // background-size: 40px 40px;
+                background-size: contain;
+                background-position: center;
                 background-repeat: no-repeat;
             }
         }
@@ -251,8 +266,12 @@ $lighterBlue: #b5bbdf;
                     }
                 }
                 .icons {
+                    .divider {
+                        color: white;
+                    }
                     svg {
-                        color: $lightRed;
+                        // color: $lightRed;
+                        color: white;
                     }
                 }
             }
@@ -273,6 +292,7 @@ $lighterBlue: #b5bbdf;
             }
             .info-img {
                 border-color: $lightRed;
+                background-image: url(../../assets/images/logo_w.png);
             }
         }
 
