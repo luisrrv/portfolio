@@ -64,6 +64,9 @@ function Main({ className, isDarkMode }: IAppProps) {
     }, [language]);
     
     useEffect(() => {
+        document.title = "Luis Rodriguez | Dev";
+        document.documentElement.classList.remove('reflect');
+        document.body.classList.remove('reflect');
         // setShowApp(true);
         setTimeout(() => {
             setLoadingClose(true);
