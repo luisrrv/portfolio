@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import { PiCardsFill } from 'react-icons/pi';
@@ -36,9 +37,10 @@ interface AboutProps {
   handleMore: (value: boolean) => void;
   loading: boolean;
   translations: any;
+  showSection: (e: any, section: string) => void;
 }
 
-export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore, loading, translations }: AboutProps) {
+export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, handleContactMouseOverChange, handleMore, loading, translations, showSection }: AboutProps) {
   const compClassName = isDark ? 'dark' : 'light';
   const showClassName = opZero ? 'shw' : '';
   const loadingClass = loading ? 'loading' : '';
@@ -327,7 +329,7 @@ export default function About({ isDark, hideApp, aboutMSOn, aboutMSOff, opZero, 
           </span> */}
         </div>
       </div>
-      <a href='#skills' className="scroll-ind">
+      <a href='#' className="scroll-ind" onClick={(e) => {showSection(e, 'skills');}}>
         <div className='int' style={style}>
           <AiOutlineArrowDown />
         </div>

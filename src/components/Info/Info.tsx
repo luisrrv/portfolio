@@ -16,13 +16,14 @@ interface InfoProps {
     langBtn: boolean;
     handleLangBtn: (setting: boolean|undefined) => void;
     hideDialog: () => void;
+    showSection: (e: any, section: string) => void;
     handleContactMouseOverChange: (isMouseOver: boolean, element: string) => void;
     handleDarkModeChange: (toggle: boolean) => void;
     handleMore: (value: boolean) => void;
     translations: any;
 }
 
-export default function Header({ isDark, langBtn, handleLangBtn, hideDialog, handleContactMouseOverChange, handleDarkModeChange, handleMore, translations }: InfoProps) {
+export default function Header({ isDark, langBtn, handleLangBtn, hideDialog, showSection, handleContactMouseOverChange, handleDarkModeChange, handleMore, translations }: InfoProps) {
   const compClassName = isDark ? 'dark' : 'light';
 
   const handleMouseEnter = (element: string): React.MouseEventHandler<HTMLElement> => () => {
@@ -68,8 +69,8 @@ export default function Header({ isDark, langBtn, handleLangBtn, hideDialog, han
                 {langBtn && <LanguageSwitcher onCloseSwitcher={handleLanguageSwitcherClose} />}
                 <div className="nav">
                   <a href="#" className="about" onClick={() => {hideDialog(); handleMore(true);}}><RiUser5Fill />{translations.about_me}</a>
-                  <a href="#skills" className="skills" onClick={hideDialog}><BiSolidBrain />{translations.info_skills}</a>
-                  <a href="#work" className="work" onClick={hideDialog}><BiSolidBriefcaseAlt />{translations.projects_title}</a>
+                  <a href="#" className="skills" onClick={(e) => {hideDialog(); showSection(e,'skills');}}><BiSolidBrain />{translations.info_skills}</a>
+                  <a href="#" className="work" onClick={(e) => {hideDialog(); showSection(e, 'work');}}><BiSolidBriefcaseAlt />{translations.projects_title}</a>
                   <div className="ext">
                     <a 
                       href="https://github.com/luisrrv" 

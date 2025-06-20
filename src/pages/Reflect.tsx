@@ -1,4 +1,3 @@
-// src/pages/Reflect.tsx
 import { useEffect } from 'react';
 
 const Reflect = () => {
