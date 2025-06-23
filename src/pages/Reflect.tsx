@@ -125,8 +125,8 @@ const Reflect = () => {
         <div className='reflect-container'>
             <header className='reflect-header'>
                 <div className="left">
-                    <h1 className="text">Reflect</h1>
-                    <h3 className="text">You bring the form, I return its reflection.</h3>
+                    {/* <h1 className="text">Reflect</h1> */}
+                    {/* <h3 className="text">You bring the form, I return its reflection.</h3> */}
                     {/* <h3 className="text">A creative blend of 3D rendering and real-time video</h3> */}
                 </div>
 

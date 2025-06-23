@@ -12,12 +12,25 @@
     --tx: #ffffffd1;
 }
 
+// Reflect container styles -------------------------
+.reflect-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 // Header styles -------------------------
 .reflect-container .reflect-header {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    // position: absolute;
+    // top: 0;
+    // left: 50%;
+    // transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -186,6 +199,7 @@
 
 // Content section styles -------------------------
 .reflect-container .reflect-content {
+    flex-grow: 1;
     width: 100vw;
     height: 100vh;
     background-color: black;
@@ -198,10 +212,10 @@
 
 // Footer styles -------------------------
 .reflect-container .reflect-footer {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    // position: absolute;
+    // bottom: 0;
+    // left: 50%;
+    // transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
