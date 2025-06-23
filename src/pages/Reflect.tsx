@@ -5,10 +5,14 @@ import { FiCamera } from 'react-icons/fi';
 import { FaGithub, FaReact } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 import { TbBrandThreejs } from "react-icons/tb";
+import { EXRLoader } from 'three/examples/jsm/loaders/EXRLoader';
+import { PMREMGenerator } from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const Reflect = () => {
     const mountRef = useRef<HTMLDivElement>(null);
     const orbRef = useRef<THREE.Mesh | null>(null);
+    const overlayRef = useRef<THREE.Mesh | null>(null);
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const [cameraEnabled, setCameraEnabled] = useState(false);
     const [isStarting, setIsStarting] = useState(false);
@@ -23,30 +27,72 @@ const Reflect = () => {
         document.body.classList.add('reflect');
 
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(
-            50,
-            window.innerWidth / window.innerHeight,
-            0.1,
-            1000
-        );
-        camera.position.z = 3;
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 6;
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
         mount.appendChild(renderer.domElement);
 
-        const geometry = new THREE.SphereGeometry(1, 64, 64);
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;  // for smooth interaction
+        controls.enableZoom = false;    // optional: disable zoom
+        controls.enablePan = false;     // optional: disable pan
+        controls.rotateSpeed = -1;      // Negative to invert drag direction
+        controls.dampingFactor = 0.05;  // Optional (keep positive)
+        controls.autoRotate = true;     // optional: auto-rotate the scene
+        controls.enableZoom = false;    // optional: lock zoom to camera distance
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+        scene.add(ambientLight);
+
+        const geometry = new THREE.SphereGeometry(1, 128, 128);
         const material = new THREE.MeshPhysicalMaterial({
             metalness: 1,
-            roughness: 0,
-            envMapIntensity: 1.0,
+            roughness: 0.05,              // ⬅️ slight blur to reflections (not zero)
+            envMapIntensity: 1.2,         // ⬅️ brighten the reflection
             clearcoat: 1,
-            clearcoatRoughness: 0,
+            clearcoatRoughness: 0.1,      // ⬅️ softens the clearcoat highlight
+            reflectivity: 1,              // ⬅️ (optional if using MeshPhysicalMaterial)
         });
 
         const orb = new THREE.Mesh(geometry, material);
+        orb.scale.set(0.85, 0.85, 0.85);
         orbRef.current = orb;
         scene.add(orb);
+
+        // Load a single equirectangular env map
+        const exrLoader = new EXRLoader();
+        const pmrem = new PMREMGenerator(renderer);
+        pmrem.compileEquirectangularShader();
+
+        // HDR/equirectangular map load - from polyhaven
+        exrLoader.load('/envmap.exr', (texture) => {
+            const envMap = pmrem.fromEquirectangular(texture).texture;
+
+            scene.environment = envMap;
+            (material as THREE.MeshPhysicalMaterial).envMap = envMap;
+            material.needsUpdate = true;
+
+            const textureLoader = new THREE.TextureLoader();
+
+            textureLoader.load('/textures/metal030_normal.jpg', (tex) => {
+                tex.colorSpace = THREE.NoColorSpace;
+                material.normalMap = tex;
+                material.normalScale.set(0.2, 0.2); // Light scratches
+            });
+
+            textureLoader.load('/textures/metal030_roughness.jpg', (tex) => {
+                tex.colorSpace = THREE.NoColorSpace;
+                material.roughnessMap = tex;
+                material.roughness = 0.1;
+            });
+
+            texture.dispose(); // free original exr
+            renderer.render(scene, camera);
+        });
 
         const handleResize = () => {
             camera.aspect = window.innerWidth / window.innerHeight;
@@ -57,7 +103,7 @@ const Reflect = () => {
 
         const animate = () => {
             requestAnimationFrame(animate);
-            orb.rotation.y += 0.005;
+            controls.update();               // <-- important!
             renderer.render(scene, camera);
         };
         animate();
@@ -69,6 +115,7 @@ const Reflect = () => {
                     .getTracks()
                     .forEach((track) => track.stop());
             }
+            controls.dispose();
             renderer.dispose();
             if (mount.contains(renderer.domElement)) {
                 mount.removeChild(renderer.domElement);
@@ -85,9 +132,12 @@ const Reflect = () => {
                     .forEach((track) => track.stop());
                 videoRef.current.srcObject = null;
             }
-            if (orbRef.current?.material) {
-                (orbRef.current.material as THREE.MeshPhysicalMaterial).envMap = null;
-                (orbRef.current.material as THREE.Material).needsUpdate = true;
+            // 🧽 Remove the overlay sphere
+            if (overlayRef.current) {
+                orbRef.current?.parent?.remove(overlayRef.current);
+                overlayRef.current.geometry.dispose();
+                (overlayRef.current.material as THREE.Material).dispose();
+                overlayRef.current = null;
             }
             setCameraEnabled(false);
         } else {
@@ -106,10 +156,19 @@ const Reflect = () => {
                 const videoTexture = new THREE.VideoTexture(video);
                 videoTexture.colorSpace = THREE.SRGBColorSpace;
 
-                if (orbRef.current?.material) {
-                    (orbRef.current.material as THREE.MeshPhysicalMaterial).envMap = videoTexture;
-                    (orbRef.current.material as THREE.Material).needsUpdate = true;
-                }
+               // 🆕 Add overlay sphere with the video texture
+                const overlayMaterial = new THREE.MeshBasicMaterial({
+                    map: videoTexture,
+                    transparent: true,
+                    opacity: 0.6,
+                    side: THREE.BackSide,
+                });
+
+                const overlayGeometry = new THREE.SphereGeometry(0.99, 64, 64);
+                const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial);
+
+                overlayRef.current = overlay;
+                orbRef.current?.parent?.add(overlay);
 
                 setCameraEnabled(true);
             } catch (err) {
