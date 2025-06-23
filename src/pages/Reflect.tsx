@@ -11,9 +11,12 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const Reflect = () => {
     const mountRef = useRef<HTMLDivElement>(null);
+    const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
     const orbRef = useRef<THREE.Mesh | null>(null);
-    const overlayRef = useRef<THREE.Mesh | null>(null);
+    const sceneRef = useRef<THREE.Scene | null>(null);
+    const defaultEnvMapRef = useRef<THREE.Texture | null>(null);
     const videoRef = useRef<HTMLVideoElement | null>(null);
+    const autoRotateRef = useRef(true);
     const [cameraEnabled, setCameraEnabled] = useState(false);
     const [isStarting, setIsStarting] = useState(false);
 
@@ -27,6 +30,7 @@ const Reflect = () => {
         document.body.classList.add('reflect');
 
         const scene = new THREE.Scene();
+        sceneRef.current = scene;
         const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.z = 6;
 
@@ -34,6 +38,7 @@ const Reflect = () => {
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
+        rendererRef.current = renderer;
         mount.appendChild(renderer.domElement);
 
         const controls = new OrbitControls(camera, renderer.domElement);
@@ -71,6 +76,7 @@ const Reflect = () => {
         // HDR/equirectangular map load - from polyhaven
         exrLoader.load('/envmap.exr', (texture) => {
             const envMap = pmrem.fromEquirectangular(texture).texture;
+            defaultEnvMapRef.current = envMap; // Save for later switching
 
             scene.environment = envMap;
             (material as THREE.MeshPhysicalMaterial).envMap = envMap;
@@ -103,7 +109,17 @@ const Reflect = () => {
 
         const animate = () => {
             requestAnimationFrame(animate);
-            controls.update();               // <-- important!
+
+            if (autoRotateRef.current && orbRef.current) {
+                orbRef.current.rotation.y += 0.005;
+            } else if (orbRef.current) {
+                // reset rotations with lerp
+                orbRef.current.rotation.y += (0 - orbRef.current.rotation.y) * 0.1;
+                orbRef.current.rotation.x += (0 - orbRef.current.rotation.x) * 0.1;
+                orbRef.current.rotation.z += (0 - orbRef.current.rotation.z) * 0.1;
+            }
+
+            controls.update();
             renderer.render(scene, camera);
         };
         animate();
@@ -132,17 +148,19 @@ const Reflect = () => {
                     .forEach((track) => track.stop());
                 videoRef.current.srcObject = null;
             }
-            // 🧽 Remove the overlay sphere
-            if (overlayRef.current) {
-                orbRef.current?.parent?.remove(overlayRef.current);
-                overlayRef.current.geometry.dispose();
-                (overlayRef.current.material as THREE.Material).dispose();
-                overlayRef.current = null;
+
+            // Switch back to default EXR envMap
+            if (orbRef.current?.material && defaultEnvMapRef.current) {
+                const material = orbRef.current.material as THREE.MeshPhysicalMaterial;
+                material.envMap = defaultEnvMapRef.current;
+                material.needsUpdate = true;
             }
+
+            autoRotateRef.current = true;
             setCameraEnabled(false);
         } else {
             // === Turn ON camera ===
-            setIsStarting(true); // start indicator
+            setIsStarting(true);
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
                 const video = document.createElement('video');
@@ -153,23 +171,26 @@ const Reflect = () => {
                 await video.play();
                 videoRef.current = video;
 
+                const scene = sceneRef.current;
+                if (!scene) return;
+
                 const videoTexture = new THREE.VideoTexture(video);
                 videoTexture.colorSpace = THREE.SRGBColorSpace;
+                videoTexture.minFilter = THREE.LinearFilter;
+                videoTexture.magFilter = THREE.LinearFilter;
+                videoTexture.generateMipmaps = false;
 
-               // 🆕 Add overlay sphere with the video texture
-                const overlayMaterial = new THREE.MeshBasicMaterial({
-                    map: videoTexture,
-                    transparent: true,
-                    opacity: 0.6,
-                    side: THREE.BackSide,
-                });
+                const material = orbRef.current?.material as THREE.MeshPhysicalMaterial;
+                if (material) {
+                    material.envMap = videoTexture;
+                    material.needsUpdate = true;
+                }
 
-                const overlayGeometry = new THREE.SphereGeometry(0.99, 64, 64);
-                const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial);
+                scene.environment = null;
+                scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+                scene.add(new THREE.DirectionalLight(0xffffff, 1));
 
-                overlayRef.current = overlay;
-                orbRef.current?.parent?.add(overlay);
-
+                autoRotateRef.current = false;
                 setCameraEnabled(true);
             } catch (err) {
                 console.error('Camera error:', err);
