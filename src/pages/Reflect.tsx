@@ -10,13 +10,18 @@ import { PMREMGenerator } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const Reflect = () => {
+    const fadeFactorRef = useRef(0); // 0 = EXR, 1 = webcam
+    const fadeTargetRef = useRef(0); // target we will interpolate toward
     const mountRef = useRef<HTMLDivElement>(null);
     const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
     const orbRef = useRef<THREE.Mesh | null>(null);
     const sceneRef = useRef<THREE.Scene | null>(null);
     const defaultEnvMapRef = useRef<THREE.Texture | null>(null);
     const videoRef = useRef<HTMLVideoElement | null>(null);
-    const autoRotateRef = useRef(true);
+    const videoTextureRef = useRef<THREE.VideoTexture | null>(null);
+    const webcamSphereRef = useRef<THREE.Mesh | null>(null);
+    const cameraEnabledRef = useRef(false);
+    
     const [cameraEnabled, setCameraEnabled] = useState(false);
     const [isStarting, setIsStarting] = useState(false);
 
@@ -42,13 +47,12 @@ const Reflect = () => {
         mount.appendChild(renderer.domElement);
 
         const controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;  // for smooth interaction
-        controls.enableZoom = false;    // optional: disable zoom
-        controls.enablePan = false;     // optional: disable pan
-        controls.rotateSpeed = -1;      // Negative to invert drag direction
-        controls.dampingFactor = 0.05;  // Optional (keep positive)
-        controls.autoRotate = true;     // optional: auto-rotate the scene
-        controls.enableZoom = false;    // optional: lock zoom to camera distance
+        controls.enableDamping = true;
+        controls.enableZoom = false;
+        controls.enablePan = false;
+        controls.rotateSpeed = -1;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
 
         const ambientLight = new THREE.AmbientLight(0xffffff, 1);
         scene.add(ambientLight);
@@ -56,11 +60,10 @@ const Reflect = () => {
         const geometry = new THREE.SphereGeometry(1, 128, 128);
         const material = new THREE.MeshPhysicalMaterial({
             metalness: 1,
-            roughness: 0.05,              // ⬅️ slight blur to reflections (not zero)
-            envMapIntensity: 1.2,         // ⬅️ brighten the reflection
+            roughness: 0.05,
+            envMapIntensity: 1.5,
             clearcoat: 1,
-            clearcoatRoughness: 0.1,      // ⬅️ softens the clearcoat highlight
-            reflectivity: 1,              // ⬅️ (optional if using MeshPhysicalMaterial)
+            clearcoatRoughness: 0.1,
         });
 
         const orb = new THREE.Mesh(geometry, material);
@@ -68,36 +71,28 @@ const Reflect = () => {
         orbRef.current = orb;
         scene.add(orb);
 
-        // Load a single equirectangular env map
+        // Create cube camera for reflections
+        const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(512, {
+            format: THREE.RGBAFormat,
+            generateMipmaps: true,
+            minFilter: THREE.LinearMipmapLinearFilter,
+        });
+
+        const cubeCamera = new THREE.CubeCamera(0.1, 1000, cubeRenderTarget);
+        scene.add(cubeCamera);
+
+        // Load default environment map
         const exrLoader = new EXRLoader();
         const pmrem = new PMREMGenerator(renderer);
         pmrem.compileEquirectangularShader();
 
-        // HDR/equirectangular map load - from polyhaven
         exrLoader.load('/envmap.exr', (texture) => {
             const envMap = pmrem.fromEquirectangular(texture).texture;
-            defaultEnvMapRef.current = envMap; // Save for later switching
-
+            defaultEnvMapRef.current = envMap;
             scene.environment = envMap;
-            (material as THREE.MeshPhysicalMaterial).envMap = envMap;
+            material.envMap = envMap;
             material.needsUpdate = true;
-
-            const textureLoader = new THREE.TextureLoader();
-
-            textureLoader.load('/textures/metal030_normal.jpg', (tex) => {
-                tex.colorSpace = THREE.NoColorSpace;
-                material.normalMap = tex;
-                material.normalScale.set(0.2, 0.2); // Light scratches
-            });
-
-            textureLoader.load('/textures/metal030_roughness.jpg', (tex) => {
-                tex.colorSpace = THREE.NoColorSpace;
-                material.roughnessMap = tex;
-                material.roughness = 0.1;
-            });
-
-            texture.dispose(); // free original exr
-            renderer.render(scene, camera);
+            texture.dispose();
         });
 
         const handleResize = () => {
@@ -107,16 +102,42 @@ const Reflect = () => {
         };
         window.addEventListener('resize', handleResize);
 
+        // Video plane setup (hidden from main view)
+        const videoPlane = new THREE.Mesh(
+            new THREE.PlaneGeometry(10, 10),
+            new THREE.MeshBasicMaterial({ visible: false })
+        );
+        videoPlane.position.z = -10;
+        scene.add(videoPlane);
+
         const animate = () => {
             requestAnimationFrame(animate);
 
-            if (autoRotateRef.current && orbRef.current) {
-                orbRef.current.rotation.y += 0.005;
-            } else if (orbRef.current) {
-                // reset rotations with lerp
-                orbRef.current.rotation.y += (0 - orbRef.current.rotation.y) * 0.1;
-                orbRef.current.rotation.x += (0 - orbRef.current.rotation.x) * 0.1;
-                orbRef.current.rotation.z += (0 - orbRef.current.rotation.z) * 0.1;
+            // Smoothly interpolate fadeFactor towards fadeTarget
+            fadeFactorRef.current += (fadeTargetRef.current - fadeFactorRef.current) * 0.05;
+
+            if (cameraEnabledRef.current && videoTextureRef.current && orbRef.current && webcamSphereRef.current) {
+                videoTextureRef.current.needsUpdate = true;
+
+                webcamSphereRef.current.visible = true;
+
+                cubeCamera.position.copy(orbRef.current.position);
+                cubeCamera.update(renderer, scene);
+
+                webcamSphereRef.current.visible = false;
+
+                const mat = orbRef.current.material as THREE.MeshPhysicalMaterial;
+                mat.envMap = cubeCamera.renderTarget.texture;
+
+                // Blend between EXR and webcam reflection
+                if (fadeFactorRef.current < 0.99) {
+                    mat.envMap = defaultEnvMapRef.current;
+                }
+                if (fadeFactorRef.current > 0.01 && cameraEnabled) {
+                    mat.envMap = cubeRenderTarget.texture;
+                }
+                
+                mat.needsUpdate = true;
             }
 
             controls.update();
@@ -127,40 +148,45 @@ const Reflect = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
             if (videoRef.current?.srcObject) {
-                (videoRef.current.srcObject as MediaStream)
-                    .getTracks()
-                    .forEach((track) => track.stop());
+                (videoRef.current.srcObject as MediaStream).getTracks().forEach(track => track.stop());
             }
             controls.dispose();
             renderer.dispose();
-            if (mount.contains(renderer.domElement)) {
-                mount.removeChild(renderer.domElement);
-            }
+            mount.removeChild(renderer.domElement);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const toggleCamera = async () => {
         if (cameraEnabled) {
-            // === Turn OFF camera ===
+            // Turn OFF camera
+            fadeTargetRef.current = 0; // fade back to EXR
+            const scene = sceneRef.current;
+            if (!scene) return;
+            
             if (videoRef.current?.srcObject) {
-                (videoRef.current.srcObject as MediaStream)
-                    .getTracks()
-                    .forEach((track) => track.stop());
+                (videoRef.current.srcObject as MediaStream).getTracks().forEach(track => track.stop());
                 videoRef.current.srcObject = null;
             }
+            
+            if (videoTextureRef.current) {
+                videoTextureRef.current.dispose();
+                videoTextureRef.current = null;
+            }
 
-            // Switch back to default EXR envMap
+            // Restore default env map
             if (orbRef.current?.material && defaultEnvMapRef.current) {
                 const material = orbRef.current.material as THREE.MeshPhysicalMaterial;
                 material.envMap = defaultEnvMapRef.current;
                 material.needsUpdate = true;
             }
 
-            autoRotateRef.current = true;
+            cameraEnabledRef.current = false;
             setCameraEnabled(false);
         } else {
-            // === Turn ON camera ===
+            // Turn ON camera
             setIsStarting(true);
+            fadeTargetRef.current = 1; // fade to webcam reflection
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
                 const video = document.createElement('video');
@@ -174,23 +200,31 @@ const Reflect = () => {
                 const scene = sceneRef.current;
                 if (!scene) return;
 
+                // Create video texture
                 const videoTexture = new THREE.VideoTexture(video);
                 videoTexture.colorSpace = THREE.SRGBColorSpace;
-                videoTexture.minFilter = THREE.LinearFilter;
-                videoTexture.magFilter = THREE.LinearFilter;
-                videoTexture.generateMipmaps = false;
+                videoTextureRef.current = videoTexture;
 
-                const material = orbRef.current?.material as THREE.MeshPhysicalMaterial;
-                if (material) {
-                    material.envMap = videoTexture;
-                    material.needsUpdate = true;
-                }
+                // Update video plane material
+                scene.children.forEach(child => {
+                    if (child instanceof THREE.Mesh && child.geometry.type === 'PlaneGeometry') {
+                        (child.material as THREE.MeshBasicMaterial).map = videoTexture;
+                        (child.material as THREE.MeshBasicMaterial).needsUpdate = true;
+                    }
+                });
 
-                scene.environment = null;
-                scene.add(new THREE.AmbientLight(0xffffff, 0.5));
-                scene.add(new THREE.DirectionalLight(0xffffff, 1));
+                // Create large inverted sphere with webcam feed
+                const webcamGeometry = new THREE.SphereGeometry(5, 64, 64);
+                const webcamMaterial = new THREE.MeshBasicMaterial({
+                    map: videoTexture,
+                    side: THREE.BackSide
+                });
+                const webcamSphere = new THREE.Mesh(webcamGeometry, webcamMaterial);
+                webcamSphere.visible = false;
+                scene.add(webcamSphere);
+                webcamSphereRef.current = webcamSphere;
 
-                autoRotateRef.current = false;
+                cameraEnabledRef.current = true;
                 setCameraEnabled(true);
             } catch (err) {
                 console.error('Camera error:', err);
@@ -211,14 +245,8 @@ const Reflect = () => {
                 </div>
 
                 <div className="right">
-                    {isStarting && (
-                        <div className="starting-indicator" />
-                    )}
-                    
-                    <div className='text'>
-                        <FiCamera size={'1rem'} />
-                    </div>
-
+                    {isStarting && <div className="starting-indicator" />}
+                    <div className='text'><FiCamera size={'1rem'} /></div>
                     <div className="toggle">
                         <input
                             type="checkbox"
@@ -234,10 +262,7 @@ const Reflect = () => {
                 </div>
             </header>
 
-            <section
-                ref={mountRef}
-                className='reflect-content'
-            />
+            <section ref={mountRef} className='reflect-content' />
 
             <footer className='reflect-footer'>
                 <div className="text top">Camera never records or stores anything.</div>
