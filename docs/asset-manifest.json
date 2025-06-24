@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6011d551.css",
-    "main.js": "/static/js/main.23627514.js",
+    "main.css": "/static/css/main.19d6a199.css",
+    "main.js": "/static/js/main.446bda4c.js",
     "static/js/851.0a624ee4.chunk.js": "/static/js/851.0a624ee4.chunk.js",
     "static/js/297.81254688.chunk.js": "/static/js/297.81254688.chunk.js",
     "static/js/210.9ed4cb0f.chunk.js": "/static/js/210.9ed4cb0f.chunk.js",
@@ -38,8 +38,8 @@
     "static/media/menobg_stencil_b.png": "/static/media/menobg_stencil_b.3fd362d8a6e4ea8526f8.png",
     "static/media/menobg_stencil_w.png": "/static/media/menobg_stencil_w.d2f17e6d3ef1669249e7.png",
     "index.html": "/index.html",
-    "main.6011d551.css.map": "/static/css/main.6011d551.css.map",
-    "main.23627514.js.map": "/static/js/main.23627514.js.map",
+    "main.19d6a199.css.map": "/static/css/main.19d6a199.css.map",
+    "main.446bda4c.js.map": "/static/js/main.446bda4c.js.map",
     "851.0a624ee4.chunk.js.map": "/static/js/851.0a624ee4.chunk.js.map",
     "297.81254688.chunk.js.map": "/static/js/297.81254688.chunk.js.map",
     "210.9ed4cb0f.chunk.js.map": "/static/js/210.9ed4cb0f.chunk.js.map",
@@ -47,7 +47,7 @@
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6011d551.css",
-    "static/js/main.23627514.js"
+    "static/css/main.19d6a199.css",
+    "static/js/main.446bda4c.js"
   ]
 }
