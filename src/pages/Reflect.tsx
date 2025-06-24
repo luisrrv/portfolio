@@ -242,7 +242,7 @@ const Reflect = () => {
             <footer className='reflect-footer'>
                 <div className="text top">Camera never records or stores anything.</div>
                 <div className="bottom">
-                    <div className='text'>Designed and coded by <a href='https://github.com/luisrrv' target='_blank' rel="noreferrer"><FaGithub size={'0.7rem'}/>luisrrv.</a></div>
+                    <div className='text'>Designed and coded by <a href='https://github.com/luisrrv' target='_blank' rel="noreferrer"><FaGithub size={'0.7rem'} style={{marginRight:'0.1rem'}}/>luisrrv.</a></div>
                     <div className='logos text'>
                         <a href="https://react.dev" target='_blank' rel='noreferrer' className='react'>
                             <FaReact size={'0.8rem'} />
