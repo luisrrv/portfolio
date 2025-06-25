@@ -5,8 +5,6 @@ import { FiCamera } from 'react-icons/fi';
 import { FaGithub, FaReact } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 import { TbBrandThreejs } from "react-icons/tb";
-import { EXRLoader } from 'three/examples/jsm/loaders/EXRLoader';
-import { PMREMGenerator } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const Reflect = () => {
@@ -21,6 +19,9 @@ const Reflect = () => {
     const videoTextureRef = useRef<THREE.VideoTexture | null>(null);
     const webcamSphereRef = useRef<THREE.Mesh | null>(null);
     const cameraEnabledRef = useRef(false);
+    const shadowFadeRef = useRef(0); // current value: 0 (invisible) → 1 (full shadow)
+    const shadowTargetRef = useRef(1); // what we interpolate toward
+    const dirLightRef = useRef<THREE.DirectionalLight | null>(null);
     
     const [cameraEnabled, setCameraEnabled] = useState(false);
     const [isStarting, setIsStarting] = useState(false);
@@ -43,6 +44,8 @@ const Reflect = () => {
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         rendererRef.current = renderer;
         mount.appendChild(renderer.domElement);
 
@@ -50,26 +53,91 @@ const Reflect = () => {
         controls.enableDamping = true;
         controls.enableZoom = false;
         controls.enablePan = false;
-        controls.rotateSpeed = -1;
+        controls.rotateSpeed = 1;
         controls.dampingFactor = 0.05;
-        controls.autoRotate = true;
+        // Lock vertical rotation
+        controls.minPolarAngle = Math.PI / 2; // 90 degrees
+        controls.maxPolarAngle = Math.PI / 2; // 90 degrees
 
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
         scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.intensity = 0; // Start with no light
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 1024;
+        dirLight.shadow.mapSize.height = 1024;
+        dirLight.shadow.radius = 4;
+        dirLight.shadow.bias = -0.001;
+        dirLightRef.current = dirLight;
+        scene.add(dirLight);
+
+        scene.background = new THREE.Color('#111') // Dark background for better contrast
 
         const geometry = new THREE.SphereGeometry(1, 128, 128);
         const material = new THREE.MeshPhysicalMaterial({
-            metalness: 1,
-            roughness: 0.05,
-            envMapIntensity: 1.5,
-            clearcoat: 1,
+            color: 0xaaaaaa,      // light silver tint
+            metalness: 1,         // still very metallic
+            roughness: 0.2,       // not fully polished (more silver than mirror)
+            envMapIntensity: 1.2,
+            clearcoat: 0.6,
             clearcoatRoughness: 0.1,
         });
 
         const orb = new THREE.Mesh(geometry, material);
         orb.scale.set(0.85, 0.85, 0.85);
+        orb.castShadow = true;
         orbRef.current = orb;
         scene.add(orb);
+
+        const textureLoader = new THREE.TextureLoader();
+        const rockColorMap = textureLoader.load('/textures/rock/color.jpg');
+        const rockNormalMap = textureLoader.load('/textures/rock/normal.jpg');
+        const rockRoughnessMap = textureLoader.load('/textures/rock/roughness.jpg');
+        const rockAOMap = textureLoader.load('/textures/rock/ao.jpg');
+        const displacementMap = textureLoader.load('/textures/rock/displacement.jpg');
+        displacementMap.wrapS = displacementMap.wrapT = THREE.RepeatWrapping;
+        displacementMap.repeat.set(4, 4);
+
+        rockColorMap.wrapS = rockColorMap.wrapT = THREE.RepeatWrapping;
+        rockColorMap.repeat.set(4, 4);
+        rockNormalMap.wrapS = rockNormalMap.wrapT = THREE.RepeatWrapping;
+        rockNormalMap.repeat.set(4, 4);
+        rockRoughnessMap.wrapS = rockRoughnessMap.wrapT = THREE.RepeatWrapping;
+        rockRoughnessMap.repeat.set(4, 4);
+        rockAOMap.wrapS = rockAOMap.wrapT = THREE.RepeatWrapping;
+        rockAOMap.repeat.set(4, 4);
+
+        const floorMaterial = new THREE.MeshStandardMaterial({
+            map: rockColorMap,
+            normalMap: rockNormalMap,
+            roughnessMap: rockRoughnessMap,
+            aoMap: rockAOMap,
+            displacementMap: displacementMap,
+            displacementScale: 0.3, // tweak for subtle unevenness
+            metalness: 0.1,
+            roughness: 0.7
+        });
+
+        const floorGeometry = new THREE.PlaneGeometry(20, 20, 128, 128);
+        floorGeometry.computeVertexNormals(); // just in case
+        const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+        floor.rotation.x = -Math.PI / 2;
+        floor.position.y = -1;
+        floor.receiveShadow = true;
+        scene.add(floor);
+
+        renderer.shadowMap.enabled = true;
+        orb.castShadow = true;
+
+        const starsGeometry = new THREE.SphereGeometry(50, 64, 64);
+        const starsMaterial = new THREE.MeshBasicMaterial({
+            color: 0x000011,
+            side: THREE.BackSide,
+        });
+        const stars = new THREE.Mesh(starsGeometry, starsMaterial);
+        scene.add(stars);
 
         // Create cube camera for reflections
         const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(512, {
@@ -81,19 +149,10 @@ const Reflect = () => {
         const cubeCamera = new THREE.CubeCamera(0.1, 1000, cubeRenderTarget);
         scene.add(cubeCamera);
 
-        // Load default environment map
-        const exrLoader = new EXRLoader();
-        const pmrem = new PMREMGenerator(renderer);
-        pmrem.compileEquirectangularShader();
+        // Set default environment map 
+        const dummyEnvMap = new THREE.WebGLCubeRenderTarget(16).texture;
+        defaultEnvMapRef.current = dummyEnvMap;
 
-        exrLoader.load('/envmap.exr', (texture) => {
-            const envMap = pmrem.fromEquirectangular(texture).texture;
-            defaultEnvMapRef.current = envMap;
-            scene.environment = envMap;
-            material.envMap = envMap;
-            material.needsUpdate = true;
-            texture.dispose();
-        });
 
         const handleResize = () => {
             camera.aspect = window.innerWidth / window.innerHeight;
@@ -116,27 +175,38 @@ const Reflect = () => {
             // Smoothly interpolate fadeFactor towards fadeTarget
             fadeFactorRef.current += (fadeTargetRef.current - fadeFactorRef.current) * 0.05;
 
-            if (cameraEnabledRef.current && videoTextureRef.current && orbRef.current && webcamSphereRef.current) {
-                videoTextureRef.current.needsUpdate = true;
+            // Smoothly fade in shadows
+            shadowFadeRef.current += (shadowTargetRef.current - shadowFadeRef.current) * 0.05;
 
-                webcamSphereRef.current.visible = true;
+            if (dirLightRef.current) {
+                dirLightRef.current.intensity = shadowFadeRef.current;
+            }
 
+            if (orbRef.current) {
+                const mat = orbRef.current.material as THREE.MeshPhysicalMaterial;
+
+                // Webcam update (if running)
+                if (cameraEnabledRef.current && videoTextureRef.current) {
+                    videoTextureRef.current.needsUpdate = true;
+                }
+
+                // Show webcam sphere only if fading in
+                const showWebcam = fadeFactorRef.current > 0.01 && webcamSphereRef.current;
+                if (webcamSphereRef.current) {
+                    webcamSphereRef.current.visible = !!showWebcam;
+                }
+
+                // Reflect entire scene from orb’s position
                 cubeCamera.position.copy(orbRef.current.position);
                 cubeCamera.update(renderer, scene);
 
-                webcamSphereRef.current.visible = false;
-
-                const mat = orbRef.current.material as THREE.MeshPhysicalMaterial;
-                mat.envMap = cubeCamera.renderTarget.texture;
-
-                // Blend between EXR and webcam reflection
-                if (fadeFactorRef.current < 0.99) {
-                    mat.envMap = defaultEnvMapRef.current;
+                // Hide the webcam sphere again after render
+                if (webcamSphereRef.current) {
+                    webcamSphereRef.current.visible = false;
                 }
-                if (fadeFactorRef.current > 0.01 && cameraEnabled) {
-                    mat.envMap = cubeRenderTarget.texture;
-                }
-                
+
+                // Apply updated env map
+                mat.envMap = cubeRenderTarget.texture;
                 mat.needsUpdate = true;
             }
 
@@ -181,6 +251,7 @@ const Reflect = () => {
                 material.needsUpdate = true;
             }
 
+            shadowTargetRef.current = 0; // fade out
             cameraEnabledRef.current = false;
             setCameraEnabled(false);
         } else {
@@ -205,13 +276,16 @@ const Reflect = () => {
                 videoTexture.colorSpace = THREE.SRGBColorSpace;
                 videoTextureRef.current = videoTexture;
 
-                // Update video plane material
-                scene.children.forEach(child => {
-                    if (child instanceof THREE.Mesh && child.geometry.type === 'PlaneGeometry') {
-                        (child.material as THREE.MeshBasicMaterial).map = videoTexture;
-                        (child.material as THREE.MeshBasicMaterial).needsUpdate = true;
-                    }
-                });
+                const videoPlane = scene.children.find(child =>
+                    child instanceof THREE.Mesh &&
+                    child.geometry instanceof THREE.PlaneGeometry &&
+                    (child.material as THREE.MeshBasicMaterial).visible === false
+                ) as THREE.Mesh | undefined;
+
+                if (videoPlane && videoTexture) {
+                    (videoPlane.material as THREE.MeshBasicMaterial).map = videoTexture;
+                    (videoPlane.material as THREE.MeshBasicMaterial).needsUpdate = true;
+                }
 
                 // Create large inverted sphere with webcam feed
                 const webcamGeometry = new THREE.SphereGeometry(5, 64, 64);
@@ -220,10 +294,12 @@ const Reflect = () => {
                     side: THREE.BackSide
                 });
                 const webcamSphere = new THREE.Mesh(webcamGeometry, webcamMaterial);
+                webcamSphere.scale.x = -1; // Flip horizontally like a mirror
                 webcamSphere.visible = false;
                 scene.add(webcamSphere);
                 webcamSphereRef.current = webcamSphere;
 
+                shadowTargetRef.current = 1; // fade in
                 cameraEnabledRef.current = true;
                 setCameraEnabled(true);
             } catch (err) {
