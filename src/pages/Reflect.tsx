@@ -14,7 +14,6 @@ const Reflect = () => {
     const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
     const orbRef = useRef<THREE.Mesh | null>(null);
     const sceneRef = useRef<THREE.Scene | null>(null);
-    const defaultEnvMapRef = useRef<THREE.Texture | null>(null);
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const videoTextureRef = useRef<THREE.VideoTexture | null>(null);
     const webcamSphereRef = useRef<THREE.Mesh | null>(null);
@@ -149,10 +148,6 @@ const Reflect = () => {
         const cubeCamera = new THREE.CubeCamera(0.1, 1000, cubeRenderTarget);
         scene.add(cubeCamera);
 
-        // Set default environment map 
-        const dummyEnvMap = new THREE.WebGLCubeRenderTarget(16).texture;
-        defaultEnvMapRef.current = dummyEnvMap;
-
 
         const handleResize = () => {
             camera.aspect = window.innerWidth / window.innerHeight;
@@ -190,20 +185,23 @@ const Reflect = () => {
                     videoTextureRef.current.needsUpdate = true;
                 }
 
-                // Show webcam sphere only if fading in
-                const showWebcam = fadeFactorRef.current > 0.01 && webcamSphereRef.current;
-                if (webcamSphereRef.current) {
-                    webcamSphereRef.current.visible = !!showWebcam;
-                }
+                const showWebcam = fadeFactorRef.current > 0.01;
 
-                // Reflect entire scene from orb’s position
+                const webcamSphere = webcamSphereRef.current;
+                const floor = sceneRef.current?.children.find(
+                    obj => obj instanceof THREE.Mesh &&
+                        obj.geometry instanceof THREE.PlaneGeometry &&
+                        obj !== webcamSphere // exclude the videoPlane
+                ) as THREE.Mesh | undefined;
+
+                if (webcamSphere) webcamSphere.visible = showWebcam;
+                if (floor && showWebcam) floor.visible = false;
+
                 cubeCamera.position.copy(orbRef.current.position);
                 cubeCamera.update(renderer, scene);
 
-                // Hide the webcam sphere again after render
-                if (webcamSphereRef.current) {
-                    webcamSphereRef.current.visible = false;
-                }
+                if (webcamSphere) webcamSphere.visible = false;
+                if (floor) floor.visible = true;
 
                 // Apply updated env map
                 mat.envMap = cubeRenderTarget.texture;
@@ -244,12 +242,6 @@ const Reflect = () => {
                 videoTextureRef.current = null;
             }
 
-            // Restore default env map
-            if (orbRef.current?.material && defaultEnvMapRef.current) {
-                const material = orbRef.current.material as THREE.MeshPhysicalMaterial;
-                material.envMap = defaultEnvMapRef.current;
-                material.needsUpdate = true;
-            }
 
             shadowTargetRef.current = 0; // fade out
             cameraEnabledRef.current = false;
