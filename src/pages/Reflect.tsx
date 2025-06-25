@@ -78,7 +78,7 @@ const Reflect = () => {
         const material = new THREE.MeshPhysicalMaterial({
             color: 0xaaaaaa,      // light silver tint
             metalness: 1,         // still very metallic
-            roughness: 0.2,       // not fully polished (more silver than mirror)
+            roughness: 0.05,       // not fully polished (more silver than mirror)
             envMapIntensity: 1.2,
             clearcoat: 0.6,
             clearcoatRoughness: 0.1,
@@ -138,6 +138,38 @@ const Reflect = () => {
         const stars = new THREE.Mesh(starsGeometry, starsMaterial);
         scene.add(stars);
 
+        // Star field
+        const starCount = 1000;
+        const starGeometry = new THREE.BufferGeometry();
+        const starPositions = new Float32Array(starCount * 3);
+
+        for (let i = 0; i < starCount; i++) {
+            const r = THREE.MathUtils.randFloat(30, 48); // distance from center
+            const theta = THREE.MathUtils.randFloat(0, Math.PI * 2);
+            const phi = THREE.MathUtils.randFloat(0, Math.PI);
+
+            const x = r * Math.sin(phi) * Math.cos(theta);
+            const y = r * Math.sin(phi) * Math.sin(theta);
+            const z = r * Math.cos(phi);
+
+            starPositions[i * 3 + 0] = x;
+            starPositions[i * 3 + 1] = y;
+            starPositions[i * 3 + 2] = z;
+        }
+
+        starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+
+        const starMaterial = new THREE.PointsMaterial({
+            color: 0xffffff,
+            size: 0.2,
+            sizeAttenuation: true,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const starsPoints = new THREE.Points(starGeometry, starMaterial);
+        scene.add(starsPoints);
+
         // Create cube camera for reflections
         const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(512, {
             format: THREE.RGBAFormat,
@@ -166,6 +198,9 @@ const Reflect = () => {
 
         const animate = () => {
             requestAnimationFrame(animate);
+
+            // animating stars
+            starMaterial.opacity = 0.7 + 0.3 * Math.sin(Date.now() * 0.001);
 
             // Smoothly interpolate fadeFactor towards fadeTarget
             fadeFactorRef.current += (fadeTargetRef.current - fadeFactorRef.current) * 0.05;
@@ -243,7 +278,7 @@ const Reflect = () => {
             }
 
 
-            shadowTargetRef.current = 0; // fade out
+            shadowTargetRef.current = 1; // keep shadow visible
             cameraEnabledRef.current = false;
             setCameraEnabled(false);
         } else {
