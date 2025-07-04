@@ -24,6 +24,7 @@ const translations = {
     card_button_five: "Explora",
     card_button_six: "Pruebalo",
     card_button_seven: "Sitio web",
+    card_button_eight: "Interactua!",
 
     card_button_code: "Código",
 

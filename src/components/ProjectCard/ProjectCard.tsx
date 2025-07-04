@@ -16,7 +16,8 @@ import {LiaWindowMinimizeSolid,
         LiaRocketchat,
         LiaMapMarkedAltSolid,
         LiaNewspaper,
-        LiaPuzzlePieceSolid
+        LiaPuzzlePieceSolid,
+        LiaCubeSolid
       } from 'react-icons/lia'
 import { SiRubyonrails, 
         SiPostgresql, 
@@ -149,7 +150,7 @@ export default function ProjectCard({
     else if (title === 'News Feed') ctaText = translations.card_button_five;
     else if (title === 'Rubber Ducking') ctaText = translations.card_button_six;
     else if (title === 'FootyPulse') ctaText = translations.card_button_seven;
-    else if (title === 'Reflect') ctaText = translations.card_button_four;
+    else if (title === 'Reflect') ctaText = translations.card_button_eight;
 
     const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number = 0) => {
       if (element) {
@@ -285,6 +286,7 @@ export default function ProjectCard({
       else if (ctaText===translations.card_button_five) return <LiaNewspaper />;
       else if (ctaText===translations.card_button_six) return <LiaPuzzlePieceSolid />;
       else if (ctaText===translations.card_button_seven) return <GiSoccerBall />;
+      else if (ctaText===translations.card_button_eight) return <LiaCubeSolid />;
       else return <MdWeb />;
     }
 

@@ -25,6 +25,7 @@ const translations = {
     card_button_five: "ブラウズ",
     card_button_six: "試してみる",
     card_button_seven: "ホームページ",
+    card_button_eight: "交流しよう！",
 
     card_button_code: "コード",
 
