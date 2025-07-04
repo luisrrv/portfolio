@@ -29,11 +29,12 @@ const translations = {
 
     card_desc_one: "Uma aplicação React para documentar as minhas viagens. Para cada local, é possível navegar por uma coleção de fotografias tiradas durante a viagem. Também pode ver onde cada fotografia foi tirada com o seu mapa dedicado.",
     card_desc_two: "Um bot do Twitter que publica um novo tweet duas vezes por dia. Também faz 'likes' e retweets de tweets relacionados com o famoso futebolista Cristiano Ronaldo de outros utilizadores.",
-    card_desc_three: "Uma aplicação de chat simples, construída usando Express.js, Socket.io e Tailwind CSS. Requer que os utilizadores façam login com um nome de utilizador para aceder ao chat.",
+    card_desc_three: "Uma interface de chat na web que permite aos visitantes enviarem mensagens que são encaminhadas para o meu LINE. Posso responder pelo LINE, e minhas respostas aparecem no navegador do visitante. Construído com Express.js, WebSockets, Tailwind CSS e LINE Messaging API.",
     card_desc_four: "Um planeador de viagens para pessoas com deficiência. Esta aplicação permite-lhes planear viagens completas e acessíveis, desde encontrar locais até aos percursos de ida e volta nos seus itinerários.",
     card_desc_five: "Um feed de notícias feito com Vue.js. Pesquise artigos de notícias com base nos seus interesses e guarde os seus tópicos favoritos para os apresentar no feed.",
     card_desc_six: 'Uma extensão do Chrome criada para "rubber duck debbugging"',
     card_desc_seven: "Uma aplicação da Web criado com Nextjs, Supabase e Github Actions para seguir jogadores de futebol e receber mensagens diárias com as estatísticas da temporada diretamente no canal do Discord especificado pelo usuário.",
+    card_desc_eight: "Uma cena 3D feita com React e Three.js com uma esfera cromada que reflete o ambiente ao redor, incluindo sua webcam. Possui reflexos em tempo real, estrelas no céu, sombras e um chão com textura.",
     // Info
     about_me: "Sobre mim",
     info_skills: "Minhas habilidades",

@@ -6,8 +6,9 @@ import { useInView } from 'react-intersection-observer';
 //icons
 import { BsFillFileEarmarkCodeFill, BsTwitterX } from 'react-icons/bs';
 import { GiSoccerBall } from 'react-icons/gi';
-import { TbBrandNextjs } from "react-icons/tb";
-import {MdWeb } from 'react-icons/md'
+import { TbBrandNextjs, TbBrandThreejs } from "react-icons/tb";
+import {MdWeb } from 'react-icons/md';
+import { FaLine } from "react-icons/fa6";
 import {LiaWindowMinimizeSolid, 
         LiaGithub, 
         LiaPlaneSolid,
@@ -126,6 +127,10 @@ export default function ProjectCard({
                   return <SiDiscord key={index} />;
                 case 'jest':
                   return <SiJest key={index} />;
+                case 'line':
+                  return <FaLine key={index} />;
+                case 'threejs':
+                  return <TbBrandThreejs key={index} />;
                 default:
                   return <BsFillFileEarmarkCodeFill key={index} />;
               }
@@ -138,11 +143,13 @@ export default function ProjectCard({
     let ctaText = 'Website';
     if (title === 'Travel Journal') ctaText = translations.card_button_one;
     else if (title === 'Bicho Bot (X/Twitter Bot)') ctaText = translations.card_button_two;
+    else if (title === 'Web-to-LINE Chat Relay') ctaText = translations.card_button_three;
     else if (title === 'Web Chat App') ctaText = translations.card_button_three;
     else if (title === 'Ally Maps') ctaText = translations.card_button_four;
     else if (title === 'News Feed') ctaText = translations.card_button_five;
     else if (title === 'Rubber Ducking') ctaText = translations.card_button_six;
     else if (title === 'FootyPulse') ctaText = translations.card_button_seven;
+    else if (title === 'Reflect') ctaText = translations.card_button_four;
 
     const addClassWithTimeout = (element: EventTarget | null, className: string, timeout: number = 0) => {
       if (element) {

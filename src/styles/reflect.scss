@@ -27,10 +27,6 @@
 
 // Header styles -------------------------
 .reflect-container .reflect-header {
-    // position: absolute;
-    // top: 0;
-    // left: 50%;
-    // transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,7 +65,6 @@
 }
 
 .reflect-container .starting-indicator {
-    // margin-left: 1rem;
     width: 1rem;
     height: 1rem;
     border: 2px solid rgba(244, 244, 244, 0.2);
@@ -221,10 +216,6 @@
 
 // Footer styles -------------------------
 .reflect-container .reflect-footer {
-    // position: absolute;
-    // bottom: 0;
-    // left: 50%;
-    // transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     justify-content: center;

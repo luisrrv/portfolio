@@ -49,6 +49,8 @@ export default function App({ className, isDark, hideApp, handleContactMouseOver
                         break;
                     case 'Bicho Bot (X/Twitter Bot)': proj.description = translations.card_desc_two;
                         break;
+                    case 'Web-to-LINE Chat Relay': proj.description = translations.card_desc_three;
+                        break;
                     case 'Web Chat App': proj.description = translations.card_desc_three;
                         break;
                     case 'Ally Maps': proj.description = translations.card_desc_four;
@@ -56,6 +58,8 @@ export default function App({ className, isDark, hideApp, handleContactMouseOver
                     case 'News Feed': proj.description = translations.card_desc_five;
                         break;
                     case 'Rubber Ducking': proj.description = translations.card_desc_six;
+                        break;
+                    case 'Reflect': proj.description = translations.card_desc_eight;
                         break;
                 }
             });
@@ -68,6 +72,8 @@ export default function App({ className, isDark, hideApp, handleContactMouseOver
                     break;
                 case 'Bicho Bot (X/Twitter Bot)': project.description = translations.card_desc_two;
                     break;
+                case 'Web-to-LINE Chat Relay': project.description = translations.card_desc_three;
+                    break;
                 case 'Web Chat App': project.description = translations.card_desc_three;
                     break;
                 case 'Ally Maps': project.description = translations.card_desc_four;
@@ -75,6 +81,8 @@ export default function App({ className, isDark, hideApp, handleContactMouseOver
                 case 'News Feed': project.description = translations.card_desc_five;
                     break;
                 case 'Rubber Ducking': project.description = translations.card_desc_six;
+                    break;
+                case 'Reflect': project.description = translations.card_desc_eight;
                     break;
             }
             return project.description;

@@ -29,11 +29,12 @@ const translations = {
 
     card_desc_one: "A React app to document my travels. For each location, you can browse through a collection of photos taken during the trip. you can also see where each photo was taken with its dedicated map.",
     card_desc_two: "A twitter bot that posts a new tweet twice a day. It also likes and retweets others' tweets related to famous football player Cristiano Ronaldo.",
-    card_desc_three: "A simple chat app, built using Express.js, Socket.io, and Tailwind CSS. Requires users to log in with a username in order to access the chat.",
+    card_desc_three: "A web chat interface that lets visitors send messages whic  are routed to my LINE inbox. I can reply from LINE, and my responses appear instantly in the visitor's browser. Built with Express.js, WebSockets, Tailwind CSS, and LINE Messaging API.",
     card_desc_four: "A trip planner for people with disabilities. This app allows them to plan entire accessible trips from searching places to the routes to and from the places in their itineraries.",
     card_desc_five: "A news feed made with Vue.js. Search for news articles based on your interests and save your favorite topics to be displayed on the feed.",
     card_desc_six: 'A Chrome Extension made for "rubber duck debbugging"',
     card_desc_seven: "A web app made with Nextjs, Supabase and Github Actions to follow football players to then, get daily updates of their current seasonal stats directly to the user's specified Discord channel.",
+    card_desc_eight: "A 3D scene built with React and Three.js featuring a chrome orb that reflects its surroundings, including your webcam. Includes live reflections, stars in the sky, shadows, and textured ground.",
     // Info
     about_me: "About Me",
     info_skills: "My Skills",
