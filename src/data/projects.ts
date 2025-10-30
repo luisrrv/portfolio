@@ -127,7 +127,7 @@ export default function Project(): ProjectProps[] {
       name: 'Reflect',
       description: 'A 3D scene built with React and Three.js featuring a chrome orb that reflects its surroundings, including your webcam. Includes live reflections, stars in the sky, shadows, and textured ground.',
       github: 'https://github.com/luisrrv/portfolio/blob/main/src/pages/Reflect.tsx',
-      live: 'https://helloworldluis.com/#/reflect',
+      live: 'https://rodluis.com/#/reflect',
       pics: [reflect1, reflect2],
       stack: ['react', 'typescript', 'threejs'],
       bg: reflectbg,
